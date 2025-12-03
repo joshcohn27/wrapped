@@ -56,7 +56,7 @@ I am currently using four Spotify data files.
 const DATA_FILES = ["data1.json", "data2.json", "data3.json", "data4.json"];
 ```
 
-This is currently running on a server at: [https://www.people.rit.edu/~jbc6612/wrapped]
+This is currently running on a server at: https://people.rit.edu/~jbc6612/wrapped
 
 
 ## Technologies Used
