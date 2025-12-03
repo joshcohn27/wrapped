@@ -1,0 +1,250 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: radial-gradient(circle at top left, #ff4fd8, #191414);
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+.hero {
+    padding: 3rem 1.5rem 2rem;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.hero p {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.year-tag {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.25rem 0.8rem;
+    border-radius: 999px;
+    background: #1ed760;
+    color: #191414;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+.content {
+    max-width: 1100px;
+    margin: 0 auto 3rem;
+    padding: 0 1.5rem;
+    display: grid;
+    gap: 1.5rem;
+}
+
+.card {
+    background: rgba(15, 15, 15, 0.9);
+    border-radius: 1.25rem;
+    padding: 1.5rem 1.75rem;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.card h2 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 0.35rem;
+}
+
+.section-subtitle {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 0.75rem;
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+}
+
+.summary-item {
+    background: linear-gradient(135deg, #a259ff, #ff6c2f);
+    border-radius: 0.9rem;
+    padding: 0.75rem 0.85rem;
+}
+
+.summary-item span.label {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    opacity: 0.85;
+}
+
+.summary-item span.value {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-top: 0.3rem;
+}
+
+/* Table */
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin-top: 0.4rem;
+}
+
+thead {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+th,
+td {
+    padding: 0.45rem 0.5rem;
+    text-align: left;
+}
+
+th {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    opacity: 0.85;
+}
+
+tbody tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+tbody tr:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.tag-pill {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.1);
+    font-size: 0.7rem;
+}
+
+.hint-text {
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+#extras-list {
+    list-style: disc;
+    padding-left: 1.25rem;
+    margin-top: 0.5rem;
+}
+
+#extras-list li {
+    margin-bottom: 0.25rem;
+}
+
+.footer {
+    text-align: center;
+    font-size: 0.75rem;
+    opacity: 0.8;
+    padding: 1rem 1.5rem 2rem;
+}
+
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+
+.tab-button {
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: transparent;
+    color: #ffffff;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.18s ease;
+}
+
+.tab-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.tab-button.active {
+    background: #1ed760;
+    color: #191414;
+    border-color: #1ed760;
+    font-weight: 700;
+}
+
+.show-more-btn {
+    margin-top: 0.5rem;
+    padding: 0.3rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: transparent;
+    color: #ffffff;
+    font-size: 0.75rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    transition: all 0.16s ease;
+}
+
+.show-more-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(4px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    color: white;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.spinner {
+    width: 55px;
+    height: 55px;
+    border: 6px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #1ed760;
+    /* Spotify Green */
+    border-radius: 50%;
+    animation: spin 0.9s ease-in-out infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>My Spotify Wrapped</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/jpeg" href="spotify.jpg" />
+</head>
+
+<body>
+    <div id="loader">
+        <div class="spinner"></div>
+        <p>Loading Data...</p>
+    </div>
+
+
+    <header class="hero">
+        <h1>My Spotify Wrapped</h1>
+        <p>Powered by my own Spotify listen data</p>
+        <p class="year-tag" id="year-tag">Year</p>
+    </header>
+
+    <main class="content">
+        <!-- YEAR TABS -->
+        <section class="card">
+            <h2>Select a Year</h2>
+            <div id="year-tabs" class="tabs"></div>
+        </section>
+
+        <!-- OVERVIEW -->
+        <section id="summary" class="card">
+            <h2>Overview</h2>
+            <div id="summary-content" class="summary-grid"></div>
+        </section>
+
+        <!-- TOP SONGS -->
+        <section id="top-songs" class="card">
+            <h2>Top Songs</h2>
+            <p class="section-subtitle">
+                My 50 most listened tracks (versions merged per artist)
+            </p>
+            <div id="top-songs-table"></div>
+        </section>
+
+        <!-- TOP ARTISTS -->
+        <section id="top-artists" class="card">
+            <h2>Top Artists</h2>
+            <div id="top-artists-table"></div>
+        </section>
+
+        <!-- TOP DAYS -->
+        <section id="top-days" class="card">
+            <h2>Top Listening Days</h2>
+            <p class="section-subtitle">
+                My 5 biggest days of this year (by minutes listened)
+            </p>
+            <div id="top-days-table"></div>
+        </section>
+
+        <!-- PEAK HOURS -->
+        <section id="top-hours" class="card">
+            <h2>Peak Listening Hours</h2>
+            <p class="section-subtitle">Local time, in AM/PM</p>
+            <div id="top-hours-table"></div>
+        </section>
+
+        <!-- BY COUNTRY -->
+        <section id="by-country" class="card">
+            <h2>Listening by Country</h2>
+            <div id="by-country-table"></div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy;Joshua Cohn using Spotify JSON data</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
