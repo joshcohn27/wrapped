@@ -8,26 +8,26 @@ This project generates a personal, interactive Spotify Wrapped website using the
 
 ## Architecture
 
-- `build-stats.js` — a Node script (no dependencies) that reads every `data*.json` file in the project root, normalizes and aggregates it, and writes a single `stats.json` containing per-year stats plus an all-time section.
+- `build-stats.js` — a Node script (no dependencies) that reads every `data*.json` file in the `data/` folder, normalizes and aggregates it, and writes a single `stats.json` containing per-year stats plus an all-time section.
 - `stats.json` — the only data file the browser ever fetches. Committed to the repo so the site works without a build step at deploy time.
 - `index.html` / `styles.css` / `script.js` — pure static rendering layer. `script.js` does no parsing of raw export data; it only fetches `stats.json` and renders it.
 
 ### Adding new data
 
-1. Drop new `data*.json` export files in the project root (any filename matching `data<number>.json`, not just `data1`–`data4`).
+1. Drop new `data*.json` export files in the `data/` folder (any filename matching `data<number>.json`, not just `data1`–`data11`).
 2. Run:
    ```
    npm run build
    ```
-   This regenerates `stats.json` from every `data*.json` file present.
+   This regenerates `stats.json` from every `data*.json` file present in `data/`.
 3. Commit `stats.json` (and `index.html`/`styles.css`/`script.js` if changed) and deploy. **Do not** commit the raw `data*.json` files — see Privacy below.
 
 ## Privacy: raw export files are never deployed
 
 The raw Spotify export contains `ip_addr` for every play event. `build-stats.js` never reads that field into any output-bound object, so it's structurally impossible for it to end up in `stats.json`. On top of that:
 
-- `.gitignore` excludes `data*.json` going forward, so new export files never get committed. (`data1.json` was already tracked before this rule existed and stays in history — it isn't retroactively removed.)
-- `.vercelignore` excludes `data*.json` from anything uploaded to Vercel, so even the already-tracked `data1.json` is never part of a deployment.
+- `.gitignore` excludes the entire `data/` folder, so none of the raw export files it contains ever get committed.
+- `.vercelignore` excludes the entire `data/` folder from anything uploaded to Vercel.
 
 The only data file that ships to the browser is `stats.json`, which contains aggregated listening stats — no IP addresses, no raw per-event data.
 
@@ -80,7 +80,10 @@ No scroll-snap, no full-viewport cards, no sticky nav — everything is a normal
 ├── index.html
 ├── styles.css
 ├── script.js
-├── data1.json             # raw export (tracked already; new ones are gitignored)
+├── data/                  # raw exports, gitignored entirely -- never committed
+│   ├── data1.json
+│   ├── data2.json
+│   └── ... data<N>.json
 ├── spotify.jpg             # tab icon
 ├── .gitignore
 ├── .vercelignore
@@ -92,7 +95,7 @@ No scroll-snap, no full-viewport cards, no sticky nav — everything is a normal
 1. Visit https://www.spotify.com/account/privacy
 2. Request the extended streaming history
 3. Download the provided JSON files
-4. Add them to this project root as `data<N>.json`
+4. Add them to the `data/` folder as `data<N>.json`
 5. Run `npm run build` to regenerate `stats.json`
 
 ## Technologies Used

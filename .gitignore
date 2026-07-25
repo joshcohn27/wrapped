@@ -1,9 +1,8 @@
 # Raw Spotify export files: large, contain PII (ip_addr), and are only
-# needed locally to run `npm run build`. data1.json is already tracked
-# from before this rule existed and stays that way; this just stops any
-# new data*.json files from being committed. stats.json (committed) is
-# what the site actually serves.
-data*.json
+# needed locally to run `npm run build`. Kept in data/ specifically so
+# this one directory pattern is the only thing that has to stay correct.
+# stats.json (committed) is what the site actually serves.
+/data/
 
 node_modules/
 .vercel/
