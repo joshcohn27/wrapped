@@ -6,7 +6,17 @@
 
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: radial-gradient(circle at top left, #ff4fd8, #191414);
+    /* Gradient only covers a fixed-height zone at the top (header + year
+       tabs + Overview); background-color fills the rest of the page flat,
+       however long it gets, instead of stretching the gradient the full
+       page height. An explicit circle radius (instead of the default
+       farthest-corner sizing) guarantees the gradient has fully reached
+       #191414 well before the sized box's edge on every viewport width,
+       so it always meets the flat color below without a seam. */
+    background-color: #191414;
+    background-image: radial-gradient(circle 600px at top left, #ff4fd8, #191414);
+    background-repeat: no-repeat;
+    background-size: 100% 44rem;
     color: #ffffff;
     min-height: 100vh;
 }
