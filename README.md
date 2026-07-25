@@ -35,15 +35,19 @@ The only data file that ships to the browser is `stats.json`, which contains agg
 
 A single straightforward dashboard, same feel as the original site, just with more sections. Top to bottom:
 
-1. Header (title + year tag) and a year-tab switcher — same as the original
+1. Header (title + year tag) and a year-tab switcher — same as the original, plus an **All Time** tab alongside each individual year
 2. Overview (total hours/minutes, unique songs/artists)
 3. Top Songs, Top Artists, Top Listening Days — same as the original, tables in a `.card`
 4. Longest Listening Streak, Most Obsessed Day, Discovery Rate, Skip Rate, Shuffle vs On-Demand, Platform Breakdown — new stats, each its own `.card`, reusing the same stat-tile/table styling as everything else
 5. Listening by Country — same as the original
 6. 24-Hour Listening Heatmap — a plain table (hour / minutes / % of day), rows lightly tinted with the existing Spotify green to hint at intensity
-7. First Listened — at the very bottom, a searchable, paginated table of every artist, all-time, sorted earliest to latest (25 per page). Not affected by the year switcher, since it spans every year at once; every other section above it is.
+7. First Listened — at the very bottom, a searchable, sortable, paginated table of every artist, all-time, sorted earliest to latest by default (25 per page). Not affected by the year switcher, since it spans every year at once; every other section above it is.
 
 No scroll-snap, no full-viewport cards, no sticky nav — everything is a normal `.card` section in normal page flow, and the year switcher just re-renders the year-scoped sections' content in place.
+
+**All Time tab.** Every year-scoped section (everything except First Listened, which was already all-time) has a real all-time equivalent: top songs/artists computed across every year combined, the true longest streak and most-obsessed-day across all history, etc. Discovery Rate becomes a full month-by-month timeline (e.g. "July 2024") instead of a repeating Jan–Dec cycle, since there's no single year to bucket it into.
+
+**Sortable tables.** Every table's column headers are clickable — click to sort, click again to reverse. Numeric-looking columns (including `%` values) sort numerically; everything else sorts alphabetically. The 24-hour heatmap's shading is re-derived from each row after sorting, so it stays correct regardless of order. First Listened's sort applies to the full filtered list before pagination (not just the current page).
 
 ## Statistics
 
@@ -59,6 +63,7 @@ No scroll-snap, no full-viewport cards, no sticky nav — everything is a normal
 - Listening activity by country
 
 ### All-time
+- Everything in "Per year" above, computed across every year combined (own tab), plus:
 - First Listened date per artist, across every year combined
 
 ### Expandable Tables

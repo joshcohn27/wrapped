@@ -10,12 +10,11 @@ let currentYear = null;
 let allTimeStats = null;
 let firstListenedSearch = "";
 let firstListenedPage = 1;
+let firstListenedSortColIndex = null;
+let firstListenedSortDirection = 1;
 const FIRST_LISTENED_PAGE_SIZE = 25;
 
-const MONTH_NAMES = [
-    "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December",
-];
+const ALL_TIME_KEY = "all";
 
 // ---------- helpers ----------
 
@@ -44,13 +43,37 @@ function formatMinutesToHoursMinutes(totalMinutes) {
     };
 }
 
-function monthName(monthNumber) {
-    return MONTH_NAMES[monthNumber - 1] || String(monthNumber);
+// Compares two table-cell strings: numeric compare if both look like plain
+// numbers (with optional %/,), otherwise a natural string compare -- so
+// clicking a numeric column header sorts 2 before 10, and ISO dates and
+// artist names still sort correctly too.
+function smartCompare(a, b) {
+    const cleanA = a.replace(/[,%]/g, "").trim();
+    const cleanB = b.replace(/[,%]/g, "").trim();
+    const isPlainNumber = /^-?\d+(\.\d+)?$/;
+    const numA = parseFloat(cleanA);
+    const numB = parseFloat(cleanB);
+
+    if (isPlainNumber.test(cleanA) && isPlainNumber.test(cleanB)) {
+        return numA - numB;
+    }
+    return a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" });
 }
 
 // ---------- DOM helpers ----------
 
-function createTable(containerId, columns, rows) {
+// Renders a sortable table. Clicking a header sorts by that column
+// (toggling asc/desc); columns are compared with smartCompare so numeric
+// columns sort numerically. Two modes:
+//   - self-contained (default): sorts the given `rows` array in place in
+//     the DOM, no caller involvement needed.
+//   - external (opts.onSort provided): clicking a header just calls
+//     opts.onSort(colIndex) and the caller re-sorts its own data and calls
+//     createTable again -- needed when sorting has to happen before other
+//     logic (e.g. First Listened sorts before paginating).
+// opts.unsortableColumns skips sortability for columns like "#" ranks.
+// opts.getRowStyle(row) can return a CSS string applied to each <tr>.
+function createTable(containerId, columns, rows, opts = {}) {
     const container = document.getElementById(containerId);
     container.innerHTML = "";
 
@@ -60,24 +83,74 @@ function createTable(containerId, columns, rows) {
     const table = document.createElement("table");
     const thead = document.createElement("thead");
     const tbody = document.createElement("tbody");
+    const unsortable = new Set(opts.unsortableColumns || []);
+    const externalSort = typeof opts.onSort === "function";
+
+    let sortColIndex = opts.sortState ? opts.sortState.colIndex : null;
+    let sortDirection = opts.sortState ? opts.sortState.direction : 1;
+
+    function renderBody(sourceRows) {
+        tbody.innerHTML = "";
+        sourceRows.forEach((row) => {
+            const tr = document.createElement("tr");
+            if (typeof opts.getRowStyle === "function") {
+                tr.style.cssText = opts.getRowStyle(row) || "";
+            }
+            row.forEach((cell) => {
+                const td = document.createElement("td");
+                td.textContent = cell;
+                tr.appendChild(td);
+            });
+            tbody.appendChild(tr);
+        });
+    }
+
+    function sortedRows() {
+        if (sortColIndex === null) return rows;
+        return [...rows].sort((a, b) => smartCompare(a[sortColIndex], b[sortColIndex]) * sortDirection);
+    }
+
+    function updateSortIndicators(headerRow) {
+        Array.from(headerRow.children).forEach((th, idx) => {
+            th.classList.remove("sorted-asc", "sorted-desc");
+            if (idx === sortColIndex) {
+                th.classList.add(sortDirection === 1 ? "sorted-asc" : "sorted-desc");
+            }
+        });
+    }
 
     const headerRow = document.createElement("tr");
-    columns.forEach((col) => {
+    columns.forEach((col, idx) => {
         const th = document.createElement("th");
         th.textContent = col;
+
+        if (!unsortable.has(idx)) {
+            th.classList.add("sortable-th");
+            if (idx === sortColIndex) {
+                th.classList.add(sortDirection === 1 ? "sorted-asc" : "sorted-desc");
+            }
+            th.addEventListener("click", () => {
+                if (sortColIndex === idx) {
+                    sortDirection *= -1;
+                } else {
+                    sortColIndex = idx;
+                    sortDirection = 1;
+                }
+
+                if (externalSort) {
+                    opts.onSort(sortColIndex, sortDirection);
+                    return;
+                }
+
+                updateSortIndicators(headerRow);
+                renderBody(sortedRows());
+            });
+        }
         headerRow.appendChild(th);
     });
     thead.appendChild(headerRow);
 
-    rows.forEach((row) => {
-        const tr = document.createElement("tr");
-        row.forEach((cell) => {
-            const td = document.createElement("td");
-            td.textContent = cell;
-            tr.appendChild(td);
-        });
-        tbody.appendChild(tr);
-    });
+    renderBody(externalSort ? rows : sortedRows());
 
     table.appendChild(thead);
     table.appendChild(tbody);
@@ -134,7 +207,7 @@ function renderTopDays(stats) {
         ];
     });
 
-    createTable("top-days-table", ["#", "Date", "Hours", "Minutes"], rows);
+    createTable("top-days-table", ["#", "Date", "Hours", "Minutes"], rows, { unsortableColumns: [0] });
 }
 
 function renderTopSongs(stats) {
@@ -158,7 +231,8 @@ function renderTopSongs(stats) {
     createTable(
         "top-songs-table",
         ["#", "Song", "Artist", "Hours", "Minutes", "Play Events"],
-        rows
+        rows,
+        { unsortableColumns: [0] }
     );
 
     const container = document.getElementById("top-songs-table");
@@ -198,7 +272,8 @@ function renderTopArtists(stats) {
     createTable(
         "top-artists-table",
         ["#", "Artist", "Hours", "Minutes", "Unique Songs", "Play Events"],
-        rows
+        rows,
+        { unsortableColumns: [0] }
     );
 
     const container = document.getElementById("top-artists-table");
@@ -234,7 +309,8 @@ function renderByCountry(stats) {
     createTable(
         "by-country-table",
         ["#", "Country", "Hours", "Minutes", "% of Total"],
-        rows
+        rows,
+        { unsortableColumns: [0] }
     );
 }
 
@@ -268,10 +344,7 @@ function renderMostObsessedDay(stats) {
 }
 
 function renderDiscoveryRate(stats) {
-    const rows = stats.discoveryByMonth.map((m) => [
-        monthName(m.month),
-        m.count.toString(),
-    ]);
+    const rows = stats.discoveryByMonth.map((m) => [m.label, m.count.toString()]);
 
     createTable("discovery-rate-table", ["Month", "New Artists"], rows);
 }
@@ -301,47 +374,27 @@ function renderPlatformBreakdown(stats) {
     createTable("platform-breakdown-table", ["Platform", "% of Plays"], rows);
 }
 
-// 24-hour heatmap as a plain table, using the same table styling as every
-// other section. Each row gets a light background tint (existing Spotify
-// green) scaled to how much that hour was listened to, relative to the
-// year's peak hour -- numbers first, shading is just a hint.
+// 24-hour heatmap as a plain, sortable table, using the same table styling
+// as every other section. Each row gets a light background tint (existing
+// Spotify green) scaled to how much that hour was listened to, relative to
+// the year's peak hour -- numbers first, shading is just a hint. Intensity
+// is re-derived from each row's own % column, so shading stays correct
+// even after the rows are re-sorted.
 function renderHeatmap(stats) {
-    const container = document.getElementById("hour-heatmap-table");
-    container.innerHTML = "";
-
-    const wrapper = document.createElement("div");
-    wrapper.className = "table-wrapper";
-
-    const table = document.createElement("table");
-    const thead = document.createElement("thead");
-    const headerRow = document.createElement("tr");
-    ["Hour", "Minutes", "% of Day"].forEach((col) => {
-        const th = document.createElement("th");
-        th.textContent = col;
-        headerRow.appendChild(th);
-    });
-    thead.appendChild(headerRow);
-
-    const tbody = document.createElement("tbody");
     const maxPercent = Math.max(...stats.hourHeatmap.map((h) => h.percent), 0.0001);
+    const rows = stats.hourHeatmap.map((h) => [
+        hourToAmPm(h.hour),
+        Math.round(h.minutes).toString(),
+        `${h.percent.toFixed(1)}%`,
+    ]);
 
-    stats.hourHeatmap.forEach((h) => {
-        const tr = document.createElement("tr");
-        const intensity = 0.05 + (h.percent / maxPercent) * 0.3;
-        tr.style.backgroundColor = `rgba(30, 215, 96, ${intensity.toFixed(3)})`;
-
-        [hourToAmPm(h.hour), Math.round(h.minutes).toString(), `${h.percent.toFixed(1)}%`].forEach((val) => {
-            const td = document.createElement("td");
-            td.textContent = val;
-            tr.appendChild(td);
-        });
-        tbody.appendChild(tr);
+    createTable("hour-heatmap-table", ["Hour", "Minutes", "% of Day"], rows, {
+        getRowStyle: (row) => {
+            const percent = parseFloat(row[2]);
+            const intensity = 0.05 + (percent / maxPercent) * 0.3;
+            return `background-color: rgba(30, 215, 96, ${intensity.toFixed(3)})`;
+        },
     });
-
-    table.appendChild(thead);
-    table.appendChild(tbody);
-    wrapper.appendChild(table);
-    container.appendChild(wrapper);
 }
 
 // ---------- all-time (not year-scoped) ----------
@@ -354,8 +407,23 @@ function getFilteredFirstListened() {
     return list.filter((entry) => entry.artist.toLowerCase().includes(needle));
 }
 
-function renderFirstListened() {
+function getSortedFirstListened() {
     const filtered = getFilteredFirstListened();
+    if (firstListenedSortColIndex === null) return filtered;
+
+    // Column 0 is the "#" rank -- not meaningfully sortable, handled by
+    // unsortableColumns below so this case never actually triggers.
+    const sorted = [...filtered];
+    if (firstListenedSortColIndex === 1) {
+        sorted.sort((a, b) => a.artist.localeCompare(b.artist) * firstListenedSortDirection);
+    } else if (firstListenedSortColIndex === 2) {
+        sorted.sort((a, b) => (a.firstTs < b.firstTs ? -1 : a.firstTs > b.firstTs ? 1 : 0) * firstListenedSortDirection);
+    }
+    return sorted;
+}
+
+function renderFirstListened() {
+    const filtered = getSortedFirstListened();
     const totalPages = Math.max(1, Math.ceil(filtered.length / FIRST_LISTENED_PAGE_SIZE));
     firstListenedPage = Math.min(Math.max(1, firstListenedPage), totalPages);
 
@@ -368,7 +436,18 @@ function renderFirstListened() {
         entry.firstDate,
     ]);
 
-    createTable("first-listened-table", ["#", "Artist", "First Heard"], rows);
+    createTable("first-listened-table", ["#", "Artist", "First Heard"], rows, {
+        unsortableColumns: [0],
+        sortState: firstListenedSortColIndex === null
+            ? null
+            : { colIndex: firstListenedSortColIndex, direction: firstListenedSortDirection },
+        onSort: (colIndex, direction) => {
+            firstListenedSortColIndex = colIndex;
+            firstListenedSortDirection = direction;
+            firstListenedPage = 1;
+            renderFirstListened();
+        },
+    });
     renderFirstListenedPagination(filtered.length, totalPages);
 }
 
@@ -430,6 +509,13 @@ function renderYearTabs(years) {
     const container = document.getElementById("year-tabs");
     container.innerHTML = "";
 
+    const allTimeBtn = document.createElement("button");
+    allTimeBtn.className = "tab-button";
+    allTimeBtn.textContent = "All Time";
+    allTimeBtn.dataset.year = ALL_TIME_KEY;
+    allTimeBtn.addEventListener("click", () => setActiveYear(ALL_TIME_KEY));
+    container.appendChild(allTimeBtn);
+
     years.forEach((year) => {
         const btn = document.createElement("button");
         btn.className = "tab-button";
@@ -447,18 +533,19 @@ function setActiveYear(year) {
         btn.classList.toggle("active", btn.dataset.year === String(year));
     });
 
+    const isAllTime = year === ALL_TIME_KEY;
+    const stats = isAllTime ? allTimeStats : statsByYear[year];
+    if (!stats) return;
+
     const yearTag = document.getElementById("year-tag");
     if (yearTag) {
-        yearTag.textContent = year;
+        yearTag.textContent = isAllTime ? "All Time" : year;
     }
-
-    const stats = statsByYear[year];
-    if (!stats) return;
 
     showAllSongs = false;
     showAllArtists = false;
 
-    renderSummary(year, stats);
+    renderSummary(isAllTime ? "All Time" : year, stats);
     renderTopDays(stats);
     renderTopSongs(stats);
     renderTopArtists(stats);

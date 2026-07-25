@@ -14,6 +14,10 @@ const OUTPUT_FILE = path.join(ROOT, "stats.json");
 
 const MOBILE_PLATFORMS = new Set(["ios", "android"]);
 const DESKTOP_PLATFORMS = new Set(["windows", "osx", "mac", "macos", "linux"]);
+const MONTH_NAMES = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December",
+];
 
 // ---------- normalization (ported from the old client-side script.js) ----------
 
@@ -115,27 +119,6 @@ function computeFirstListenByArtist(rows) {
   return map;
 }
 
-function computeAllTime(rows, firstListenMap) {
-  const totalMinutes = rows.reduce((sum, r) => sum + r.minutes, 0);
-  const uniqueSongKeys = new Set(rows.map((r) => r.trackArtistKey));
-  const uniqueArtists = new Set(rows.map((r) => r.artistName));
-
-  const firstListenedByArtist = Array.from(firstListenMap.values())
-    .map((e) => ({
-      artist: e.artist,
-      firstTs: e.ts.toISOString(),
-      firstDate: e.ts.toLocaleDateString("en-CA"),
-    }))
-    .sort((a, b) => new Date(a.firstTs) - new Date(b.firstTs));
-
-  return {
-    totalMinutes,
-    uniqueSongCount: uniqueSongKeys.size,
-    uniqueArtistCount: uniqueArtists.size,
-    firstListenedByArtist,
-  };
-}
-
 // ---------- new per-year stats ----------
 
 function computeLongestStreak(rows) {
@@ -193,14 +176,31 @@ function computeMostObsessedDay(rows) {
   return { song: best.song, artist: best.artist, date: best.date, playCount: best.count };
 }
 
-function computeDiscoveryByMonth(year, firstListenMap) {
+// Per-year: fixed Jan-Dec buckets for that single year.
+function computeYearDiscoveryByMonth(year, firstListenMap) {
   const counts = new Array(12).fill(0);
   for (const entry of firstListenMap.values()) {
     if (entry.ts.getUTCFullYear() === year) {
       counts[entry.ts.getUTCMonth()] += 1;
     }
   }
-  return counts.map((count, idx) => ({ month: idx + 1, count }));
+  return counts.map((count, idx) => ({ label: MONTH_NAMES[idx], count }));
+}
+
+// All-time: one bucket per actual calendar month across the whole history
+// (e.g. "July 2024", "August 2024", ...), not a repeating 12-month cycle.
+function computeAllTimeDiscoveryTimeline(firstListenMap) {
+  const counts = new Map(); // "YYYY-MM" -> count
+  for (const entry of firstListenMap.values()) {
+    const key = `${entry.ts.getUTCFullYear()}-${String(entry.ts.getUTCMonth() + 1).padStart(2, "0")}`;
+    counts.set(key, (counts.get(key) || 0) + 1);
+  }
+  return Array.from(counts.entries())
+    .sort((a, b) => (a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0))
+    .map(([key, count]) => {
+      const [y, m] = key.split("-");
+      return { label: `${MONTH_NAMES[Number(m) - 1]} ${y}`, count };
+    });
 }
 
 function computeSkipRatePercent(rows) {
@@ -253,11 +253,13 @@ function computeHourHeatmap(rows) {
   };
 }
 
-// ---------- existing per-year stats ----------
+// ---------- core stats (shared by per-year and all-time) ----------
 
-function computeStatsForYear(rows, year, firstListenMap) {
-  if (!rows || !rows.length) return null;
-
+// Everything that just needs "a set of rows" -- no notion of which year(s)
+// they came from. Used both per-year (one year's rows) and all-time (every
+// valid row combined), so e.g. "top songs"/"longest streak"/"platform
+// breakdown" all have a real all-time equivalent, not just a per-year one.
+function computeCoreStats(rows) {
   const totalMinutes = rows.reduce((sum, r) => sum + r.minutes, 0);
   const uniqueSongKeys = new Set(rows.map((r) => r.trackArtistKey));
   const uniqueArtists = new Set(rows.map((r) => r.artistName));
@@ -326,11 +328,8 @@ function computeStatsForYear(rows, year, firstListenMap) {
     .map(([country, minutes]) => ({ country, minutes }));
 
   const { heatmap: hourHeatmap, peakHour } = computeHourHeatmap(rows);
-  const discoveryByMonth = computeDiscoveryByMonth(year, firstListenMap);
-  const newArtistCount = discoveryByMonth.reduce((sum, m) => sum + m.count, 0);
 
   return {
-    year,
     totalMinutes,
     uniqueSongCount: uniqueSongKeys.size,
     uniqueArtistCount: uniqueArtists.size,
@@ -342,11 +341,41 @@ function computeStatsForYear(rows, year, firstListenMap) {
     peakHour,
     longestStreak: computeLongestStreak(rows),
     mostObsessedDay: computeMostObsessedDay(rows),
-    discoveryByMonth,
-    newArtistCount,
     skipRatePercent: computeSkipRatePercent(rows),
     shuffleRatio: computeShuffleRatio(rows),
     platformBreakdown: computePlatformBreakdown(rows),
+  };
+}
+
+function computeStatsForYear(rows, year, firstListenMap) {
+  if (!rows || !rows.length) return null;
+
+  const discoveryByMonth = computeYearDiscoveryByMonth(year, firstListenMap);
+  const newArtistCount = discoveryByMonth.reduce((sum, m) => sum + m.count, 0);
+
+  return {
+    year,
+    ...computeCoreStats(rows),
+    discoveryByMonth,
+    newArtistCount,
+  };
+}
+
+// ---------- all-time (not year-scoped) ----------
+
+function computeAllTime(rows, firstListenMap) {
+  const firstListenedByArtist = Array.from(firstListenMap.values())
+    .map((e) => ({
+      artist: e.artist,
+      firstTs: e.ts.toISOString(),
+      firstDate: e.ts.toLocaleDateString("en-CA"),
+    }))
+    .sort((a, b) => new Date(a.firstTs) - new Date(b.firstTs));
+
+  return {
+    ...computeCoreStats(rows),
+    discoveryByMonth: computeAllTimeDiscoveryTimeline(firstListenMap),
+    firstListenedByArtist,
   };
 }
 

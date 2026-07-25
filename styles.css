@@ -146,6 +146,26 @@ tbody tr:hover {
     background: rgba(255, 255, 255, 0.06);
 }
 
+.sortable-th {
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+}
+
+.sortable-th:hover {
+    color: #1ed760;
+}
+
+.sortable-th.sorted-asc::after {
+    content: " \25B2";
+    font-size: 0.6rem;
+}
+
+.sortable-th.sorted-desc::after {
+    content: " \25BC";
+    font-size: 0.6rem;
+}
+
 .tag-pill {
     display: inline-block;
     padding: 0.15rem 0.5rem;
