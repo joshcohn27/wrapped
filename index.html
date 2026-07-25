@@ -15,101 +15,109 @@
         <p>Loading Data...</p>
     </div>
 
-    <!-- Fixed slim topbar: brand + year switcher. Drives story mode + dashboard,
-         not the all-time timeline. Fixed (not in flow) so the first story card
-         below fills the whole viewport on load, like Spotify's own Wrapped. -->
-    <header class="topbar">
-        <div class="topbar-brand">
-            <span class="topbar-title">My Spotify Wrapped</span>
-            <span class="year-tag" id="year-tag">Year</span>
-        </div>
-        <div id="year-tabs" class="tabs topbar-tabs"></div>
+    <header class="hero">
+        <h1>My Spotify Wrapped</h1>
+        <p>Powered by my own Spotify listen data</p>
+        <p class="year-tag" id="year-tag">Year</p>
     </header>
 
-    <!-- PART 1: STORY MODE -->
-    <section id="story-mode" class="story-mode" aria-label="Year in review, one stat at a time">
-        <!-- story cards injected by script.js -->
-    </section>
+    <main class="content">
+        <!-- YEAR TABS -->
+        <section class="card">
+            <h2>Select a Year</h2>
+            <div id="year-tabs" class="tabs"></div>
+        </section>
 
-    <!-- PART 2: FIRST LISTENED TIMELINE (all-time, not year-scoped) -->
-    <section id="timeline" class="timeline-section">
-        <div class="timeline-header">
+        <!-- OVERVIEW -->
+        <section id="summary" class="card">
+            <h2>Overview</h2>
+            <div id="summary-content" class="summary-grid"></div>
+        </section>
+
+        <!-- TOP SONGS -->
+        <section id="top-songs" class="card">
+            <h2>Top Songs</h2>
+            <p class="section-subtitle">
+                My most listened tracks (versions merged per artist)
+            </p>
+            <div id="top-songs-table"></div>
+        </section>
+
+        <!-- TOP ARTISTS -->
+        <section id="top-artists" class="card">
+            <h2>Top Artists</h2>
+            <div id="top-artists-table"></div>
+        </section>
+
+        <!-- TOP DAYS -->
+        <section id="top-days" class="card">
+            <h2>Top Listening Days</h2>
+            <p class="section-subtitle">
+                My biggest days of this year (by minutes listened)
+            </p>
+            <div id="top-days-table"></div>
+        </section>
+
+        <!-- LONGEST STREAK -->
+        <section id="longest-streak" class="card">
+            <h2>Longest Listening Streak</h2>
+            <div id="longest-streak-content" class="summary-grid"></div>
+        </section>
+
+        <!-- MOST OBSESSED DAY -->
+        <section id="most-obsessed-day" class="card">
+            <h2>Most Obsessed Day</h2>
+            <p class="section-subtitle">The single song I replayed the most in one day</p>
+            <div id="most-obsessed-day-content" class="summary-grid"></div>
+        </section>
+
+        <!-- DISCOVERY RATE -->
+        <section id="discovery-rate" class="card">
+            <h2>Discovery Rate</h2>
+            <p class="section-subtitle">New artists heard for the first time, by month</p>
+            <div id="discovery-rate-table"></div>
+        </section>
+
+        <!-- SKIP RATE -->
+        <section id="skip-rate" class="card">
+            <h2>Skip Rate</h2>
+            <p class="section-subtitle">Share of plays ended via the next-track button</p>
+            <div id="skip-rate-content" class="summary-grid"></div>
+        </section>
+
+        <!-- SHUFFLE VS ON-DEMAND -->
+        <section id="shuffle-ratio" class="card">
+            <h2>Shuffle vs On-Demand</h2>
+            <div id="shuffle-ratio-content" class="summary-grid"></div>
+        </section>
+
+        <!-- PLATFORM BREAKDOWN -->
+        <section id="platform-breakdown" class="card">
+            <h2>Platform Breakdown</h2>
+            <div id="platform-breakdown-table"></div>
+        </section>
+
+        <!-- BY COUNTRY -->
+        <section id="by-country" class="card">
+            <h2>Listening by Country</h2>
+            <div id="by-country-table"></div>
+        </section>
+
+        <!-- 24 HOUR HEATMAP -->
+        <section id="hour-heatmap" class="card">
+            <h2>24-Hour Listening Heatmap</h2>
+            <p class="section-subtitle">Local time, minutes listened by hour of day</p>
+            <div id="hour-heatmap-table"></div>
+        </section>
+
+        <!-- FIRST LISTENED (all-time) -->
+        <section id="first-listened" class="card">
             <h2>First Listened</h2>
             <p class="section-subtitle">
                 Every artist I've ever logged, ordered by the day I first heard them. All-time, across every year.
             </p>
-        </div>
-        <div id="timeline-list" class="timeline-list"></div>
-    </section>
-
-    <!-- PART 3: DASHBOARD -->
-    <main id="dashboard" class="dashboard">
-        <nav class="dashboard-nav" id="dashboard-nav" aria-label="Dashboard sections">
-            <a href="#dash-songs">Songs</a>
-            <a href="#dash-artists">Artists</a>
-            <a href="#dash-habits">Habits</a>
-            <a href="#dash-patterns">Patterns</a>
-        </nav>
-
-        <div class="content">
-            <!-- SONGS -->
-            <section id="dash-songs" class="card">
-                <h2>Top Songs</h2>
-                <p class="section-subtitle">
-                    My most listened tracks (versions merged per artist)
-                </p>
-                <div id="top-songs-table"></div>
-            </section>
-
-            <!-- ARTISTS -->
-            <section id="dash-artists" class="card">
-                <h2>Top Artists</h2>
-                <div id="top-artists-table"></div>
-            </section>
-
-            <!-- HABITS -->
-            <section id="dash-habits" class="dash-group">
-                <h2 class="dash-group-title">Habits</h2>
-
-                <div class="card">
-                    <h3>Top Listening Days</h3>
-                    <p class="section-subtitle">Biggest days of the year, by minutes listened</p>
-                    <div id="top-days-table"></div>
-                </div>
-
-                <div class="card">
-                    <h3>Skip Rate</h3>
-                    <p class="section-subtitle">Share of plays ended via the next-track button</p>
-                    <div id="skip-rate-content"></div>
-                </div>
-
-                <div class="card">
-                    <h3>Shuffle vs On-Demand</h3>
-                    <div id="shuffle-ratio-content"></div>
-                </div>
-
-                <div class="card">
-                    <h3>Platform Breakdown</h3>
-                    <div id="platform-breakdown-content"></div>
-                </div>
-            </section>
-
-            <!-- PATTERNS -->
-            <section id="dash-patterns" class="dash-group">
-                <h2 class="dash-group-title">Patterns</h2>
-
-                <div class="card">
-                    <h3>Listening by Country</h3>
-                    <div id="by-country-table"></div>
-                </div>
-
-                <div class="card">
-                    <h3>24-Hour Listening Heatmap</h3>
-                    <p class="section-subtitle">Local time, minutes listened by hour of day</p>
-                    <div id="hour-heatmap"></div>
-                </div>
-            </section>
-        </div>
+            <div id="first-listened-table"></div>
+        </section>
     </main>
 
     <footer class="footer">

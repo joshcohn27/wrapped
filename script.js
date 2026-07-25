@@ -7,6 +7,11 @@ let showAllArtists = false;  // false = top 10, true = up to 20
 let statsByYear = {};
 let currentYear = null;
 
+const MONTH_NAMES = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December",
+];
+
 // ---------- helpers ----------
 
 function showLoader() {
@@ -25,14 +30,6 @@ function hourToAmPm(hour) {
     return `${h12} ${suffix}`;
 }
 
-function hourToShortLabel(hour) {
-    const h = Number(hour);
-    const suffix = h < 12 ? "a" : "p";
-    let h12 = h % 12;
-    if (h12 === 0) h12 = 12;
-    return `${h12}${suffix}`;
-}
-
 function formatMinutesToHoursMinutes(totalMinutes) {
     const hours = totalMinutes / 60;
     return {
@@ -42,11 +39,8 @@ function formatMinutesToHoursMinutes(totalMinutes) {
     };
 }
 
-function nightOwlLabel(hour) {
-    if (hour >= 22 || hour < 5) return "Night Owl";
-    if (hour >= 5 && hour < 11) return "Early Bird";
-    if (hour >= 11 && hour < 17) return "Midday Listener";
-    return "Evening Listener";
+function monthName(monthNumber) {
+    return MONTH_NAMES[monthNumber - 1] || String(monthNumber);
 }
 
 // ---------- DOM helpers ----------
@@ -86,210 +80,43 @@ function createTable(containerId, columns, rows) {
     container.appendChild(wrapper);
 }
 
-function renderStatBars(containerId, items) {
+// Same tile markup as the original Overview block; reused for every simple
+// stat display (streak, obsessed day, skip rate, shuffle ratio).
+function renderStatTiles(containerId, items) {
     const container = document.getElementById(containerId);
     container.innerHTML = "";
 
-    const wrap = document.createElement("div");
-    wrap.className = "stat-bars";
-
     items.forEach((item) => {
-        const row = document.createElement("div");
-        row.className = "stat-bar-row";
+        const div = document.createElement("div");
+        div.className = "summary-item";
 
-        const label = document.createElement("div");
-        label.className = "stat-bar-label";
-        const labelText = document.createElement("span");
-        labelText.textContent = item.label;
-        const pctText = document.createElement("span");
-        pctText.textContent = `${item.percent.toFixed(1)}%`;
-        label.appendChild(labelText);
-        label.appendChild(pctText);
+        const labelSpan = document.createElement("span");
+        labelSpan.className = "label";
+        labelSpan.textContent = item.label;
 
-        const track = document.createElement("div");
-        track.className = "stat-bar-track";
-        const fill = document.createElement("div");
-        fill.className = "stat-bar-fill";
-        fill.style.width = `${Math.min(100, Math.max(0, item.percent)).toFixed(1)}%`;
-        track.appendChild(fill);
+        const valueSpan = document.createElement("span");
+        valueSpan.className = "value";
+        valueSpan.textContent = item.value;
 
-        row.appendChild(label);
-        row.appendChild(track);
-        wrap.appendChild(row);
-    });
-
-    container.appendChild(wrap);
-}
-
-// ---------- PART 1: story mode ----------
-
-function buildStoryCards(year, stats) {
-    const total = formatMinutesToHoursMinutes(stats.totalMinutes);
-    const topSong = stats.topSongs[0];
-    const topArtist = stats.topArtists[0];
-    const topSongTotal = topSong ? formatMinutesToHoursMinutes(topSong.totalMinutes) : null;
-    const topArtistTotal = topArtist ? formatMinutesToHoursMinutes(topArtist.totalMinutes) : null;
-    const peakHourEntry = stats.hourHeatmap[stats.peakHour];
-    const peakHourMinutes = peakHourEntry ? peakHourEntry.minutes : 0;
-    const maxDiscovery = Math.max(1, ...stats.discoveryByMonth.map((m) => m.count));
-
-    const cards = [
-        {
-            eyebrow: `Your ${year} Wrapped`,
-            big: String(year),
-            sub: `${total.hoursText} of music listened this year`,
-        },
-        topSong && {
-            eyebrow: "Your Top Song",
-            big: topSong.normalizedTitle,
-            sub: `${topSong.displayArtist} • ${topSong.playEvents} plays • ${topSongTotal.hoursText}`,
-        },
-        topArtist && {
-            eyebrow: "Your Top Artist",
-            big: topArtist.artist,
-            sub: `${topArtistTotal.hoursText} listened this year`,
-        },
-        {
-            eyebrow: nightOwlLabel(stats.peakHour),
-            big: hourToAmPm(stats.peakHour),
-            sub: `Your peak listening hour — ${Math.round(peakHourMinutes)} minutes logged`,
-        },
-        {
-            eyebrow: "Longest Streak",
-            big: `${stats.longestStreak.days} Day${stats.longestStreak.days === 1 ? "" : "s"}`,
-            sub: stats.longestStreak.startDate
-                ? `${stats.longestStreak.startDate} through ${stats.longestStreak.endDate}, back to back`
-                : "Not enough data for a streak",
-        },
-        stats.mostObsessedDay && {
-            eyebrow: "Most Obsessed Day",
-            big: stats.mostObsessedDay.song,
-            sub: `${stats.mostObsessedDay.playCount} plays in a single day — ${stats.mostObsessedDay.date}`,
-        },
-        {
-            eyebrow: "Discovery",
-            big: `${stats.newArtistCount} New Artists`,
-            sub: `Found for the first time in ${year}`,
-            bars: stats.discoveryByMonth.map((m) => ({
-                height: Math.max(4, (m.count / maxDiscovery) * 90),
-                title: `Month ${m.month}: ${m.count} new artists`,
-            })),
-        },
-        {
-            eyebrow: `That's a Wrap on ${year}`,
-            big: `${stats.uniqueSongCount} Songs`,
-            sub: `${stats.uniqueArtistCount} artists kept you company this year`,
-        },
-    ].filter(Boolean);
-
-    return cards;
-}
-
-function renderStoryMode(year, stats) {
-    const container = document.getElementById("story-mode");
-    container.innerHTML = "";
-
-    const cards = buildStoryCards(year, stats);
-
-    cards.forEach((card, idx) => {
-        const section = document.createElement("div");
-        section.className = `story-card story-card--${idx % 8}`;
-
-        const eyebrow = document.createElement("div");
-        eyebrow.className = "story-eyebrow";
-        eyebrow.textContent = card.eyebrow;
-
-        const big = document.createElement("div");
-        big.className = "story-big";
-        big.textContent = card.big;
-
-        const sub = document.createElement("div");
-        sub.className = "story-sub";
-        sub.textContent = card.sub;
-
-        section.appendChild(eyebrow);
-        section.appendChild(big);
-        section.appendChild(sub);
-
-        if (card.bars) {
-            const barsWrap = document.createElement("div");
-            barsWrap.className = "discovery-bars";
-            card.bars.forEach((bar) => {
-                const barEl = document.createElement("div");
-                barEl.className = "discovery-bar";
-                barEl.style.height = `${bar.height}px`;
-                barEl.title = bar.title;
-                barsWrap.appendChild(barEl);
-            });
-            section.appendChild(barsWrap);
-        }
-
-        if (idx < cards.length - 1) {
-            const hint = document.createElement("div");
-            hint.className = "story-hint";
-            hint.textContent = "Scroll ↓";
-            section.appendChild(hint);
-        }
-
-        container.appendChild(section);
-    });
-
-    container.scrollTo({ top: 0 });
-}
-
-function isStoryModeActive() {
-    const el = document.getElementById("story-mode");
-    if (!el) return false;
-    const rect = el.getBoundingClientRect();
-    const viewportCenter = window.innerHeight / 2;
-    return rect.top <= viewportCenter && rect.bottom >= viewportCenter;
-}
-
-function scrollStoryBy(direction) {
-    const container = document.getElementById("story-mode");
-    if (!container) return;
-    container.scrollBy({ top: direction * container.clientHeight, behavior: "smooth" });
-}
-
-function setupStoryKeyboardNav() {
-    window.addEventListener("keydown", (e) => {
-        if (!isStoryModeActive()) return;
-
-        if (e.key === "ArrowDown" || e.key === "ArrowRight" || e.key === "PageDown") {
-            e.preventDefault();
-            scrollStoryBy(1);
-        } else if (e.key === "ArrowUp" || e.key === "ArrowLeft" || e.key === "PageUp") {
-            e.preventDefault();
-            scrollStoryBy(-1);
-        }
+        div.appendChild(labelSpan);
+        div.appendChild(valueSpan);
+        container.appendChild(div);
     });
 }
 
-// ---------- PART 2: first listened timeline (all-time) ----------
+// ---------- rendering per year ----------
 
-function renderTimeline(allTime) {
-    const container = document.getElementById("timeline-list");
-    container.innerHTML = "";
+function renderSummary(year, stats) {
+    const { totalMinutes, uniqueSongCount, uniqueArtistCount } = stats;
+    const total = formatMinutesToHoursMinutes(totalMinutes);
 
-    allTime.firstListenedByArtist.forEach((entry) => {
-        const row = document.createElement("div");
-        row.className = "timeline-row";
-
-        const date = document.createElement("div");
-        date.className = "timeline-date";
-        date.textContent = entry.firstDate;
-
-        const artist = document.createElement("div");
-        artist.className = "timeline-artist";
-        artist.textContent = entry.artist;
-
-        row.appendChild(date);
-        row.appendChild(artist);
-        container.appendChild(row);
-    });
+    renderStatTiles("summary-content", [
+        { label: `Total Listening Time (${year})`, value: total.hoursText },
+        { label: "Total Minutes", value: total.minutesText },
+        { label: "Unique Songs", value: uniqueSongCount.toString() },
+        { label: "Unique Artists", value: uniqueArtistCount.toString() },
+    ]);
 }
-
-// ---------- PART 3: dashboard ----------
 
 function renderTopDays(stats) {
     const rows = stats.topDates.map((d, idx) => {
@@ -406,48 +233,122 @@ function renderByCountry(stats) {
     );
 }
 
-function renderHeatmap(stats) {
-    const container = document.getElementById("hour-heatmap");
-    container.innerHTML = "";
+function renderLongestStreak(stats) {
+    const streak = stats.longestStreak;
+    renderStatTiles("longest-streak-content", [
+        {
+            label: "Longest Streak",
+            value: `${streak.days} day${streak.days === 1 ? "" : "s"}`,
+        },
+        { label: "From", value: streak.startDate || "—" },
+        { label: "To", value: streak.endDate || "—" },
+    ]);
+}
 
-    const grid = document.createElement("div");
-    grid.className = "heatmap-grid";
+function renderMostObsessedDay(stats) {
+    const day = stats.mostObsessedDay;
+    if (!day) {
+        renderStatTiles("most-obsessed-day-content", [
+            { label: "Most Obsessed Day", value: "No data" },
+        ]);
+        return;
+    }
 
-    const maxPercent = Math.max(...stats.hourHeatmap.map((h) => h.percent), 0.0001);
+    renderStatTiles("most-obsessed-day-content", [
+        { label: "Song", value: day.song },
+        { label: "Artist", value: day.artist },
+        { label: "Date", value: day.date },
+        { label: "Plays That Day", value: day.playCount.toString() },
+    ]);
+}
 
-    stats.hourHeatmap.forEach((h) => {
-        const cell = document.createElement("div");
-        cell.className = "heatmap-cell";
-        const intensity = 0.08 + (h.percent / maxPercent) * 0.85;
-        cell.style.setProperty("--intensity", intensity.toFixed(3));
-        cell.textContent = hourToShortLabel(h.hour);
-        cell.title = `${hourToAmPm(h.hour)}: ${Math.round(h.minutes)} min (${h.percent.toFixed(1)}%)`;
-        grid.appendChild(cell);
-    });
+function renderDiscoveryRate(stats) {
+    const rows = stats.discoveryByMonth.map((m) => [
+        monthName(m.month),
+        m.count.toString(),
+    ]);
 
-    container.appendChild(grid);
+    createTable("discovery-rate-table", ["Month", "New Artists"], rows);
 }
 
 function renderSkipRate(stats) {
-    renderStatBars("skip-rate-content", [
-        { label: "Skipped (next-track button)", percent: stats.skipRatePercent },
-        { label: "Played through / other end reason", percent: 100 - stats.skipRatePercent },
+    renderStatTiles("skip-rate-content", [
+        { label: "Skipped (next-track button)", value: `${stats.skipRatePercent.toFixed(1)}%` },
+        { label: "Played Through / Other", value: `${(100 - stats.skipRatePercent).toFixed(1)}%` },
     ]);
 }
 
 function renderShuffleRatio(stats) {
-    renderStatBars("shuffle-ratio-content", [
-        { label: "Shuffle", percent: stats.shuffleRatio.shufflePercent },
-        { label: "On-Demand", percent: stats.shuffleRatio.onDemandPercent },
+    renderStatTiles("shuffle-ratio-content", [
+        { label: "Shuffle", value: `${stats.shuffleRatio.shufflePercent.toFixed(1)}%` },
+        { label: "On-Demand", value: `${stats.shuffleRatio.onDemandPercent.toFixed(1)}%` },
     ]);
 }
 
 function renderPlatformBreakdown(stats) {
-    renderStatBars("platform-breakdown-content", [
-        { label: "Mobile", percent: stats.platformBreakdown.mobile },
-        { label: "Desktop", percent: stats.platformBreakdown.desktop },
-        { label: "Other", percent: stats.platformBreakdown.other },
+    const pb = stats.platformBreakdown;
+    const rows = [
+        ["Mobile", `${pb.mobile.toFixed(1)}%`],
+        ["Desktop", `${pb.desktop.toFixed(1)}%`],
+        ["Other", `${pb.other.toFixed(1)}%`],
+    ];
+
+    createTable("platform-breakdown-table", ["Platform", "% of Plays"], rows);
+}
+
+// 24-hour heatmap as a plain table, using the same table styling as every
+// other section. Each row gets a light background tint (existing Spotify
+// green) scaled to how much that hour was listened to, relative to the
+// year's peak hour -- numbers first, shading is just a hint.
+function renderHeatmap(stats) {
+    const container = document.getElementById("hour-heatmap-table");
+    container.innerHTML = "";
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "table-wrapper";
+
+    const table = document.createElement("table");
+    const thead = document.createElement("thead");
+    const headerRow = document.createElement("tr");
+    ["Hour", "Minutes", "% of Day"].forEach((col) => {
+        const th = document.createElement("th");
+        th.textContent = col;
+        headerRow.appendChild(th);
+    });
+    thead.appendChild(headerRow);
+
+    const tbody = document.createElement("tbody");
+    const maxPercent = Math.max(...stats.hourHeatmap.map((h) => h.percent), 0.0001);
+
+    stats.hourHeatmap.forEach((h) => {
+        const tr = document.createElement("tr");
+        const intensity = 0.05 + (h.percent / maxPercent) * 0.3;
+        tr.style.backgroundColor = `rgba(30, 215, 96, ${intensity.toFixed(3)})`;
+
+        [hourToAmPm(h.hour), Math.round(h.minutes).toString(), `${h.percent.toFixed(1)}%`].forEach((val) => {
+            const td = document.createElement("td");
+            td.textContent = val;
+            tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+    });
+
+    table.appendChild(thead);
+    table.appendChild(tbody);
+    wrapper.appendChild(table);
+    container.appendChild(wrapper);
+}
+
+// ---------- all-time (not year-scoped) ----------
+
+function renderFirstListened(allTime) {
+    const rows = allTime.firstListenedByArtist.map((entry, idx) => [
+        (idx + 1).toString(),
+        entry.artist,
+        entry.firstDate,
     ]);
+
+    createTable("first-listened-table", ["#", "Artist", "First Heard"], rows);
 }
 
 // ---------- tabs + main ----------
@@ -484,15 +385,18 @@ function setActiveYear(year) {
     showAllSongs = false;
     showAllArtists = false;
 
-    renderStoryMode(year, stats);
+    renderSummary(year, stats);
     renderTopDays(stats);
     renderTopSongs(stats);
     renderTopArtists(stats);
-    renderByCountry(stats);
-    renderHeatmap(stats);
+    renderLongestStreak(stats);
+    renderMostObsessedDay(stats);
+    renderDiscoveryRate(stats);
     renderSkipRate(stats);
     renderShuffleRatio(stats);
     renderPlatformBreakdown(stats);
+    renderByCountry(stats);
+    renderHeatmap(stats);
 }
 
 async function main() {
@@ -515,8 +419,7 @@ async function main() {
         }
 
         renderYearTabs(years);
-        renderTimeline(data.allTime);
-        setupStoryKeyboardNav();
+        renderFirstListened(data.allTime);
         setActiveYear(years[0]);
     } catch (err) {
         console.error(err);

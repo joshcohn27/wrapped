@@ -33,13 +33,17 @@ The only data file that ships to the browser is `stats.json`, which contains agg
 
 ## Layout
 
-The page is a single scroll made of three parts:
+A single straightforward dashboard, same feel as the original site, just with more sections. Top to bottom:
 
-1. **Story mode** — a sequence of full-viewport cards (cold open, top song, top artist, peak listening hour, longest streak, most obsessed day, discovery, closing stats), navigated by scroll-snap or arrow keys. Re-renders when you switch years.
-2. **First Listened timeline** — a vertical, all-time list of every artist sorted by the day I first heard them. Not affected by the year switcher, since it spans every year at once.
-3. **Dashboard** — the detailed view: expandable top songs/artists tables, top listening days, by-country breakdown, a 24-hour listening heatmap, skip rate, shuffle ratio, and platform breakdown, with a sticky jump-nav (Songs / Artists / Habits / Patterns). Respects the year switcher.
+1. Header (title + year tag) and a year-tab switcher — same as the original
+2. Overview (total hours/minutes, unique songs/artists)
+3. Top Songs, Top Artists, Top Listening Days — same as the original, tables in a `.card`
+4. Longest Listening Streak, Most Obsessed Day, Discovery Rate, Skip Rate, Shuffle vs On-Demand, Platform Breakdown — new stats, each its own `.card`, reusing the same stat-tile/table styling as everything else
+5. Listening by Country — same as the original
+6. 24-Hour Listening Heatmap — a plain table (hour / minutes / % of day), rows lightly tinted with the existing Spotify green to hint at intensity
+7. First Listened — at the very bottom, a plain table of every artist, all-time, sorted earliest to latest. Not affected by the year switcher, since it spans every year at once; every other section above it is.
 
-A slim fixed topbar at the top holds the year switcher and stays accessible across all three parts.
+No scroll-snap, no full-viewport cards, no sticky nav — everything is a normal `.card` section in normal page flow, and the year switcher just re-renders the year-scoped sections' content in place.
 
 ## Statistics
 

@@ -4,10 +4,6 @@
     padding: 0;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     background: radial-gradient(circle at top left, #ff4fd8, #191414);
@@ -15,43 +11,27 @@ body {
     min-height: 100vh;
 }
 
-.topbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-    padding: 0.75rem 1.5rem;
-    background: rgba(10, 10, 10, 0.55);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+.hero {
+    padding: 3rem 1.5rem 2rem;
+    text-align: center;
 }
 
-.topbar-brand {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-}
-
-.topbar-title {
-    font-size: 0.95rem;
+.hero h1 {
+    font-size: 3rem;
     font-weight: 800;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    white-space: nowrap;
 }
 
-.topbar-tabs {
-    margin-top: 0;
+.hero p {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
 }
 
 .year-tag {
     display: inline-block;
+    margin-top: 1rem;
     padding: 0.25rem 0.8rem;
     border-radius: 999px;
     background: #1ed760;
@@ -266,303 +246,5 @@ tbody tr:hover {
 @keyframes spin {
     to {
         transform: rotate(360deg);
-    }
-}
-
-/* ============================================================
-   PART 1: STORY MODE
-   ============================================================ */
-
-.story-mode {
-    height: 100vh;
-    overflow-y: auto;
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-}
-
-.story-card {
-    height: 100vh;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 2rem;
-    position: relative;
-}
-
-.story-eyebrow {
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.25em;
-    opacity: 0.85;
-    margin-bottom: 1rem;
-}
-
-.story-big {
-    font-size: clamp(2.25rem, 9vw, 5.5rem);
-    font-weight: 800;
-    line-height: 1.08;
-    max-width: 90vw;
-    overflow-wrap: break-word;
-}
-
-.story-sub {
-    margin-top: 1.25rem;
-    font-size: clamp(1rem, 2.5vw, 1.35rem);
-    opacity: 0.92;
-    max-width: 40rem;
-}
-
-.story-hint {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    opacity: 0.6;
-    animation: story-bounce 1.8s infinite;
-}
-
-@keyframes story-bounce {
-
-    0%,
-    100% {
-        transform: translate(-50%, 0);
-    }
-
-    50% {
-        transform: translate(-50%, 6px);
-    }
-}
-
-.story-card--0 {
-    background: radial-gradient(circle at top left, #ff4fd8, #191414);
-}
-
-.story-card--1 {
-    background: linear-gradient(135deg, #a259ff, #191414);
-}
-
-.story-card--2 {
-    background: linear-gradient(135deg, #1ed760, #191414);
-}
-
-.story-card--3 {
-    background: linear-gradient(135deg, #ff6c2f, #191414);
-}
-
-.story-card--4 {
-    background: linear-gradient(135deg, #ff4fd8, #a259ff);
-}
-
-.story-card--5 {
-    background: linear-gradient(135deg, #1ed760, #a259ff);
-}
-
-.story-card--6 {
-    background: linear-gradient(135deg, #ff6c2f, #ff4fd8);
-}
-
-.story-card--7 {
-    background: radial-gradient(circle at bottom right, #a259ff, #191414);
-}
-
-.discovery-bars {
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    gap: 0.35rem;
-    height: 90px;
-    margin-top: 1.5rem;
-}
-
-.discovery-bar {
-    width: 14px;
-    background: rgba(255, 255, 255, 0.85);
-    border-radius: 4px 4px 0 0;
-    min-height: 3px;
-}
-
-/* ============================================================
-   PART 2: FIRST LISTENED TIMELINE
-   ============================================================ */
-
-.timeline-section {
-    background: #191414;
-    padding: 3rem 1.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.timeline-header {
-    max-width: 700px;
-    margin: 0 auto 1.5rem;
-    text-align: center;
-}
-
-.timeline-header h2 {
-    font-size: 2rem;
-    font-weight: 800;
-}
-
-.timeline-list {
-    max-width: 700px;
-    margin: 0 auto;
-    max-height: 65vh;
-    overflow-y: auto;
-    padding-right: 0.5rem;
-}
-
-.timeline-row {
-    display: grid;
-    grid-template-columns: 100px 1fr;
-    gap: 1rem;
-    padding: 0.55rem 0 0.55rem 1.1rem;
-    border-left: 2px solid rgba(255, 255, 255, 0.15);
-    position: relative;
-}
-
-.timeline-row::before {
-    content: "";
-    position: absolute;
-    left: -6px;
-    top: 1.05rem;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #1ed760;
-}
-
-.timeline-date {
-    font-size: 0.75rem;
-    opacity: 0.7;
-    font-weight: 700;
-    letter-spacing: 0.03em;
-    padding-top: 0.15rem;
-    white-space: nowrap;
-}
-
-.timeline-artist {
-    font-weight: 600;
-}
-
-/* ============================================================
-   PART 3: DASHBOARD
-   ============================================================ */
-
-.dashboard-nav {
-    position: sticky;
-    top: 3.5rem;
-    z-index: 10;
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    padding: 0.75rem 1.5rem;
-    background: rgba(10, 10, 10, 0.92);
-    backdrop-filter: blur(6px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.dashboard-nav a {
-    padding: 0.35rem 0.9rem;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 0.85rem;
-    transition: all 0.18s ease;
-}
-
-.dashboard-nav a:hover {
-    background: rgba(255, 255, 255, 0.1);
-}
-
-#dashboard {
-    scroll-margin-top: 3.5rem;
-}
-
-#dash-songs,
-#dash-artists,
-#dash-habits,
-#dash-patterns {
-    scroll-margin-top: 6.75rem;
-}
-
-.dash-group {
-    display: grid;
-    gap: 1.5rem;
-    padding-top: 1rem;
-}
-
-.dash-group-title {
-    font-size: 1.6rem;
-    font-weight: 800;
-}
-
-.dashboard .card h3 {
-    font-size: 1.1rem;
-    font-weight: 800;
-    margin-bottom: 0.4rem;
-}
-
-.stat-bars {
-    display: grid;
-    gap: 0.65rem;
-    margin-top: 0.5rem;
-}
-
-.stat-bar-label {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.85rem;
-    margin-bottom: 0.3rem;
-}
-
-.stat-bar-track {
-    height: 10px;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.08);
-    overflow: hidden;
-}
-
-.stat-bar-fill {
-    height: 100%;
-    border-radius: 999px;
-    background: linear-gradient(90deg, #1ed760, #a259ff);
-}
-
-.heatmap-grid {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 0.4rem;
-    margin-top: 0.75rem;
-}
-
-.heatmap-cell {
-    aspect-ratio: 1;
-    border-radius: 0.4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.65rem;
-    font-weight: 700;
-    background: rgba(30, 215, 96, var(--intensity, 0.08));
-    border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-@media (max-width: 640px) {
-    .heatmap-grid {
-        grid-template-columns: repeat(6, 1fr);
-    }
-
-    .timeline-row {
-        grid-template-columns: 80px 1fr;
     }
 }
