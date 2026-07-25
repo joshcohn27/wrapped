@@ -224,6 +224,55 @@ tbody tr:hover {
     background: rgba(255, 255, 255, 0.12);
 }
 
+.show-more-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.show-more-btn:disabled:hover {
+    background: transparent;
+}
+
+.search-input {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    margin-top: 0.75rem;
+    padding: 0.5rem 0.9rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-family: inherit;
+}
+
+.search-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #1ed760;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.pagination .show-more-btn {
+    margin-top: 0;
+}
+
+.pagination-info {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
 #loader {
     position: fixed;
     top: 0;

@@ -41,7 +41,7 @@ A single straightforward dashboard, same feel as the original site, just with mo
 4. Longest Listening Streak, Most Obsessed Day, Discovery Rate, Skip Rate, Shuffle vs On-Demand, Platform Breakdown — new stats, each its own `.card`, reusing the same stat-tile/table styling as everything else
 5. Listening by Country — same as the original
 6. 24-Hour Listening Heatmap — a plain table (hour / minutes / % of day), rows lightly tinted with the existing Spotify green to hint at intensity
-7. First Listened — at the very bottom, a plain table of every artist, all-time, sorted earliest to latest. Not affected by the year switcher, since it spans every year at once; every other section above it is.
+7. First Listened — at the very bottom, a searchable, paginated table of every artist, all-time, sorted earliest to latest (25 per page). Not affected by the year switcher, since it spans every year at once; every other section above it is.
 
 No scroll-snap, no full-viewport cards, no sticky nav — everything is a normal `.card` section in normal page flow, and the year switcher just re-renders the year-scoped sections' content in place.
 

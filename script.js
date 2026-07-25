@@ -7,6 +7,11 @@ let showAllArtists = false;  // false = top 10, true = up to 20
 let statsByYear = {};
 let currentYear = null;
 
+let allTimeStats = null;
+let firstListenedSearch = "";
+let firstListenedPage = 1;
+const FIRST_LISTENED_PAGE_SIZE = 25;
+
 const MONTH_NAMES = [
     "January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December",
@@ -341,14 +346,82 @@ function renderHeatmap(stats) {
 
 // ---------- all-time (not year-scoped) ----------
 
-function renderFirstListened(allTime) {
-    const rows = allTime.firstListenedByArtist.map((entry, idx) => [
-        (idx + 1).toString(),
+function getFilteredFirstListened() {
+    const list = allTimeStats.firstListenedByArtist;
+    if (!firstListenedSearch) return list;
+
+    const needle = firstListenedSearch.toLowerCase();
+    return list.filter((entry) => entry.artist.toLowerCase().includes(needle));
+}
+
+function renderFirstListened() {
+    const filtered = getFilteredFirstListened();
+    const totalPages = Math.max(1, Math.ceil(filtered.length / FIRST_LISTENED_PAGE_SIZE));
+    firstListenedPage = Math.min(Math.max(1, firstListenedPage), totalPages);
+
+    const start = (firstListenedPage - 1) * FIRST_LISTENED_PAGE_SIZE;
+    const pageItems = filtered.slice(start, start + FIRST_LISTENED_PAGE_SIZE);
+
+    const rows = pageItems.map((entry, idx) => [
+        (start + idx + 1).toString(),
         entry.artist,
         entry.firstDate,
     ]);
 
     createTable("first-listened-table", ["#", "Artist", "First Heard"], rows);
+    renderFirstListenedPagination(filtered.length, totalPages);
+}
+
+function renderFirstListenedPagination(totalCount, totalPages) {
+    const container = document.getElementById("first-listened-pagination");
+    container.innerHTML = "";
+
+    if (!totalCount) {
+        const empty = document.createElement("p");
+        empty.className = "section-subtitle";
+        empty.textContent = "No artists match your search.";
+        container.appendChild(empty);
+        return;
+    }
+
+    const wrap = document.createElement("div");
+    wrap.className = "pagination";
+
+    const prevBtn = document.createElement("button");
+    prevBtn.className = "show-more-btn";
+    prevBtn.textContent = "Previous";
+    prevBtn.disabled = firstListenedPage <= 1;
+    prevBtn.addEventListener("click", () => {
+        firstListenedPage -= 1;
+        renderFirstListened();
+    });
+
+    const info = document.createElement("span");
+    info.className = "pagination-info";
+    info.textContent = `Page ${firstListenedPage} of ${totalPages} (${totalCount} artist${totalCount === 1 ? "" : "s"})`;
+
+    const nextBtn = document.createElement("button");
+    nextBtn.className = "show-more-btn";
+    nextBtn.textContent = "Next";
+    nextBtn.disabled = firstListenedPage >= totalPages;
+    nextBtn.addEventListener("click", () => {
+        firstListenedPage += 1;
+        renderFirstListened();
+    });
+
+    wrap.appendChild(prevBtn);
+    wrap.appendChild(info);
+    wrap.appendChild(nextBtn);
+    container.appendChild(wrap);
+}
+
+function setupFirstListenedSearch() {
+    const input = document.getElementById("first-listened-search");
+    input.addEventListener("input", (e) => {
+        firstListenedSearch = e.target.value.trim();
+        firstListenedPage = 1;
+        renderFirstListened();
+    });
 }
 
 // ---------- tabs + main ----------
@@ -419,7 +492,11 @@ async function main() {
         }
 
         renderYearTabs(years);
-        renderFirstListened(data.allTime);
+
+        allTimeStats = data.allTime;
+        setupFirstListenedSearch();
+        renderFirstListened();
+
         setActiveYear(years[0]);
     } catch (err) {
         console.error(err);
