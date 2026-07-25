@@ -1,0 +1,9 @@
+{
+  "name": "wrapped",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal Spotify Wrapped clone. Raw exports are precomputed into stats.json at build time; the site itself is static HTML/CSS/JS.",
+  "scripts": {
+    "build": "node build-stats.js"
+  }
+}

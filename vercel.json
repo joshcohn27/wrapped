@@ -1,0 +1,6 @@
+{
+  "framework": null,
+  "buildCommand": "echo 'Static site: stats.json is pre-built and committed, see README (npm run build)'",
+  "installCommand": "echo 'No dependencies to install'",
+  "outputDirectory": "."
+}

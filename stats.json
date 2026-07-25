@@ -1,0 +1,6456 @@
+{
+  "generatedAt": "2026-07-25T00:09:39.153Z",
+  "years": [
+    2025,
+    2024
+  ],
+  "byYear": {
+    "2024": {
+      "year": 2024,
+      "totalMinutes": 10374.043449999977,
+      "uniqueSongCount": 962,
+      "uniqueArtistCount": 425,
+      "topDates": [
+        {
+          "date": "2024-12-23",
+          "minutes": 331.0551333333332
+        },
+        {
+          "date": "2024-09-06",
+          "minutes": 313.36163333333343
+        },
+        {
+          "date": "2024-09-05",
+          "minutes": 304.00760000000014
+        },
+        {
+          "date": "2024-08-19",
+          "minutes": 245.21361666666678
+        },
+        {
+          "date": "2024-09-03",
+          "minutes": 238.93136666666672
+        }
+      ],
+      "topSongs": [
+        {
+          "key": "fast car — tracy chapman",
+          "normalizedTitle": "Fast Car",
+          "displayArtist": "Tracy Chapman",
+          "totalMinutes": 114.11461666666668,
+          "playEvents": 35
+        },
+        {
+          "key": "dancing on my own — calum scott",
+          "normalizedTitle": "Dancing On My Own",
+          "displayArtist": "Calum Scott",
+          "totalMinutes": 111.9556333333333,
+          "playEvents": 36
+        },
+        {
+          "key": "thinking out loud — ed sheeran",
+          "normalizedTitle": "Thinking out Loud",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 101.76880000000003,
+          "playEvents": 36
+        },
+        {
+          "key": "perfect — ed sheeran",
+          "normalizedTitle": "Perfect",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 95.66098333333335,
+          "playEvents": 38
+        },
+        {
+          "key": "all too well — taylor swift",
+          "normalizedTitle": "All Too Well",
+          "displayArtist": "Taylor Swift",
+          "totalMinutes": 94.3485,
+          "playEvents": 19
+        },
+        {
+          "key": "my way — frank sinatra",
+          "normalizedTitle": "My Way",
+          "displayArtist": "Frank Sinatra",
+          "totalMinutes": 92.99728333333334,
+          "playEvents": 31
+        },
+        {
+          "key": "dog days are over — florence + the machine",
+          "normalizedTitle": "Dog Days Are Over",
+          "displayArtist": "Florence + The Machine",
+          "totalMinutes": 91.77026666666664,
+          "playEvents": 32
+        },
+        {
+          "key": "rocket man — elton john",
+          "normalizedTitle": "Rocket Man",
+          "displayArtist": "Elton John",
+          "totalMinutes": 88.82775000000001,
+          "playEvents": 25
+        },
+        {
+          "key": "the a team — ed sheeran",
+          "normalizedTitle": "The A Team",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 88.27498333333332,
+          "playEvents": 30
+        },
+        {
+          "key": "too sweet — hozier",
+          "normalizedTitle": "Too Sweet",
+          "displayArtist": "Hozier",
+          "totalMinutes": 85.12813333333332,
+          "playEvents": 28
+        },
+        {
+          "key": "danny's song — loggins & messina",
+          "normalizedTitle": "Danny's Song",
+          "displayArtist": "Loggins & Messina",
+          "totalMinutes": 84.08815000000001,
+          "playEvents": 24
+        },
+        {
+          "key": "mr. brightside — the killers",
+          "normalizedTitle": "Mr. Brightside",
+          "displayArtist": "The Killers",
+          "totalMinutes": 78.91165000000001,
+          "playEvents": 28
+        },
+        {
+          "key": "mess is mine — vance joy",
+          "normalizedTitle": "Mess Is Mine",
+          "displayArtist": "Vance Joy",
+          "totalMinutes": 78.09171666666667,
+          "playEvents": 32
+        },
+        {
+          "key": "valerie — amy winehouse",
+          "normalizedTitle": "Valerie",
+          "displayArtist": "Amy Winehouse",
+          "totalMinutes": 75.56436666666667,
+          "playEvents": 27
+        },
+        {
+          "key": "don't — ed sheeran",
+          "normalizedTitle": "Don't",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 75.43905000000002,
+          "playEvents": 25
+        },
+        {
+          "key": "photograph — ed sheeran",
+          "normalizedTitle": "Photograph",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 75.25291666666668,
+          "playEvents": 28
+        },
+        {
+          "key": "life goes on — ed sheeran",
+          "normalizedTitle": "Life Goes On",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 73.08231666666669,
+          "playEvents": 38
+        },
+        {
+          "key": "your song — elton john",
+          "normalizedTitle": "Your Song",
+          "displayArtist": "Elton John",
+          "totalMinutes": 72.52568333333332,
+          "playEvents": 28
+        },
+        {
+          "key": "saturday sun — vance joy",
+          "normalizedTitle": "Saturday Sun",
+          "displayArtist": "Vance Joy",
+          "totalMinutes": 70.80839999999996,
+          "playEvents": 26
+        },
+        {
+          "key": "dive — ed sheeran",
+          "normalizedTitle": "Dive",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 68.63790000000003,
+          "playEvents": 23
+        },
+        {
+          "key": "tenerife sea — ed sheeran",
+          "normalizedTitle": "Tenerife Sea",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 65.70164999999999,
+          "playEvents": 23
+        },
+        {
+          "key": "bohemian rhapsody — queen",
+          "normalizedTitle": "Bohemian Rhapsody",
+          "displayArtist": "Queen",
+          "totalMinutes": 64.63643333333333,
+          "playEvents": 20
+        },
+        {
+          "key": "love story — taylor swift",
+          "normalizedTitle": "Love Story",
+          "displayArtist": "Taylor Swift",
+          "totalMinutes": 63.691366666666674,
+          "playEvents": 23
+        },
+        {
+          "key": "i'm yours — jason mraz",
+          "normalizedTitle": "I'm Yours",
+          "displayArtist": "Jason Mraz",
+          "totalMinutes": 63.304500000000004,
+          "playEvents": 23
+        },
+        {
+          "key": "penguins — ed sheeran",
+          "normalizedTitle": "Penguins",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 63.05105000000001,
+          "playEvents": 22
+        },
+        {
+          "key": "take me to church — hozier",
+          "normalizedTitle": "Take Me to Church",
+          "displayArtist": "Hozier",
+          "totalMinutes": 63.03954999999999,
+          "playEvents": 24
+        },
+        {
+          "key": "under the bridge — red hot chili peppers",
+          "normalizedTitle": "Under the Bridge",
+          "displayArtist": "Red Hot Chili Peppers",
+          "totalMinutes": 62.82276666666666,
+          "playEvents": 20
+        },
+        {
+          "key": "valerie — mark ronson",
+          "normalizedTitle": "Valerie",
+          "displayArtist": "Mark Ronson",
+          "totalMinutes": 62.67321666666667,
+          "playEvents": 32
+        },
+        {
+          "key": "hammer to fall — queen",
+          "normalizedTitle": "Hammer To Fall",
+          "displayArtist": "Queen",
+          "totalMinutes": 60.53068333333333,
+          "playEvents": 28
+        },
+        {
+          "key": "perfect — one direction",
+          "normalizedTitle": "Perfect",
+          "displayArtist": "One Direction",
+          "totalMinutes": 60.49856666666668,
+          "playEvents": 23
+        },
+        {
+          "key": "iris — the goo goo dolls",
+          "normalizedTitle": "Iris",
+          "displayArtist": "The Goo Goo Dolls",
+          "totalMinutes": 60.01699999999999,
+          "playEvents": 29
+        },
+        {
+          "key": "piano man — billy joel",
+          "normalizedTitle": "Piano Man",
+          "displayArtist": "Billy Joel",
+          "totalMinutes": 59.52696666666666,
+          "playEvents": 17
+        },
+        {
+          "key": "vienna — billy joel",
+          "normalizedTitle": "Vienna",
+          "displayArtist": "Billy Joel",
+          "totalMinutes": 59.29890000000002,
+          "playEvents": 37
+        },
+        {
+          "key": "free fallin' — tom petty",
+          "normalizedTitle": "Free Fallin'",
+          "displayArtist": "Tom Petty",
+          "totalMinutes": 57.03968333333332,
+          "playEvents": 20
+        },
+        {
+          "key": "let her go — passenger",
+          "normalizedTitle": "Let Her Go",
+          "displayArtist": "Passenger",
+          "totalMinutes": 56.741283333333335,
+          "playEvents": 37
+        },
+        {
+          "key": "umbrella — rihanna",
+          "normalizedTitle": "Umbrella",
+          "displayArtist": "Rihanna",
+          "totalMinutes": 54.03201666666667,
+          "playEvents": 15
+        },
+        {
+          "key": "i want to break free — queen",
+          "normalizedTitle": "I Want To Break Free",
+          "displayArtist": "Queen",
+          "totalMinutes": 53.34126666666666,
+          "playEvents": 25
+        },
+        {
+          "key": "night changes — one direction",
+          "normalizedTitle": "Night Changes",
+          "displayArtist": "One Direction",
+          "totalMinutes": 53.08831666666665,
+          "playEvents": 22
+        },
+        {
+          "key": "cornelia street — taylor swift",
+          "normalizedTitle": "Cornelia Street",
+          "displayArtist": "Taylor Swift",
+          "totalMinutes": 52.782099999999986,
+          "playEvents": 16
+        },
+        {
+          "key": "beautiful people — ed sheeran",
+          "normalizedTitle": "Beautiful People",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 52.71175000000001,
+          "playEvents": 21
+        },
+        {
+          "key": "revival — zach bryan",
+          "normalizedTitle": "Revival",
+          "displayArtist": "Zach Bryan",
+          "totalMinutes": 52.49179999999999,
+          "playEvents": 19
+        },
+        {
+          "key": "tattoos — reneé rapp",
+          "normalizedTitle": "Tattoos",
+          "displayArtist": "Reneé Rapp",
+          "totalMinutes": 51.904416666666656,
+          "playEvents": 29
+        },
+        {
+          "key": "hotel california — eagles",
+          "normalizedTitle": "Hotel California",
+          "displayArtist": "Eagles",
+          "totalMinutes": 51.43985000000001,
+          "playEvents": 14
+        },
+        {
+          "key": "turn the lights back on — billy joel",
+          "normalizedTitle": "Turn the Lights Back On",
+          "displayArtist": "Billy Joel",
+          "totalMinutes": 50.66973333333333,
+          "playEvents": 20
+        },
+        {
+          "key": "wagon wheel — darius rucker",
+          "normalizedTitle": "Wagon Wheel",
+          "displayArtist": "Darius Rucker",
+          "totalMinutes": 49.80506666666668,
+          "playEvents": 11
+        },
+        {
+          "key": "hold back the river — james bay",
+          "normalizedTitle": "Hold Back The River",
+          "displayArtist": "James Bay",
+          "totalMinutes": 49.63340000000001,
+          "playEvents": 16
+        },
+        {
+          "key": "candle in the wind — ed sheeran",
+          "normalizedTitle": "Candle In The Wind",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 49.328566666666674,
+          "playEvents": 23
+        },
+        {
+          "key": "galway girl — ed sheeran",
+          "normalizedTitle": "Galway Girl",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 48.990449999999996,
+          "playEvents": 27
+        },
+        {
+          "key": "tiny dancer — elton john",
+          "normalizedTitle": "Tiny Dancer",
+          "displayArtist": "Elton John",
+          "totalMinutes": 47.53026666666666,
+          "playEvents": 11
+        },
+        {
+          "key": "viva la vida — coldplay",
+          "normalizedTitle": "Viva La Vida",
+          "displayArtist": "Coldplay",
+          "totalMinutes": 47.47049999999999,
+          "playEvents": 21
+        },
+        {
+          "key": "philadelphia freedom — elton john",
+          "normalizedTitle": "Philadelphia Freedom",
+          "displayArtist": "Elton John",
+          "totalMinutes": 47.419250000000005,
+          "playEvents": 14
+        },
+        {
+          "key": "castle on the hill — ed sheeran",
+          "normalizedTitle": "Castle on the Hill",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 47.187966666666675,
+          "playEvents": 23
+        },
+        {
+          "key": "company — dean friedman",
+          "normalizedTitle": "Company",
+          "displayArtist": "Dean Friedman",
+          "totalMinutes": 47.18111666666666,
+          "playEvents": 24
+        },
+        {
+          "key": "colourblind — ed sheeran",
+          "normalizedTitle": "Colourblind",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 46.627399999999994,
+          "playEvents": 22
+        },
+        {
+          "key": "closer to fine — indigo girls",
+          "normalizedTitle": "Closer to Fine",
+          "displayArtist": "Indigo Girls",
+          "totalMinutes": 45.55601666666666,
+          "playEvents": 17
+        },
+        {
+          "key": "style — taylor swift",
+          "normalizedTitle": "Style",
+          "displayArtist": "Taylor Swift",
+          "totalMinutes": 44.653716666666675,
+          "playEvents": 20
+        },
+        {
+          "key": "fix you — coldplay",
+          "normalizedTitle": "Fix You",
+          "displayArtist": "Coldplay",
+          "totalMinutes": 43.948233333333334,
+          "playEvents": 15
+        },
+        {
+          "key": "candle in the wind — elton john",
+          "normalizedTitle": "Candle In The Wind",
+          "displayArtist": "Elton John",
+          "totalMinutes": 43.791700000000006,
+          "playEvents": 16
+        },
+        {
+          "key": "what do i know? — ed sheeran",
+          "normalizedTitle": "What Do I Know?",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 43.733666666666664,
+          "playEvents": 16
+        },
+        {
+          "key": "i'm a mess — ed sheeran",
+          "normalizedTitle": "I'm a Mess",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 43.15755000000001,
+          "playEvents": 18
+        },
+        {
+          "key": "kiss me — ed sheeran",
+          "normalizedTitle": "Kiss Me",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 42.95331666666666,
+          "playEvents": 27
+        },
+        {
+          "key": "you belong with me — taylor swift",
+          "normalizedTitle": "You Belong With Me",
+          "displayArtist": "Taylor Swift",
+          "totalMinutes": 42.90808333333334,
+          "playEvents": 23
+        },
+        {
+          "key": "everything has changed — taylor swift",
+          "normalizedTitle": "Everything Has Changed",
+          "displayArtist": "Taylor Swift",
+          "totalMinutes": 42.129733333333334,
+          "playEvents": 16
+        },
+        {
+          "key": "scenes from an italian restaurant — billy joel",
+          "normalizedTitle": "Scenes from an Italian Restaurant",
+          "displayArtist": "Billy Joel",
+          "totalMinutes": 41.99883333333333,
+          "playEvents": 13
+        },
+        {
+          "key": "let it be — the beatles",
+          "normalizedTitle": "Let It Be",
+          "displayArtist": "The Beatles",
+          "totalMinutes": 41.975849999999994,
+          "playEvents": 19
+        },
+        {
+          "key": "wildest dreams — taylor swift",
+          "normalizedTitle": "Wildest Dreams",
+          "displayArtist": "Taylor Swift",
+          "totalMinutes": 41.602583333333335,
+          "playEvents": 26
+        },
+        {
+          "key": "let it go — james bay",
+          "normalizedTitle": "Let It Go",
+          "displayArtist": "James Bay",
+          "totalMinutes": 41.09878333333333,
+          "playEvents": 14
+        },
+        {
+          "key": "gone, gone, gone — phillip phillips",
+          "normalizedTitle": "Gone, Gone, Gone",
+          "displayArtist": "Phillip Phillips",
+          "totalMinutes": 40.85975,
+          "playEvents": 18
+        },
+        {
+          "key": "goodbye yellow brick road — elton john",
+          "normalizedTitle": "Goodbye Yellow Brick Road",
+          "displayArtist": "Elton John",
+          "totalMinutes": 40.78481666666667,
+          "playEvents": 20
+        },
+        {
+          "key": "i lived — onerepublic",
+          "normalizedTitle": "I Lived",
+          "displayArtist": "OneRepublic",
+          "totalMinutes": 40.28796666666667,
+          "playEvents": 20
+        },
+        {
+          "key": "worldwide — big time rush",
+          "normalizedTitle": "Worldwide",
+          "displayArtist": "Big Time Rush",
+          "totalMinutes": 40.195366666666665,
+          "playEvents": 14
+        },
+        {
+          "key": "vega — ed sheeran",
+          "normalizedTitle": "Vega",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 40.00461666666668,
+          "playEvents": 17
+        },
+        {
+          "key": "love yourself — justin bieber",
+          "normalizedTitle": "Love Yourself",
+          "displayArtist": "Justin Bieber",
+          "totalMinutes": 39.51593333333333,
+          "playEvents": 15
+        },
+        {
+          "key": "aok — tai verdes",
+          "normalizedTitle": "AOK",
+          "displayArtist": "Tai Verdes",
+          "totalMinutes": 39.307399999999994,
+          "playEvents": 25
+        },
+        {
+          "key": "cat's in the cradle — harry chapin",
+          "normalizedTitle": "Cat's in the Cradle",
+          "displayArtist": "Harry Chapin",
+          "totalMinutes": 39.0795,
+          "playEvents": 22
+        },
+        {
+          "key": "home — phillip phillips",
+          "normalizedTitle": "Home",
+          "displayArtist": "Phillip Phillips",
+          "totalMinutes": 38.706483333333324,
+          "playEvents": 17
+        },
+        {
+          "key": "new york state of mind — billy joel",
+          "normalizedTitle": "New York State of Mind",
+          "displayArtist": "Billy Joel",
+          "totalMinutes": 38.246449999999996,
+          "playEvents": 9
+        },
+        {
+          "key": "unwritten — natasha bedingfield",
+          "normalizedTitle": "Unwritten",
+          "displayArtist": "Natasha Bedingfield",
+          "totalMinutes": 36.95815,
+          "playEvents": 18
+        },
+        {
+          "key": "story of my life — one direction",
+          "normalizedTitle": "Story of My Life",
+          "displayArtist": "One Direction",
+          "totalMinutes": 36.902049999999996,
+          "playEvents": 12
+        },
+        {
+          "key": "eyes closed — ed sheeran",
+          "normalizedTitle": "Eyes Closed",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 36.857083333333335,
+          "playEvents": 18
+        },
+        {
+          "key": "lover — taylor swift",
+          "normalizedTitle": "Lover",
+          "displayArtist": "Taylor Swift",
+          "totalMinutes": 36.82455000000001,
+          "playEvents": 15
+        },
+        {
+          "key": "sh-boom — the chords",
+          "normalizedTitle": "Sh-Boom",
+          "displayArtist": "The Chords",
+          "totalMinutes": 36.51355000000001,
+          "playEvents": 19
+        },
+        {
+          "key": "end of youth — ed sheeran",
+          "normalizedTitle": "End Of Youth",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 36.49841666666667,
+          "playEvents": 19
+        },
+        {
+          "key": "sweet creature — harry styles",
+          "normalizedTitle": "Sweet Creature",
+          "displayArtist": "Harry Styles",
+          "totalMinutes": 36.2234,
+          "playEvents": 13
+        },
+        {
+          "key": "budapest — george ezra",
+          "normalizedTitle": "Budapest",
+          "displayArtist": "George Ezra",
+          "totalMinutes": 36.01278333333333,
+          "playEvents": 13
+        },
+        {
+          "key": "you can call me al — paul simon",
+          "normalizedTitle": "You Can Call Me Al",
+          "displayArtist": "Paul Simon",
+          "totalMinutes": 35.80026666666667,
+          "playEvents": 16
+        },
+        {
+          "key": "shotgun — george ezra",
+          "normalizedTitle": "Shotgun",
+          "displayArtist": "George Ezra",
+          "totalMinutes": 35.763416666666664,
+          "playEvents": 13
+        },
+        {
+          "key": "better together — jack johnson",
+          "normalizedTitle": "Better Together",
+          "displayArtist": "Jack Johnson",
+          "totalMinutes": 35.65398333333333,
+          "playEvents": 19
+        },
+        {
+          "key": "from now on — hugh jackman",
+          "normalizedTitle": "From Now On",
+          "displayArtist": "Hugh Jackman",
+          "totalMinutes": 35.58121666666667,
+          "playEvents": 13
+        },
+        {
+          "key": "the hills of aberfeldy — ed sheeran",
+          "normalizedTitle": "The Hills of Aberfeldy",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 35.57610000000001,
+          "playEvents": 24
+        },
+        {
+          "key": "chicken fried — zac brown band",
+          "normalizedTitle": "Chicken Fried",
+          "displayArtist": "Zac Brown Band",
+          "totalMinutes": 34.206199999999995,
+          "playEvents": 19
+        },
+        {
+          "key": "the general — dispatch",
+          "normalizedTitle": "The General",
+          "displayArtist": "DISPATCH",
+          "totalMinutes": 33.862916666666656,
+          "playEvents": 15
+        },
+        {
+          "key": "brown eyed girl — van morrison",
+          "normalizedTitle": "Brown Eyed Girl",
+          "displayArtist": "Van Morrison",
+          "totalMinutes": 33.85021666666667,
+          "playEvents": 14
+        },
+        {
+          "key": "say my name — hozier",
+          "normalizedTitle": "Say My Name",
+          "displayArtist": "Hozier",
+          "totalMinutes": 33.38613333333333,
+          "playEvents": 11
+        },
+        {
+          "key": "marvin gaye — charlie puth",
+          "normalizedTitle": "Marvin Gaye",
+          "displayArtist": "Charlie Puth",
+          "totalMinutes": 33.320166666666665,
+          "playEvents": 18
+        },
+        {
+          "key": "under pressure — queen",
+          "normalizedTitle": "Under Pressure",
+          "displayArtist": "Queen",
+          "totalMinutes": 33.27003333333334,
+          "playEvents": 12
+        },
+        {
+          "key": "southern cross — crosby, stills & nash",
+          "normalizedTitle": "Southern Cross",
+          "displayArtist": "Crosby, Stills & Nash",
+          "totalMinutes": 32.64571666666667,
+          "playEvents": 11
+        },
+        {
+          "key": "the long and winding road — the beatles",
+          "normalizedTitle": "The Long And Winding Road",
+          "displayArtist": "The Beatles",
+          "totalMinutes": 32.54698333333334,
+          "playEvents": 13
+        },
+        {
+          "key": "dancing in the moonlight — toploader",
+          "normalizedTitle": "Dancing in the Moonlight",
+          "displayArtist": "Toploader",
+          "totalMinutes": 32.50495000000001,
+          "playEvents": 20
+        },
+        {
+          "key": "shivers — ed sheeran",
+          "normalizedTitle": "Shivers",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 32.4153,
+          "playEvents": 18
+        }
+      ],
+      "topArtists": [
+        {
+          "artist": "Ed Sheeran",
+          "totalMinutes": 1660.1360166666675,
+          "playEvents": 825,
+          "uniqueSongs": 56
+        },
+        {
+          "artist": "Taylor Swift",
+          "totalMinutes": 699.4389666666673,
+          "playEvents": 592,
+          "uniqueSongs": 104
+        },
+        {
+          "artist": "Queen",
+          "totalMinutes": 527.4306833333329,
+          "playEvents": 285,
+          "uniqueSongs": 25
+        },
+        {
+          "artist": "Billy Joel",
+          "totalMinutes": 486.2223666666667,
+          "playEvents": 274,
+          "uniqueSongs": 20
+        },
+        {
+          "artist": "Elton John",
+          "totalMinutes": 419.49913333333325,
+          "playEvents": 211,
+          "uniqueSongs": 20
+        },
+        {
+          "artist": "The Beatles",
+          "totalMinutes": 310.3564166666667,
+          "playEvents": 243,
+          "uniqueSongs": 24
+        },
+        {
+          "artist": "Hozier",
+          "totalMinutes": 218.27963333333346,
+          "playEvents": 88,
+          "uniqueSongs": 6
+        },
+        {
+          "artist": "One Direction",
+          "totalMinutes": 181.11823333333345,
+          "playEvents": 79,
+          "uniqueSongs": 8
+        },
+        {
+          "artist": "Vance Joy",
+          "totalMinutes": 170.53808333333325,
+          "playEvents": 75,
+          "uniqueSongs": 4
+        },
+        {
+          "artist": "Calum Scott",
+          "totalMinutes": 143.52368333333337,
+          "playEvents": 58,
+          "uniqueSongs": 2
+        },
+        {
+          "artist": "Rihanna",
+          "totalMinutes": 124.18543333333332,
+          "playEvents": 49,
+          "uniqueSongs": 6
+        },
+        {
+          "artist": "Coldplay",
+          "totalMinutes": 117.0492666666667,
+          "playEvents": 46,
+          "uniqueSongs": 7
+        },
+        {
+          "artist": "Tracy Chapman",
+          "totalMinutes": 114.13783333333333,
+          "playEvents": 36,
+          "uniqueSongs": 2
+        },
+        {
+          "artist": "Frank Sinatra",
+          "totalMinutes": 106.54968333333333,
+          "playEvents": 49,
+          "uniqueSongs": 3
+        },
+        {
+          "artist": "Loggins & Messina",
+          "totalMinutes": 99.42461666666665,
+          "playEvents": 31,
+          "uniqueSongs": 2
+        },
+        {
+          "artist": "Jason Mraz",
+          "totalMinutes": 93.1748,
+          "playEvents": 43,
+          "uniqueSongs": 2
+        },
+        {
+          "artist": "Florence + The Machine",
+          "totalMinutes": 91.83783333333331,
+          "playEvents": 36,
+          "uniqueSongs": 4
+        },
+        {
+          "artist": "Shawn Mendes",
+          "totalMinutes": 90.86308333333334,
+          "playEvents": 54,
+          "uniqueSongs": 6
+        },
+        {
+          "artist": "James Bay",
+          "totalMinutes": 90.77783333333338,
+          "playEvents": 32,
+          "uniqueSongs": 3
+        },
+        {
+          "artist": "Paul Simon",
+          "totalMinutes": 84.3933666666667,
+          "playEvents": 41,
+          "uniqueSongs": 3
+        }
+      ],
+      "byCountry": [
+        {
+          "country": "US",
+          "minutes": 10374.043449999977
+        }
+      ],
+      "hourHeatmap": [
+        {
+          "hour": 0,
+          "minutes": 72.18048333333334,
+          "percent": 0.6957796512152968
+        },
+        {
+          "hour": 1,
+          "minutes": 9.450116666666666,
+          "percent": 0.0910938604818227
+        },
+        {
+          "hour": 2,
+          "minutes": 0,
+          "percent": 0
+        },
+        {
+          "hour": 3,
+          "minutes": 0,
+          "percent": 0
+        },
+        {
+          "hour": 4,
+          "minutes": 0,
+          "percent": 0
+        },
+        {
+          "hour": 5,
+          "minutes": 0,
+          "percent": 0
+        },
+        {
+          "hour": 6,
+          "minutes": 3.2513833333333335,
+          "percent": 0.03134152415115761
+        },
+        {
+          "hour": 7,
+          "minutes": 178.27481666666662,
+          "percent": 1.7184699247299435
+        },
+        {
+          "hour": 8,
+          "minutes": 1006.7180666666669,
+          "percent": 9.704201370649427
+        },
+        {
+          "hour": 9,
+          "minutes": 588.4967499999999,
+          "percent": 5.672780848050139
+        },
+        {
+          "hour": 10,
+          "minutes": 835.2231499999999,
+          "percent": 8.051085905178082
+        },
+        {
+          "hour": 11,
+          "minutes": 1001.7535166666668,
+          "percent": 9.656345874150613
+        },
+        {
+          "hour": 12,
+          "minutes": 1143.8203666666668,
+          "percent": 11.025791169851587
+        },
+        {
+          "hour": 13,
+          "minutes": 997.5236666666661,
+          "percent": 9.615572476387364
+        },
+        {
+          "hour": 14,
+          "minutes": 630.3690666666672,
+          "percent": 6.076406655754534
+        },
+        {
+          "hour": 15,
+          "minutes": 629.9549833333333,
+          "percent": 6.0724151230862
+        },
+        {
+          "hour": 16,
+          "minutes": 1133.2620499999998,
+          "percent": 10.92401487869226
+        },
+        {
+          "hour": 17,
+          "minutes": 538.2630666666666,
+          "percent": 5.188556123376046
+        },
+        {
+          "hour": 18,
+          "minutes": 510.00758333333374,
+          "percent": 4.9161890037518
+        },
+        {
+          "hour": 19,
+          "minutes": 335.6571666666667,
+          "percent": 3.23554810893593
+        },
+        {
+          "hour": 20,
+          "minutes": 254.77925000000005,
+          "percent": 2.455930045290104
+        },
+        {
+          "hour": 21,
+          "minutes": 225.79375000000007,
+          "percent": 2.176525971654766
+        },
+        {
+          "hour": 22,
+          "minutes": 129.1457166666667,
+          "percent": 1.244892768081347
+        },
+        {
+          "hour": 23,
+          "minutes": 150.11850000000004,
+          "percent": 1.4470587165315956
+        }
+      ],
+      "peakHour": 12,
+      "longestStreak": {
+        "days": 43,
+        "startDate": "2024-10-16",
+        "endDate": "2024-11-27"
+      },
+      "mostObsessedDay": {
+        "song": "What's New Pussycat?",
+        "artist": "Tom Jones",
+        "date": "2024-12-29",
+        "playCount": 7
+      },
+      "discoveryByMonth": [
+        {
+          "month": 1,
+          "count": 0
+        },
+        {
+          "month": 2,
+          "count": 0
+        },
+        {
+          "month": 3,
+          "count": 0
+        },
+        {
+          "month": 4,
+          "count": 0
+        },
+        {
+          "month": 5,
+          "count": 0
+        },
+        {
+          "month": 6,
+          "count": 0
+        },
+        {
+          "month": 7,
+          "count": 254
+        },
+        {
+          "month": 8,
+          "count": 94
+        },
+        {
+          "month": 9,
+          "count": 25
+        },
+        {
+          "month": 10,
+          "count": 10
+        },
+        {
+          "month": 11,
+          "count": 15
+        },
+        {
+          "month": 12,
+          "count": 27
+        }
+      ],
+      "newArtistCount": 425,
+      "skipRatePercent": 51.61390924684235,
+      "shuffleRatio": {
+        "shufflePercent": 92.18774364571964,
+        "onDemandPercent": 7.812256354280365
+      },
+      "platformBreakdown": {
+        "mobile": 97.27116794012163,
+        "desktop": 2.6820520817090285,
+        "other": 0.04677997816934352
+      }
+    },
+    "2025": {
+      "year": 2025,
+      "totalMinutes": 16595.687649999956,
+      "uniqueSongCount": 1723,
+      "uniqueArtistCount": 759,
+      "topDates": [
+        {
+          "date": "2025-05-11",
+          "minutes": 364.36086666666665
+        },
+        {
+          "date": "2025-09-22",
+          "minutes": 334.47180000000026
+        },
+        {
+          "date": "2025-07-27",
+          "minutes": 310.49651666666665
+        },
+        {
+          "date": "2025-06-29",
+          "minutes": 290.8537333333334
+        },
+        {
+          "date": "2025-09-18",
+          "minutes": 252.98558333333332
+        }
+      ],
+      "topSongs": [
+        {
+          "key": "iris — the goo goo dolls",
+          "normalizedTitle": "Iris",
+          "displayArtist": "The Goo Goo Dolls",
+          "totalMinutes": 220.10683333333333,
+          "playEvents": 86
+        },
+        {
+          "key": "fix you — coldplay",
+          "normalizedTitle": "Fix You",
+          "displayArtist": "Coldplay",
+          "totalMinutes": 179.33585,
+          "playEvents": 62
+        },
+        {
+          "key": "the a team — ed sheeran",
+          "normalizedTitle": "The A Team",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 157.03310000000002,
+          "playEvents": 58
+        },
+        {
+          "key": "little lion man — mumford & sons",
+          "normalizedTitle": "Little Lion Man",
+          "displayArtist": "Mumford & Sons",
+          "totalMinutes": 153.81205,
+          "playEvents": 53
+        },
+        {
+          "key": "i will wait — mumford & sons",
+          "normalizedTitle": "I Will Wait",
+          "displayArtist": "Mumford & Sons",
+          "totalMinutes": 144.93914999999996,
+          "playEvents": 52
+        },
+        {
+          "key": "the scientist — coldplay",
+          "normalizedTitle": "The Scientist",
+          "displayArtist": "Coldplay",
+          "totalMinutes": 141.73774999999995,
+          "playEvents": 46
+        },
+        {
+          "key": "fast car — tracy chapman",
+          "normalizedTitle": "Fast Car",
+          "displayArtist": "Tracy Chapman",
+          "totalMinutes": 132.55901666666674,
+          "playEvents": 44
+        },
+        {
+          "key": "perfect — ed sheeran",
+          "normalizedTitle": "Perfect",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 128.36031666666665,
+          "playEvents": 50
+        },
+        {
+          "key": "stick season — noah kahan",
+          "normalizedTitle": "Stick Season",
+          "displayArtist": "Noah Kahan",
+          "totalMinutes": 120.67288333333336,
+          "playEvents": 51
+        },
+        {
+          "key": "vienna — billy joel",
+          "normalizedTitle": "Vienna",
+          "displayArtist": "Billy Joel",
+          "totalMinutes": 120.23648333333337,
+          "playEvents": 47
+        },
+        {
+          "key": "mr. brightside — the killers",
+          "normalizedTitle": "Mr. Brightside",
+          "displayArtist": "The Killers",
+          "totalMinutes": 117.39185000000003,
+          "playEvents": 46
+        },
+        {
+          "key": "castle on the hill — ed sheeran",
+          "normalizedTitle": "Castle on the Hill",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 114.27329999999998,
+          "playEvents": 51
+        },
+        {
+          "key": "say you won't let go — james arthur",
+          "normalizedTitle": "Say You Won't Let Go",
+          "displayArtist": "James Arthur",
+          "totalMinutes": 103.22443333333338,
+          "playEvents": 53
+        },
+        {
+          "key": "let her go — passenger",
+          "normalizedTitle": "Let Her Go",
+          "displayArtist": "Passenger",
+          "totalMinutes": 101.37556666666663,
+          "playEvents": 68
+        },
+        {
+          "key": "dive — ed sheeran",
+          "normalizedTitle": "Dive",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 100.95168333333336,
+          "playEvents": 50
+        },
+        {
+          "key": "photograph — ed sheeran",
+          "normalizedTitle": "Photograph",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 99.48325000000003,
+          "playEvents": 39
+        },
+        {
+          "key": "alaska — maggie rogers",
+          "normalizedTitle": "Alaska",
+          "displayArtist": "Maggie Rogers",
+          "totalMinutes": 98.96855000000006,
+          "playEvents": 44
+        },
+        {
+          "key": "dog days are over — florence + the machine",
+          "normalizedTitle": "Dog Days Are Over",
+          "displayArtist": "Florence + The Machine",
+          "totalMinutes": 97.56424999999999,
+          "playEvents": 35
+        },
+        {
+          "key": "thinking out loud — ed sheeran",
+          "normalizedTitle": "Thinking out Loud",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 93.305,
+          "playEvents": 36
+        },
+        {
+          "key": "my way — frank sinatra",
+          "normalizedTitle": "My Way",
+          "displayArtist": "Frank Sinatra",
+          "totalMinutes": 91.82003333333336,
+          "playEvents": 34
+        },
+        {
+          "key": "i'm yours — jason mraz",
+          "normalizedTitle": "I'm Yours",
+          "displayArtist": "Jason Mraz",
+          "totalMinutes": 89.68895,
+          "playEvents": 42
+        },
+        {
+          "key": "tenerife sea — ed sheeran",
+          "normalizedTitle": "Tenerife Sea",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 88.97019999999998,
+          "playEvents": 51
+        },
+        {
+          "key": "too sweet — hozier",
+          "normalizedTitle": "Too Sweet",
+          "displayArtist": "Hozier",
+          "totalMinutes": 87.95171666666664,
+          "playEvents": 37
+        },
+        {
+          "key": "piano man — billy joel",
+          "normalizedTitle": "Piano Man",
+          "displayArtist": "Billy Joel",
+          "totalMinutes": 86.89546666666668,
+          "playEvents": 28
+        },
+        {
+          "key": "awake my soul — mumford & sons",
+          "normalizedTitle": "Awake My Soul",
+          "displayArtist": "Mumford & Sons",
+          "totalMinutes": 86.76121666666667,
+          "playEvents": 28
+        },
+        {
+          "key": "dancing on my own — calum scott",
+          "normalizedTitle": "Dancing On My Own",
+          "displayArtist": "Calum Scott",
+          "totalMinutes": 86.42014999999996,
+          "playEvents": 51
+        },
+        {
+          "key": "hold back the river — james bay",
+          "normalizedTitle": "Hold Back The River",
+          "displayArtist": "James Bay",
+          "totalMinutes": 85.95556666666668,
+          "playEvents": 42
+        },
+        {
+          "key": "story of my life — one direction",
+          "normalizedTitle": "Story of My Life",
+          "displayArtist": "One Direction",
+          "totalMinutes": 80.81558333333331,
+          "playEvents": 36
+        },
+        {
+          "key": "free fallin' — john mayer",
+          "normalizedTitle": "Free Fallin'",
+          "displayArtist": "John Mayer",
+          "totalMinutes": 80.34421666666665,
+          "playEvents": 25
+        },
+        {
+          "key": "the steps — haim",
+          "normalizedTitle": "The Steps",
+          "displayArtist": "HAIM",
+          "totalMinutes": 79.3672,
+          "playEvents": 40
+        },
+        {
+          "key": "something just like this — the chainsmokers",
+          "normalizedTitle": "Something Just Like This",
+          "displayArtist": "The Chainsmokers",
+          "totalMinutes": 77.33391666666667,
+          "playEvents": 37
+        },
+        {
+          "key": "you're beautiful — james blunt",
+          "normalizedTitle": "You're Beautiful",
+          "displayArtist": "James Blunt",
+          "totalMinutes": 77.30378333333334,
+          "playEvents": 43
+        },
+        {
+          "key": "bohemian rhapsody — queen",
+          "normalizedTitle": "Bohemian Rhapsody",
+          "displayArtist": "Queen",
+          "totalMinutes": 77.12666666666667,
+          "playEvents": 21
+        },
+        {
+          "key": "tiny dancer — elton john",
+          "normalizedTitle": "Tiny Dancer",
+          "displayArtist": "Elton John",
+          "totalMinutes": 77.09453333333335,
+          "playEvents": 25
+        },
+        {
+          "key": "take me to church — hozier",
+          "normalizedTitle": "Take Me to Church",
+          "displayArtist": "Hozier",
+          "totalMinutes": 76.63385,
+          "playEvents": 34
+        },
+        {
+          "key": "rocket man — elton john",
+          "normalizedTitle": "Rocket Man",
+          "displayArtist": "Elton John",
+          "totalMinutes": 75.50690000000002,
+          "playEvents": 39
+        },
+        {
+          "key": "cornelia street — taylor swift",
+          "normalizedTitle": "Cornelia Street",
+          "displayArtist": "Taylor Swift",
+          "totalMinutes": 74.26161666666664,
+          "playEvents": 23
+        },
+        {
+          "key": "somebody to love — queen",
+          "normalizedTitle": "Somebody To Love",
+          "displayArtist": "Queen",
+          "totalMinutes": 73.54176666666666,
+          "playEvents": 20
+        },
+        {
+          "key": "before you go — lewis capaldi",
+          "normalizedTitle": "Before You Go",
+          "displayArtist": "Lewis Capaldi",
+          "totalMinutes": 73.15791666666667,
+          "playEvents": 34
+        },
+        {
+          "key": "your song — elton john",
+          "normalizedTitle": "Your Song",
+          "displayArtist": "Elton John",
+          "totalMinutes": 70.22003333333332,
+          "playEvents": 44
+        },
+        {
+          "key": "hammer to fall — queen",
+          "normalizedTitle": "Hammer To Fall",
+          "displayArtist": "Queen",
+          "totalMinutes": 69.51861666666665,
+          "playEvents": 36
+        },
+        {
+          "key": "the cave — mumford & sons",
+          "normalizedTitle": "The Cave",
+          "displayArtist": "Mumford & Sons",
+          "totalMinutes": 69.36986666666667,
+          "playEvents": 31
+        },
+        {
+          "key": "breakeven — the script",
+          "normalizedTitle": "Breakeven",
+          "displayArtist": "The Script",
+          "totalMinutes": 68.94901666666668,
+          "playEvents": 30
+        },
+        {
+          "key": "beautiful things — benson boone",
+          "normalizedTitle": "Beautiful Things",
+          "displayArtist": "Benson Boone",
+          "totalMinutes": 68.72128333333332,
+          "playEvents": 30
+        },
+        {
+          "key": "don't — ed sheeran",
+          "normalizedTitle": "Don't",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 68.71881666666668,
+          "playEvents": 28
+        },
+        {
+          "key": "danny's song — loggins & messina",
+          "normalizedTitle": "Danny's Song",
+          "displayArtist": "Loggins & Messina",
+          "totalMinutes": 67.84208333333333,
+          "playEvents": 40
+        },
+        {
+          "key": "don't stop me now — queen",
+          "normalizedTitle": "Don't Stop Me Now",
+          "displayArtist": "Queen",
+          "totalMinutes": 67.67586666666668,
+          "playEvents": 28
+        },
+        {
+          "key": "budapest — george ezra",
+          "normalizedTitle": "Budapest",
+          "displayArtist": "George Ezra",
+          "totalMinutes": 66.8178,
+          "playEvents": 41
+        },
+        {
+          "key": "night changes — one direction",
+          "normalizedTitle": "Night Changes",
+          "displayArtist": "One Direction",
+          "totalMinutes": 66.71441666666665,
+          "playEvents": 29
+        },
+        {
+          "key": "love yourself — justin bieber",
+          "normalizedTitle": "Love Yourself",
+          "displayArtist": "Justin Bieber",
+          "totalMinutes": 66.45845,
+          "playEvents": 35
+        },
+        {
+          "key": "you've got a friend — james taylor",
+          "normalizedTitle": "You've Got a Friend",
+          "displayArtist": "James Taylor",
+          "totalMinutes": 65.69954999999999,
+          "playEvents": 32
+        },
+        {
+          "key": "all of me — john legend",
+          "normalizedTitle": "All of Me",
+          "displayArtist": "John Legend",
+          "totalMinutes": 65.30788333333331,
+          "playEvents": 35
+        },
+        {
+          "key": "you can call me al — paul simon",
+          "normalizedTitle": "You Can Call Me Al",
+          "displayArtist": "Paul Simon",
+          "totalMinutes": 64.7949,
+          "playEvents": 21
+        },
+        {
+          "key": "hearts don't break around here — ed sheeran",
+          "normalizedTitle": "Hearts Don't Break Around Here",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 64.52538333333334,
+          "playEvents": 31
+        },
+        {
+          "key": "new york state of mind — billy joel",
+          "normalizedTitle": "New York State of Mind",
+          "displayArtist": "Billy Joel",
+          "totalMinutes": 64.3962,
+          "playEvents": 20
+        },
+        {
+          "key": "she's always a woman — billy joel",
+          "normalizedTitle": "She's Always a Woman",
+          "displayArtist": "Billy Joel",
+          "totalMinutes": 63.61036666666667,
+          "playEvents": 34
+        },
+        {
+          "key": "somewhere only we know — keane",
+          "normalizedTitle": "Somewhere Only We Know",
+          "displayArtist": "Keane",
+          "totalMinutes": 62.637683333333335,
+          "playEvents": 35
+        },
+        {
+          "key": "valerie — amy winehouse",
+          "normalizedTitle": "Valerie",
+          "displayArtist": "Amy Winehouse",
+          "totalMinutes": 61.101099999999995,
+          "playEvents": 33
+        },
+        {
+          "key": "mess is mine — vance joy",
+          "normalizedTitle": "Mess Is Mine",
+          "displayArtist": "Vance Joy",
+          "totalMinutes": 60.582116666666664,
+          "playEvents": 32
+        },
+        {
+          "key": "kiss me — ed sheeran",
+          "normalizedTitle": "Kiss Me",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 60.15331666666667,
+          "playEvents": 19
+        },
+        {
+          "key": "under pressure — queen",
+          "normalizedTitle": "Under Pressure",
+          "displayArtist": "Queen",
+          "totalMinutes": 59.53075000000001,
+          "playEvents": 24
+        },
+        {
+          "key": "brown eyed girl — van morrison",
+          "normalizedTitle": "Brown Eyed Girl",
+          "displayArtist": "Van Morrison",
+          "totalMinutes": 59.51935000000002,
+          "playEvents": 23
+        },
+        {
+          "key": "philadelphia freedom — elton john",
+          "normalizedTitle": "Philadelphia Freedom",
+          "displayArtist": "Elton John",
+          "totalMinutes": 59.24748333333334,
+          "playEvents": 17
+        },
+        {
+          "key": "enter sandman — metallica",
+          "normalizedTitle": "Enter Sandman",
+          "displayArtist": "Metallica",
+          "totalMinutes": 58.67146666666666,
+          "playEvents": 21
+        },
+        {
+          "key": "saturday sun — vance joy",
+          "normalizedTitle": "Saturday Sun",
+          "displayArtist": "Vance Joy",
+          "totalMinutes": 58.24705,
+          "playEvents": 25
+        },
+        {
+          "key": "i won't give up — jason mraz",
+          "normalizedTitle": "I Won't Give Up",
+          "displayArtist": "Jason Mraz",
+          "totalMinutes": 57.82051666666665,
+          "playEvents": 33
+        },
+        {
+          "key": "shotgun — george ezra",
+          "normalizedTitle": "Shotgun",
+          "displayArtist": "George Ezra",
+          "totalMinutes": 57.68609999999999,
+          "playEvents": 33
+        },
+        {
+          "key": "baby one more time — ed sheeran",
+          "normalizedTitle": "Baby One More Time",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 57.60765000000001,
+          "playEvents": 32
+        },
+        {
+          "key": "life goes on — ed sheeran",
+          "normalizedTitle": "Life Goes On",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 57.10626666666667,
+          "playEvents": 38
+        },
+        {
+          "key": "you belong with me — taylor swift",
+          "normalizedTitle": "You Belong With Me",
+          "displayArtist": "Taylor Swift",
+          "totalMinutes": 56.565316666666654,
+          "playEvents": 33
+        },
+        {
+          "key": "company — dean friedman",
+          "normalizedTitle": "Company",
+          "displayArtist": "Dean Friedman",
+          "totalMinutes": 55.98085,
+          "playEvents": 27
+        },
+        {
+          "key": "dive — luke combs",
+          "normalizedTitle": "Dive",
+          "displayArtist": "Luke Combs",
+          "totalMinutes": 55.962900000000005,
+          "playEvents": 19
+        },
+        {
+          "key": "stitches — shawn mendes",
+          "normalizedTitle": "Stitches",
+          "displayArtist": "Shawn Mendes",
+          "totalMinutes": 55.90838333333334,
+          "playEvents": 22
+        },
+        {
+          "key": "blank space — taylor swift",
+          "normalizedTitle": "Blank Space",
+          "displayArtist": "Taylor Swift",
+          "totalMinutes": 55.86988333333332,
+          "playEvents": 24
+        },
+        {
+          "key": "someone new — hozier",
+          "normalizedTitle": "Someone New",
+          "displayArtist": "Hozier",
+          "totalMinutes": 55.62453333333333,
+          "playEvents": 26
+        },
+        {
+          "key": "galway girl — ed sheeran",
+          "normalizedTitle": "Galway Girl",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 55.622699999999995,
+          "playEvents": 27
+        },
+        {
+          "key": "home — phillip phillips",
+          "normalizedTitle": "Home",
+          "displayArtist": "Phillip Phillips",
+          "totalMinutes": 54.593533333333326,
+          "playEvents": 27
+        },
+        {
+          "key": "riptide — vance joy",
+          "normalizedTitle": "Riptide",
+          "displayArtist": "Vance Joy",
+          "totalMinutes": 53.82896666666665,
+          "playEvents": 37
+        },
+        {
+          "key": "lean on me — bill withers",
+          "normalizedTitle": "Lean on Me",
+          "displayArtist": "Bill Withers",
+          "totalMinutes": 53.45039999999999,
+          "playEvents": 22
+        },
+        {
+          "key": "penguins — ed sheeran",
+          "normalizedTitle": "Penguins",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 53.384916666666676,
+          "playEvents": 17
+        },
+        {
+          "key": "gone, gone, gone — phillip phillips",
+          "normalizedTitle": "Gone, Gone, Gone",
+          "displayArtist": "Phillip Phillips",
+          "totalMinutes": 53.26948333333333,
+          "playEvents": 25
+        },
+        {
+          "key": "a bar song — shaboozey",
+          "normalizedTitle": "A Bar Song",
+          "displayArtist": "Shaboozey",
+          "totalMinutes": 53.10073333333332,
+          "playEvents": 29
+        },
+        {
+          "key": "you are the reason — calum scott",
+          "normalizedTitle": "You Are The Reason",
+          "displayArtist": "Calum Scott",
+          "totalMinutes": 52.929766666666666,
+          "playEvents": 28
+        },
+        {
+          "key": "killer queen — queen",
+          "normalizedTitle": "Killer Queen",
+          "displayArtist": "Queen",
+          "totalMinutes": 52.500983333333316,
+          "playEvents": 27
+        },
+        {
+          "key": "can't help falling in love — elvis presley",
+          "normalizedTitle": "Can't Help Falling in Love",
+          "displayArtist": "Elvis Presley",
+          "totalMinutes": 51.807283333333345,
+          "playEvents": 41
+        },
+        {
+          "key": "clocks — coldplay",
+          "normalizedTitle": "Clocks",
+          "displayArtist": "Coldplay",
+          "totalMinutes": 51.68801666666667,
+          "playEvents": 22
+        },
+        {
+          "key": "light on — maggie rogers",
+          "normalizedTitle": "Light On",
+          "displayArtist": "Maggie Rogers",
+          "totalMinutes": 51.59418333333333,
+          "playEvents": 19
+        },
+        {
+          "key": "free fallin' — tom petty",
+          "normalizedTitle": "Free Fallin'",
+          "displayArtist": "Tom Petty",
+          "totalMinutes": 51.358133333333335,
+          "playEvents": 17
+        },
+        {
+          "key": "style — taylor swift",
+          "normalizedTitle": "Style",
+          "displayArtist": "Taylor Swift",
+          "totalMinutes": 51.34441666666668,
+          "playEvents": 27
+        },
+        {
+          "key": "stay with me — sam smith",
+          "normalizedTitle": "Stay With Me",
+          "displayArtist": "Sam Smith",
+          "totalMinutes": 50.863783333333345,
+          "playEvents": 30
+        },
+        {
+          "key": "valerie — mark ronson",
+          "normalizedTitle": "Valerie",
+          "displayArtist": "Mark Ronson",
+          "totalMinutes": 50.47905,
+          "playEvents": 26
+        },
+        {
+          "key": "say my name — hozier",
+          "normalizedTitle": "Say My Name",
+          "displayArtist": "Hozier",
+          "totalMinutes": 50.276783333333334,
+          "playEvents": 19
+        },
+        {
+          "key": "better together — jack johnson",
+          "normalizedTitle": "Better Together",
+          "displayArtist": "Jack Johnson",
+          "totalMinutes": 49.62755,
+          "playEvents": 24
+        },
+        {
+          "key": "all i want — kodaline",
+          "normalizedTitle": "All I Want",
+          "displayArtist": "Kodaline",
+          "totalMinutes": 49.38360000000001,
+          "playEvents": 20
+        },
+        {
+          "key": "under the bridge — red hot chili peppers",
+          "normalizedTitle": "Under the Bridge",
+          "displayArtist": "Red Hot Chili Peppers",
+          "totalMinutes": 48.55773333333334,
+          "playEvents": 18
+        },
+        {
+          "key": "imagine — chris kläfford",
+          "normalizedTitle": "Imagine",
+          "displayArtist": "Chris Kläfford",
+          "totalMinutes": 48.17725,
+          "playEvents": 22
+        },
+        {
+          "key": "in my life — the beatles",
+          "normalizedTitle": "In My Life",
+          "displayArtist": "The Beatles",
+          "totalMinutes": 46.95501666666669,
+          "playEvents": 30
+        },
+        {
+          "key": "scenes from an italian restaurant — billy joel",
+          "normalizedTitle": "Scenes from an Italian Restaurant",
+          "displayArtist": "Billy Joel",
+          "totalMinutes": 46.9347,
+          "playEvents": 15
+        },
+        {
+          "key": "lover — taylor swift",
+          "normalizedTitle": "Lover",
+          "displayArtist": "Taylor Swift",
+          "totalMinutes": 46.591883333333335,
+          "playEvents": 15
+        },
+        {
+          "key": "where is the love? — black eyed peas",
+          "normalizedTitle": "Where Is The Love?",
+          "displayArtist": "Black Eyed Peas",
+          "totalMinutes": 46.313366666666674,
+          "playEvents": 22
+        }
+      ],
+      "topArtists": [
+        {
+          "artist": "Ed Sheeran",
+          "totalMinutes": 2124.2410333333282,
+          "playEvents": 1339,
+          "uniqueSongs": 99
+        },
+        {
+          "artist": "Taylor Swift",
+          "totalMinutes": 760.7311000000004,
+          "playEvents": 627,
+          "uniqueSongs": 63
+        },
+        {
+          "artist": "Billy Joel",
+          "totalMinutes": 746.0137999999993,
+          "playEvents": 404,
+          "uniqueSongs": 27
+        },
+        {
+          "artist": "Queen",
+          "totalMinutes": 676.9865500000006,
+          "playEvents": 385,
+          "uniqueSongs": 24
+        },
+        {
+          "artist": "Mumford & Sons",
+          "totalMinutes": 646.6647499999996,
+          "playEvents": 314,
+          "uniqueSongs": 30
+        },
+        {
+          "artist": "Elton John",
+          "totalMinutes": 511.9833166666667,
+          "playEvents": 294,
+          "uniqueSongs": 20
+        },
+        {
+          "artist": "Coldplay",
+          "totalMinutes": 482.4394833333333,
+          "playEvents": 212,
+          "uniqueSongs": 20
+        },
+        {
+          "artist": "The Beatles",
+          "totalMinutes": 409.6545333333332,
+          "playEvents": 313,
+          "uniqueSongs": 22
+        },
+        {
+          "artist": "Hozier",
+          "totalMinutes": 274.2835333333334,
+          "playEvents": 138,
+          "uniqueSongs": 8
+        },
+        {
+          "artist": "One Direction",
+          "totalMinutes": 237.57926666666674,
+          "playEvents": 124,
+          "uniqueSongs": 9
+        },
+        {
+          "artist": "The Goo Goo Dolls",
+          "totalMinutes": 224.34588333333332,
+          "playEvents": 91,
+          "uniqueSongs": 3
+        },
+        {
+          "artist": "Shawn Mendes",
+          "totalMinutes": 194.58146666666684,
+          "playEvents": 113,
+          "uniqueSongs": 6
+        },
+        {
+          "artist": "Vance Joy",
+          "totalMinutes": 188.2482333333332,
+          "playEvents": 104,
+          "uniqueSongs": 5
+        },
+        {
+          "artist": "Rihanna",
+          "totalMinutes": 185.1438333333333,
+          "playEvents": 100,
+          "uniqueSongs": 6
+        },
+        {
+          "artist": "Maggie Rogers",
+          "totalMinutes": 167.74960000000004,
+          "playEvents": 91,
+          "uniqueSongs": 7
+        },
+        {
+          "artist": "Frank Sinatra",
+          "totalMinutes": 160.9542166666667,
+          "playEvents": 71,
+          "uniqueSongs": 7
+        },
+        {
+          "artist": "Adele",
+          "totalMinutes": 148.81266666666667,
+          "playEvents": 102,
+          "uniqueSongs": 9
+        },
+        {
+          "artist": "Jason Mraz",
+          "totalMinutes": 147.8063333333334,
+          "playEvents": 79,
+          "uniqueSongs": 4
+        },
+        {
+          "artist": "Calum Scott",
+          "totalMinutes": 139.53104999999996,
+          "playEvents": 80,
+          "uniqueSongs": 3
+        },
+        {
+          "artist": "Tracy Chapman",
+          "totalMinutes": 132.55901666666674,
+          "playEvents": 44,
+          "uniqueSongs": 1
+        }
+      ],
+      "byCountry": [
+        {
+          "country": "US",
+          "minutes": 16595.665616666625
+        },
+        {
+          "country": "GB",
+          "minutes": 0.022033333333333332
+        }
+      ],
+      "hourHeatmap": [
+        {
+          "hour": 0,
+          "minutes": 160.13855000000004,
+          "percent": 0.9649407326607528
+        },
+        {
+          "hour": 1,
+          "minutes": 57.08648333333333,
+          "percent": 0.34398383807454547
+        },
+        {
+          "hour": 2,
+          "minutes": 5.018483333333333,
+          "percent": 0.030239682977724242
+        },
+        {
+          "hour": 3,
+          "minutes": 0,
+          "percent": 0
+        },
+        {
+          "hour": 4,
+          "minutes": 0,
+          "percent": 0
+        },
+        {
+          "hour": 5,
+          "minutes": 0,
+          "percent": 0
+        },
+        {
+          "hour": 6,
+          "minutes": 31.26938333333333,
+          "percent": 0.18841872655595165
+        },
+        {
+          "hour": 7,
+          "minutes": 138.6302333333333,
+          "percent": 0.8353388919882047
+        },
+        {
+          "hour": 8,
+          "minutes": 301.3319166666666,
+          "percent": 1.8157241990913626
+        },
+        {
+          "hour": 9,
+          "minutes": 607.7504000000001,
+          "percent": 3.6620983282967505
+        },
+        {
+          "hour": 10,
+          "minutes": 938.3199666666665,
+          "percent": 5.6539987161464005
+        },
+        {
+          "hour": 11,
+          "minutes": 1751.815866666663,
+          "percent": 10.555849830462815
+        },
+        {
+          "hour": 12,
+          "minutes": 1818.0135999999998,
+          "percent": 10.954734978999198
+        },
+        {
+          "hour": 13,
+          "minutes": 1631.190016666666,
+          "percent": 9.828999262146672
+        },
+        {
+          "hour": 14,
+          "minutes": 1380.352483333335,
+          "percent": 8.317537136421914
+        },
+        {
+          "hour": 15,
+          "minutes": 1440.3119666666669,
+          "percent": 8.678832700654421
+        },
+        {
+          "hour": 16,
+          "minutes": 1537.1713666666662,
+          "percent": 9.262474680684091
+        },
+        {
+          "hour": 17,
+          "minutes": 1240.864683333336,
+          "percent": 7.477030837787166
+        },
+        {
+          "hour": 18,
+          "minutes": 1205.8411000000015,
+          "percent": 7.265990571954406
+        },
+        {
+          "hour": 19,
+          "minutes": 663.4874833333331,
+          "percent": 3.9979511384292246
+        },
+        {
+          "hour": 20,
+          "minutes": 576.7764999999998,
+          "percent": 3.4754600843551064
+        },
+        {
+          "hour": 21,
+          "minutes": 426.7446333333334,
+          "percent": 2.5714188067002666
+        },
+        {
+          "hour": 22,
+          "minutes": 422.5135166666668,
+          "percent": 2.5459235289154587
+        },
+        {
+          "hour": 23,
+          "minutes": 261.05901666666665,
+          "percent": 1.5730533266975937
+        }
+      ],
+      "peakHour": 12,
+      "longestStreak": {
+        "days": 86,
+        "startDate": "2025-08-05",
+        "endDate": "2025-10-29"
+      },
+      "mostObsessedDay": {
+        "song": "Stonehenge",
+        "artist": "Spinal Tap",
+        "date": "2025-07-31",
+        "playCount": 8
+      },
+      "discoveryByMonth": [
+        {
+          "month": 1,
+          "count": 24
+        },
+        {
+          "month": 2,
+          "count": 21
+        },
+        {
+          "month": 3,
+          "count": 86
+        },
+        {
+          "month": 4,
+          "count": 8
+        },
+        {
+          "month": 5,
+          "count": 151
+        },
+        {
+          "month": 6,
+          "count": 22
+        },
+        {
+          "month": 7,
+          "count": 14
+        },
+        {
+          "month": 8,
+          "count": 47
+        },
+        {
+          "month": 9,
+          "count": 33
+        },
+        {
+          "month": 10,
+          "count": 35
+        },
+        {
+          "month": 11,
+          "count": 0
+        },
+        {
+          "month": 12,
+          "count": 0
+        }
+      ],
+      "newArtistCount": 441,
+      "skipRatePercent": 56.09542952023071,
+      "shuffleRatio": {
+        "shufflePercent": 85.30979638206763,
+        "onDemandPercent": 14.690203617932369
+      },
+      "platformBreakdown": {
+        "mobile": 96.0762037927117,
+        "desktop": 3.9237962072882984,
+        "other": 0
+      }
+    }
+  },
+  "allTime": {
+    "totalMinutes": 26969.73109999997,
+    "uniqueSongCount": 2054,
+    "uniqueArtistCount": 866,
+    "firstListenedByArtist": [
+      {
+        "artist": "Ed Sheeran",
+        "firstTs": "2024-07-14T00:19:15.000Z",
+        "firstDate": "2024-07-13"
+      },
+      {
+        "artist": "Queen",
+        "firstTs": "2024-07-14T00:19:16.000Z",
+        "firstDate": "2024-07-13"
+      },
+      {
+        "artist": "Jack Johnson",
+        "firstTs": "2024-07-14T00:19:16.000Z",
+        "firstDate": "2024-07-13"
+      },
+      {
+        "artist": "Leona Lewis",
+        "firstTs": "2024-07-14T00:19:17.000Z",
+        "firstDate": "2024-07-13"
+      },
+      {
+        "artist": "Kina Grannis",
+        "firstTs": "2024-07-14T00:19:18.000Z",
+        "firstDate": "2024-07-13"
+      },
+      {
+        "artist": "Foreigner",
+        "firstTs": "2024-07-14T00:19:20.000Z",
+        "firstDate": "2024-07-13"
+      },
+      {
+        "artist": "Wet Wet Wet",
+        "firstTs": "2024-07-14T00:19:27.000Z",
+        "firstDate": "2024-07-13"
+      },
+      {
+        "artist": "Savage Garden",
+        "firstTs": "2024-07-14T00:19:30.000Z",
+        "firstDate": "2024-07-13"
+      },
+      {
+        "artist": "Robbie Williams",
+        "firstTs": "2024-07-14T00:19:31.000Z",
+        "firstDate": "2024-07-13"
+      },
+      {
+        "artist": "Adele",
+        "firstTs": "2024-07-14T00:19:32.000Z",
+        "firstDate": "2024-07-13"
+      },
+      {
+        "artist": "Ricky Montgomery",
+        "firstTs": "2024-07-14T00:19:34.000Z",
+        "firstDate": "2024-07-13"
+      },
+      {
+        "artist": "Ashe",
+        "firstTs": "2024-07-14T00:19:35.000Z",
+        "firstDate": "2024-07-13"
+      },
+      {
+        "artist": "Aerosmith",
+        "firstTs": "2024-07-14T00:19:37.000Z",
+        "firstDate": "2024-07-13"
+      },
+      {
+        "artist": "Rachel Platten",
+        "firstTs": "2024-07-14T00:19:38.000Z",
+        "firstDate": "2024-07-13"
+      },
+      {
+        "artist": "One Direction",
+        "firstTs": "2024-07-14T00:19:41.000Z",
+        "firstDate": "2024-07-13"
+      },
+      {
+        "artist": "Stephen Sanchez",
+        "firstTs": "2024-07-14T00:19:42.000Z",
+        "firstDate": "2024-07-13"
+      },
+      {
+        "artist": "James Arthur",
+        "firstTs": "2024-07-14T00:19:43.000Z",
+        "firstDate": "2024-07-13"
+      },
+      {
+        "artist": "Harry Styles",
+        "firstTs": "2024-07-14T00:19:49.000Z",
+        "firstDate": "2024-07-13"
+      },
+      {
+        "artist": "Take That",
+        "firstTs": "2024-07-14T00:19:50.000Z",
+        "firstDate": "2024-07-13"
+      },
+      {
+        "artist": "LeAnn Rimes",
+        "firstTs": "2024-07-14T00:19:52.000Z",
+        "firstDate": "2024-07-13"
+      },
+      {
+        "artist": "Florence + The Machine",
+        "firstTs": "2024-07-14T00:19:53.000Z",
+        "firstDate": "2024-07-13"
+      },
+      {
+        "artist": "Taylor Swift",
+        "firstTs": "2024-07-14T00:19:54.000Z",
+        "firstDate": "2024-07-13"
+      },
+      {
+        "artist": "Jason Mraz",
+        "firstTs": "2024-07-14T00:19:55.000Z",
+        "firstDate": "2024-07-13"
+      },
+      {
+        "artist": "Tom Petty",
+        "firstTs": "2024-07-14T14:53:52.000Z",
+        "firstDate": "2024-07-14"
+      },
+      {
+        "artist": "Shawn Mendes",
+        "firstTs": "2024-07-14T14:54:19.000Z",
+        "firstDate": "2024-07-14"
+      },
+      {
+        "artist": "Enrique Iglesias",
+        "firstTs": "2024-07-14T14:54:22.000Z",
+        "firstDate": "2024-07-14"
+      },
+      {
+        "artist": "James Bay",
+        "firstTs": "2024-07-14T14:54:23.000Z",
+        "firstDate": "2024-07-14"
+      },
+      {
+        "artist": "Tracy Chapman",
+        "firstTs": "2024-07-14T14:54:26.000Z",
+        "firstDate": "2024-07-14"
+      },
+      {
+        "artist": "Frank Sinatra",
+        "firstTs": "2024-07-14T14:54:28.000Z",
+        "firstDate": "2024-07-14"
+      },
+      {
+        "artist": "Paramore",
+        "firstTs": "2024-07-14T14:54:29.000Z",
+        "firstDate": "2024-07-14"
+      },
+      {
+        "artist": "Roxette",
+        "firstTs": "2024-07-14T14:54:30.000Z",
+        "firstDate": "2024-07-14"
+      },
+      {
+        "artist": "Lonestar",
+        "firstTs": "2024-07-14T14:54:33.000Z",
+        "firstDate": "2024-07-14"
+      },
+      {
+        "artist": "Billy Joel",
+        "firstTs": "2024-07-14T14:54:35.000Z",
+        "firstDate": "2024-07-14"
+      },
+      {
+        "artist": "Elton John",
+        "firstTs": "2024-07-14T14:58:55.000Z",
+        "firstDate": "2024-07-14"
+      },
+      {
+        "artist": "Michael Bublé",
+        "firstTs": "2024-07-14T14:58:59.000Z",
+        "firstDate": "2024-07-14"
+      },
+      {
+        "artist": "Whitney Houston",
+        "firstTs": "2024-07-14T16:11:15.000Z",
+        "firstDate": "2024-07-14"
+      },
+      {
+        "artist": "Richard Marx",
+        "firstTs": "2024-07-14T16:13:41.000Z",
+        "firstDate": "2024-07-14"
+      },
+      {
+        "artist": "Shania Twain",
+        "firstTs": "2024-07-14T16:13:42.000Z",
+        "firstDate": "2024-07-14"
+      },
+      {
+        "artist": "Eric Carmen",
+        "firstTs": "2024-07-14T16:13:44.000Z",
+        "firstDate": "2024-07-14"
+      },
+      {
+        "artist": "James Blunt",
+        "firstTs": "2024-07-14T16:46:06.000Z",
+        "firstDate": "2024-07-14"
+      },
+      {
+        "artist": "Justin Bieber",
+        "firstTs": "2024-07-14T16:46:08.000Z",
+        "firstDate": "2024-07-14"
+      },
+      {
+        "artist": "Imagine Dragons",
+        "firstTs": "2024-07-14T16:46:25.000Z",
+        "firstDate": "2024-07-14"
+      },
+      {
+        "artist": "Andy Grammer",
+        "firstTs": "2024-07-14T16:46:28.000Z",
+        "firstDate": "2024-07-14"
+      },
+      {
+        "artist": "Calum Scott",
+        "firstTs": "2024-07-14T16:47:04.000Z",
+        "firstDate": "2024-07-14"
+      },
+      {
+        "artist": "Keala Settle",
+        "firstTs": "2024-07-14T20:12:41.000Z",
+        "firstDate": "2024-07-14"
+      },
+      {
+        "artist": "Harry Chapin",
+        "firstTs": "2024-07-14T20:49:30.000Z",
+        "firstDate": "2024-07-14"
+      },
+      {
+        "artist": "Zac Brown Band",
+        "firstTs": "2024-07-14T20:53:29.000Z",
+        "firstDate": "2024-07-14"
+      },
+      {
+        "artist": "Kenny Rogers",
+        "firstTs": "2024-07-15T18:29:43.000Z",
+        "firstDate": "2024-07-15"
+      },
+      {
+        "artist": "Mumford & Sons",
+        "firstTs": "2024-07-15T20:07:00.000Z",
+        "firstDate": "2024-07-15"
+      },
+      {
+        "artist": "The Beatles",
+        "firstTs": "2024-07-15T20:09:42.000Z",
+        "firstDate": "2024-07-15"
+      },
+      {
+        "artist": "DISPATCH",
+        "firstTs": "2024-07-15T20:10:48.000Z",
+        "firstDate": "2024-07-15"
+      },
+      {
+        "artist": "Hozier",
+        "firstTs": "2024-07-15T20:10:51.000Z",
+        "firstDate": "2024-07-15"
+      },
+      {
+        "artist": "Creed Bratton",
+        "firstTs": "2024-07-15T20:11:02.000Z",
+        "firstDate": "2024-07-15"
+      },
+      {
+        "artist": "John Denver",
+        "firstTs": "2024-07-15T20:11:04.000Z",
+        "firstDate": "2024-07-15"
+      },
+      {
+        "artist": "Phillip Phillips",
+        "firstTs": "2024-07-15T20:11:09.000Z",
+        "firstDate": "2024-07-15"
+      },
+      {
+        "artist": "Swedish House Mafia",
+        "firstTs": "2024-07-15T20:14:51.000Z",
+        "firstDate": "2024-07-15"
+      },
+      {
+        "artist": "Niall Horan",
+        "firstTs": "2024-07-15T20:18:45.000Z",
+        "firstDate": "2024-07-15"
+      },
+      {
+        "artist": "The Chainsmokers",
+        "firstTs": "2024-07-15T20:22:50.000Z",
+        "firstDate": "2024-07-15"
+      },
+      {
+        "artist": "Dwayne Johnson",
+        "firstTs": "2024-07-15T20:25:35.000Z",
+        "firstDate": "2024-07-15"
+      },
+      {
+        "artist": "OneRepublic",
+        "firstTs": "2024-07-15T20:37:59.000Z",
+        "firstDate": "2024-07-15"
+      },
+      {
+        "artist": "Hugh Jackman",
+        "firstTs": "2024-07-15T20:38:35.000Z",
+        "firstDate": "2024-07-15"
+      },
+      {
+        "artist": "Chris Kläfford",
+        "firstTs": "2024-07-15T20:38:48.000Z",
+        "firstDate": "2024-07-15"
+      },
+      {
+        "artist": "Van Morrison",
+        "firstTs": "2024-07-15T20:56:46.000Z",
+        "firstDate": "2024-07-15"
+      },
+      {
+        "artist": "John Williams",
+        "firstTs": "2024-07-15T20:58:30.000Z",
+        "firstDate": "2024-07-15"
+      },
+      {
+        "artist": "Jeff Buckley",
+        "firstTs": "2024-07-16T18:32:01.000Z",
+        "firstDate": "2024-07-16"
+      },
+      {
+        "artist": "Royal Blood",
+        "firstTs": "2024-07-16T18:32:17.000Z",
+        "firstDate": "2024-07-16"
+      },
+      {
+        "artist": "Coldplay",
+        "firstTs": "2024-07-17T00:01:11.000Z",
+        "firstDate": "2024-07-16"
+      },
+      {
+        "artist": "Green Day",
+        "firstTs": "2024-07-17T00:05:57.000Z",
+        "firstDate": "2024-07-16"
+      },
+      {
+        "artist": "Electric Light Orchestra",
+        "firstTs": "2024-07-17T00:14:32.000Z",
+        "firstDate": "2024-07-16"
+      },
+      {
+        "artist": "The Police",
+        "firstTs": "2024-07-17T00:14:33.000Z",
+        "firstDate": "2024-07-16"
+      },
+      {
+        "artist": "Europe",
+        "firstTs": "2024-07-17T00:14:34.000Z",
+        "firstDate": "2024-07-16"
+      },
+      {
+        "artist": "Creedence Clearwater Revival",
+        "firstTs": "2024-07-17T00:14:35.000Z",
+        "firstDate": "2024-07-16"
+      },
+      {
+        "artist": "Bon Jovi",
+        "firstTs": "2024-07-17T00:32:08.000Z",
+        "firstDate": "2024-07-16"
+      },
+      {
+        "artist": "Bruce Springsteen",
+        "firstTs": "2024-07-17T00:36:39.000Z",
+        "firstDate": "2024-07-16"
+      },
+      {
+        "artist": "The Killers",
+        "firstTs": "2024-07-17T03:06:15.000Z",
+        "firstDate": "2024-07-16"
+      },
+      {
+        "artist": "The Kingston Trio",
+        "firstTs": "2024-07-17T18:25:42.000Z",
+        "firstDate": "2024-07-17"
+      },
+      {
+        "artist": "The Flaming Lips",
+        "firstTs": "2024-07-17T18:25:45.000Z",
+        "firstDate": "2024-07-17"
+      },
+      {
+        "artist": "Dean Friedman",
+        "firstTs": "2024-07-17T18:25:46.000Z",
+        "firstDate": "2024-07-17"
+      },
+      {
+        "artist": "The Head And The Heart",
+        "firstTs": "2024-07-17T18:34:02.000Z",
+        "firstDate": "2024-07-17"
+      },
+      {
+        "artist": "Pink Floyd",
+        "firstTs": "2024-07-17T18:38:27.000Z",
+        "firstDate": "2024-07-17"
+      },
+      {
+        "artist": "Neil Young",
+        "firstTs": "2024-07-17T18:43:39.000Z",
+        "firstDate": "2024-07-17"
+      },
+      {
+        "artist": "Red Hot Chili Peppers",
+        "firstTs": "2024-07-17T18:46:35.000Z",
+        "firstDate": "2024-07-17"
+      },
+      {
+        "artist": "Crosby, Stills, Nash & Young",
+        "firstTs": "2024-07-17T18:46:37.000Z",
+        "firstDate": "2024-07-17"
+      },
+      {
+        "artist": "Yusuf / Cat Stevens",
+        "firstTs": "2024-07-17T18:46:39.000Z",
+        "firstDate": "2024-07-17"
+      },
+      {
+        "artist": "Mark Ronson",
+        "firstTs": "2024-07-17T22:53:38.000Z",
+        "firstDate": "2024-07-17"
+      },
+      {
+        "artist": "Miley Cyrus",
+        "firstTs": "2024-07-17T22:57:01.000Z",
+        "firstDate": "2024-07-17"
+      },
+      {
+        "artist": "The Rolling Stones",
+        "firstTs": "2024-07-18T01:54:10.000Z",
+        "firstDate": "2024-07-17"
+      },
+      {
+        "artist": "Eminem",
+        "firstTs": "2024-07-18T02:01:28.000Z",
+        "firstDate": "2024-07-17"
+      },
+      {
+        "artist": "Avicii",
+        "firstTs": "2024-07-18T02:05:43.000Z",
+        "firstDate": "2024-07-17"
+      },
+      {
+        "artist": "The Temptations",
+        "firstTs": "2024-07-18T20:20:05.000Z",
+        "firstDate": "2024-07-18"
+      },
+      {
+        "artist": "Vertical Horizon",
+        "firstTs": "2024-07-18T20:27:09.000Z",
+        "firstDate": "2024-07-18"
+      },
+      {
+        "artist": "Commodores",
+        "firstTs": "2024-07-18T20:27:14.000Z",
+        "firstDate": "2024-07-18"
+      },
+      {
+        "artist": "HAIM",
+        "firstTs": "2024-07-18T20:27:16.000Z",
+        "firstDate": "2024-07-18"
+      },
+      {
+        "artist": "Charlie Puth",
+        "firstTs": "2024-07-18T20:44:30.000Z",
+        "firstDate": "2024-07-18"
+      },
+      {
+        "artist": "Auli'i Cravalho",
+        "firstTs": "2024-07-18T20:45:08.000Z",
+        "firstDate": "2024-07-18"
+      },
+      {
+        "artist": "Passenger",
+        "firstTs": "2024-07-18T20:45:15.000Z",
+        "firstDate": "2024-07-18"
+      },
+      {
+        "artist": "Lord Huron",
+        "firstTs": "2024-07-20T01:05:52.000Z",
+        "firstDate": "2024-07-19"
+      },
+      {
+        "artist": "Kelly Clarkson",
+        "firstTs": "2024-07-20T01:05:59.000Z",
+        "firstDate": "2024-07-19"
+      },
+      {
+        "artist": "Vance Joy",
+        "firstTs": "2024-07-20T01:27:16.000Z",
+        "firstDate": "2024-07-19"
+      },
+      {
+        "artist": "The Lumineers",
+        "firstTs": "2024-07-20T04:26:04.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "George Ezra",
+        "firstTs": "2024-07-20T04:29:36.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Snow Patrol",
+        "firstTs": "2024-07-20T04:31:44.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "The Kooks",
+        "firstTs": "2024-07-20T04:31:49.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Cyndi Lauper",
+        "firstTs": "2024-07-20T04:33:53.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "The Cranberries",
+        "firstTs": "2024-07-20T04:33:56.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "The Calling",
+        "firstTs": "2024-07-20T04:34:00.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Ronan Keating",
+        "firstTs": "2024-07-20T04:34:04.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Michael Bolton",
+        "firstTs": "2024-07-20T04:34:09.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Forest Blakk",
+        "firstTs": "2024-07-20T04:34:11.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Etta James",
+        "firstTs": "2024-07-20T04:34:12.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Ellie Goulding",
+        "firstTs": "2024-07-20T04:34:13.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Lady Gaga",
+        "firstTs": "2024-07-20T04:34:15.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Elvis Costello",
+        "firstTs": "2024-07-20T04:34:24.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "The Righteous Brothers",
+        "firstTs": "2024-07-20T04:34:29.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "The Bangles",
+        "firstTs": "2024-07-20T04:34:30.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "John Legend",
+        "firstTs": "2024-07-20T04:34:33.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Norah Jones",
+        "firstTs": "2024-07-20T04:35:55.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Joe Cocker",
+        "firstTs": "2024-07-20T04:35:59.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Rihanna",
+        "firstTs": "2024-07-20T04:36:03.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Sixpence None The Richer",
+        "firstTs": "2024-07-20T04:36:04.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Ruth B.",
+        "firstTs": "2024-07-20T04:36:07.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Plain White T's",
+        "firstTs": "2024-07-20T04:36:25.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Bryan Adams",
+        "firstTs": "2024-07-20T04:36:27.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "George Michael",
+        "firstTs": "2024-07-20T04:36:30.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "American Authors",
+        "firstTs": "2024-07-20T04:36:31.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "fun.",
+        "firstTs": "2024-07-20T04:36:32.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "The Rembrandts",
+        "firstTs": "2024-07-20T04:36:37.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "The Goo Goo Dolls",
+        "firstTs": "2024-07-20T04:36:38.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "P!nk",
+        "firstTs": "2024-07-20T04:36:39.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Don McLean",
+        "firstTs": "2024-07-20T04:36:40.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "U2",
+        "firstTs": "2024-07-20T04:38:28.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "WALK THE MOON",
+        "firstTs": "2024-07-20T04:38:29.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Sam Smith",
+        "firstTs": "2024-07-20T04:38:35.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Lewis Capaldi",
+        "firstTs": "2024-07-20T04:38:51.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Beyoncé",
+        "firstTs": "2024-07-20T04:38:55.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "TOTO",
+        "firstTs": "2024-07-20T04:38:58.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Katrina & The Waves",
+        "firstTs": "2024-07-20T04:38:59.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Of Monsters and Men",
+        "firstTs": "2024-07-20T04:40:37.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Alanis Morissette",
+        "firstTs": "2024-07-20T04:40:38.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Neon Trees",
+        "firstTs": "2024-07-20T04:40:41.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Wham!",
+        "firstTs": "2024-07-20T04:40:42.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Deep Blue Something",
+        "firstTs": "2024-07-20T04:40:44.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Daniel Powter",
+        "firstTs": "2024-07-20T04:40:49.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Bonnie Tyler",
+        "firstTs": "2024-07-20T04:41:01.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Alicia Keys",
+        "firstTs": "2024-07-20T04:41:04.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Edward Sharpe & The Magnetic Zeros",
+        "firstTs": "2024-07-20T04:41:08.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Train",
+        "firstTs": "2024-07-20T04:41:10.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Kings of Leon",
+        "firstTs": "2024-07-20T04:42:44.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Lorde",
+        "firstTs": "2024-07-20T04:42:49.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Bastille",
+        "firstTs": "2024-07-20T04:42:50.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "A Great Big World",
+        "firstTs": "2024-07-20T04:42:56.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Fleetwood Mac",
+        "firstTs": "2024-07-20T04:42:58.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Extreme",
+        "firstTs": "2024-07-20T04:43:04.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Sara Bareilles",
+        "firstTs": "2024-07-20T04:43:08.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Natasha Bedingfield",
+        "firstTs": "2024-07-20T04:46:34.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Christina Aguilera",
+        "firstTs": "2024-07-20T04:48:06.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "The Script",
+        "firstTs": "2024-07-20T04:48:07.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "The Jackson 5",
+        "firstTs": "2024-07-20T04:48:08.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Maroon 5",
+        "firstTs": "2024-07-20T04:48:10.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Keane",
+        "firstTs": "2024-07-20T04:48:15.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Rick Springfield",
+        "firstTs": "2024-07-20T04:48:19.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Dexys Midnight Runners",
+        "firstTs": "2024-07-20T04:49:28.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Vanessa Carlton",
+        "firstTs": "2024-07-20T04:49:33.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Backstreet Boys",
+        "firstTs": "2024-07-20T04:49:36.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Daryl Hall & John Oates",
+        "firstTs": "2024-07-20T04:49:37.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Kenny Loggins",
+        "firstTs": "2024-07-20T04:49:39.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "4 Non Blondes",
+        "firstTs": "2024-07-20T04:49:44.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "ABBA",
+        "firstTs": "2024-07-20T04:50:59.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Freya Ridings",
+        "firstTs": "2024-07-20T16:09:20.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Ben E. King",
+        "firstTs": "2024-07-20T16:44:39.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Colbie Caillat",
+        "firstTs": "2024-07-20T16:48:49.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "John Lennon",
+        "firstTs": "2024-07-20T16:48:51.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Clinton Kane",
+        "firstTs": "2024-07-20T16:48:52.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Sting",
+        "firstTs": "2024-07-20T16:56:59.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Lionel Richie",
+        "firstTs": "2024-07-20T17:48:00.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "The Original Caste",
+        "firstTs": "2024-07-20T17:52:49.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Loggins & Messina",
+        "firstTs": "2024-07-20T17:52:53.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Bob Dylan",
+        "firstTs": "2024-07-20T17:56:36.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Stevie Wonder",
+        "firstTs": "2024-07-20T18:02:12.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Opetaia Foa'i",
+        "firstTs": "2024-07-20T21:23:57.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Bill Withers",
+        "firstTs": "2024-07-20T21:33:54.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Donald Glover & Danny Pudi",
+        "firstTs": "2024-07-20T21:38:37.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Nick Jonas",
+        "firstTs": "2024-07-20T21:38:39.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Big Time Rush",
+        "firstTs": "2024-07-20T21:42:56.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Black Eyed Peas",
+        "firstTs": "2024-07-20T21:50:31.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Marc Cohn",
+        "firstTs": "2024-07-20T21:50:33.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Christina Perri",
+        "firstTs": "2024-07-20T21:51:11.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Semisonic",
+        "firstTs": "2024-07-20T21:51:48.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Gloria Gaynor",
+        "firstTs": "2024-07-21T00:20:11.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Chord Overstreet",
+        "firstTs": "2024-07-21T00:24:25.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "The Chords",
+        "firstTs": "2024-07-21T00:26:01.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Indigo Girls",
+        "firstTs": "2024-07-21T00:26:03.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "MKTO",
+        "firstTs": "2024-07-21T00:26:04.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "The Philly Specials",
+        "firstTs": "2024-07-21T00:27:27.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Lifehouse",
+        "firstTs": "2024-07-21T00:28:51.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Ariana Grande",
+        "firstTs": "2024-07-21T00:31:13.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Counting Crows",
+        "firstTs": "2024-07-21T00:34:41.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Blasterjaxx",
+        "firstTs": "2024-07-21T00:38:55.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Thin Lizzy",
+        "firstTs": "2024-07-21T00:40:51.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Maggie Rogers",
+        "firstTs": "2024-07-21T00:40:56.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Donny Osmond",
+        "firstTs": "2024-07-21T00:45:10.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Ziv Zaifman",
+        "firstTs": "2024-07-21T00:45:15.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Kristen Bell",
+        "firstTs": "2024-07-21T00:45:20.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Lukas Graham",
+        "firstTs": "2024-07-21T00:45:34.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Dolly Parton",
+        "firstTs": "2024-07-21T00:45:36.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Leslie Odom Jr.",
+        "firstTs": "2024-07-21T00:45:37.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "George Harrison",
+        "firstTs": "2024-07-21T00:45:43.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "The Fray",
+        "firstTs": "2024-07-21T00:45:45.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "The Monkees",
+        "firstTs": "2024-07-21T00:45:52.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Christopher Jackson",
+        "firstTs": "2024-07-21T00:46:02.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Smokey Robinson & The Miracles",
+        "firstTs": "2024-07-21T00:46:09.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Bebe Rexha",
+        "firstTs": "2024-07-21T00:49:41.000Z",
+        "firstDate": "2024-07-20"
+      },
+      {
+        "artist": "Blue Swede",
+        "firstTs": "2024-07-21T23:58:13.000Z",
+        "firstDate": "2024-07-21"
+      },
+      {
+        "artist": "Todd Herzog",
+        "firstTs": "2024-07-22T00:02:26.000Z",
+        "firstDate": "2024-07-21"
+      },
+      {
+        "artist": "Wiz Khalifa",
+        "firstTs": "2024-07-22T00:02:31.000Z",
+        "firstDate": "2024-07-21"
+      },
+      {
+        "artist": "Stephen Stills",
+        "firstTs": "2024-07-22T00:02:34.000Z",
+        "firstDate": "2024-07-21"
+      },
+      {
+        "artist": "James Taylor",
+        "firstTs": "2024-07-22T00:02:44.000Z",
+        "firstDate": "2024-07-21"
+      },
+      {
+        "artist": "Sarah McLachlan",
+        "firstTs": "2024-07-22T00:02:51.000Z",
+        "firstDate": "2024-07-21"
+      },
+      {
+        "artist": "Troy",
+        "firstTs": "2024-07-22T00:26:45.000Z",
+        "firstDate": "2024-07-21"
+      },
+      {
+        "artist": "Oasis",
+        "firstTs": "2024-07-22T00:29:28.000Z",
+        "firstDate": "2024-07-21"
+      },
+      {
+        "artist": "The Outfield",
+        "firstTs": "2024-07-23T01:39:02.000Z",
+        "firstDate": "2024-07-22"
+      },
+      {
+        "artist": "Santana",
+        "firstTs": "2024-07-23T01:55:18.000Z",
+        "firstDate": "2024-07-22"
+      },
+      {
+        "artist": "David Bowie",
+        "firstTs": "2024-07-23T03:34:33.000Z",
+        "firstDate": "2024-07-22"
+      },
+      {
+        "artist": "Foo Fighters",
+        "firstTs": "2024-07-23T03:41:20.000Z",
+        "firstDate": "2024-07-22"
+      },
+      {
+        "artist": "AC/DC",
+        "firstTs": "2024-07-23T03:41:29.000Z",
+        "firstDate": "2024-07-22"
+      },
+      {
+        "artist": "Tom Petty and the Heartbreakers",
+        "firstTs": "2024-07-23T03:45:50.000Z",
+        "firstDate": "2024-07-22"
+      },
+      {
+        "artist": "Victorious Cast",
+        "firstTs": "2024-07-23T16:35:56.000Z",
+        "firstDate": "2024-07-23"
+      },
+      {
+        "artist": "Cascada",
+        "firstTs": "2024-07-23T16:42:41.000Z",
+        "firstDate": "2024-07-23"
+      },
+      {
+        "artist": "Death Cab for Cutie",
+        "firstTs": "2024-07-26T16:41:41.000Z",
+        "firstDate": "2024-07-26"
+      },
+      {
+        "artist": "Mouse Rat",
+        "firstTs": "2024-07-26T18:34:01.000Z",
+        "firstDate": "2024-07-26"
+      },
+      {
+        "artist": "Bruno Mars",
+        "firstTs": "2024-07-27T00:16:04.000Z",
+        "firstDate": "2024-07-26"
+      },
+      {
+        "artist": "Olly Alexander (Years & Years)",
+        "firstTs": "2024-07-27T00:16:15.000Z",
+        "firstDate": "2024-07-26"
+      },
+      {
+        "artist": "Zac Efron",
+        "firstTs": "2024-07-27T00:16:18.000Z",
+        "firstDate": "2024-07-26"
+      },
+      {
+        "artist": "Eagles",
+        "firstTs": "2024-07-27T02:36:09.000Z",
+        "firstDate": "2024-07-26"
+      },
+      {
+        "artist": "Nico & Vinz",
+        "firstTs": "2024-07-27T02:36:11.000Z",
+        "firstDate": "2024-07-26"
+      },
+      {
+        "artist": "Journey",
+        "firstTs": "2024-07-27T02:36:15.000Z",
+        "firstDate": "2024-07-26"
+      },
+      {
+        "artist": "Elvis Presley",
+        "firstTs": "2024-07-27T02:36:19.000Z",
+        "firstDate": "2024-07-26"
+      },
+      {
+        "artist": "Gary Clark Jr.",
+        "firstTs": "2024-07-27T13:40:56.000Z",
+        "firstDate": "2024-07-27"
+      },
+      {
+        "artist": "Edwin McCain",
+        "firstTs": "2024-07-27T13:49:11.000Z",
+        "firstDate": "2024-07-27"
+      },
+      {
+        "artist": "Paul Simon",
+        "firstTs": "2024-07-27T13:57:00.000Z",
+        "firstDate": "2024-07-27"
+      },
+      {
+        "artist": "Crosby, Stills & Nash",
+        "firstTs": "2024-07-27T14:22:26.000Z",
+        "firstDate": "2024-07-27"
+      },
+      {
+        "artist": "Peter, Paul and Mary",
+        "firstTs": "2024-07-27T14:22:34.000Z",
+        "firstDate": "2024-07-27"
+      },
+      {
+        "artist": "Darius Rucker",
+        "firstTs": "2024-07-27T15:21:19.000Z",
+        "firstDate": "2024-07-27"
+      },
+      {
+        "artist": "Seal",
+        "firstTs": "2024-07-27T16:23:45.000Z",
+        "firstDate": "2024-07-27"
+      },
+      {
+        "artist": "ROSALÍA",
+        "firstTs": "2024-07-27T16:26:21.000Z",
+        "firstDate": "2024-07-27"
+      },
+      {
+        "artist": "USHER",
+        "firstTs": "2024-07-27T16:28:04.000Z",
+        "firstDate": "2024-07-27"
+      },
+      {
+        "artist": "Avril Lavigne",
+        "firstTs": "2024-07-28T02:42:36.000Z",
+        "firstDate": "2024-07-27"
+      },
+      {
+        "artist": "Olivia Rodrigo",
+        "firstTs": "2024-07-28T02:43:19.000Z",
+        "firstDate": "2024-07-27"
+      },
+      {
+        "artist": "Lily Allen",
+        "firstTs": "2024-07-28T02:43:30.000Z",
+        "firstDate": "2024-07-27"
+      },
+      {
+        "artist": "Louis Armstrong",
+        "firstTs": "2024-07-29T15:42:00.000Z",
+        "firstDate": "2024-07-29"
+      },
+      {
+        "artist": "iCarly & Victorious Casts",
+        "firstTs": "2024-07-29T16:34:19.000Z",
+        "firstDate": "2024-07-29"
+      },
+      {
+        "artist": "Kodaline",
+        "firstTs": "2024-07-30T16:06:44.000Z",
+        "firstDate": "2024-07-30"
+      },
+      {
+        "artist": "Destiny's Child",
+        "firstTs": "2024-07-31T20:21:25.000Z",
+        "firstDate": "2024-07-31"
+      },
+      {
+        "artist": "Eagle-Eye Cherry",
+        "firstTs": "2024-07-31T20:39:19.000Z",
+        "firstDate": "2024-07-31"
+      },
+      {
+        "artist": "Buffalo Springfield",
+        "firstTs": "2024-08-01T15:18:21.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "Dua Lipa",
+        "firstTs": "2024-08-01T15:58:17.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "Spice Girls",
+        "firstTs": "2024-08-01T15:58:18.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "Paolo Nutini",
+        "firstTs": "2024-08-01T15:58:19.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "Halsey",
+        "firstTs": "2024-08-01T15:58:21.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "Little Mix",
+        "firstTs": "2024-08-01T15:58:23.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "Lizzo",
+        "firstTs": "2024-08-01T15:58:23.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "Kate Nash",
+        "firstTs": "2024-08-01T15:58:24.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "347aidan",
+        "firstTs": "2024-08-01T15:58:25.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "Zedd",
+        "firstTs": "2024-08-01T15:58:26.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "Jason Derulo",
+        "firstTs": "2024-08-01T15:58:27.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "Selena Gomez",
+        "firstTs": "2024-08-01T15:58:27.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "AURORA",
+        "firstTs": "2024-08-01T15:58:29.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "Jake Bugg",
+        "firstTs": "2024-08-01T15:58:30.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "Kid Cudi",
+        "firstTs": "2024-08-01T15:58:31.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "Tones And I",
+        "firstTs": "2024-08-01T15:58:31.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "Demi Lovato",
+        "firstTs": "2024-08-01T15:58:32.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "Maggie Lindemann",
+        "firstTs": "2024-08-01T15:58:33.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "The Strokes",
+        "firstTs": "2024-08-01T15:58:34.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "Katy Perry",
+        "firstTs": "2024-08-01T15:58:40.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "Jess Glynne",
+        "firstTs": "2024-08-01T15:58:49.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "Doja Cat",
+        "firstTs": "2024-08-01T15:58:55.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "Meredith Brooks",
+        "firstTs": "2024-08-01T15:58:57.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "Normani",
+        "firstTs": "2024-08-01T15:58:58.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "Wallows",
+        "firstTs": "2024-08-01T15:58:59.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "Corinne Bailey Rae",
+        "firstTs": "2024-08-01T16:01:55.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "Hailee Steinfeld",
+        "firstTs": "2024-08-01T16:01:58.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "Big Thief",
+        "firstTs": "2024-08-01T16:02:03.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "Sia",
+        "firstTs": "2024-08-01T16:02:04.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "Iggy Azalea",
+        "firstTs": "2024-08-01T16:03:24.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "Daya",
+        "firstTs": "2024-08-01T16:03:25.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "Kacey Musgraves",
+        "firstTs": "2024-08-01T16:03:49.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "Ben Howard",
+        "firstTs": "2024-08-01T16:03:51.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "M.I.A.",
+        "firstTs": "2024-08-01T16:03:51.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "Jessie J",
+        "firstTs": "2024-08-01T16:04:01.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "Birdy",
+        "firstTs": "2024-08-01T16:04:03.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "Modest Mouse",
+        "firstTs": "2024-08-01T16:04:05.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "Earth, Wind & Fire",
+        "firstTs": "2024-08-01T19:57:28.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "Paratone",
+        "firstTs": "2024-08-01T20:18:50.000Z",
+        "firstDate": "2024-08-01"
+      },
+      {
+        "artist": "Soundtrack Guru",
+        "firstTs": "2024-08-03T19:53:42.000Z",
+        "firstDate": "2024-08-03"
+      },
+      {
+        "artist": "Toners",
+        "firstTs": "2024-08-03T19:53:45.000Z",
+        "firstDate": "2024-08-03"
+      },
+      {
+        "artist": "Bobby Morganstein",
+        "firstTs": "2024-08-03T19:53:52.000Z",
+        "firstDate": "2024-08-03"
+      },
+      {
+        "artist": "Sports All-Stars",
+        "firstTs": "2024-08-03T19:53:57.000Z",
+        "firstDate": "2024-08-03"
+      },
+      {
+        "artist": "The Ohio State University Marching Band",
+        "firstTs": "2024-08-03T19:54:03.000Z",
+        "firstDate": "2024-08-03"
+      },
+      {
+        "artist": "The Home Depot",
+        "firstTs": "2024-08-03T20:14:30.000Z",
+        "firstDate": "2024-08-03"
+      },
+      {
+        "artist": "Matisyahu",
+        "firstTs": "2024-08-04T05:36:38.000Z",
+        "firstDate": "2024-08-04"
+      },
+      {
+        "artist": "blink-182",
+        "firstTs": "2024-08-04T16:00:05.000Z",
+        "firstDate": "2024-08-04"
+      },
+      {
+        "artist": "Reneé Rapp",
+        "firstTs": "2024-08-07T03:19:15.000Z",
+        "firstDate": "2024-08-06"
+      },
+      {
+        "artist": "Disturbed",
+        "firstTs": "2024-08-07T19:04:44.000Z",
+        "firstDate": "2024-08-07"
+      },
+      {
+        "artist": "Nickelback",
+        "firstTs": "2024-08-07T19:07:21.000Z",
+        "firstDate": "2024-08-07"
+      },
+      {
+        "artist": "The White Stripes",
+        "firstTs": "2024-08-07T19:12:46.000Z",
+        "firstDate": "2024-08-07"
+      },
+      {
+        "artist": "Bob Seger",
+        "firstTs": "2024-08-07T19:12:49.000Z",
+        "firstDate": "2024-08-07"
+      },
+      {
+        "artist": "REO Speedwagon",
+        "firstTs": "2024-08-07T19:12:53.000Z",
+        "firstDate": "2024-08-07"
+      },
+      {
+        "artist": "KISS",
+        "firstTs": "2024-08-07T19:13:35.000Z",
+        "firstDate": "2024-08-07"
+      },
+      {
+        "artist": "The Foundations",
+        "firstTs": "2024-08-07T20:37:49.000Z",
+        "firstDate": "2024-08-07"
+      },
+      {
+        "artist": "Rascal Flatts",
+        "firstTs": "2024-08-10T21:48:59.000Z",
+        "firstDate": "2024-08-10"
+      },
+      {
+        "artist": "David Guetta",
+        "firstTs": "2024-08-11T00:13:48.000Z",
+        "firstDate": "2024-08-10"
+      },
+      {
+        "artist": "Sheppard",
+        "firstTs": "2024-08-11T16:30:15.000Z",
+        "firstDate": "2024-08-11"
+      },
+      {
+        "artist": "Nico Segal",
+        "firstTs": "2024-08-11T18:59:08.000Z",
+        "firstDate": "2024-08-11"
+      },
+      {
+        "artist": "Olly Murs",
+        "firstTs": "2024-08-15T17:39:00.000Z",
+        "firstDate": "2024-08-15"
+      },
+      {
+        "artist": "BANNERS",
+        "firstTs": "2024-08-15T17:39:06.000Z",
+        "firstDate": "2024-08-15"
+      },
+      {
+        "artist": "Dobie Gray",
+        "firstTs": "2024-08-15T20:42:39.000Z",
+        "firstDate": "2024-08-15"
+      },
+      {
+        "artist": "X Ambassadors",
+        "firstTs": "2024-08-16T02:06:23.000Z",
+        "firstDate": "2024-08-15"
+      },
+      {
+        "artist": "Young the Giant",
+        "firstTs": "2024-08-16T02:06:24.000Z",
+        "firstDate": "2024-08-15"
+      },
+      {
+        "artist": "The Paper Kites",
+        "firstTs": "2024-08-16T02:06:26.000Z",
+        "firstDate": "2024-08-15"
+      },
+      {
+        "artist": "Perry Como",
+        "firstTs": "2024-08-17T21:21:23.000Z",
+        "firstDate": "2024-08-17"
+      },
+      {
+        "artist": "Mahalia Jackson",
+        "firstTs": "2024-08-17T21:21:48.000Z",
+        "firstDate": "2024-08-17"
+      },
+      {
+        "artist": "Metropolitan Boys Choir",
+        "firstTs": "2024-08-17T21:21:49.000Z",
+        "firstDate": "2024-08-17"
+      },
+      {
+        "artist": "Doris Day",
+        "firstTs": "2024-08-17T21:22:12.000Z",
+        "firstDate": "2024-08-17"
+      },
+      {
+        "artist": "MAY H. BRAE",
+        "firstTs": "2024-08-17T21:22:21.000Z",
+        "firstDate": "2024-08-17"
+      },
+      {
+        "artist": "Steam",
+        "firstTs": "2024-08-18T13:16:15.000Z",
+        "firstDate": "2024-08-18"
+      },
+      {
+        "artist": "The 2 Johnnies",
+        "firstTs": "2024-08-18T16:26:52.000Z",
+        "firstDate": "2024-08-18"
+      },
+      {
+        "artist": "Afroman",
+        "firstTs": "2024-08-18T16:28:32.000Z",
+        "firstDate": "2024-08-18"
+      },
+      {
+        "artist": "Toploader",
+        "firstTs": "2024-08-18T17:52:53.000Z",
+        "firstDate": "2024-08-18"
+      },
+      {
+        "artist": "Tears For Fears",
+        "firstTs": "2024-08-18T17:57:04.000Z",
+        "firstDate": "2024-08-18"
+      },
+      {
+        "artist": "Jonas Brothers",
+        "firstTs": "2024-08-18T22:53:21.000Z",
+        "firstDate": "2024-08-18"
+      },
+      {
+        "artist": "Lauv",
+        "firstTs": "2024-08-18T22:53:22.000Z",
+        "firstDate": "2024-08-18"
+      },
+      {
+        "artist": "Owl City",
+        "firstTs": "2024-08-18T22:56:31.000Z",
+        "firstDate": "2024-08-18"
+      },
+      {
+        "artist": "HRVY",
+        "firstTs": "2024-08-18T22:56:35.000Z",
+        "firstDate": "2024-08-18"
+      },
+      {
+        "artist": "The Weeknd",
+        "firstTs": "2024-08-18T22:56:37.000Z",
+        "firstDate": "2024-08-18"
+      },
+      {
+        "artist": "Meghan Trainor",
+        "firstTs": "2024-08-18T23:01:55.000Z",
+        "firstDate": "2024-08-18"
+      },
+      {
+        "artist": "Pitbull",
+        "firstTs": "2024-08-18T23:09:26.000Z",
+        "firstDate": "2024-08-18"
+      },
+      {
+        "artist": "Calvin Harris",
+        "firstTs": "2024-08-18T23:11:57.000Z",
+        "firstDate": "2024-08-18"
+      },
+      {
+        "artist": "Anne-Marie",
+        "firstTs": "2024-08-18T23:11:58.000Z",
+        "firstDate": "2024-08-18"
+      },
+      {
+        "artist": "Conan Gray",
+        "firstTs": "2024-08-18T23:11:59.000Z",
+        "firstDate": "2024-08-18"
+      },
+      {
+        "artist": "Selena Gomez & The Scene",
+        "firstTs": "2024-08-18T23:12:01.000Z",
+        "firstDate": "2024-08-18"
+      },
+      {
+        "artist": "Anton",
+        "firstTs": "2024-08-23T13:34:11.000Z",
+        "firstDate": "2024-08-23"
+      },
+      {
+        "artist": "Marvin Gaye",
+        "firstTs": "2024-08-23T17:25:38.000Z",
+        "firstDate": "2024-08-23"
+      },
+      {
+        "artist": "High Frequency Karaoke",
+        "firstTs": "2024-08-23T17:58:10.000Z",
+        "firstDate": "2024-08-23"
+      },
+      {
+        "artist": "Jimmy Cliff",
+        "firstTs": "2024-08-24T19:45:26.000Z",
+        "firstDate": "2024-08-24"
+      },
+      {
+        "artist": "Babyface",
+        "firstTs": "2024-08-25T00:53:58.000Z",
+        "firstDate": "2024-08-24"
+      },
+      {
+        "artist": "Sing2Piano",
+        "firstTs": "2024-08-26T20:37:26.000Z",
+        "firstDate": "2024-08-26"
+      },
+      {
+        "artist": "Smile",
+        "firstTs": "2024-08-29T22:10:01.000Z",
+        "firstDate": "2024-08-29"
+      },
+      {
+        "artist": "Zach Bryan",
+        "firstTs": "2024-08-30T16:49:34.000Z",
+        "firstDate": "2024-08-30"
+      },
+      {
+        "artist": "Manfred Mann",
+        "firstTs": "2024-09-05T16:48:40.000Z",
+        "firstDate": "2024-09-05"
+      },
+      {
+        "artist": "Amy Winehouse",
+        "firstTs": "2024-09-05T21:01:22.000Z",
+        "firstDate": "2024-09-05"
+      },
+      {
+        "artist": "Chappell Roan",
+        "firstTs": "2024-09-06T01:06:48.000Z",
+        "firstDate": "2024-09-05"
+      },
+      {
+        "artist": "Roy Orbison",
+        "firstTs": "2024-09-08T01:59:01.000Z",
+        "firstDate": "2024-09-07"
+      },
+      {
+        "artist": "Post Malone",
+        "firstTs": "2024-09-08T02:48:22.000Z",
+        "firstDate": "2024-09-07"
+      },
+      {
+        "artist": "MIKA",
+        "firstTs": "2024-09-08T02:48:49.000Z",
+        "firstDate": "2024-09-07"
+      },
+      {
+        "artist": "Tai Verdes",
+        "firstTs": "2024-09-08T02:51:42.000Z",
+        "firstDate": "2024-09-07"
+      },
+      {
+        "artist": "King Harvest",
+        "firstTs": "2024-09-10T20:48:38.000Z",
+        "firstDate": "2024-09-10"
+      },
+      {
+        "artist": "Bill Conti",
+        "firstTs": "2024-09-14T22:33:47.000Z",
+        "firstDate": "2024-09-14"
+      },
+      {
+        "artist": "Survivor",
+        "firstTs": "2024-09-14T22:33:50.000Z",
+        "firstDate": "2024-09-14"
+      },
+      {
+        "artist": "Luke Combs",
+        "firstTs": "2024-09-16T11:55:08.000Z",
+        "firstDate": "2024-09-16"
+      },
+      {
+        "artist": "Meek Mill",
+        "firstTs": "2024-09-16T23:48:36.000Z",
+        "firstDate": "2024-09-16"
+      },
+      {
+        "artist": "Deorro",
+        "firstTs": "2024-09-16T23:48:38.000Z",
+        "firstDate": "2024-09-16"
+      },
+      {
+        "artist": "Eve",
+        "firstTs": "2024-09-16T23:48:41.000Z",
+        "firstDate": "2024-09-16"
+      },
+      {
+        "artist": "Kanye West",
+        "firstTs": "2024-09-16T23:57:56.000Z",
+        "firstDate": "2024-09-16"
+      },
+      {
+        "artist": "Artemas",
+        "firstTs": "2024-09-23T02:18:37.000Z",
+        "firstDate": "2024-09-22"
+      },
+      {
+        "artist": "Nolan Meister",
+        "firstTs": "2024-09-23T04:30:21.000Z",
+        "firstDate": "2024-09-23"
+      },
+      {
+        "artist": "Peter White",
+        "firstTs": "2024-09-23T04:30:34.000Z",
+        "firstDate": "2024-09-23"
+      },
+      {
+        "artist": "Aaron Vaughn",
+        "firstTs": "2024-09-23T04:30:36.000Z",
+        "firstDate": "2024-09-23"
+      },
+      {
+        "artist": "Silas Hogan",
+        "firstTs": "2024-09-23T04:30:39.000Z",
+        "firstDate": "2024-09-23"
+      },
+      {
+        "artist": "Jonathan Alexandru",
+        "firstTs": "2024-09-23T04:31:14.000Z",
+        "firstDate": "2024-09-23"
+      },
+      {
+        "artist": "The Smashing Pumpkins",
+        "firstTs": "2024-09-24T23:27:44.000Z",
+        "firstDate": "2024-09-24"
+      },
+      {
+        "artist": "The Chicks",
+        "firstTs": "2024-09-24T23:28:04.000Z",
+        "firstDate": "2024-09-24"
+      },
+      {
+        "artist": "Big Red Machine",
+        "firstTs": "2024-09-24T23:51:26.000Z",
+        "firstDate": "2024-09-24"
+      },
+      {
+        "artist": "Lynyrd Skynyrd",
+        "firstTs": "2024-09-28T18:29:45.000Z",
+        "firstDate": "2024-09-28"
+      },
+      {
+        "artist": "Cody Jinks",
+        "firstTs": "2024-10-02T13:15:45.000Z",
+        "firstDate": "2024-10-02"
+      },
+      {
+        "artist": "Shaggy",
+        "firstTs": "2024-10-06T13:57:52.000Z",
+        "firstDate": "2024-10-06"
+      },
+      {
+        "artist": "Tyler, The Creator",
+        "firstTs": "2024-10-06T13:58:06.000Z",
+        "firstDate": "2024-10-06"
+      },
+      {
+        "artist": "Dave Matthews Band",
+        "firstTs": "2024-10-06T14:03:21.000Z",
+        "firstDate": "2024-10-06"
+      },
+      {
+        "artist": "Original Broadway Cast of Hamilton",
+        "firstTs": "2024-10-10T12:07:21.000Z",
+        "firstDate": "2024-10-10"
+      },
+      {
+        "artist": "Bob Marley & The Wailers",
+        "firstTs": "2024-10-12T21:35:05.000Z",
+        "firstDate": "2024-10-12"
+      },
+      {
+        "artist": "Gene Kelly",
+        "firstTs": "2024-10-21T12:24:51.000Z",
+        "firstDate": "2024-10-21"
+      },
+      {
+        "artist": "Dr. Dre",
+        "firstTs": "2024-10-23T17:13:39.000Z",
+        "firstDate": "2024-10-23"
+      },
+      {
+        "artist": "MEDUZA",
+        "firstTs": "2024-10-24T12:35:11.000Z",
+        "firstDate": "2024-10-24"
+      },
+      {
+        "artist": "Britney Spears",
+        "firstTs": "2024-10-28T23:38:23.000Z",
+        "firstDate": "2024-10-28"
+      },
+      {
+        "artist": "Renée Elise Goldsberry",
+        "firstTs": "2024-11-03T17:58:36.000Z",
+        "firstDate": "2024-11-03"
+      },
+      {
+        "artist": "Phillipa Soo",
+        "firstTs": "2024-11-03T17:58:38.000Z",
+        "firstDate": "2024-11-03"
+      },
+      {
+        "artist": "Lin-Manuel Miranda",
+        "firstTs": "2024-11-03T17:58:39.000Z",
+        "firstDate": "2024-11-03"
+      },
+      {
+        "artist": "Jasmine Cephas-Jones",
+        "firstTs": "2024-11-04T12:50:51.000Z",
+        "firstDate": "2024-11-04"
+      },
+      {
+        "artist": "Thayne Jasperson",
+        "firstTs": "2024-11-04T12:50:53.000Z",
+        "firstDate": "2024-11-04"
+      },
+      {
+        "artist": "Jonathan Groff",
+        "firstTs": "2024-11-04T12:50:53.000Z",
+        "firstDate": "2024-11-04"
+      },
+      {
+        "artist": "Daveed Diggs",
+        "firstTs": "2024-11-04T12:50:55.000Z",
+        "firstDate": "2024-11-04"
+      },
+      {
+        "artist": "Okieriete Onaodowan",
+        "firstTs": "2024-11-04T12:51:02.000Z",
+        "firstDate": "2024-11-04"
+      },
+      {
+        "artist": "Ariana DeBose",
+        "firstTs": "2024-11-04T12:51:04.000Z",
+        "firstDate": "2024-11-04"
+      },
+      {
+        "artist": "Flo Rida",
+        "firstTs": "2024-11-05T01:04:43.000Z",
+        "firstDate": "2024-11-04"
+      },
+      {
+        "artist": "Grateful Dead",
+        "firstTs": "2024-11-07T19:28:02.000Z",
+        "firstDate": "2024-11-07"
+      },
+      {
+        "artist": "Showtek",
+        "firstTs": "2024-11-08T18:05:38.000Z",
+        "firstDate": "2024-11-08"
+      },
+      {
+        "artist": "John Mayer",
+        "firstTs": "2024-11-10T14:47:45.000Z",
+        "firstDate": "2024-11-10"
+      },
+      {
+        "artist": "Fall Out Boy",
+        "firstTs": "2024-11-23T00:23:43.000Z",
+        "firstDate": "2024-11-22"
+      },
+      {
+        "artist": "Shaboozey",
+        "firstTs": "2024-11-29T18:54:21.000Z",
+        "firstDate": "2024-11-29"
+      },
+      {
+        "artist": "Billie Eilish",
+        "firstTs": "2024-12-02T18:25:49.000Z",
+        "firstDate": "2024-12-02"
+      },
+      {
+        "artist": "The Vamps",
+        "firstTs": "2024-12-04T20:47:18.000Z",
+        "firstDate": "2024-12-04"
+      },
+      {
+        "artist": "Cian Ducrot",
+        "firstTs": "2024-12-04T20:47:20.000Z",
+        "firstDate": "2024-12-04"
+      },
+      {
+        "artist": "Crash Test Dummies",
+        "firstTs": "2024-12-04T20:47:22.000Z",
+        "firstDate": "2024-12-04"
+      },
+      {
+        "artist": "Damien Rice",
+        "firstTs": "2024-12-04T20:47:24.000Z",
+        "firstDate": "2024-12-04"
+      },
+      {
+        "artist": "Joseph Williams",
+        "firstTs": "2024-12-04T20:58:15.000Z",
+        "firstDate": "2024-12-04"
+      },
+      {
+        "artist": "Trent Reznor and Atticus Ross",
+        "firstTs": "2024-12-04T22:01:45.000Z",
+        "firstDate": "2024-12-04"
+      },
+      {
+        "artist": "Hans Zimmer",
+        "firstTs": "2024-12-04T22:01:46.000Z",
+        "firstDate": "2024-12-04"
+      },
+      {
+        "artist": "Caroline Polachek",
+        "firstTs": "2024-12-04T22:01:46.000Z",
+        "firstDate": "2024-12-04"
+      },
+      {
+        "artist": "Ramin Djawadi",
+        "firstTs": "2024-12-04T22:01:47.000Z",
+        "firstDate": "2024-12-04"
+      },
+      {
+        "artist": "yeule",
+        "firstTs": "2024-12-04T22:01:48.000Z",
+        "firstDate": "2024-12-04"
+      },
+      {
+        "artist": "Akon",
+        "firstTs": "2024-12-10T16:55:54.000Z",
+        "firstDate": "2024-12-10"
+      },
+      {
+        "artist": "Sing Karaoke!",
+        "firstTs": "2024-12-12T18:39:58.000Z",
+        "firstDate": "2024-12-12"
+      },
+      {
+        "artist": "Elle King",
+        "firstTs": "2024-12-12T19:24:09.000Z",
+        "firstDate": "2024-12-12"
+      },
+      {
+        "artist": "Chris Stapleton",
+        "firstTs": "2024-12-12T19:25:36.000Z",
+        "firstDate": "2024-12-12"
+      },
+      {
+        "artist": "Noah Kahan",
+        "firstTs": "2024-12-12T19:25:37.000Z",
+        "firstDate": "2024-12-12"
+      },
+      {
+        "artist": "Radiohead",
+        "firstTs": "2024-12-13T17:52:52.000Z",
+        "firstDate": "2024-12-13"
+      },
+      {
+        "artist": "Matchbox Twenty",
+        "firstTs": "2024-12-13T17:56:33.000Z",
+        "firstDate": "2024-12-13"
+      },
+      {
+        "artist": "Fifth Harmony",
+        "firstTs": "2024-12-13T17:56:46.000Z",
+        "firstDate": "2024-12-13"
+      },
+      {
+        "artist": "Macklemore & Ryan Lewis",
+        "firstTs": "2024-12-13T17:56:47.000Z",
+        "firstDate": "2024-12-13"
+      },
+      {
+        "artist": "Mafiaosoma7x",
+        "firstTs": "2024-12-13T21:11:15.000Z",
+        "firstDate": "2024-12-13"
+      },
+      {
+        "artist": "IsaacTrust",
+        "firstTs": "2024-12-13T21:11:22.000Z",
+        "firstDate": "2024-12-13"
+      },
+      {
+        "artist": "Masked Wolf",
+        "firstTs": "2024-12-14T17:34:10.000Z",
+        "firstDate": "2024-12-14"
+      },
+      {
+        "artist": "Rosario Dawson",
+        "firstTs": "2024-12-18T18:23:07.000Z",
+        "firstDate": "2024-12-18"
+      },
+      {
+        "artist": "Creed",
+        "firstTs": "2024-12-21T18:21:37.000Z",
+        "firstDate": "2024-12-21"
+      },
+      {
+        "artist": "R. City",
+        "firstTs": "2024-12-21T19:09:04.000Z",
+        "firstDate": "2024-12-21"
+      },
+      {
+        "artist": "Tom Jones",
+        "firstTs": "2024-12-29T15:25:57.000Z",
+        "firstDate": "2024-12-29"
+      },
+      {
+        "artist": "Poor Man's Poison",
+        "firstTs": "2025-01-07T22:02:15.000Z",
+        "firstDate": "2025-01-07"
+      },
+      {
+        "artist": "Mandy Moore",
+        "firstTs": "2025-01-10T19:43:46.000Z",
+        "firstDate": "2025-01-10"
+      },
+      {
+        "artist": "Wheatus",
+        "firstTs": "2025-01-19T21:15:04.000Z",
+        "firstDate": "2025-01-19"
+      },
+      {
+        "artist": "ProSound Karaoke Band",
+        "firstTs": "2025-01-23T17:16:39.000Z",
+        "firstDate": "2025-01-23"
+      },
+      {
+        "artist": "Schlager Lieder",
+        "firstTs": "2025-01-23T17:16:44.000Z",
+        "firstDate": "2025-01-23"
+      },
+      {
+        "artist": "Lucas Heffer",
+        "firstTs": "2025-01-23T17:16:46.000Z",
+        "firstDate": "2025-01-23"
+      },
+      {
+        "artist": "Harmony Projector",
+        "firstTs": "2025-01-23T17:16:48.000Z",
+        "firstDate": "2025-01-23"
+      },
+      {
+        "artist": "Jimmy De León",
+        "firstTs": "2025-01-23T17:16:50.000Z",
+        "firstDate": "2025-01-23"
+      },
+      {
+        "artist": "Kurt Edelhagen",
+        "firstTs": "2025-01-23T17:16:51.000Z",
+        "firstDate": "2025-01-23"
+      },
+      {
+        "artist": "Luis Fonsi",
+        "firstTs": "2025-01-24T16:59:04.000Z",
+        "firstDate": "2025-01-24"
+      },
+      {
+        "artist": "Alan Walker",
+        "firstTs": "2025-01-24T16:59:07.000Z",
+        "firstDate": "2025-01-24"
+      },
+      {
+        "artist": "Boyce Avenue",
+        "firstTs": "2025-01-24T21:06:34.000Z",
+        "firstDate": "2025-01-24"
+      },
+      {
+        "artist": "Ryan",
+        "firstTs": "2025-01-30T04:48:04.000Z",
+        "firstDate": "2025-01-29"
+      },
+      {
+        "artist": "Edith Whiskers",
+        "firstTs": "2025-01-31T01:57:05.000Z",
+        "firstDate": "2025-01-30"
+      },
+      {
+        "artist": "Chance Peña",
+        "firstTs": "2025-01-31T01:57:10.000Z",
+        "firstDate": "2025-01-30"
+      },
+      {
+        "artist": "Vitamin String Quartet",
+        "firstTs": "2025-01-31T12:57:31.000Z",
+        "firstDate": "2025-01-31"
+      },
+      {
+        "artist": "Brooklyn Duo",
+        "firstTs": "2025-01-31T13:00:47.000Z",
+        "firstDate": "2025-01-31"
+      },
+      {
+        "artist": "Stephan Moccio",
+        "firstTs": "2025-01-31T13:04:12.000Z",
+        "firstDate": "2025-01-31"
+      },
+      {
+        "artist": "Mareks Radzevics",
+        "firstTs": "2025-01-31T13:07:39.000Z",
+        "firstDate": "2025-01-31"
+      },
+      {
+        "artist": "Allen & Bright",
+        "firstTs": "2025-01-31T13:12:18.000Z",
+        "firstDate": "2025-01-31"
+      },
+      {
+        "artist": "Kris Bowers",
+        "firstTs": "2025-01-31T13:19:11.000Z",
+        "firstDate": "2025-01-31"
+      },
+      {
+        "artist": "Henry Smith",
+        "firstTs": "2025-01-31T13:45:57.000Z",
+        "firstDate": "2025-01-31"
+      },
+      {
+        "artist": "Magic Piano Covers",
+        "firstTs": "2025-01-31T13:48:51.000Z",
+        "firstDate": "2025-01-31"
+      },
+      {
+        "artist": "Andrea Carri",
+        "firstTs": "2025-01-31T13:51:42.000Z",
+        "firstDate": "2025-01-31"
+      },
+      {
+        "artist": "Ground Zero Academy Orchestra",
+        "firstTs": "2025-02-01T16:56:49.000Z",
+        "firstDate": "2025-02-01"
+      },
+      {
+        "artist": "Steve Horner",
+        "firstTs": "2025-02-01T17:02:48.000Z",
+        "firstDate": "2025-02-01"
+      },
+      {
+        "artist": "Edward Ong",
+        "firstTs": "2025-02-01T17:21:52.000Z",
+        "firstDate": "2025-02-01"
+      },
+      {
+        "artist": "Sarah Coponat",
+        "firstTs": "2025-02-01T17:28:20.000Z",
+        "firstDate": "2025-02-01"
+      },
+      {
+        "artist": "Midnite String Quartet",
+        "firstTs": "2025-02-01T17:35:41.000Z",
+        "firstDate": "2025-02-01"
+      },
+      {
+        "artist": "Sam Cooke",
+        "firstTs": "2025-02-02T17:47:04.000Z",
+        "firstDate": "2025-02-02"
+      },
+      {
+        "artist": "Sheck Wes",
+        "firstTs": "2025-02-10T16:03:27.000Z",
+        "firstDate": "2025-02-10"
+      },
+      {
+        "artist": "Chantal Kreviazuk",
+        "firstTs": "2025-02-11T18:11:18.000Z",
+        "firstDate": "2025-02-11"
+      },
+      {
+        "artist": "Bradley Cooper",
+        "firstTs": "2025-02-11T18:11:20.000Z",
+        "firstDate": "2025-02-11"
+      },
+      {
+        "artist": "LOCKE",
+        "firstTs": "2025-02-11T18:11:26.000Z",
+        "firstDate": "2025-02-11"
+      },
+      {
+        "artist": "Rage Against The Machine",
+        "firstTs": "2025-02-18T15:00:37.000Z",
+        "firstDate": "2025-02-18"
+      },
+      {
+        "artist": "salute",
+        "firstTs": "2025-02-18T15:00:45.000Z",
+        "firstDate": "2025-02-18"
+      },
+      {
+        "artist": "CYRIL",
+        "firstTs": "2025-02-18T15:00:45.000Z",
+        "firstDate": "2025-02-18"
+      },
+      {
+        "artist": "PAWSA",
+        "firstTs": "2025-02-18T15:00:47.000Z",
+        "firstDate": "2025-02-18"
+      },
+      {
+        "artist": "Haley Reinhart",
+        "firstTs": "2025-02-20T20:57:34.000Z",
+        "firstDate": "2025-02-20"
+      },
+      {
+        "artist": "Ethel Cain",
+        "firstTs": "2025-02-23T14:30:36.000Z",
+        "firstDate": "2025-02-23"
+      },
+      {
+        "artist": "Coco Jones",
+        "firstTs": "2025-02-23T14:30:37.000Z",
+        "firstDate": "2025-02-23"
+      },
+      {
+        "artist": "Céline Dion",
+        "firstTs": "2025-02-23T14:30:49.000Z",
+        "firstDate": "2025-02-23"
+      },
+      {
+        "artist": "Ian Munsick",
+        "firstTs": "2025-02-23T14:32:08.000Z",
+        "firstDate": "2025-02-23"
+      },
+      {
+        "artist": "Bring Me The Horizon",
+        "firstTs": "2025-02-23T14:32:32.000Z",
+        "firstDate": "2025-02-23"
+      },
+      {
+        "artist": "Leon Thomas",
+        "firstTs": "2025-02-28T17:57:19.000Z",
+        "firstDate": "2025-02-28"
+      },
+      {
+        "artist": "Sean Kingston",
+        "firstTs": "2025-03-01T23:24:31.000Z",
+        "firstDate": "2025-03-01"
+      },
+      {
+        "artist": "The Beach Boys",
+        "firstTs": "2025-03-03T21:47:25.000Z",
+        "firstDate": "2025-03-03"
+      },
+      {
+        "artist": "Daughtry",
+        "firstTs": "2025-03-05T01:13:31.000Z",
+        "firstDate": "2025-03-04"
+      },
+      {
+        "artist": "A Boogie Wit da Hoodie",
+        "firstTs": "2025-03-05T05:39:33.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "JAY-Z",
+        "firstTs": "2025-03-05T05:39:37.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "Simon & Garfunkel",
+        "firstTs": "2025-03-05T05:39:40.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "Florida Georgia Line",
+        "firstTs": "2025-03-05T05:39:43.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "Luke Bryan",
+        "firstTs": "2025-03-05T05:39:44.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "Morgan Wallen",
+        "firstTs": "2025-03-05T05:40:50.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "Bailey Zimmerman",
+        "firstTs": "2025-03-05T05:40:51.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "Carrie Underwood",
+        "firstTs": "2025-03-05T05:40:53.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "Drake",
+        "firstTs": "2025-03-05T05:40:55.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "Foster The People",
+        "firstTs": "2025-03-05T05:40:59.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "R.E.M.",
+        "firstTs": "2025-03-05T05:41:00.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "Smash Mouth",
+        "firstTs": "2025-03-05T05:41:01.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "Tyler Hubbard",
+        "firstTs": "2025-03-05T05:41:05.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "The Game",
+        "firstTs": "2025-03-05T05:41:10.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "Warren Zeiders",
+        "firstTs": "2025-03-05T05:45:09.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "Corey Kent",
+        "firstTs": "2025-03-05T05:45:13.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "Steely Dan",
+        "firstTs": "2025-03-05T05:45:14.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "The Red Clay Strays",
+        "firstTs": "2025-03-05T05:45:16.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "Lupe Fiasco",
+        "firstTs": "2025-03-05T05:46:51.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "Ice Cube",
+        "firstTs": "2025-03-05T05:47:07.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "Michael Marcagi",
+        "firstTs": "2025-03-05T05:49:37.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "NF",
+        "firstTs": "2025-03-05T05:49:45.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "The Neighbourhood",
+        "firstTs": "2025-03-05T05:49:47.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "J. Cole",
+        "firstTs": "2025-03-05T05:49:52.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "K'NAAN",
+        "firstTs": "2025-03-05T05:49:53.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "Kid Rock",
+        "firstTs": "2025-03-05T05:49:54.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "Pharrell Williams",
+        "firstTs": "2025-03-05T05:49:58.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "Alex Warren",
+        "firstTs": "2025-03-05T05:50:09.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "Khalid",
+        "firstTs": "2025-03-05T05:50:23.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "Gwen Stefani",
+        "firstTs": "2025-03-05T05:50:27.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "HIXTAPE",
+        "firstTs": "2025-03-05T05:50:32.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "James Newton Howard",
+        "firstTs": "2025-03-05T05:50:43.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "Metro Boomin",
+        "firstTs": "2025-03-05T05:50:51.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "Nirvana",
+        "firstTs": "2025-03-05T05:50:54.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "Cage The Elephant",
+        "firstTs": "2025-03-05T05:50:54.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "a-ha",
+        "firstTs": "2025-03-05T05:50:56.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "Duncan Laurence",
+        "firstTs": "2025-03-05T05:52:12.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "Brent Faiyaz",
+        "firstTs": "2025-03-05T05:52:55.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "Old Dominion",
+        "firstTs": "2025-03-05T05:53:10.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "Tim McGraw",
+        "firstTs": "2025-03-05T05:53:12.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "MAGIC!",
+        "firstTs": "2025-03-05T05:53:22.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "Lady A",
+        "firstTs": "2025-03-05T05:53:25.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "Lil Durk",
+        "firstTs": "2025-03-05T05:53:32.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "Social House",
+        "firstTs": "2025-03-05T05:53:37.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "Michael Jackson",
+        "firstTs": "2025-03-05T05:53:40.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "Joan Jett & the Blackhearts",
+        "firstTs": "2025-03-05T05:53:41.000Z",
+        "firstDate": "2025-03-05"
+      },
+      {
+        "artist": "Doechii",
+        "firstTs": "2025-03-14T15:21:31.000Z",
+        "firstDate": "2025-03-14"
+      },
+      {
+        "artist": "Gotye",
+        "firstTs": "2025-03-14T15:21:45.000Z",
+        "firstDate": "2025-03-14"
+      },
+      {
+        "artist": "Ed Sheeran & Justin Bieber",
+        "firstTs": "2025-03-20T19:01:49.000Z",
+        "firstDate": "2025-03-20"
+      },
+      {
+        "artist": "Major Lazer",
+        "firstTs": "2025-03-28T05:34:39.000Z",
+        "firstDate": "2025-03-28"
+      },
+      {
+        "artist": "Allison Russell",
+        "firstTs": "2025-03-29T00:45:16.000Z",
+        "firstDate": "2025-03-28"
+      },
+      {
+        "artist": "Sabrina Carpenter",
+        "firstTs": "2025-03-29T00:46:19.000Z",
+        "firstDate": "2025-03-28"
+      },
+      {
+        "artist": "Alessia Cara",
+        "firstTs": "2025-03-29T00:47:02.000Z",
+        "firstDate": "2025-03-28"
+      },
+      {
+        "artist": "Phoebe Bridgers",
+        "firstTs": "2025-03-29T00:52:44.000Z",
+        "firstDate": "2025-03-28"
+      },
+      {
+        "artist": "Liam Gallagher",
+        "firstTs": "2025-03-29T00:55:09.000Z",
+        "firstDate": "2025-03-28"
+      },
+      {
+        "artist": "Greta Van Fleet",
+        "firstTs": "2025-03-29T00:56:02.000Z",
+        "firstDate": "2025-03-28"
+      },
+      {
+        "artist": "Charlotte Lawrence",
+        "firstTs": "2025-03-29T00:58:57.000Z",
+        "firstDate": "2025-03-28"
+      },
+      {
+        "artist": "Amy Shark",
+        "firstTs": "2025-03-29T01:00:57.000Z",
+        "firstDate": "2025-03-28"
+      },
+      {
+        "artist": "Rita Ora",
+        "firstTs": "2025-03-29T01:02:31.000Z",
+        "firstDate": "2025-03-28"
+      },
+      {
+        "artist": "Brandi Carlile",
+        "firstTs": "2025-03-29T01:02:56.000Z",
+        "firstDate": "2025-03-28"
+      },
+      {
+        "artist": "Alec Benjamin",
+        "firstTs": "2025-03-29T01:03:23.000Z",
+        "firstDate": "2025-03-28"
+      },
+      {
+        "artist": "alt-J",
+        "firstTs": "2025-03-29T01:03:41.000Z",
+        "firstDate": "2025-03-28"
+      },
+      {
+        "artist": "Judah & the Lion",
+        "firstTs": "2025-03-29T01:04:13.000Z",
+        "firstDate": "2025-03-28"
+      },
+      {
+        "artist": "5 Seconds of Summer",
+        "firstTs": "2025-03-29T01:04:23.000Z",
+        "firstDate": "2025-03-28"
+      },
+      {
+        "artist": "Tom Speight",
+        "firstTs": "2025-03-29T01:05:38.000Z",
+        "firstDate": "2025-03-28"
+      },
+      {
+        "artist": "Thomas Rhett",
+        "firstTs": "2025-03-29T01:05:59.000Z",
+        "firstDate": "2025-03-28"
+      },
+      {
+        "artist": "Keith Urban",
+        "firstTs": "2025-03-29T01:06:56.000Z",
+        "firstDate": "2025-03-28"
+      },
+      {
+        "artist": "CHVRCHES",
+        "firstTs": "2025-03-29T01:07:13.000Z",
+        "firstDate": "2025-03-28"
+      },
+      {
+        "artist": "Dashboard Confessional",
+        "firstTs": "2025-03-29T01:08:47.000Z",
+        "firstDate": "2025-03-28"
+      },
+      {
+        "artist": "AnnenMayKantereit",
+        "firstTs": "2025-03-29T01:09:26.000Z",
+        "firstDate": "2025-03-28"
+      },
+      {
+        "artist": "Phil Wickham",
+        "firstTs": "2025-03-29T03:24:42.000Z",
+        "firstDate": "2025-03-28"
+      },
+      {
+        "artist": "The Japanese House",
+        "firstTs": "2025-03-29T21:18:11.000Z",
+        "firstDate": "2025-03-29"
+      },
+      {
+        "artist": "for KING & COUNTRY",
+        "firstTs": "2025-03-29T21:19:28.000Z",
+        "firstDate": "2025-03-29"
+      },
+      {
+        "artist": "William Prince",
+        "firstTs": "2025-03-29T21:20:09.000Z",
+        "firstDate": "2025-03-29"
+      },
+      {
+        "artist": "Yo-Yo Ma",
+        "firstTs": "2025-03-29T21:21:51.000Z",
+        "firstDate": "2025-03-29"
+      },
+      {
+        "artist": "Brett Young",
+        "firstTs": "2025-03-29T21:23:24.000Z",
+        "firstDate": "2025-03-29"
+      },
+      {
+        "artist": "Kim Petras",
+        "firstTs": "2025-03-29T21:23:33.000Z",
+        "firstDate": "2025-03-29"
+      },
+      {
+        "artist": "Dirty Heads",
+        "firstTs": "2025-03-29T21:24:28.000Z",
+        "firstDate": "2025-03-29"
+      },
+      {
+        "artist": "Japanese Breakfast",
+        "firstTs": "2025-03-29T21:24:43.000Z",
+        "firstDate": "2025-03-29"
+      },
+      {
+        "artist": "Clean Bandit",
+        "firstTs": "2025-03-29T21:24:54.000Z",
+        "firstDate": "2025-03-29"
+      },
+      {
+        "artist": "girl in red",
+        "firstTs": "2025-03-29T21:25:04.000Z",
+        "firstDate": "2025-03-29"
+      },
+      {
+        "artist": "YONAKA",
+        "firstTs": "2025-03-29T21:25:16.000Z",
+        "firstDate": "2025-03-29"
+      },
+      {
+        "artist": "jxdn",
+        "firstTs": "2025-03-29T21:25:32.000Z",
+        "firstDate": "2025-03-29"
+      },
+      {
+        "artist": "Coi Leray",
+        "firstTs": "2025-04-03T13:58:13.000Z",
+        "firstDate": "2025-04-03"
+      },
+      {
+        "artist": "Niclas Lundqvist",
+        "firstTs": "2025-04-03T20:46:19.000Z",
+        "firstDate": "2025-04-03"
+      },
+      {
+        "artist": "Benson Boone",
+        "firstTs": "2025-04-11T21:33:21.000Z",
+        "firstDate": "2025-04-11"
+      },
+      {
+        "artist": "Run–D.M.C.",
+        "firstTs": "2025-04-13T21:36:32.000Z",
+        "firstDate": "2025-04-13"
+      },
+      {
+        "artist": "King George",
+        "firstTs": "2025-04-20T22:38:26.000Z",
+        "firstDate": "2025-04-20"
+      },
+      {
+        "artist": "Nikki Williams",
+        "firstTs": "2025-04-23T00:50:40.000Z",
+        "firstDate": "2025-04-22"
+      },
+      {
+        "artist": "D.A. Wallach",
+        "firstTs": "2025-04-23T02:38:52.000Z",
+        "firstDate": "2025-04-22"
+      },
+      {
+        "artist": "Metallica",
+        "firstTs": "2025-04-30T14:15:21.000Z",
+        "firstDate": "2025-04-30"
+      },
+      {
+        "artist": "Guns N' Roses",
+        "firstTs": "2025-05-07T20:31:44.000Z",
+        "firstDate": "2025-05-07"
+      },
+      {
+        "artist": "The Proclaimers",
+        "firstTs": "2025-05-07T20:56:25.000Z",
+        "firstDate": "2025-05-07"
+      },
+      {
+        "artist": "Travie McCoy",
+        "firstTs": "2025-05-07T21:07:21.000Z",
+        "firstDate": "2025-05-07"
+      },
+      {
+        "artist": "Joni Mitchell",
+        "firstTs": "2025-05-09T19:06:52.000Z",
+        "firstDate": "2025-05-09"
+      },
+      {
+        "artist": "The Doobie Brothers",
+        "firstTs": "2025-05-09T19:12:40.000Z",
+        "firstDate": "2025-05-09"
+      },
+      {
+        "artist": "Arctic Monkeys",
+        "firstTs": "2025-05-09T19:16:39.000Z",
+        "firstDate": "2025-05-09"
+      },
+      {
+        "artist": "The Four Seasons",
+        "firstTs": "2025-05-09T21:33:53.000Z",
+        "firstDate": "2025-05-09"
+      },
+      {
+        "artist": "ZAYN",
+        "firstTs": "2025-05-09T22:25:40.000Z",
+        "firstDate": "2025-05-09"
+      },
+      {
+        "artist": "John Mellencamp",
+        "firstTs": "2025-05-09T22:28:05.000Z",
+        "firstDate": "2025-05-09"
+      },
+      {
+        "artist": "Carly Simon",
+        "firstTs": "2025-05-09T22:29:14.000Z",
+        "firstDate": "2025-05-09"
+      },
+      {
+        "artist": "Mark Ambor",
+        "firstTs": "2025-05-10T15:17:17.000Z",
+        "firstDate": "2025-05-10"
+      },
+      {
+        "artist": "Neil Diamond",
+        "firstTs": "2025-05-10T16:10:34.000Z",
+        "firstDate": "2025-05-10"
+      },
+      {
+        "artist": "Teddy Swims",
+        "firstTs": "2025-05-10T16:14:24.000Z",
+        "firstDate": "2025-05-10"
+      },
+      {
+        "artist": "Jordan Davis",
+        "firstTs": "2025-05-10T16:19:26.000Z",
+        "firstDate": "2025-05-10"
+      },
+      {
+        "artist": "Sublime",
+        "firstTs": "2025-05-10T16:21:47.000Z",
+        "firstDate": "2025-05-10"
+      },
+      {
+        "artist": "Lee Brice",
+        "firstTs": "2025-05-10T16:22:24.000Z",
+        "firstDate": "2025-05-10"
+      },
+      {
+        "artist": "Waylon Wyatt",
+        "firstTs": "2025-05-10T16:25:10.000Z",
+        "firstDate": "2025-05-10"
+      },
+      {
+        "artist": "Max McNown",
+        "firstTs": "2025-05-10T16:25:50.000Z",
+        "firstDate": "2025-05-10"
+      },
+      {
+        "artist": "Diplo",
+        "firstTs": "2025-05-10T16:26:03.000Z",
+        "firstDate": "2025-05-10"
+      },
+      {
+        "artist": "Tyler Childers",
+        "firstTs": "2025-05-10T16:30:59.000Z",
+        "firstDate": "2025-05-10"
+      },
+      {
+        "artist": "Dylan Gossett",
+        "firstTs": "2025-05-10T17:57:15.000Z",
+        "firstDate": "2025-05-10"
+      },
+      {
+        "artist": "Fountains Of Wayne",
+        "firstTs": "2025-05-10T18:06:24.000Z",
+        "firstDate": "2025-05-10"
+      },
+      {
+        "artist": "ERNEST",
+        "firstTs": "2025-05-10T18:07:18.000Z",
+        "firstDate": "2025-05-10"
+      },
+      {
+        "artist": "Dion",
+        "firstTs": "2025-05-10T18:09:25.000Z",
+        "firstDate": "2025-05-10"
+      },
+      {
+        "artist": "Riley Green",
+        "firstTs": "2025-05-10T18:09:44.000Z",
+        "firstDate": "2025-05-10"
+      },
+      {
+        "artist": "Josh Turner",
+        "firstTs": "2025-05-10T18:11:15.000Z",
+        "firstDate": "2025-05-10"
+      },
+      {
+        "artist": "Jimmy Eat World",
+        "firstTs": "2025-05-10T18:12:59.000Z",
+        "firstDate": "2025-05-10"
+      },
+      {
+        "artist": "OMI",
+        "firstTs": "2025-05-10T18:13:49.000Z",
+        "firstDate": "2025-05-10"
+      },
+      {
+        "artist": "3 Doors Down",
+        "firstTs": "2025-05-10T18:14:31.000Z",
+        "firstDate": "2025-05-10"
+      },
+      {
+        "artist": "Hoobastank",
+        "firstTs": "2025-05-10T18:20:32.000Z",
+        "firstDate": "2025-05-10"
+      },
+      {
+        "artist": "Marshmello",
+        "firstTs": "2025-05-10T20:42:06.000Z",
+        "firstDate": "2025-05-10"
+      },
+      {
+        "artist": "Shakira",
+        "firstTs": "2025-05-10T20:42:53.000Z",
+        "firstDate": "2025-05-10"
+      },
+      {
+        "artist": "Lil Wayne",
+        "firstTs": "2025-05-10T20:43:14.000Z",
+        "firstDate": "2025-05-10"
+      },
+      {
+        "artist": "Steve Miller Band",
+        "firstTs": "2025-05-11T15:05:09.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Frankie Valli",
+        "firstTs": "2025-05-11T15:17:10.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Looking Glass",
+        "firstTs": "2025-05-11T17:00:00.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Chicago",
+        "firstTs": "2025-05-11T17:07:27.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Pat Benatar",
+        "firstTs": "2025-05-11T17:08:18.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Huey Lewis & The News",
+        "firstTs": "2025-05-11T17:17:28.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Jonas Blue",
+        "firstTs": "2025-05-11T17:20:32.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Sam Hunt",
+        "firstTs": "2025-05-11T17:49:55.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Stealers Wheel",
+        "firstTs": "2025-05-11T19:10:12.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Tori Kelly",
+        "firstTs": "2025-05-11T19:16:14.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "The J. Geils Band",
+        "firstTs": "2025-05-11T19:57:24.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Lou Reed",
+        "firstTs": "2025-05-11T19:58:20.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Five Finger Death Punch",
+        "firstTs": "2025-05-11T19:59:07.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Nine Inch Nails",
+        "firstTs": "2025-05-11T19:59:14.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Prince",
+        "firstTs": "2025-05-11T19:59:44.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "The Romantics",
+        "firstTs": "2025-05-11T20:00:03.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Fuel",
+        "firstTs": "2025-05-11T20:00:06.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Ted Nugent",
+        "firstTs": "2025-05-11T20:00:12.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Jimi Hendrix",
+        "firstTs": "2025-05-11T20:00:19.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Lil Pump",
+        "firstTs": "2025-05-11T20:00:44.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Cardi B",
+        "firstTs": "2025-05-11T20:01:06.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "The Knack",
+        "firstTs": "2025-05-11T20:01:38.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Snoop Dogg",
+        "firstTs": "2025-05-11T20:03:01.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Sir Mix-A-Lot",
+        "firstTs": "2025-05-11T20:03:54.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "B.o.B",
+        "firstTs": "2025-05-11T20:04:22.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Aretha Franklin",
+        "firstTs": "2025-05-11T20:04:49.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Village People",
+        "firstTs": "2025-05-11T20:06:35.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Van Halen",
+        "firstTs": "2025-05-11T20:07:09.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Madonna",
+        "firstTs": "2025-05-11T20:08:59.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Lil Nas X",
+        "firstTs": "2025-05-11T20:09:57.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Boston",
+        "firstTs": "2025-05-11T20:10:53.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "The Champs",
+        "firstTs": "2025-05-11T20:12:28.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "LMFAO",
+        "firstTs": "2025-05-11T20:19:22.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Jefferson Airplane",
+        "firstTs": "2025-05-11T20:19:26.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "The Turtles",
+        "firstTs": "2025-05-11T20:19:57.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "The Mamas & The Papas",
+        "firstTs": "2025-05-11T20:25:54.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Justin Timberlake",
+        "firstTs": "2025-05-11T20:28:53.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "The Partridge Family",
+        "firstTs": "2025-05-11T20:29:02.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Chuck Berry",
+        "firstTs": "2025-05-11T20:29:42.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Pinkfong",
+        "firstTs": "2025-05-11T20:29:47.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Lou Bega",
+        "firstTs": "2025-05-11T20:30:43.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Eric Clapton",
+        "firstTs": "2025-05-11T20:31:00.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Norman Greenbaum",
+        "firstTs": "2025-05-11T20:32:03.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "The Doors",
+        "firstTs": "2025-05-11T20:32:24.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Alice Cooper",
+        "firstTs": "2025-05-11T20:32:32.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Nicki Minaj",
+        "firstTs": "2025-05-11T20:32:48.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Led Zeppelin",
+        "firstTs": "2025-05-11T20:35:53.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Paul McCartney",
+        "firstTs": "2025-05-11T20:36:04.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Kendrick Lamar",
+        "firstTs": "2025-05-11T20:36:15.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Cheap Trick",
+        "firstTs": "2025-05-11T20:36:26.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Matthew Wilder",
+        "firstTs": "2025-05-11T20:37:09.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Johnny Cash",
+        "firstTs": "2025-05-11T20:39:50.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Ozzy Osbourne",
+        "firstTs": "2025-05-11T20:48:44.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Styx",
+        "firstTs": "2025-05-11T20:49:51.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "ZZ Top",
+        "firstTs": "2025-05-11T20:50:02.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "War",
+        "firstTs": "2025-05-11T21:08:13.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Rick Astley",
+        "firstTs": "2025-05-11T21:10:35.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Frankie Valli & The Four Seasons",
+        "firstTs": "2025-05-11T21:11:14.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Outkast",
+        "firstTs": "2025-05-11T21:15:56.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Blondie",
+        "firstTs": "2025-05-11T21:15:59.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Megan Thee Stallion",
+        "firstTs": "2025-05-11T21:17:01.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Boyz II Men",
+        "firstTs": "2025-05-11T21:43:27.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "The Hollies",
+        "firstTs": "2025-05-11T21:43:36.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "N.W.A.",
+        "firstTs": "2025-05-11T21:44:07.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Billy Ray Cyrus",
+        "firstTs": "2025-05-11T21:45:37.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Bobby Day",
+        "firstTs": "2025-05-11T21:49:13.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Camila Cabello",
+        "firstTs": "2025-05-11T21:52:21.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "R. Kelly",
+        "firstTs": "2025-05-11T21:52:43.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Ricky Martin",
+        "firstTs": "2025-05-11T21:53:29.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "CeeLo Green",
+        "firstTs": "2025-05-11T21:55:10.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "The Isley Brothers",
+        "firstTs": "2025-05-11T21:57:37.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Los Del Rio",
+        "firstTs": "2025-05-11T21:58:14.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Nelly",
+        "firstTs": "2025-05-11T21:58:49.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "The Who",
+        "firstTs": "2025-05-11T22:04:36.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "The Tokens",
+        "firstTs": "2025-05-11T22:05:58.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Fergie",
+        "firstTs": "2025-05-11T22:07:48.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Men At Work",
+        "firstTs": "2025-05-11T22:10:01.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Rush",
+        "firstTs": "2025-05-11T22:15:59.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Blue Öyster Cult",
+        "firstTs": "2025-05-11T22:16:21.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Donna Summer",
+        "firstTs": "2025-05-11T22:21:04.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Gnarls Barkley",
+        "firstTs": "2025-05-11T22:30:49.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Desiigner",
+        "firstTs": "2025-05-11T22:32:33.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "DaBaby",
+        "firstTs": "2025-05-11T22:36:22.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Bee Gees",
+        "firstTs": "2025-05-11T22:39:13.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "The O'Jays",
+        "firstTs": "2025-05-11T22:40:14.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Otis Redding",
+        "firstTs": "2025-05-11T22:41:11.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Childish Gambino",
+        "firstTs": "2025-05-11T22:42:07.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Heart",
+        "firstTs": "2025-05-11T22:44:06.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Duran Duran",
+        "firstTs": "2025-05-11T22:44:56.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Jimmy Buffett",
+        "firstTs": "2025-05-11T22:49:36.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Ritchie Valens",
+        "firstTs": "2025-05-11T22:50:08.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Phil Collins",
+        "firstTs": "2025-05-11T22:58:43.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "TLC",
+        "firstTs": "2025-05-11T23:01:08.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Vanilla Ice",
+        "firstTs": "2025-05-11T23:01:46.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Kesha",
+        "firstTs": "2025-05-11T23:04:52.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Carly Rae Jepsen",
+        "firstTs": "2025-05-11T23:09:32.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "DJ Jazzy Jeff & The Fresh Prince",
+        "firstTs": "2025-05-11T23:13:53.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Timeflies",
+        "firstTs": "2025-05-11T23:15:22.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Lake Street Dive",
+        "firstTs": "2025-05-11T23:37:20.000Z",
+        "firstDate": "2025-05-11"
+      },
+      {
+        "artist": "Jason Kimmel",
+        "firstTs": "2025-05-13T03:21:24.000Z",
+        "firstDate": "2025-05-12"
+      },
+      {
+        "artist": "Myles Smith",
+        "firstTs": "2025-05-13T16:51:23.000Z",
+        "firstDate": "2025-05-13"
+      },
+      {
+        "artist": "Jim Croce",
+        "firstTs": "2025-05-13T16:55:34.000Z",
+        "firstDate": "2025-05-13"
+      },
+      {
+        "artist": "The Cars",
+        "firstTs": "2025-05-13T18:04:56.000Z",
+        "firstDate": "2025-05-13"
+      },
+      {
+        "artist": "Julia Sheer",
+        "firstTs": "2025-05-13T20:40:02.000Z",
+        "firstDate": "2025-05-13"
+      },
+      {
+        "artist": "Isabella Kensington",
+        "firstTs": "2025-05-13T20:41:25.000Z",
+        "firstDate": "2025-05-13"
+      },
+      {
+        "artist": "Uncle Kracker",
+        "firstTs": "2025-05-14T21:44:24.000Z",
+        "firstDate": "2025-05-14"
+      },
+      {
+        "artist": "Connor Price",
+        "firstTs": "2025-05-19T17:50:52.000Z",
+        "firstDate": "2025-05-19"
+      },
+      {
+        "artist": "Jorge Quintero",
+        "firstTs": "2025-05-22T18:42:13.000Z",
+        "firstDate": "2025-05-22"
+      },
+      {
+        "artist": "London Voices",
+        "firstTs": "2025-05-22T18:46:25.000Z",
+        "firstDate": "2025-05-22"
+      },
+      {
+        "artist": "Darude",
+        "firstTs": "2025-05-23T22:37:40.000Z",
+        "firstDate": "2025-05-23"
+      },
+      {
+        "artist": "2 Unlimited",
+        "firstTs": "2025-05-23T22:38:02.000Z",
+        "firstDate": "2025-05-23"
+      },
+      {
+        "artist": "Airbourne",
+        "firstTs": "2025-05-23T22:38:05.000Z",
+        "firstDate": "2025-05-23"
+      },
+      {
+        "artist": "Black Box",
+        "firstTs": "2025-05-23T22:38:17.000Z",
+        "firstDate": "2025-05-23"
+      },
+      {
+        "artist": "The Black Keys",
+        "firstTs": "2025-05-23T22:38:22.000Z",
+        "firstDate": "2025-05-23"
+      },
+      {
+        "artist": "Gateway IV",
+        "firstTs": "2025-05-24T05:43:30.000Z",
+        "firstDate": "2025-05-24"
+      },
+      {
+        "artist": "Riseran",
+        "firstTs": "2025-05-24T05:43:40.000Z",
+        "firstDate": "2025-05-24"
+      },
+      {
+        "artist": "Lunar Skybox",
+        "firstTs": "2025-05-24T05:43:42.000Z",
+        "firstDate": "2025-05-24"
+      },
+      {
+        "artist": "Aurora Beach",
+        "firstTs": "2025-05-24T05:43:59.000Z",
+        "firstDate": "2025-05-24"
+      },
+      {
+        "artist": "Fireboy DML",
+        "firstTs": "2025-06-02T21:14:51.000Z",
+        "firstDate": "2025-06-02"
+      },
+      {
+        "artist": "Diddy - Dirty Money",
+        "firstTs": "2025-06-06T13:31:57.000Z",
+        "firstDate": "2025-06-06"
+      },
+      {
+        "artist": "KYLE",
+        "firstTs": "2025-06-06T17:15:07.000Z",
+        "firstDate": "2025-06-06"
+      },
+      {
+        "artist": "Mac Miller",
+        "firstTs": "2025-06-06T17:15:07.000Z",
+        "firstDate": "2025-06-06"
+      },
+      {
+        "artist": "Estelle",
+        "firstTs": "2025-06-06T17:15:35.000Z",
+        "firstDate": "2025-06-06"
+      },
+      {
+        "artist": "Mike Posner",
+        "firstTs": "2025-06-06T17:15:38.000Z",
+        "firstDate": "2025-06-06"
+      },
+      {
+        "artist": "Quinn Devlin",
+        "firstTs": "2025-06-06T17:20:20.000Z",
+        "firstDate": "2025-06-06"
+      },
+      {
+        "artist": "The Walters",
+        "firstTs": "2025-06-06T17:27:17.000Z",
+        "firstDate": "2025-06-06"
+      },
+      {
+        "artist": "Roy Ayers Ubiquity",
+        "firstTs": "2025-06-06T17:31:17.000Z",
+        "firstDate": "2025-06-06"
+      },
+      {
+        "artist": "Jason Aldean",
+        "firstTs": "2025-06-06T17:34:31.000Z",
+        "firstDate": "2025-06-06"
+      },
+      {
+        "artist": "Father John Misty",
+        "firstTs": "2025-06-06T17:43:44.000Z",
+        "firstDate": "2025-06-06"
+      },
+      {
+        "artist": "KAYTRANADA",
+        "firstTs": "2025-06-06T17:46:50.000Z",
+        "firstDate": "2025-06-06"
+      },
+      {
+        "artist": "Masego",
+        "firstTs": "2025-06-06T17:50:04.000Z",
+        "firstDate": "2025-06-06"
+      },
+      {
+        "artist": "Bobby Caldwell",
+        "firstTs": "2025-06-06T17:54:51.000Z",
+        "firstDate": "2025-06-06"
+      },
+      {
+        "artist": "Declan McKenna",
+        "firstTs": "2025-06-09T23:46:48.000Z",
+        "firstDate": "2025-06-09"
+      },
+      {
+        "artist": "Daniel Nunnelee",
+        "firstTs": "2025-06-09T23:46:53.000Z",
+        "firstDate": "2025-06-09"
+      },
+      {
+        "artist": "Icona Pop",
+        "firstTs": "2025-06-09T23:47:01.000Z",
+        "firstDate": "2025-06-09"
+      },
+      {
+        "artist": "Meryl Streep",
+        "firstTs": "2025-06-09T23:47:03.000Z",
+        "firstDate": "2025-06-09"
+      },
+      {
+        "artist": "Del Water Gap",
+        "firstTs": "2025-06-09T23:47:04.000Z",
+        "firstDate": "2025-06-09"
+      },
+      {
+        "artist": "Burna Boy",
+        "firstTs": "2025-06-11T16:07:19.000Z",
+        "firstDate": "2025-06-11"
+      },
+      {
+        "artist": "Fuse ODG",
+        "firstTs": "2025-06-21T23:20:53.000Z",
+        "firstDate": "2025-06-21"
+      },
+      {
+        "artist": "Olivia Newton-John",
+        "firstTs": "2025-06-29T04:03:41.000Z",
+        "firstDate": "2025-06-29"
+      },
+      {
+        "artist": "Audiomachine",
+        "firstTs": "2025-07-09T20:42:45.000Z",
+        "firstDate": "2025-07-09"
+      },
+      {
+        "artist": "Trailerhead",
+        "firstTs": "2025-07-09T20:45:53.000Z",
+        "firstDate": "2025-07-09"
+      },
+      {
+        "artist": "Two Steps from Hell",
+        "firstTs": "2025-07-09T22:44:37.000Z",
+        "firstDate": "2025-07-09"
+      },
+      {
+        "artist": "Sharpay Evans",
+        "firstTs": "2025-07-13T20:00:37.000Z",
+        "firstDate": "2025-07-13"
+      },
+      {
+        "artist": "Nelly Furtado",
+        "firstTs": "2025-07-13T20:08:57.000Z",
+        "firstDate": "2025-07-13"
+      },
+      {
+        "artist": "Nicole Scherzinger",
+        "firstTs": "2025-07-13T20:08:59.000Z",
+        "firstDate": "2025-07-13"
+      },
+      {
+        "artist": "Simply Red",
+        "firstTs": "2025-07-17T22:53:58.000Z",
+        "firstDate": "2025-07-17"
+      },
+      {
+        "artist": "Vampire Weekend",
+        "firstTs": "2025-07-18T00:38:53.000Z",
+        "firstDate": "2025-07-17"
+      },
+      {
+        "artist": "Colby Lolby",
+        "firstTs": "2025-07-20T02:06:15.000Z",
+        "firstDate": "2025-07-19"
+      },
+      {
+        "artist": "Lana Del Rey",
+        "firstTs": "2025-07-20T20:51:04.000Z",
+        "firstDate": "2025-07-20"
+      },
+      {
+        "artist": "Air Supply",
+        "firstTs": "2025-07-20T20:51:09.000Z",
+        "firstDate": "2025-07-20"
+      },
+      {
+        "artist": "Bread",
+        "firstTs": "2025-07-20T21:02:11.000Z",
+        "firstDate": "2025-07-20"
+      },
+      {
+        "artist": "Charli xcx",
+        "firstTs": "2025-07-29T01:29:18.000Z",
+        "firstDate": "2025-07-28"
+      },
+      {
+        "artist": "Spinal Tap",
+        "firstTs": "2025-07-31T19:45:16.000Z",
+        "firstDate": "2025-07-31"
+      },
+      {
+        "artist": "The Axis of Awesome",
+        "firstTs": "2025-08-01T13:38:56.000Z",
+        "firstDate": "2025-08-01"
+      },
+      {
+        "artist": "Rixton",
+        "firstTs": "2025-08-04T00:47:17.000Z",
+        "firstDate": "2025-08-03"
+      },
+      {
+        "artist": "Ylvis",
+        "firstTs": "2025-08-06T14:22:47.000Z",
+        "firstDate": "2025-08-06"
+      },
+      {
+        "artist": "Peter Gabriel",
+        "firstTs": "2025-08-12T15:13:23.000Z",
+        "firstDate": "2025-08-12"
+      },
+      {
+        "artist": "Immortal Technique",
+        "firstTs": "2025-08-17T16:48:37.000Z",
+        "firstDate": "2025-08-17"
+      },
+      {
+        "artist": "Jelly Roll",
+        "firstTs": "2025-08-17T16:48:44.000Z",
+        "firstDate": "2025-08-17"
+      },
+      {
+        "artist": "Haleigh Martin",
+        "firstTs": "2025-08-17T16:48:44.000Z",
+        "firstDate": "2025-08-17"
+      },
+      {
+        "artist": "Breaking Benjamin",
+        "firstTs": "2025-08-17T16:48:53.000Z",
+        "firstDate": "2025-08-17"
+      },
+      {
+        "artist": "Lindsay Perry",
+        "firstTs": "2025-08-17T16:48:59.000Z",
+        "firstDate": "2025-08-17"
+      },
+      {
+        "artist": "Charlie Landsman",
+        "firstTs": "2025-08-18T18:18:39.000Z",
+        "firstDate": "2025-08-18"
+      },
+      {
+        "artist": "Leon Bridges",
+        "firstTs": "2025-08-20T16:40:26.000Z",
+        "firstDate": "2025-08-20"
+      },
+      {
+        "artist": "David Gray",
+        "firstTs": "2025-08-20T16:40:37.000Z",
+        "firstDate": "2025-08-20"
+      },
+      {
+        "artist": "Five For Fighting",
+        "firstTs": "2025-08-20T20:37:05.000Z",
+        "firstDate": "2025-08-20"
+      },
+      {
+        "artist": "James Morrison",
+        "firstTs": "2025-08-23T03:20:38.000Z",
+        "firstDate": "2025-08-22"
+      },
+      {
+        "artist": "Rod Stewart",
+        "firstTs": "2025-08-23T03:24:43.000Z",
+        "firstDate": "2025-08-22"
+      },
+      {
+        "artist": "Barry Manilow",
+        "firstTs": "2025-08-23T03:28:47.000Z",
+        "firstDate": "2025-08-22"
+      },
+      {
+        "artist": "Natalie Cole",
+        "firstTs": "2025-08-23T15:35:17.000Z",
+        "firstDate": "2025-08-23"
+      },
+      {
+        "artist": "Clipse",
+        "firstTs": "2025-08-24T19:18:30.000Z",
+        "firstDate": "2025-08-24"
+      },
+      {
+        "artist": "Julia Michaels",
+        "firstTs": "2025-08-24T23:56:03.000Z",
+        "firstDate": "2025-08-24"
+      },
+      {
+        "artist": "Chase Cimala",
+        "firstTs": "2025-08-25T00:01:15.000Z",
+        "firstDate": "2025-08-24"
+      },
+      {
+        "artist": "JP Saxe",
+        "firstTs": "2025-08-25T00:01:17.000Z",
+        "firstDate": "2025-08-24"
+      },
+      {
+        "artist": "Thirsty Merc",
+        "firstTs": "2025-08-25T00:01:18.000Z",
+        "firstDate": "2025-08-24"
+      },
+      {
+        "artist": "Dean Lewis",
+        "firstTs": "2025-08-25T00:01:23.000Z",
+        "firstDate": "2025-08-24"
+      },
+      {
+        "artist": "Angus & Julia Stone",
+        "firstTs": "2025-08-25T00:01:25.000Z",
+        "firstDate": "2025-08-24"
+      },
+      {
+        "artist": "Birds Of Tokyo",
+        "firstTs": "2025-08-25T00:01:34.000Z",
+        "firstDate": "2025-08-24"
+      },
+      {
+        "artist": "Labrinth",
+        "firstTs": "2025-08-25T00:01:49.000Z",
+        "firstDate": "2025-08-24"
+      },
+      {
+        "artist": "Powderfinger",
+        "firstTs": "2025-08-25T00:03:16.000Z",
+        "firstDate": "2025-08-24"
+      },
+      {
+        "artist": "Lachlan Edwards",
+        "firstTs": "2025-08-25T00:03:18.000Z",
+        "firstDate": "2025-08-24"
+      },
+      {
+        "artist": "The Last Goodnight",
+        "firstTs": "2025-08-25T00:03:23.000Z",
+        "firstDate": "2025-08-24"
+      },
+      {
+        "artist": "Jeremy Zucker",
+        "firstTs": "2025-08-25T00:03:34.000Z",
+        "firstDate": "2025-08-24"
+      },
+      {
+        "artist": "Chet Faker",
+        "firstTs": "2025-08-25T00:03:38.000Z",
+        "firstDate": "2025-08-24"
+      },
+      {
+        "artist": "Joel Adams",
+        "firstTs": "2025-08-25T14:41:00.000Z",
+        "firstDate": "2025-08-25"
+      },
+      {
+        "artist": "KIAN",
+        "firstTs": "2025-08-25T15:05:31.000Z",
+        "firstDate": "2025-08-25"
+      },
+      {
+        "artist": "Edison Lighthouse",
+        "firstTs": "2025-08-25T15:06:06.000Z",
+        "firstDate": "2025-08-25"
+      },
+      {
+        "artist": "Tate McRae",
+        "firstTs": "2025-08-25T18:35:24.000Z",
+        "firstDate": "2025-08-25"
+      },
+      {
+        "artist": "Sleeping At Last",
+        "firstTs": "2025-08-25T18:35:31.000Z",
+        "firstDate": "2025-08-25"
+      },
+      {
+        "artist": "Guy Sebastian",
+        "firstTs": "2025-08-25T18:35:33.000Z",
+        "firstDate": "2025-08-25"
+      },
+      {
+        "artist": "Keenan Te",
+        "firstTs": "2025-08-25T18:35:35.000Z",
+        "firstDate": "2025-08-25"
+      },
+      {
+        "artist": "Missy Higgins",
+        "firstTs": "2025-08-25T18:35:47.000Z",
+        "firstDate": "2025-08-25"
+      },
+      {
+        "artist": "Jaymes Young",
+        "firstTs": "2025-08-25T20:12:07.000Z",
+        "firstDate": "2025-08-25"
+      },
+      {
+        "artist": "Conrad Sewell",
+        "firstTs": "2025-08-25T20:12:09.000Z",
+        "firstDate": "2025-08-25"
+      },
+      {
+        "artist": "Kate Miller-Heidke",
+        "firstTs": "2025-08-25T20:12:11.000Z",
+        "firstDate": "2025-08-25"
+      },
+      {
+        "artist": "Peter Manos",
+        "firstTs": "2025-08-25T20:12:13.000Z",
+        "firstDate": "2025-08-25"
+      },
+      {
+        "artist": "Sara Kays",
+        "firstTs": "2025-08-25T20:12:23.000Z",
+        "firstDate": "2025-08-25"
+      },
+      {
+        "artist": "Alphaville",
+        "firstTs": "2025-08-27T02:33:27.000Z",
+        "firstDate": "2025-08-26"
+      },
+      {
+        "artist": "Dasha",
+        "firstTs": "2025-08-29T22:05:17.000Z",
+        "firstDate": "2025-08-29"
+      },
+      {
+        "artist": "Travis Scott",
+        "firstTs": "2025-08-31T03:39:41.000Z",
+        "firstDate": "2025-08-30"
+      },
+      {
+        "artist": "Daft Punk",
+        "firstTs": "2025-09-01T16:19:43.000Z",
+        "firstDate": "2025-09-01"
+      },
+      {
+        "artist": "Natalie Imbruglia",
+        "firstTs": "2025-09-05T13:43:15.000Z",
+        "firstDate": "2025-09-05"
+      },
+      {
+        "artist": "Hollow Coves",
+        "firstTs": "2025-09-05T23:48:08.000Z",
+        "firstDate": "2025-09-05"
+      },
+      {
+        "artist": "Anna Kendrick",
+        "firstTs": "2025-09-08T15:40:13.000Z",
+        "firstDate": "2025-09-08"
+      },
+      {
+        "artist": "Israel Kamakawiwo'ole",
+        "firstTs": "2025-09-08T20:40:51.000Z",
+        "firstDate": "2025-09-08"
+      },
+      {
+        "artist": "Redbone",
+        "firstTs": "2025-09-08T22:29:20.000Z",
+        "firstDate": "2025-09-08"
+      },
+      {
+        "artist": "Crowded House",
+        "firstTs": "2025-09-08T22:33:22.000Z",
+        "firstDate": "2025-09-08"
+      },
+      {
+        "artist": "Ray LaMontagne",
+        "firstTs": "2025-09-11T16:09:54.000Z",
+        "firstDate": "2025-09-11"
+      },
+      {
+        "artist": "Louis Tomlinson",
+        "firstTs": "2025-09-17T16:35:33.000Z",
+        "firstDate": "2025-09-17"
+      },
+      {
+        "artist": "sombr",
+        "firstTs": "2025-09-17T16:35:43.000Z",
+        "firstDate": "2025-09-17"
+      },
+      {
+        "artist": "Kehlani",
+        "firstTs": "2025-09-17T16:35:46.000Z",
+        "firstDate": "2025-09-17"
+      },
+      {
+        "artist": "Chris Brown",
+        "firstTs": "2025-09-17T16:35:51.000Z",
+        "firstDate": "2025-09-17"
+      },
+      {
+        "artist": "ILLENIUM",
+        "firstTs": "2025-09-17T16:35:52.000Z",
+        "firstDate": "2025-09-17"
+      },
+      {
+        "artist": "Patience & Prudence",
+        "firstTs": "2025-09-17T16:35:53.000Z",
+        "firstDate": "2025-09-17"
+      },
+      {
+        "artist": "Two Feet",
+        "firstTs": "2025-09-17T16:36:05.000Z",
+        "firstDate": "2025-09-17"
+      },
+      {
+        "artist": "Jawsh 685",
+        "firstTs": "2025-09-18T23:53:32.000Z",
+        "firstDate": "2025-09-18"
+      },
+      {
+        "artist": "Ella Langley",
+        "firstTs": "2025-09-18T23:53:48.000Z",
+        "firstDate": "2025-09-18"
+      },
+      {
+        "artist": "Kygo",
+        "firstTs": "2025-09-20T17:46:01.000Z",
+        "firstDate": "2025-09-20"
+      },
+      {
+        "artist": "Macklemore",
+        "firstTs": "2025-09-20T17:46:06.000Z",
+        "firstDate": "2025-09-20"
+      },
+      {
+        "artist": "Weezer",
+        "firstTs": "2025-09-20T18:35:06.000Z",
+        "firstDate": "2025-09-20"
+      },
+      {
+        "artist": "Rusted Root",
+        "firstTs": "2025-09-20T21:06:37.000Z",
+        "firstDate": "2025-09-20"
+      },
+      {
+        "artist": "Tom Odell",
+        "firstTs": "2025-09-23T20:52:32.000Z",
+        "firstDate": "2025-09-23"
+      },
+      {
+        "artist": "Olivia Dean",
+        "firstTs": "2025-09-24T19:38:47.000Z",
+        "firstDate": "2025-09-24"
+      },
+      {
+        "artist": "Bad Bunny",
+        "firstTs": "2025-09-29T02:02:21.000Z",
+        "firstDate": "2025-09-28"
+      },
+      {
+        "artist": "Los Aptos",
+        "firstTs": "2025-09-29T17:41:35.000Z",
+        "firstDate": "2025-09-29"
+      },
+      {
+        "artist": "Chicano Batman",
+        "firstTs": "2025-09-29T17:41:36.000Z",
+        "firstDate": "2025-09-29"
+      },
+      {
+        "artist": "Nico Play",
+        "firstTs": "2025-09-29T17:41:38.000Z",
+        "firstDate": "2025-09-29"
+      },
+      {
+        "artist": "Peter Allen",
+        "firstTs": "2025-09-30T17:55:08.000Z",
+        "firstDate": "2025-09-30"
+      },
+      {
+        "artist": "The Dubliners",
+        "firstTs": "2025-09-30T17:55:09.000Z",
+        "firstDate": "2025-09-30"
+      },
+      {
+        "artist": "Sam Barber",
+        "firstTs": "2025-09-30T17:55:13.000Z",
+        "firstDate": "2025-09-30"
+      },
+      {
+        "artist": "Charlie Boy Sings",
+        "firstTs": "2025-09-30T17:55:38.000Z",
+        "firstDate": "2025-09-30"
+      },
+      {
+        "artist": "Fleeland",
+        "firstTs": "2025-09-30T17:55:58.000Z",
+        "firstDate": "2025-09-30"
+      },
+      {
+        "artist": "Emma Andersen",
+        "firstTs": "2025-09-30T17:56:15.000Z",
+        "firstDate": "2025-09-30"
+      },
+      {
+        "artist": "Gladys Knight & The Pips",
+        "firstTs": "2025-10-01T00:16:31.000Z",
+        "firstDate": "2025-09-30"
+      },
+      {
+        "artist": "Djo",
+        "firstTs": "2025-10-02T15:52:24.000Z",
+        "firstDate": "2025-10-02"
+      },
+      {
+        "artist": "The Struts",
+        "firstTs": "2025-10-04T16:22:15.000Z",
+        "firstDate": "2025-10-04"
+      },
+      {
+        "artist": "Liam Payne",
+        "firstTs": "2025-10-04T16:37:22.000Z",
+        "firstDate": "2025-10-04"
+      },
+      {
+        "artist": "Franz Ferdinand",
+        "firstTs": "2025-10-04T16:37:24.000Z",
+        "firstDate": "2025-10-04"
+      },
+      {
+        "artist": "G-Eazy",
+        "firstTs": "2025-10-04T16:37:35.000Z",
+        "firstDate": "2025-10-04"
+      },
+      {
+        "artist": "Feed Your Soul",
+        "firstTs": "2025-10-06T00:27:45.000Z",
+        "firstDate": "2025-10-05"
+      },
+      {
+        "artist": "Alex & Sierra",
+        "firstTs": "2025-10-06T01:01:07.000Z",
+        "firstDate": "2025-10-05"
+      },
+      {
+        "artist": "Bobby McFerrin",
+        "firstTs": "2025-10-06T01:24:05.000Z",
+        "firstDate": "2025-10-05"
+      },
+      {
+        "artist": "The Cinematic Orchestra",
+        "firstTs": "2025-10-06T01:55:33.000Z",
+        "firstDate": "2025-10-05"
+      },
+      {
+        "artist": "Sean Paul",
+        "firstTs": "2025-10-08T19:10:17.000Z",
+        "firstDate": "2025-10-08"
+      },
+      {
+        "artist": "Jerry Lee Lewis",
+        "firstTs": "2025-10-10T17:52:38.000Z",
+        "firstDate": "2025-10-10"
+      },
+      {
+        "artist": "New Radicals",
+        "firstTs": "2025-10-16T21:52:39.000Z",
+        "firstDate": "2025-10-16"
+      },
+      {
+        "artist": "Jerry Douglas",
+        "firstTs": "2025-10-17T13:46:21.000Z",
+        "firstDate": "2025-10-17"
+      },
+      {
+        "artist": "Bear's Den",
+        "firstTs": "2025-10-17T13:46:23.000Z",
+        "firstDate": "2025-10-17"
+      },
+      {
+        "artist": "The New Basement Tapes",
+        "firstTs": "2025-10-17T13:46:25.000Z",
+        "firstDate": "2025-10-17"
+      },
+      {
+        "artist": "Caamp",
+        "firstTs": "2025-10-17T13:46:26.000Z",
+        "firstDate": "2025-10-17"
+      },
+      {
+        "artist": "The Avett Brothers",
+        "firstTs": "2025-10-17T13:46:27.000Z",
+        "firstDate": "2025-10-17"
+      },
+      {
+        "artist": "Ryan McMullan",
+        "firstTs": "2025-10-17T17:13:20.000Z",
+        "firstDate": "2025-10-17"
+      },
+      {
+        "artist": "Jeff Daniels",
+        "firstTs": "2025-10-17T17:13:22.000Z",
+        "firstDate": "2025-10-17"
+      },
+      {
+        "artist": "Mack Myles",
+        "firstTs": "2025-10-17T17:14:21.000Z",
+        "firstDate": "2025-10-17"
+      },
+      {
+        "artist": "Earl Carpenter",
+        "firstTs": "2025-10-17T17:14:23.000Z",
+        "firstDate": "2025-10-17"
+      },
+      {
+        "artist": "Wednesday Kid",
+        "firstTs": "2025-10-24T04:20:40.000Z",
+        "firstDate": "2025-10-24"
+      },
+      {
+        "artist": "Richmond Octaves",
+        "firstTs": "2025-10-24T04:30:36.000Z",
+        "firstDate": "2025-10-24"
+      },
+      {
+        "artist": "Noah Guthrie",
+        "firstTs": "2025-10-24T04:31:04.000Z",
+        "firstDate": "2025-10-24"
+      },
+      {
+        "artist": "Panic! At The Disco",
+        "firstTs": "2025-10-24T14:21:23.000Z",
+        "firstDate": "2025-10-24"
+      },
+      {
+        "artist": "Timbaland",
+        "firstTs": "2025-10-24T14:22:19.000Z",
+        "firstDate": "2025-10-24"
+      },
+      {
+        "artist": "Dynoro",
+        "firstTs": "2025-10-24T14:22:22.000Z",
+        "firstDate": "2025-10-24"
+      },
+      {
+        "artist": "Moby",
+        "firstTs": "2025-10-24T14:22:22.000Z",
+        "firstDate": "2025-10-24"
+      },
+      {
+        "artist": "will.i.am",
+        "firstTs": "2025-10-24T14:22:26.000Z",
+        "firstDate": "2025-10-24"
+      },
+      {
+        "artist": "Tiësto",
+        "firstTs": "2025-10-24T14:22:31.000Z",
+        "firstDate": "2025-10-24"
+      },
+      {
+        "artist": "Starley",
+        "firstTs": "2025-10-24T14:22:35.000Z",
+        "firstDate": "2025-10-24"
+      },
+      {
+        "artist": "KALEO",
+        "firstTs": "2025-10-29T01:57:17.000Z",
+        "firstDate": "2025-10-28"
+      },
+      {
+        "artist": "Hot Chelle Rae",
+        "firstTs": "2025-10-29T01:59:16.000Z",
+        "firstDate": "2025-10-28"
+      },
+      {
+        "artist": "DNCE",
+        "firstTs": "2025-10-29T01:59:45.000Z",
+        "firstDate": "2025-10-28"
+      }
+    ]
+  }
+}
