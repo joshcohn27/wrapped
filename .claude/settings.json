@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node --check build-stats.js)",
+      "Bash(node -e ' *)",
+      "Bash(git rm *)",
+      "Bash(node smoke-test.js)",
+      "Bash(git commit -m ' *)"
+    ]
+  }
+}
