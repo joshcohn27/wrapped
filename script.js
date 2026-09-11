@@ -16,6 +16,19 @@ const FIRST_LISTENED_PAGE_SIZE = 25;
 
 const ALL_TIME_KEY = "all";
 
+// Search tab state. search-index.json is fetched lazily (only once the
+// Search tab is actually opened) since it's much bigger than stats.json.
+let dashboardYears = [];
+let searchIndexData = null;
+let searchIndexPromise = null;
+let searchArtistMap = new Map();
+let searchSongMap = new Map();
+let searchQuery = "";
+let searchYearFilter = ALL_TIME_KEY;
+let searchTypeFilter = "all";
+let searchSelected = null; // { type: "artist" | "song", key }
+const SEARCH_RESULTS_LIMIT = 50;
+
 // ---------- helpers ----------
 
 function showLoader() {
@@ -32,6 +45,14 @@ function hourToAmPm(hour) {
     let h12 = h % 12;
     if (h12 === 0) h12 = 12;
     return `${h12} ${suffix}`;
+}
+
+function debounce(fn, waitMs) {
+    let timer;
+    return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => fn(...args), waitMs);
+    };
 }
 
 function formatMinutesToHoursMinutes(totalMinutes) {
@@ -503,6 +524,400 @@ function setupFirstListenedSearch() {
     });
 }
 
+// ---------- search tab ----------
+
+function setupViewTabs() {
+    document.querySelectorAll("#view-tabs .tab-button").forEach((btn) => {
+        btn.addEventListener("click", () => setActiveView(btn.dataset.view));
+    });
+}
+
+function setActiveView(view) {
+    document.querySelectorAll("#view-tabs .tab-button").forEach((btn) => {
+        btn.classList.toggle("active", btn.dataset.view === view);
+    });
+    document.getElementById("dashboard-view").hidden = view !== "dashboard";
+    document.getElementById("search-view").hidden = view !== "search";
+
+    if (view === "search") {
+        ensureSearchIndexLoaded();
+    }
+}
+
+// Fetches search-index.json once, the first time the Search tab is opened
+// (it's a much bigger payload than stats.json, so the dashboard's initial
+// load never pays for it).
+function ensureSearchIndexLoaded() {
+    if (searchIndexData || searchIndexPromise) return searchIndexPromise;
+
+    const resultsContainer = document.getElementById("search-results");
+    resultsContainer.innerHTML = "";
+    const loading = document.createElement("p");
+    loading.className = "section-subtitle";
+    loading.textContent = "Loading search index...";
+    resultsContainer.appendChild(loading);
+
+    searchIndexPromise = fetch("search-index.json")
+        .then((res) => {
+            if (!res.ok) throw new Error(`Failed to load search-index.json: ${res.status}`);
+            return res.json();
+        })
+        .then((data) => {
+            searchIndexData = data;
+            searchArtistMap = new Map(data.artists.map((a) => [a.name, a]));
+            searchSongMap = new Map(data.songs.map((s) => [s.key, s]));
+            renderSearchYearFilter();
+            renderSearchResults();
+        })
+        .catch((err) => {
+            console.error(err);
+            resultsContainer.innerHTML = "";
+            const errEl = document.createElement("p");
+            errEl.className = "section-subtitle";
+            errEl.textContent = "Error loading search index. Check the console.";
+            resultsContainer.appendChild(errEl);
+        });
+
+    return searchIndexPromise;
+}
+
+function renderSearchYearFilter() {
+    const container = document.getElementById("search-year-filter");
+    container.innerHTML = "";
+
+    const allBtn = document.createElement("button");
+    allBtn.className = "tab-button" + (searchYearFilter === ALL_TIME_KEY ? " active" : "");
+    allBtn.textContent = "All Time";
+    allBtn.dataset.scope = ALL_TIME_KEY;
+    allBtn.addEventListener("click", () => setSearchYearFilter(ALL_TIME_KEY));
+    container.appendChild(allBtn);
+
+    dashboardYears.forEach((year) => {
+        const scope = String(year);
+        const btn = document.createElement("button");
+        btn.className = "tab-button" + (searchYearFilter === scope ? " active" : "");
+        btn.textContent = scope;
+        btn.dataset.scope = scope;
+        btn.addEventListener("click", () => setSearchYearFilter(scope));
+        container.appendChild(btn);
+    });
+}
+
+function setSearchYearFilter(scope) {
+    searchYearFilter = scope;
+    document.querySelectorAll("#search-year-filter .tab-button").forEach((btn) => {
+        btn.classList.toggle("active", btn.dataset.scope === scope);
+    });
+    renderSearchResults();
+    if (searchSelected) renderEntityDetail(searchSelected.type, searchSelected.key);
+}
+
+function setupSearchTypeFilter() {
+    document.querySelectorAll("#search-type-filter .tab-button").forEach((btn) => {
+        btn.addEventListener("click", () => {
+            searchTypeFilter = btn.dataset.type;
+            document.querySelectorAll("#search-type-filter .tab-button").forEach((b) => {
+                b.classList.toggle("active", b === btn);
+            });
+            renderSearchResults();
+        });
+    });
+}
+
+function setupSearchInput() {
+    const input = document.getElementById("search-input");
+    const onInput = debounce((value) => {
+        searchQuery = value.trim().toLowerCase();
+        renderSearchResults();
+    }, 150);
+    input.addEventListener("input", (e) => onInput(e.target.value));
+}
+
+// Matches artists/songs against the query + type filter, restricted to
+// entities that actually have data in the selected scope, ranked by total
+// listening time in that scope, capped so a huge/no-op query still renders
+// instantly.
+function renderSearchResults() {
+    const container = document.getElementById("search-results");
+    container.innerHTML = "";
+
+    if (!searchIndexData) return;
+
+    const scope = searchYearFilter;
+    const needle = searchQuery;
+    const results = [];
+
+    if (searchTypeFilter !== "song") {
+        for (const artist of searchIndexData.artists) {
+            const profile = artist.byScope[scope];
+            if (!profile) continue;
+            if (needle && !artist.name.toLowerCase().includes(needle)) continue;
+            results.push({
+                type: "artist",
+                key: artist.name,
+                name: artist.name,
+                sub: "Artist",
+                totalMinutes: profile.totalMinutes,
+            });
+        }
+    }
+
+    if (searchTypeFilter !== "artist") {
+        for (const song of searchIndexData.songs) {
+            const profile = song.byScope[scope];
+            if (!profile) continue;
+            if (
+                needle &&
+                !song.title.toLowerCase().includes(needle) &&
+                !song.artist.toLowerCase().includes(needle)
+            ) {
+                continue;
+            }
+            results.push({
+                type: "song",
+                key: song.key,
+                name: song.title,
+                sub: `Song · ${song.artist}`,
+                totalMinutes: profile.totalMinutes,
+            });
+        }
+    }
+
+    results.sort((a, b) => b.totalMinutes - a.totalMinutes);
+    const totalMatches = results.length;
+    const visible = results.slice(0, SEARCH_RESULTS_LIMIT);
+
+    if (!visible.length) {
+        const empty = document.createElement("p");
+        empty.className = "section-subtitle";
+        empty.textContent = needle
+            ? "No artists or songs match your search for this time period."
+            : "No listening data for this time period.";
+        container.appendChild(empty);
+        return;
+    }
+
+    const list = document.createElement("div");
+    list.className = "search-results-list";
+
+    visible.forEach((item) => {
+        const btn = document.createElement("button");
+        btn.className = "search-result-item";
+        if (searchSelected && searchSelected.type === item.type && searchSelected.key === item.key) {
+            btn.classList.add("active");
+        }
+
+        const main = document.createElement("div");
+        main.className = "search-result-main";
+
+        const nameEl = document.createElement("span");
+        nameEl.className = "search-result-name";
+        nameEl.textContent = item.name;
+
+        const subEl = document.createElement("span");
+        subEl.className = "search-result-sub";
+        subEl.textContent = item.sub;
+
+        main.appendChild(nameEl);
+        main.appendChild(subEl);
+
+        const statEl = document.createElement("span");
+        statEl.className = "search-result-stat";
+        statEl.textContent = `${formatMinutesToHoursMinutes(item.totalMinutes).hours.toFixed(1)} hrs`;
+
+        btn.appendChild(main);
+        btn.appendChild(statEl);
+        btn.addEventListener("click", () => selectSearchEntity(item.type, item.key));
+
+        list.appendChild(btn);
+    });
+
+    container.appendChild(list);
+
+    if (totalMatches > SEARCH_RESULTS_LIMIT) {
+        const hint = document.createElement("p");
+        hint.className = "hint-text";
+        hint.textContent = `Showing the top ${SEARCH_RESULTS_LIMIT} of ${totalMatches} matches by listening time. Refine your search to narrow it down.`;
+        container.appendChild(hint);
+    }
+}
+
+function openEntityModal() {
+    document.getElementById("entity-modal-overlay").hidden = false;
+    document.body.classList.add("modal-open");
+}
+
+function closeEntityModal() {
+    document.getElementById("entity-modal-overlay").hidden = true;
+    document.body.classList.remove("modal-open");
+}
+
+// Wires the modal's close affordances once at startup: the X button,
+// clicking the dimmed backdrop, and Escape -- same behavior on desktop
+// (centered dialog) and mobile (fullscreen sheet).
+function setupEntityModal() {
+    document.getElementById("entity-modal-close").addEventListener("click", closeEntityModal);
+    document.getElementById("entity-modal-overlay").addEventListener("click", (e) => {
+        if (e.target.id === "entity-modal-overlay") closeEntityModal();
+    });
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && !document.getElementById("entity-modal-overlay").hidden) {
+            closeEntityModal();
+        }
+    });
+}
+
+function selectSearchEntity(type, key) {
+    searchSelected = { type, key };
+    renderSearchResults(); // re-render so the clicked row picks up "active"
+    renderEntityDetail(type, key);
+    openEntityModal();
+}
+
+// Renders the full profile for one artist or song into the entity modal:
+// stat tiles, monthly trend, top days, country/platform breakdown, plus
+// songs-by-artist (artist) or a link back to the artist (song). Reuses the
+// same createTable / renderStatTiles helpers as the year dashboard above.
+function renderEntityDetail(type, key) {
+    const entry = type === "artist" ? searchArtistMap.get(key) : searchSongMap.get(key);
+    if (!entry) return;
+
+    const container = document.getElementById("search-detail");
+    container.innerHTML = "";
+    container.scrollTop = 0;
+
+    const scope = searchYearFilter;
+    const scopeLabel = scope === ALL_TIME_KEY ? "All Time" : scope;
+    const profile = entry.byScope[scope];
+
+    const header = document.createElement("div");
+    header.className = "entity-detail-header";
+    const h2 = document.createElement("h2");
+    h2.textContent = type === "artist" ? entry.name : entry.title;
+    const pill = document.createElement("span");
+    pill.className = "tag-pill";
+    pill.textContent = type === "artist" ? "Artist" : "Song";
+    header.appendChild(h2);
+    header.appendChild(pill);
+    container.appendChild(header);
+
+    const subtitle = document.createElement("p");
+    subtitle.className = "section-subtitle";
+    if (type === "song") {
+        subtitle.appendChild(document.createTextNode("by "));
+        const artistLink = document.createElement("button");
+        artistLink.className = "entity-artist-link";
+        artistLink.textContent = entry.artist;
+        artistLink.addEventListener("click", () => selectSearchEntity("artist", entry.artist));
+        subtitle.appendChild(artistLink);
+        subtitle.appendChild(document.createTextNode(` · Showing: ${scopeLabel}`));
+    } else {
+        subtitle.textContent = `Showing: ${scopeLabel}`;
+    }
+    container.appendChild(subtitle);
+
+    if (!profile) {
+        const empty = document.createElement("p");
+        empty.className = "section-subtitle";
+        empty.textContent = `No plays logged for ${scopeLabel}.`;
+        container.appendChild(empty);
+        return;
+    }
+
+    const fm = formatMinutesToHoursMinutes(profile.totalMinutes);
+    const tiles = [
+        { label: "Total Listening Time", value: fm.hoursText },
+        { label: "Total Minutes", value: fm.minutesText },
+        { label: "Play Events", value: profile.playEvents.toString() },
+        {
+            label: `Rank (${scopeLabel})`,
+            value: `#${profile.rank} of ${profile.totalInScope} ${type === "artist" ? "artists" : "songs"}`,
+        },
+    ];
+    if (type === "artist") {
+        tiles.push({ label: "Unique Songs", value: profile.uniqueSongs.toString() });
+    }
+    tiles.push(
+        { label: "First Listened", value: profile.firstDate },
+        { label: "Last Listened", value: profile.lastDate },
+        { label: "Skip Rate", value: `${profile.skipRatePercent.toFixed(1)}%` },
+        { label: "Shuffle %", value: `${profile.shuffleRatio.shufflePercent.toFixed(1)}%` }
+    );
+
+    const tilesDiv = document.createElement("div");
+    tilesDiv.id = "entity-tiles";
+    tilesDiv.className = "summary-grid";
+    container.appendChild(tilesDiv);
+    renderStatTiles("entity-tiles", tiles);
+
+    appendEntitySection(container, "Monthly Trend", "entity-monthly-trend");
+    const maxTrendMinutes = Math.max(...profile.monthlyTrend.map((m) => m.minutes), 0.0001);
+    const trendRows = profile.monthlyTrend.map((m) => [m.label, Math.round(m.minutes).toString()]);
+    createTable("entity-monthly-trend", ["Month", "Minutes"], trendRows, {
+        getRowStyle: (row) => {
+            const minutes = parseFloat(row[1]);
+            const intensity = 0.05 + (minutes / maxTrendMinutes) * 0.3;
+            return `background-color: rgba(30, 215, 96, ${intensity.toFixed(3)})`;
+        },
+    });
+
+    appendEntitySection(container, "Top Listening Days", "entity-top-days");
+    const dayRows = profile.topDays.map((d, idx) => {
+        const dfm = formatMinutesToHoursMinutes(d.minutes);
+        return [(idx + 1).toString(), d.date, dfm.hours.toFixed(2), Math.round(d.minutes).toString()];
+    });
+    createTable("entity-top-days", ["#", "Date", "Hours", "Minutes"], dayRows, { unsortableColumns: [0] });
+
+    appendEntitySection(container, "Listening by Country", "entity-country");
+    const countryTotal = profile.byCountry.reduce((sum, c) => sum + c.minutes, 0) || 1;
+    const countryRows = profile.byCountry.map((c, idx) => {
+        const cfm = formatMinutesToHoursMinutes(c.minutes);
+        const percent = ((c.minutes / countryTotal) * 100).toFixed(1) + "%";
+        return [(idx + 1).toString(), c.country, cfm.hours.toFixed(2), Math.round(c.minutes).toString(), percent];
+    });
+    createTable("entity-country", ["#", "Country", "Hours", "Minutes", "% of Total"], countryRows, {
+        unsortableColumns: [0],
+    });
+
+    appendEntitySection(container, "Platform Breakdown", "entity-platform");
+    createTable("entity-platform", ["Platform", "% of Plays"], [
+        ["Mobile", `${profile.platformBreakdown.mobile.toFixed(1)}%`],
+        ["Desktop", `${profile.platformBreakdown.desktop.toFixed(1)}%`],
+        ["Other", `${profile.platformBreakdown.other.toFixed(1)}%`],
+    ]);
+
+    if (type === "artist" && profile.songs.length) {
+        appendEntitySection(container, "Songs by This Artist", "entity-artist-songs");
+        const songRows = profile.songs.map((s, idx) => {
+            const sfm = formatMinutesToHoursMinutes(s.totalMinutes);
+            return [(idx + 1).toString(), s.title, sfm.hours.toFixed(2), Math.round(s.totalMinutes).toString(), s.playEvents.toString()];
+        });
+        createTable(
+            "entity-artist-songs",
+            ["#", "Song", "Hours", "Minutes", "Play Events"],
+            songRows,
+            { unsortableColumns: [0] }
+        );
+    }
+}
+
+// Appends a "<h3>title</h3><div id=containerId>" block to an entity detail
+// card -- createTable/renderStatTiles fill in the div right after.
+function appendEntitySection(container, title, containerId) {
+    const section = document.createElement("div");
+    section.className = "entity-detail-section";
+
+    const heading = document.createElement("h3");
+    heading.textContent = title;
+    section.appendChild(heading);
+
+    const div = document.createElement("div");
+    div.id = containerId;
+    section.appendChild(div);
+
+    container.appendChild(section);
+}
+
 // ---------- tabs + main ----------
 
 function renderYearTabs(years) {
@@ -529,7 +944,7 @@ function renderYearTabs(years) {
 function setActiveYear(year) {
     currentYear = year;
 
-    document.querySelectorAll(".tab-button").forEach((btn) => {
+    document.querySelectorAll("#year-tabs .tab-button").forEach((btn) => {
         btn.classList.toggle("active", btn.dataset.year === String(year));
     });
 
@@ -579,12 +994,18 @@ async function main() {
         }
 
         renderYearTabs(years);
+        dashboardYears = years;
 
         allTimeStats = data.allTime;
         setupFirstListenedSearch();
         renderFirstListened();
 
         setActiveYear(years[0]);
+
+        setupViewTabs();
+        setupSearchTypeFilter();
+        setupSearchInput();
+        setupEntityModal();
     } catch (err) {
         console.error(err);
         alert("Error loading stats.json. Check the console.");

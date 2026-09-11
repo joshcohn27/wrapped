@@ -59,7 +59,24 @@ body {
     gap: 1.5rem;
 }
 
+/* :not([hidden]) matters here -- otherwise this ID rule's specificity beats
+   the browser's default `[hidden] { display: none }` and the view switcher
+   in script.js (which just toggles the `hidden` attribute) stops working. */
+#dashboard-view:not([hidden]),
+#search-view:not([hidden]) {
+    display: grid;
+    gap: inherit;
+    min-width: 0;
+}
+
 .card {
+    /* Grid items default to a content-based automatic minimum width, so a
+       wide table deep inside a card (its own overflow-x:auto wrapper
+       notwithstanding) can otherwise force this card -- and the whole
+       column it sits in -- wider than the viewport. min-width: 0 lets the
+       card shrink to the available width and leaves the actual scrolling
+       to .table-wrapper. */
+    min-width: 0;
     background: rgba(15, 15, 15, 0.9);
     border-radius: 1.25rem;
     padding: 1.5rem 1.75rem;
@@ -325,5 +342,305 @@ tbody tr:hover {
 @keyframes spin {
     to {
         transform: rotate(360deg);
+    }
+}
+
+/* ---------- Search tab ---------- */
+
+.view-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0 1.5rem 1.5rem;
+}
+
+.search-filters {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+
+.filter-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.7;
+    margin-top: 0.5rem;
+}
+
+.search-results-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+
+.search-result-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.6rem 0.9rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.03);
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 0.9rem;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.search-result-item:hover,
+.search-result-item.active {
+    background: rgba(30, 215, 96, 0.14);
+    border-color: rgba(30, 215, 96, 0.5);
+}
+
+.search-result-main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+}
+
+.search-result-name {
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.search-result-sub {
+    font-size: 0.75rem;
+    opacity: 0.7;
+}
+
+.search-result-stat {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #1ed760;
+    white-space: nowrap;
+}
+
+.entity-detail-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.25rem;
+}
+
+.entity-detail-header h2 {
+    margin-bottom: 0;
+}
+
+.entity-artist-link {
+    background: none;
+    border: none;
+    color: #1ed760;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: underline;
+}
+
+.entity-detail-section {
+    margin-top: 1.5rem;
+}
+
+.entity-detail-section h3 {
+    font-size: 1rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+/* Entity detail modal -- same on web and mobile: a centered dialog on wider
+   screens, a near-fullscreen sheet below the 700px breakpoint (see media
+   query below). Body scroll is locked (via .modal-open on <body>) while
+   it's open so the page behind it doesn't scroll along with it. */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 5, 8, 0.75);
+    backdrop-filter: blur(3px);
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    z-index: 1000;
+}
+
+/* Kept separate (rather than folded into `display: flex` above) so this
+   `:not([hidden])` -- needed because an unconditional `display` would
+   otherwise beat the browser's default `[hidden] { display: none }`, same
+   reason as #dashboard-view/#search-view above -- doesn't raise the base
+   rule's specificity and break the mobile padding override below it. */
+.modal-overlay:not([hidden]) {
+    display: flex;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+.modal-panel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 760px;
+    max-height: 85vh;
+    background: rgba(20, 18, 22, 0.98);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 1.25rem;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+}
+
+.modal-body {
+    overflow-y: auto;
+    padding: 2.75rem 1.75rem 1.75rem;
+}
+
+.modal-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    font-size: 1.4rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    transition: background 0.15s ease;
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 700px) {
+    .hero {
+        padding: 2.25rem 1rem 1.5rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+        letter-spacing: 0.05em;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
+
+    .content {
+        padding: 0 1rem;
+        gap: 1rem;
+    }
+
+    .card {
+        padding: 1.1rem 1rem;
+        border-radius: 1rem;
+    }
+
+    .card h2 {
+        font-size: 1.2rem;
+    }
+
+    .summary-grid {
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 0.6rem;
+    }
+
+    table {
+        font-size: 0.78rem;
+    }
+
+    th,
+    td {
+        padding: 0.4rem 0.4rem;
+    }
+
+    .table-wrapper {
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Near-fullscreen sheet instead of a centered dialog -- more usable
+       than a small floating box once the viewport itself is phone-sized. */
+    .modal-overlay {
+        padding: 0;
+    }
+
+    .modal-panel {
+        max-width: 100%;
+        width: 100%;
+        height: 100%;
+        max-height: 100%;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
+
+    .search-input {
+        max-width: 100%;
+    }
+
+    .tab-button {
+        padding: 0.3rem 0.75rem;
+        font-size: 0.8rem;
+    }
+
+    .view-tabs {
+        padding: 0 1rem 1.25rem;
+    }
+}
+
+@media (max-width: 420px) {
+    .hero {
+        padding: 2rem 0.85rem 1.25rem;
+    }
+
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+
+    .card {
+        padding: 0.9rem 0.85rem;
+    }
+
+    .summary-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    table {
+        font-size: 0.72rem;
+    }
+
+    th,
+    td {
+        padding: 0.35rem 0.3rem;
+    }
+
+    .pagination {
+        justify-content: center;
+    }
+
+    .search-result-item {
+        flex-wrap: wrap;
     }
 }

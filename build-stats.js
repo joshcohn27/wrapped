@@ -13,6 +13,7 @@ const ROOT = __dirname;
 const DATA_DIR = path.join(ROOT, "data");
 const DATA_FILE_PATTERN = /^data\d+\.json$/i;
 const OUTPUT_FILE = path.join(ROOT, "stats.json");
+const SEARCH_INDEX_FILE = path.join(ROOT, "search-index.json");
 
 const MOBILE_PLATFORMS = new Set(["ios", "android"]);
 const DESKTOP_PLATFORMS = new Set(["windows", "osx", "mac", "macos", "linux"]);
@@ -281,6 +282,63 @@ function computeHourHeatmap(rows) {
   };
 }
 
+// ---------- small reusable row-set helpers ----------
+// (Used both by computeCoreStats below, and by the per-entity search index
+// -- anything here just needs "a set of rows", no notion of which entity or
+// year(s) they came from.)
+
+function computeTopDates(rows, limit) {
+  const minutesByDate = new Map();
+  for (const r of rows) {
+    minutesByDate.set(r.localDate, (minutesByDate.get(r.localDate) || 0) + r.minutes);
+  }
+  return Array.from(minutesByDate.entries())
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, limit)
+    .map(([date, minutes]) => ({ date, minutes }));
+}
+
+function computeByCountry(rows, limit) {
+  const minutesByCountry = new Map();
+  for (const r of rows) {
+    minutesByCountry.set(r.country, (minutesByCountry.get(r.country) || 0) + r.minutes);
+  }
+  return Array.from(minutesByCountry.entries())
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, limit)
+    .map(([country, minutes]) => ({ country, minutes }));
+}
+
+// Real calendar-month timeline (e.g. "July 2024", "August 2024", ...), not a
+// repeating 12-month cycle -- so it works unmodified whether `rows` spans one
+// year or the whole history: a single year just produces up to 12 entries.
+function computeMonthlyTrend(rows) {
+  const minutesByMonth = new Map(); // "YYYY-MM" -> minutes
+  for (const r of rows) {
+    const key = `${r.ts.getUTCFullYear()}-${String(r.ts.getUTCMonth() + 1).padStart(2, "0")}`;
+    minutesByMonth.set(key, (minutesByMonth.get(key) || 0) + r.minutes);
+  }
+  return Array.from(minutesByMonth.entries())
+    .sort((a, b) => (a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0))
+    .map(([key, minutes]) => {
+      const [y, m] = key.split("-");
+      return { label: `${MONTH_NAMES[Number(m) - 1]} ${y}`, minutes };
+    });
+}
+
+function firstLastDates(rows) {
+  let first = rows[0].ts;
+  let last = rows[0].ts;
+  for (const r of rows) {
+    if (r.ts < first) first = r.ts;
+    if (r.ts > last) last = r.ts;
+  }
+  return {
+    firstDate: first.toLocaleDateString("en-CA"),
+    lastDate: last.toLocaleDateString("en-CA"),
+  };
+}
+
 // ---------- core stats (shared by per-year and all-time) ----------
 
 // Everything that just needs "a set of rows" -- no notion of which year(s)
@@ -292,14 +350,7 @@ function computeCoreStats(rows) {
   const uniqueSongKeys = new Set(rows.map((r) => r.trackArtistKey));
   const uniqueArtists = new Set(rows.map((r) => r.artistName));
 
-  const minutesByDate = new Map();
-  for (const r of rows) {
-    minutesByDate.set(r.localDate, (minutesByDate.get(r.localDate) || 0) + r.minutes);
-  }
-  const topDates = Array.from(minutesByDate.entries())
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 5)
-    .map(([date, minutes]) => ({ date, minutes }));
+  const topDates = computeTopDates(rows, 5);
 
   const songsMap = new Map();
   for (const r of rows) {
@@ -346,14 +397,7 @@ function computeCoreStats(rows) {
     .sort((a, b) => b.totalMinutes - a.totalMinutes)
     .slice(0, 20);
 
-  const minutesByCountry = new Map();
-  for (const r of rows) {
-    minutesByCountry.set(r.country, (minutesByCountry.get(r.country) || 0) + r.minutes);
-  }
-  const byCountry = Array.from(minutesByCountry.entries())
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 10)
-    .map(([country, minutes]) => ({ country, minutes }));
+  const byCountry = computeByCountry(rows, 10);
 
   const { heatmap: hourHeatmap, peakHour } = computeHourHeatmap(rows);
 
@@ -407,6 +451,149 @@ function computeAllTime(rows, firstListenMap) {
   };
 }
 
+// ---------- search index (per-artist / per-song, every scope) ----------
+// Powers the Search tab: "ALL information" about one artist or song, for
+// All Time or any single year. Built once at compile time (same precompute
+// philosophy as everything else here) and written to a separate file so the
+// main dashboard's stats.json -- and its load time -- is unaffected; the
+// frontend only fetches this when the Search tab is opened.
+
+// Rounds to 2 decimal places -- plenty of precision for minutes/percentages
+// the UI only ever displays with toFixed(1-2), and it keeps search-index.json
+// (tens of thousands of small per-entity profiles) from bloating with long
+// floating-point tails.
+function round2(n) {
+  return Math.round(n * 100) / 100;
+}
+
+function roundMinutesList(list) {
+  return list.map((item) => ({ ...item, minutes: round2(item.minutes) }));
+}
+
+// Full profile for one entity within one scope (a single year's rows, or
+// every valid row for "all"). Shares the same row-set helpers as
+// computeCoreStats above, just without the top-N truncation those apply.
+function buildEntityProfile(rows) {
+  const { firstDate, lastDate } = firstLastDates(rows);
+  const platformBreakdown = computePlatformBreakdown(rows);
+  const shuffleRatio = computeShuffleRatio(rows);
+  return {
+    totalMinutes: round2(rows.reduce((sum, r) => sum + r.minutes, 0)),
+    playEvents: rows.length,
+    firstDate,
+    lastDate,
+    topDays: roundMinutesList(computeTopDates(rows, 5)),
+    monthlyTrend: roundMinutesList(computeMonthlyTrend(rows)),
+    byCountry: roundMinutesList(computeByCountry(rows, 5)),
+    platformBreakdown: {
+      mobile: round2(platformBreakdown.mobile),
+      desktop: round2(platformBreakdown.desktop),
+      other: round2(platformBreakdown.other),
+    },
+    skipRatePercent: round2(computeSkipRatePercent(rows)),
+    shuffleRatio: {
+      shufflePercent: round2(shuffleRatio.shufflePercent),
+      onDemandPercent: round2(shuffleRatio.onDemandPercent),
+    },
+  };
+}
+
+// Groups `rows` by `keyFn`, ranks the groups by total minutes desc, and
+// returns them as [{ key, rows, totalMinutes, rank, totalInScope }] --
+// shared ranking logic for both artists and songs within a scope.
+function rankGroupsByMinutes(rows, keyFn) {
+  const groups = new Map();
+  for (const r of rows) {
+    const key = keyFn(r);
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(r);
+  }
+
+  const ranked = Array.from(groups.entries()).map(([key, groupRows]) => ({
+    key,
+    rows: groupRows,
+    totalMinutes: groupRows.reduce((sum, r) => sum + r.minutes, 0),
+  }));
+  ranked.sort((a, b) => b.totalMinutes - a.totalMinutes);
+
+  const totalInScope = ranked.length;
+  return ranked.map((g, idx) => ({
+    key: g.key,
+    rows: g.rows,
+    totalMinutes: g.totalMinutes,
+    rank: idx + 1,
+    totalInScope,
+  }));
+}
+
+function buildSearchIndex(validRows) {
+  // scopeKey "all" plus one per year every row belongs to both.
+  const scopes = new Map(); // scopeKey -> rows[]
+  for (const r of validRows) {
+    const yearKey = String(r.year);
+    if (!scopes.has("all")) scopes.set("all", []);
+    if (!scopes.has(yearKey)) scopes.set(yearKey, []);
+    scopes.get("all").push(r);
+    scopes.get(yearKey).push(r);
+  }
+
+  const artists = new Map(); // artistName -> { name, byScope: {...} }
+  const songs = new Map(); // trackArtistKey -> { key, title, artist, byScope: {...} }
+
+  for (const [scopeKey, scopeRows] of scopes) {
+    const artistGroups = rankGroupsByMinutes(scopeRows, (r) => r.artistName);
+    const songGroups = rankGroupsByMinutes(scopeRows, (r) => r.trackArtistKey);
+
+    // Song groups, keyed for quick lookup when attaching each artist's own
+    // top-songs list below.
+    const songGroupsByKey = new Map(songGroups.map((g) => [g.key, g]));
+
+    for (const group of artistGroups) {
+      if (!artists.has(group.key)) artists.set(group.key, { name: group.key, byScope: {} });
+
+      const artistSongKeys = new Set(group.rows.map((r) => r.trackArtistKey));
+      const ownSongs = Array.from(artistSongKeys)
+        .map((key) => songGroupsByKey.get(key))
+        .sort((a, b) => b.totalMinutes - a.totalMinutes)
+        .map((g) => ({
+          title: g.rows[0].trackTitleNorm || g.rows[0].trackName,
+          totalMinutes: round2(g.totalMinutes),
+          playEvents: g.rows.length,
+        }));
+
+      artists.get(group.key).byScope[scopeKey] = {
+        ...buildEntityProfile(group.rows),
+        rank: group.rank,
+        totalInScope: group.totalInScope,
+        uniqueSongs: artistSongKeys.size,
+        songs: ownSongs,
+      };
+    }
+
+    for (const group of songGroups) {
+      if (!songs.has(group.key)) {
+        songs.set(group.key, {
+          key: group.key,
+          title: group.rows[0].trackTitleNorm || group.rows[0].trackName,
+          artist: group.rows[0].artistName,
+          byScope: {},
+        });
+      }
+
+      songs.get(group.key).byScope[scopeKey] = {
+        ...buildEntityProfile(group.rows),
+        rank: group.rank,
+        totalInScope: group.totalInScope,
+      };
+    }
+  }
+
+  return {
+    artists: Array.from(artists.values()),
+    songs: Array.from(songs.values()),
+  };
+}
+
 // ---------- main ----------
 
 function main() {
@@ -453,6 +640,14 @@ function main() {
   fs.writeFileSync(OUTPUT_FILE, JSON.stringify(output, null, 2));
   console.log(`Wrote ${OUTPUT_FILE}`);
   console.log(`Years: ${output.years.join(", ")}`);
+
+  const searchIndex = buildSearchIndex(validRows);
+  const searchIndexJson = JSON.stringify(searchIndex);
+  fs.writeFileSync(SEARCH_INDEX_FILE, searchIndexJson);
+  console.log(
+    `Wrote ${SEARCH_INDEX_FILE} (${searchIndex.artists.length} artists, ${searchIndex.songs.length} songs, ` +
+      `${(searchIndexJson.length / 1024 / 1024).toFixed(2)} MB)`
+  );
 
   if (failedFiles.length) {
     console.error(

@@ -21,7 +21,13 @@
         <p class="year-tag" id="year-tag">Year</p>
     </header>
 
+    <nav class="view-tabs" id="view-tabs">
+        <button class="tab-button active" data-view="dashboard">Dashboard</button>
+        <button class="tab-button" data-view="search">Search</button>
+    </nav>
+
     <main class="content">
+    <div id="dashboard-view">
         <!-- YEAR TABS -->
         <section class="card">
             <h2>Select a Year</h2>
@@ -126,11 +132,50 @@
             <div id="first-listened-table"></div>
             <div id="first-listened-pagination"></div>
         </section>
+    </div>
+    <!-- /#dashboard-view -->
+
+    <!-- SEARCH -->
+    <div id="search-view" hidden>
+        <section class="card">
+            <h2>Search</h2>
+            <p class="section-subtitle">
+                Look up everything logged for any artist or song you've ever listened to.
+            </p>
+            <input
+                type="text"
+                id="search-input"
+                class="search-input"
+                placeholder="Search artists or songs..."
+                autocomplete="off"
+            />
+            <div class="search-filters">
+                <span class="filter-label">Time period</span>
+                <div id="search-year-filter" class="tabs"></div>
+                <span class="filter-label">Type</span>
+                <div id="search-type-filter" class="tabs">
+                    <button class="tab-button active" data-type="all">All</button>
+                    <button class="tab-button" data-type="artist">Artists</button>
+                    <button class="tab-button" data-type="song">Songs</button>
+                </div>
+            </div>
+            <div id="search-results"></div>
+        </section>
+    </div>
+    <!-- /#search-view -->
     </main>
 
     <footer class="footer">
         <p>&copy;Joshua Cohn using Spotify JSON data</p>
     </footer>
+
+    <!-- ENTITY DETAIL MODAL (artist/song, opened from the Search tab) -->
+    <div id="entity-modal-overlay" class="modal-overlay" hidden>
+        <div class="modal-panel" role="dialog" aria-modal="true">
+            <button type="button" class="modal-close" id="entity-modal-close" aria-label="Close">&times;</button>
+            <div class="modal-body" id="search-detail"></div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

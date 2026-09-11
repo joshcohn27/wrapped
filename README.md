@@ -8,9 +8,10 @@ This project generates a personal, interactive Spotify Wrapped website using the
 
 ## Architecture
 
-- `build-stats.js` — a Node script (no dependencies) that reads every `data*.json` file in the `data/` folder, normalizes and aggregates it, and writes a single `stats.json` containing per-year stats plus an all-time section.
-- `stats.json` — the only data file the browser ever fetches. Committed to the repo so the site works without a build step at deploy time.
-- `index.html` / `styles.css` / `script.js` — pure static rendering layer. `script.js` does no parsing of raw export data; it only fetches `stats.json` and renders it.
+- `build-stats.js` — a Node script (no dependencies) that reads every `data*.json` file in the `data/` folder, normalizes and aggregates it, and writes two files: `stats.json` (per-year stats plus an all-time section, powering the Dashboard tab) and `search-index.json` (a full per-artist / per-song profile for every scope — All Time and each individual year — powering the Search tab).
+- `stats.json` — fetched on every page load; small, so the dashboard stays fast.
+- `search-index.json` — much bigger (tens of thousands of per-entity/per-scope profiles), so it's fetched lazily, only the first time the Search tab is opened.
+- `index.html` / `styles.css` / `script.js` — pure static rendering layer. `script.js` does no parsing of raw export data; it only fetches the two precomputed JSON files and renders them.
 
 ### Adding new data
 
@@ -19,8 +20,8 @@ This project generates a personal, interactive Spotify Wrapped website using the
    ```
    npm run build
    ```
-   This regenerates `stats.json` from every `data*.json` file present in `data/`.
-3. Commit `stats.json` (and `index.html`/`styles.css`/`script.js` if changed) and deploy. **Do not** commit the raw `data*.json` files — see Privacy below.
+   This regenerates `stats.json` and `search-index.json` from every `data*.json` file present in `data/`.
+3. Commit `stats.json`, `search-index.json` (and `index.html`/`styles.css`/`script.js` if changed) and deploy. **Do not** commit the raw `data*.json` files — see Privacy below.
 
 ## Privacy: raw export files are never deployed
 
@@ -29,11 +30,15 @@ The raw Spotify export contains `ip_addr` for every play event. `build-stats.js`
 - `.gitignore` excludes the entire `data/` folder, so none of the raw export files it contains ever get committed.
 - `.vercelignore` excludes the entire `data/` folder from anything uploaded to Vercel.
 
-The only data file that ships to the browser is `stats.json`, which contains aggregated listening stats — no IP addresses, no raw per-event data.
+The only data files that ship to the browser are `stats.json` and `search-index.json`, both derived exclusively from the same PII-free row shape — no IP addresses, no raw per-event data, for the dashboard or for any individual artist/song lookup.
 
 ## Layout
 
-A single straightforward dashboard, same feel as the original site, just with more sections. Top to bottom:
+A **Dashboard** / **Search** switcher sits under the header. Dashboard is the original single-page layout, year-scoped by the tabs below it; Search is a separate lookup tool for any one artist or song. The whole site is responsive down to phone widths — cards, tables (via their own horizontal-scroll wrapper), tabs, and the search inputs all adapt below ~700px and ~420px breakpoints.
+
+### Dashboard tab
+
+Same feel as the original site, just with more sections. Top to bottom:
 
 1. Header (title + year tag) and a year-tab switcher — same as the original, plus an **All Time** tab alongside each individual year
 2. Overview (total hours/minutes, unique songs/artists)
@@ -48,6 +53,17 @@ No scroll-snap, no full-viewport cards, no sticky nav — everything is a normal
 **All Time tab.** Every year-scoped section (everything except First Listened, which was already all-time) has a real all-time equivalent: top songs/artists computed across every year combined, the true longest streak and most-obsessed-day across all history, etc. Discovery Rate becomes a full month-by-month timeline (e.g. "July 2024") instead of a repeating Jan–Dec cycle, since there's no single year to bucket it into.
 
 **Sortable tables.** Every table's column headers are clickable — click to sort, click again to reverse. Numeric-looking columns (including `%` values) sort numerically; everything else sorts alphabetically. The 24-hour heatmap's shading is re-derived from each row after sorting, so it stays correct regardless of order. First Listened's sort applies to the full filtered list before pagination (not just the current page).
+
+### Search tab
+
+Look up the full profile of any artist or song ever logged. A text search matches artist names and song titles (plus, for songs, the artist name); a "Type" filter narrows to Artists or Songs; a "Time period" filter defaults to **All Time** and can be set to any single year — the results list, ranks, and every stat below re-scope to whichever period is selected.
+
+Clicking a result opens a modal (a centered dialog on desktop, a fullscreen sheet on mobile — closes via the X, the backdrop, or Escape) with everything `search-index.json` has for that entity in the selected period:
+
+- Stat tiles: total hours/minutes, play events, rank (e.g. "#12 of 340 artists"), first/last listened, skip rate, shuffle %, and (artists only) unique song count
+- Monthly Trend — a real calendar timeline (e.g. "July 2024"), shaded the same way as the 24-hour heatmap
+- Top Listening Days, Listening by Country, Platform Breakdown — same shape as their Dashboard equivalents, just scoped to this one entity
+- Artists additionally get a sortable "Songs by This Artist" table; songs instead show their artist as a link that jumps straight to that artist's own profile
 
 ## Statistics
 
@@ -76,7 +92,8 @@ No scroll-snap, no full-viewport cards, no sticky nav — everything is a normal
 /
 ├── build-stats.js       # build-time precompute script (npm run build)
 ├── package.json
-├── stats.json            # generated output, committed, the only thing the browser fetches
+├── stats.json            # generated output, committed, fetched by the Dashboard tab
+├── search-index.json      # generated output, committed, lazily fetched by the Search tab
 ├── index.html
 ├── styles.css
 ├── script.js
@@ -96,7 +113,7 @@ No scroll-snap, no full-viewport cards, no sticky nav — everything is a normal
 2. Request the extended streaming history
 3. Download the provided JSON files
 4. Add them to the `data/` folder as `data<N>.json`
-5. Run `npm run build` to regenerate `stats.json`
+5. Run `npm run build` to regenerate `stats.json` and `search-index.json`
 
 ## Technologies Used
 
