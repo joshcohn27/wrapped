@@ -5,7 +5,26 @@
       "Bash(node -e ' *)",
       "Bash(git rm *)",
       "Bash(node smoke-test.js)",
-      "Bash(git commit -m ' *)"
+      "Bash(git commit -m ' *)",
+      "Bash(node mobile-test.js)",
+      "Bash(node build-stats.js)",
+      "Bash(node --check script.js)",
+      "Bash(pkill -f \"listen\\(8080\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8080/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8080/search-index.json)",
+      "Bash(command -v chromium-cli)",
+      "Read(//usr/local/**)",
+      "Bash(where chromium-cli *)",
+      "Bash(node -e \"require.resolve\\('playwright'\\)\")",
+      "Bash(node .verify.js)",
+      "Bash(node .verify-overflow.js)",
+      "Bash(node .verify-song.js)",
+      "Bash(rm -f .verify.js .verify-overflow.js .verify-song.js .verify-*.png)",
+      "Bash(taskkill //PID 27232 //F)",
+      "Bash(node .verify2.js)",
+      "Bash(taskkill //PID 12564 //F)",
+      "Bash(node .verify3.js)",
+      "Bash(taskkill //PID 13988 //F)"
     ]
   }
 }
