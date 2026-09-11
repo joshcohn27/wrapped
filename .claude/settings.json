@@ -24,7 +24,17 @@
       "Bash(node .verify2.js)",
       "Bash(taskkill //PID 12564 //F)",
       "Bash(node .verify3.js)",
-      "Bash(taskkill //PID 13988 //F)"
+      "Bash(taskkill //PID 13988 //F)",
+      "Bash(node -e \"console.log\\(process.version\\); console.log\\(typeof DecompressionStream, typeof Blob, typeof Response\\);\")",
+      "Bash(node test-worker.js)",
+      "Bash(node --check stats-lib.js)",
+      "Bash(node --check upload-worker.js)",
+      "Bash(node .verify-upload.js)",
+      "Bash(node -e \"require\\('fs'\\).writeFileSync\\('corrupt.zip', Buffer.from\\('this is not a zip file at all'\\)\\)\")",
+      "Bash(node .verify-corrupt.js)",
+      "Bash(taskkill //PID 26148 //F)",
+      "Bash(node .verify-final.js)",
+      "Bash(taskkill //PID 8724 //F)"
     ]
   }
 }
