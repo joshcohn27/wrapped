@@ -1,19 +1,9 @@
-// Renders the precomputed stats.json (see build-stats.js). No raw export
-// parsing happens here -- that all runs at build time via `npm run build`.
+// Renders precomputed stats: stats.json for the built-in Dashboard tab (see
+// build-stats.js), or a Web Worker's output for the Upload tab (see
+// upload-worker.js). No raw export parsing happens here directly -- both
+// paths go through the shared aggregation code in stats-lib.js.
 
-let showAllSongs = false;    // false = top 20, true = up to 100
-let showAllArtists = false;  // false = top 10, true = up to 20
-
-let statsByYear = {};
-let currentYear = null;
-
-let allTimeStats = null;
-let firstListenedSearch = "";
-let firstListenedPage = 1;
-let firstListenedSortColIndex = null;
-let firstListenedSortDirection = 1;
 const FIRST_LISTENED_PAGE_SIZE = 25;
-
 const ALL_TIME_KEY = "all";
 
 // Search tab state. search-index.json is fetched lazily (only once the
@@ -62,6 +52,16 @@ function formatMinutesToHoursMinutes(totalMinutes) {
         hoursText: `${hours.toFixed(2)} hours`,
         minutesText: `${Math.round(totalMinutes)} minutes`,
     };
+}
+
+// platformBreakdown is a { [category]: percent } map with however many
+// categories stats-lib.js's categorizePlatform actually produced for this
+// row set (not a fixed Mobile/Desktop/Other shape) -- shared by the
+// dashboard's Platform Breakdown table and the Search tab's entity detail.
+function platformBreakdownRows(platformBreakdown) {
+    return Object.entries(platformBreakdown)
+        .sort((a, b) => b[1] - a[1])
+        .map(([category, percent]) => [category, `${percent.toFixed(1)}%`]);
 }
 
 // Compares two table-cell strings: numeric compare if both look like plain
@@ -203,325 +203,413 @@ function renderStatTiles(containerId, items) {
     });
 }
 
-// ---------- rendering per year ----------
+// ---------- dashboard (year-scoped rendering, one factory per instance) ----------
+// Wrapped in a factory (rather than the module-level functions + state this
+// used to be) so the exact same rendering/sorting/show-more/pagination
+// behavior can power two fully independent instances: the built-in
+// Dashboard tab (fed from stats.json) and the Upload tab's own dashboard
+// (fed from a Web Worker's output for a visitor's uploaded export). `ids`
+// maps each logical section to its actual container id, so the two
+// instances never touch each other's DOM or share any state.
+function createDashboardController(ids) {
+    let showAllSongs = false; // false = top 20, true = up to 100
+    let showAllArtists = false; // false = top 10, true = up to 20
+    let statsByYear = {};
+    let years = [];
+    let currentYear = null;
+    let allTimeStats = null;
+    let firstListenedSearch = "";
+    let firstListenedPage = 1;
+    let firstListenedSortColIndex = null;
+    let firstListenedSortDirection = 1;
 
-function renderSummary(year, stats) {
-    const { totalMinutes, uniqueSongCount, uniqueArtistCount } = stats;
-    const total = formatMinutesToHoursMinutes(totalMinutes);
+    function renderSummary(year, stats) {
+        const { totalMinutes, uniqueSongCount, uniqueArtistCount } = stats;
+        const total = formatMinutesToHoursMinutes(totalMinutes);
 
-    renderStatTiles("summary-content", [
-        { label: `Total Listening Time (${year})`, value: total.hoursText },
-        { label: "Total Minutes", value: total.minutesText },
-        { label: "Unique Songs", value: uniqueSongCount.toString() },
-        { label: "Unique Artists", value: uniqueArtistCount.toString() },
-    ]);
-}
-
-function renderTopDays(stats) {
-    const rows = stats.topDates.map((d, idx) => {
-        const fm = formatMinutesToHoursMinutes(d.minutes);
-        return [
-            (idx + 1).toString(),
-            d.date,
-            fm.hours.toFixed(2),
-            Math.round(d.minutes).toString(),
-        ];
-    });
-
-    createTable("top-days-table", ["#", "Date", "Hours", "Minutes"], rows, { unsortableColumns: [0] });
-}
-
-function renderTopSongs(stats) {
-    const totalAvailable = stats.topSongs.length;
-    const visibleCount = showAllSongs
-        ? Math.min(100, totalAvailable)
-        : Math.min(20, totalAvailable);
-
-    const rows = stats.topSongs.slice(0, visibleCount).map((song, idx) => {
-        const fm = formatMinutesToHoursMinutes(song.totalMinutes);
-        return [
-            (idx + 1).toString(),
-            song.normalizedTitle,
-            song.displayArtist,
-            fm.hours.toFixed(2),
-            Math.round(song.totalMinutes).toString(),
-            song.playEvents.toString(),
-        ];
-    });
-
-    createTable(
-        "top-songs-table",
-        ["#", "Song", "Artist", "Hours", "Minutes", "Play Events"],
-        rows,
-        { unsortableColumns: [0] }
-    );
-
-    const container = document.getElementById("top-songs-table");
-    const existingButton = container.querySelector(".show-more-btn-songs");
-    if (existingButton) existingButton.remove();
-
-    if (totalAvailable > 20) {
-        const btn = document.createElement("button");
-        btn.className = "show-more-btn show-more-btn-songs";
-        btn.textContent = showAllSongs ? "Show Less" : "Show More";
-        btn.addEventListener("click", () => {
-            showAllSongs = !showAllSongs;
-            renderTopSongs(stats);
-        });
-        container.appendChild(btn);
-    }
-}
-
-function renderTopArtists(stats) {
-    const totalAvailable = stats.topArtists.length;
-    const visibleCount = showAllArtists
-        ? Math.min(20, totalAvailable)
-        : Math.min(10, totalAvailable);
-
-    const rows = stats.topArtists.slice(0, visibleCount).map((artist, idx) => {
-        const fm = formatMinutesToHoursMinutes(artist.totalMinutes);
-        return [
-            (idx + 1).toString(),
-            artist.artist,
-            fm.hours.toFixed(2),
-            Math.round(artist.totalMinutes).toString(),
-            artist.uniqueSongs.toString(),
-            artist.playEvents.toString(),
-        ];
-    });
-
-    createTable(
-        "top-artists-table",
-        ["#", "Artist", "Hours", "Minutes", "Unique Songs", "Play Events"],
-        rows,
-        { unsortableColumns: [0] }
-    );
-
-    const container = document.getElementById("top-artists-table");
-    const existingButton = container.querySelector(".show-more-btn-artists");
-    if (existingButton) existingButton.remove();
-
-    if (totalAvailable > 10) {
-        const btn = document.createElement("button");
-        btn.className = "show-more-btn show-more-btn-artists";
-        btn.textContent = showAllArtists ? "Show Less" : "Show More";
-        btn.addEventListener("click", () => {
-            showAllArtists = !showAllArtists;
-            renderTopArtists(stats);
-        });
-        container.appendChild(btn);
-    }
-}
-
-function renderByCountry(stats) {
-    const totalMinutes = stats.totalMinutes || 1;
-    const rows = stats.byCountry.map((c, idx) => {
-        const fm = formatMinutesToHoursMinutes(c.minutes);
-        const percent = ((c.minutes / totalMinutes) * 100).toFixed(1) + "%";
-        return [
-            (idx + 1).toString(),
-            c.country,
-            fm.hours.toFixed(2),
-            Math.round(c.minutes).toString(),
-            percent,
-        ];
-    });
-
-    createTable(
-        "by-country-table",
-        ["#", "Country", "Hours", "Minutes", "% of Total"],
-        rows,
-        { unsortableColumns: [0] }
-    );
-}
-
-function renderLongestStreak(stats) {
-    const streak = stats.longestStreak;
-    renderStatTiles("longest-streak-content", [
-        {
-            label: "Longest Streak",
-            value: `${streak.days} day${streak.days === 1 ? "" : "s"}`,
-        },
-        { label: "From", value: streak.startDate || "—" },
-        { label: "To", value: streak.endDate || "—" },
-    ]);
-}
-
-function renderMostObsessedDay(stats) {
-    const day = stats.mostObsessedDay;
-    if (!day) {
-        renderStatTiles("most-obsessed-day-content", [
-            { label: "Most Obsessed Day", value: "No data" },
+        renderStatTiles(ids.summary, [
+            { label: `Total Listening Time (${year})`, value: total.hoursText },
+            { label: "Total Minutes", value: total.minutesText },
+            { label: "Unique Songs", value: uniqueSongCount.toString() },
+            { label: "Unique Artists", value: uniqueArtistCount.toString() },
         ]);
-        return;
     }
 
-    renderStatTiles("most-obsessed-day-content", [
-        { label: "Song", value: day.song },
-        { label: "Artist", value: day.artist },
-        { label: "Date", value: day.date },
-        { label: "Plays That Day", value: day.playCount.toString() },
-    ]);
-}
+    function renderTopDays(stats) {
+        const rows = stats.topDates.map((d, idx) => {
+            const fm = formatMinutesToHoursMinutes(d.minutes);
+            return [
+                (idx + 1).toString(),
+                d.date,
+                fm.hours.toFixed(2),
+                Math.round(d.minutes).toString(),
+            ];
+        });
 
-function renderDiscoveryRate(stats) {
-    const rows = stats.discoveryByMonth.map((m) => [m.label, m.count.toString()]);
-
-    createTable("discovery-rate-table", ["Month", "New Artists"], rows);
-}
-
-function renderSkipRate(stats) {
-    renderStatTiles("skip-rate-content", [
-        { label: "Skipped (next-track button)", value: `${stats.skipRatePercent.toFixed(1)}%` },
-        { label: "Played Through / Other", value: `${(100 - stats.skipRatePercent).toFixed(1)}%` },
-    ]);
-}
-
-function renderShuffleRatio(stats) {
-    renderStatTiles("shuffle-ratio-content", [
-        { label: "Shuffle", value: `${stats.shuffleRatio.shufflePercent.toFixed(1)}%` },
-        { label: "On-Demand", value: `${stats.shuffleRatio.onDemandPercent.toFixed(1)}%` },
-    ]);
-}
-
-function renderPlatformBreakdown(stats) {
-    const pb = stats.platformBreakdown;
-    const rows = [
-        ["Mobile", `${pb.mobile.toFixed(1)}%`],
-        ["Desktop", `${pb.desktop.toFixed(1)}%`],
-        ["Other", `${pb.other.toFixed(1)}%`],
-    ];
-
-    createTable("platform-breakdown-table", ["Platform", "% of Plays"], rows);
-}
-
-// 24-hour heatmap as a plain, sortable table, using the same table styling
-// as every other section. Each row gets a light background tint (existing
-// Spotify green) scaled to how much that hour was listened to, relative to
-// the year's peak hour -- numbers first, shading is just a hint. Intensity
-// is re-derived from each row's own % column, so shading stays correct
-// even after the rows are re-sorted.
-function renderHeatmap(stats) {
-    const maxPercent = Math.max(...stats.hourHeatmap.map((h) => h.percent), 0.0001);
-    const rows = stats.hourHeatmap.map((h) => [
-        hourToAmPm(h.hour),
-        Math.round(h.minutes).toString(),
-        `${h.percent.toFixed(1)}%`,
-    ]);
-
-    createTable("hour-heatmap-table", ["Hour", "Minutes", "% of Day"], rows, {
-        getRowStyle: (row) => {
-            const percent = parseFloat(row[2]);
-            const intensity = 0.05 + (percent / maxPercent) * 0.3;
-            return `background-color: rgba(30, 215, 96, ${intensity.toFixed(3)})`;
-        },
-    });
-}
-
-// ---------- all-time (not year-scoped) ----------
-
-function getFilteredFirstListened() {
-    const list = allTimeStats.firstListenedByArtist;
-    if (!firstListenedSearch) return list;
-
-    const needle = firstListenedSearch.toLowerCase();
-    return list.filter((entry) => entry.artist.toLowerCase().includes(needle));
-}
-
-function getSortedFirstListened() {
-    const filtered = getFilteredFirstListened();
-    if (firstListenedSortColIndex === null) return filtered;
-
-    // Column 0 is the "#" rank -- not meaningfully sortable, handled by
-    // unsortableColumns below so this case never actually triggers.
-    const sorted = [...filtered];
-    if (firstListenedSortColIndex === 1) {
-        sorted.sort((a, b) => a.artist.localeCompare(b.artist) * firstListenedSortDirection);
-    } else if (firstListenedSortColIndex === 2) {
-        sorted.sort((a, b) => (a.firstTs < b.firstTs ? -1 : a.firstTs > b.firstTs ? 1 : 0) * firstListenedSortDirection);
+        createTable(ids.topDays, ["#", "Date", "Hours", "Minutes"], rows, { unsortableColumns: [0] });
     }
-    return sorted;
-}
 
-function renderFirstListened() {
-    const filtered = getSortedFirstListened();
-    const totalPages = Math.max(1, Math.ceil(filtered.length / FIRST_LISTENED_PAGE_SIZE));
-    firstListenedPage = Math.min(Math.max(1, firstListenedPage), totalPages);
+    function renderTopSongs(stats) {
+        const totalAvailable = stats.topSongs.length;
+        const visibleCount = showAllSongs
+            ? Math.min(100, totalAvailable)
+            : Math.min(20, totalAvailable);
 
-    const start = (firstListenedPage - 1) * FIRST_LISTENED_PAGE_SIZE;
-    const pageItems = filtered.slice(start, start + FIRST_LISTENED_PAGE_SIZE);
+        const rows = stats.topSongs.slice(0, visibleCount).map((song, idx) => {
+            const fm = formatMinutesToHoursMinutes(song.totalMinutes);
+            return [
+                (idx + 1).toString(),
+                song.normalizedTitle,
+                song.displayArtist,
+                fm.hours.toFixed(2),
+                Math.round(song.totalMinutes).toString(),
+                song.playEvents.toString(),
+            ];
+        });
 
-    const rows = pageItems.map((entry, idx) => [
-        (start + idx + 1).toString(),
-        entry.artist,
-        entry.firstDate,
-    ]);
+        createTable(
+            ids.topSongs,
+            ["#", "Song", "Artist", "Hours", "Minutes", "Play Events"],
+            rows,
+            { unsortableColumns: [0] }
+        );
 
-    createTable("first-listened-table", ["#", "Artist", "First Heard"], rows, {
-        unsortableColumns: [0],
-        sortState: firstListenedSortColIndex === null
-            ? null
-            : { colIndex: firstListenedSortColIndex, direction: firstListenedSortDirection },
-        onSort: (colIndex, direction) => {
-            firstListenedSortColIndex = colIndex;
-            firstListenedSortDirection = direction;
+        const container = document.getElementById(ids.topSongs);
+        const existingButton = container.querySelector(".show-more-btn-songs");
+        if (existingButton) existingButton.remove();
+
+        if (totalAvailable > 20) {
+            const btn = document.createElement("button");
+            btn.className = "show-more-btn show-more-btn-songs";
+            btn.textContent = showAllSongs ? "Show Less" : "Show More";
+            btn.addEventListener("click", () => {
+                showAllSongs = !showAllSongs;
+                renderTopSongs(stats);
+            });
+            container.appendChild(btn);
+        }
+    }
+
+    function renderTopArtists(stats) {
+        const totalAvailable = stats.topArtists.length;
+        const visibleCount = showAllArtists
+            ? Math.min(20, totalAvailable)
+            : Math.min(10, totalAvailable);
+
+        const rows = stats.topArtists.slice(0, visibleCount).map((artist, idx) => {
+            const fm = formatMinutesToHoursMinutes(artist.totalMinutes);
+            return [
+                (idx + 1).toString(),
+                artist.artist,
+                fm.hours.toFixed(2),
+                Math.round(artist.totalMinutes).toString(),
+                artist.uniqueSongs.toString(),
+                artist.playEvents.toString(),
+            ];
+        });
+
+        createTable(
+            ids.topArtists,
+            ["#", "Artist", "Hours", "Minutes", "Unique Songs", "Play Events"],
+            rows,
+            { unsortableColumns: [0] }
+        );
+
+        const container = document.getElementById(ids.topArtists);
+        const existingButton = container.querySelector(".show-more-btn-artists");
+        if (existingButton) existingButton.remove();
+
+        if (totalAvailable > 10) {
+            const btn = document.createElement("button");
+            btn.className = "show-more-btn show-more-btn-artists";
+            btn.textContent = showAllArtists ? "Show Less" : "Show More";
+            btn.addEventListener("click", () => {
+                showAllArtists = !showAllArtists;
+                renderTopArtists(stats);
+            });
+            container.appendChild(btn);
+        }
+    }
+
+    function renderByCountry(stats) {
+        const totalMinutes = stats.totalMinutes || 1;
+        const rows = stats.byCountry.map((c, idx) => {
+            const fm = formatMinutesToHoursMinutes(c.minutes);
+            const percent = ((c.minutes / totalMinutes) * 100).toFixed(1) + "%";
+            return [
+                (idx + 1).toString(),
+                c.country,
+                fm.hours.toFixed(2),
+                Math.round(c.minutes).toString(),
+                percent,
+            ];
+        });
+
+        createTable(
+            ids.byCountry,
+            ["#", "Country", "Hours", "Minutes", "% of Total"],
+            rows,
+            { unsortableColumns: [0] }
+        );
+    }
+
+    function renderLongestStreak(stats) {
+        const streak = stats.longestStreak;
+        renderStatTiles(ids.longestStreak, [
+            {
+                label: "Longest Streak",
+                value: `${streak.days} day${streak.days === 1 ? "" : "s"}`,
+            },
+            { label: "From", value: streak.startDate || "—" },
+            { label: "To", value: streak.endDate || "—" },
+        ]);
+    }
+
+    function renderMostObsessedDay(stats) {
+        const day = stats.mostObsessedDay;
+        if (!day) {
+            renderStatTiles(ids.mostObsessedDay, [
+                { label: "Most Obsessed Day", value: "No data" },
+            ]);
+            return;
+        }
+
+        renderStatTiles(ids.mostObsessedDay, [
+            { label: "Song", value: day.song },
+            { label: "Artist", value: day.artist },
+            { label: "Date", value: day.date },
+            { label: "Plays That Day", value: day.playCount.toString() },
+        ]);
+    }
+
+    function renderDiscoveryRate(stats) {
+        const rows = stats.discoveryByMonth.map((m) => [m.label, m.count.toString()]);
+
+        createTable(ids.discoveryRate, ["Month", "New Artists"], rows);
+    }
+
+    function renderSkipRate(stats) {
+        renderStatTiles(ids.skipRate, [
+            { label: "Skipped (next-track button)", value: `${stats.skipRatePercent.toFixed(1)}%` },
+            { label: "Played Through / Other", value: `${(100 - stats.skipRatePercent).toFixed(1)}%` },
+        ]);
+    }
+
+    function renderShuffleRatio(stats) {
+        renderStatTiles(ids.shuffleRatio, [
+            { label: "Shuffle", value: `${stats.shuffleRatio.shufflePercent.toFixed(1)}%` },
+            { label: "On-Demand", value: `${stats.shuffleRatio.onDemandPercent.toFixed(1)}%` },
+        ]);
+    }
+
+    function renderPlatformBreakdown(stats) {
+        const rows = platformBreakdownRows(stats.platformBreakdown);
+        createTable(ids.platformBreakdown, ["Platform", "% of Plays"], rows);
+    }
+
+    // 24-hour heatmap as a plain, sortable table, using the same table styling
+    // as every other section. Each row gets a light background tint (existing
+    // Spotify green) scaled to how much that hour was listened to, relative to
+    // the year's peak hour -- numbers first, shading is just a hint. Intensity
+    // is re-derived from each row's own % column, so shading stays correct
+    // even after the rows are re-sorted.
+    function renderHeatmap(stats) {
+        const maxPercent = Math.max(...stats.hourHeatmap.map((h) => h.percent), 0.0001);
+        const rows = stats.hourHeatmap.map((h) => [
+            hourToAmPm(h.hour),
+            Math.round(h.minutes).toString(),
+            `${h.percent.toFixed(1)}%`,
+        ]);
+
+        createTable(ids.heatmap, ["Hour", "Minutes", "% of Day"], rows, {
+            getRowStyle: (row) => {
+                const percent = parseFloat(row[2]);
+                const intensity = 0.05 + (percent / maxPercent) * 0.3;
+                return `background-color: rgba(30, 215, 96, ${intensity.toFixed(3)})`;
+            },
+        });
+    }
+
+    // ---------- all-time (not year-scoped): First Listened ----------
+
+    function getFilteredFirstListened() {
+        const list = allTimeStats.firstListenedByArtist;
+        if (!firstListenedSearch) return list;
+
+        const needle = firstListenedSearch.toLowerCase();
+        return list.filter((entry) => entry.artist.toLowerCase().includes(needle));
+    }
+
+    function getSortedFirstListened() {
+        const filtered = getFilteredFirstListened();
+        if (firstListenedSortColIndex === null) return filtered;
+
+        // Column 0 is the "#" rank -- not meaningfully sortable, handled by
+        // unsortableColumns below so this case never actually triggers.
+        const sorted = [...filtered];
+        if (firstListenedSortColIndex === 1) {
+            sorted.sort((a, b) => a.artist.localeCompare(b.artist) * firstListenedSortDirection);
+        } else if (firstListenedSortColIndex === 2) {
+            sorted.sort((a, b) => (a.firstTs < b.firstTs ? -1 : a.firstTs > b.firstTs ? 1 : 0) * firstListenedSortDirection);
+        }
+        return sorted;
+    }
+
+    function renderFirstListened() {
+        const filtered = getSortedFirstListened();
+        const totalPages = Math.max(1, Math.ceil(filtered.length / FIRST_LISTENED_PAGE_SIZE));
+        firstListenedPage = Math.min(Math.max(1, firstListenedPage), totalPages);
+
+        const start = (firstListenedPage - 1) * FIRST_LISTENED_PAGE_SIZE;
+        const pageItems = filtered.slice(start, start + FIRST_LISTENED_PAGE_SIZE);
+
+        const rows = pageItems.map((entry, idx) => [
+            (start + idx + 1).toString(),
+            entry.artist,
+            entry.firstDate,
+        ]);
+
+        createTable(ids.firstListenedTable, ["#", "Artist", "First Heard"], rows, {
+            unsortableColumns: [0],
+            sortState: firstListenedSortColIndex === null
+                ? null
+                : { colIndex: firstListenedSortColIndex, direction: firstListenedSortDirection },
+            onSort: (colIndex, direction) => {
+                firstListenedSortColIndex = colIndex;
+                firstListenedSortDirection = direction;
+                firstListenedPage = 1;
+                renderFirstListened();
+            },
+        });
+        renderFirstListenedPagination(filtered.length, totalPages);
+    }
+
+    function renderFirstListenedPagination(totalCount, totalPages) {
+        const container = document.getElementById(ids.firstListenedPagination);
+        container.innerHTML = "";
+
+        if (!totalCount) {
+            const empty = document.createElement("p");
+            empty.className = "section-subtitle";
+            empty.textContent = "No artists match your search.";
+            container.appendChild(empty);
+            return;
+        }
+
+        const wrap = document.createElement("div");
+        wrap.className = "pagination";
+
+        const prevBtn = document.createElement("button");
+        prevBtn.className = "show-more-btn";
+        prevBtn.textContent = "Previous";
+        prevBtn.disabled = firstListenedPage <= 1;
+        prevBtn.addEventListener("click", () => {
+            firstListenedPage -= 1;
+            renderFirstListened();
+        });
+
+        const info = document.createElement("span");
+        info.className = "pagination-info";
+        info.textContent = `Page ${firstListenedPage} of ${totalPages} (${totalCount} artist${totalCount === 1 ? "" : "s"})`;
+
+        const nextBtn = document.createElement("button");
+        nextBtn.className = "show-more-btn";
+        nextBtn.textContent = "Next";
+        nextBtn.disabled = firstListenedPage >= totalPages;
+        nextBtn.addEventListener("click", () => {
+            firstListenedPage += 1;
+            renderFirstListened();
+        });
+
+        wrap.appendChild(prevBtn);
+        wrap.appendChild(info);
+        wrap.appendChild(nextBtn);
+        container.appendChild(wrap);
+    }
+
+    function setupFirstListenedSearch() {
+        const input = document.getElementById(ids.firstListenedSearchInput);
+        input.addEventListener("input", (e) => {
+            firstListenedSearch = e.target.value.trim();
             firstListenedPage = 1;
             renderFirstListened();
-        },
-    });
-    renderFirstListenedPagination(filtered.length, totalPages);
-}
-
-function renderFirstListenedPagination(totalCount, totalPages) {
-    const container = document.getElementById("first-listened-pagination");
-    container.innerHTML = "";
-
-    if (!totalCount) {
-        const empty = document.createElement("p");
-        empty.className = "section-subtitle";
-        empty.textContent = "No artists match your search.";
-        container.appendChild(empty);
-        return;
+        });
     }
 
-    const wrap = document.createElement("div");
-    wrap.className = "pagination";
+    // ---------- year tabs + orchestration ----------
 
-    const prevBtn = document.createElement("button");
-    prevBtn.className = "show-more-btn";
-    prevBtn.textContent = "Previous";
-    prevBtn.disabled = firstListenedPage <= 1;
-    prevBtn.addEventListener("click", () => {
-        firstListenedPage -= 1;
+    function renderYearTabs() {
+        const container = document.getElementById(ids.yearTabs);
+        container.innerHTML = "";
+
+        const allTimeBtn = document.createElement("button");
+        allTimeBtn.className = "tab-button";
+        allTimeBtn.textContent = "All Time";
+        allTimeBtn.dataset.year = ALL_TIME_KEY;
+        allTimeBtn.addEventListener("click", () => setActiveYear(ALL_TIME_KEY));
+        container.appendChild(allTimeBtn);
+
+        years.forEach((year) => {
+            const btn = document.createElement("button");
+            btn.className = "tab-button";
+            btn.textContent = year;
+            btn.dataset.year = year;
+            btn.addEventListener("click", () => setActiveYear(year));
+            container.appendChild(btn);
+        });
+    }
+
+    function setActiveYear(year) {
+        currentYear = year;
+
+        document.querySelectorAll(`#${ids.yearTabs} .tab-button`).forEach((btn) => {
+            btn.classList.toggle("active", btn.dataset.year === String(year));
+        });
+
+        const isAllTime = year === ALL_TIME_KEY;
+        const stats = isAllTime ? allTimeStats : statsByYear[year];
+        if (!stats) return;
+
+        const yearTag = document.getElementById(ids.yearTag);
+        if (yearTag) {
+            yearTag.textContent = isAllTime ? "All Time" : year;
+        }
+
+        showAllSongs = false;
+        showAllArtists = false;
+
+        renderSummary(isAllTime ? "All Time" : year, stats);
+        renderTopDays(stats);
+        renderTopSongs(stats);
+        renderTopArtists(stats);
+        renderLongestStreak(stats);
+        renderMostObsessedDay(stats);
+        renderDiscoveryRate(stats);
+        renderSkipRate(stats);
+        renderShuffleRatio(stats);
+        renderPlatformBreakdown(stats);
+        renderByCountry(stats);
+        renderHeatmap(stats);
+    }
+
+    // Loads a stats.json-shaped payload ({ years, byYear, allTime }) into
+    // this instance and renders it. Returns false if there's no data to
+    // show (e.g. an uploaded file with zero valid rows), true otherwise.
+    function load(data) {
+        statsByYear = data.byYear || {};
+        years = data.years || [];
+        allTimeStats = data.allTime || null;
+
+        if (!years.length || !allTimeStats) return false;
+
+        renderYearTabs();
+        setupFirstListenedSearch();
         renderFirstListened();
-    });
+        setActiveYear(years[0]);
+        return true;
+    }
 
-    const info = document.createElement("span");
-    info.className = "pagination-info";
-    info.textContent = `Page ${firstListenedPage} of ${totalPages} (${totalCount} artist${totalCount === 1 ? "" : "s"})`;
-
-    const nextBtn = document.createElement("button");
-    nextBtn.className = "show-more-btn";
-    nextBtn.textContent = "Next";
-    nextBtn.disabled = firstListenedPage >= totalPages;
-    nextBtn.addEventListener("click", () => {
-        firstListenedPage += 1;
-        renderFirstListened();
-    });
-
-    wrap.appendChild(prevBtn);
-    wrap.appendChild(info);
-    wrap.appendChild(nextBtn);
-    container.appendChild(wrap);
-}
-
-function setupFirstListenedSearch() {
-    const input = document.getElementById("first-listened-search");
-    input.addEventListener("input", (e) => {
-        firstListenedSearch = e.target.value.trim();
-        firstListenedPage = 1;
-        renderFirstListened();
-    });
+    return { load, setActiveYear, get years() { return years; } };
 }
 
 // ---------- search tab ----------
@@ -538,6 +626,7 @@ function setActiveView(view) {
     });
     document.getElementById("dashboard-view").hidden = view !== "dashboard";
     document.getElementById("search-view").hidden = view !== "search";
+    document.getElementById("upload-view").hidden = view !== "upload";
 
     if (view === "search") {
         ensureSearchIndexLoaded();
@@ -880,11 +969,7 @@ function renderEntityDetail(type, key) {
     });
 
     appendEntitySection(container, "Platform Breakdown", "entity-platform");
-    createTable("entity-platform", ["Platform", "% of Plays"], [
-        ["Mobile", `${profile.platformBreakdown.mobile.toFixed(1)}%`],
-        ["Desktop", `${profile.platformBreakdown.desktop.toFixed(1)}%`],
-        ["Other", `${profile.platformBreakdown.other.toFixed(1)}%`],
-    ]);
+    createTable("entity-platform", ["Platform", "% of Plays"], platformBreakdownRows(profile.platformBreakdown));
 
     if (type === "artist" && profile.songs.length) {
         appendEntitySection(container, "Songs by This Artist", "entity-artist-songs");
@@ -918,61 +1003,158 @@ function appendEntitySection(container, title, containerId) {
     container.appendChild(section);
 }
 
-// ---------- tabs + main ----------
+// ---------- upload tab ----------
+// Visualizing a visitor's own Spotify export, entirely client-side: the
+// zip is unzipped/parsed/aggregated inside upload-worker.js (a Web Worker,
+// so a 50-70MB export doesn't freeze the page), which posts back a
+// stats.json-shaped payload that gets handed to `uploadDashboard` -- a
+// second, independent instance of the exact same createDashboardController
+// factory the built-in Dashboard tab uses (see DASHBOARD_IDS/UPLOAD_IDS
+// below). The file itself never leaves the browser.
 
-function renderYearTabs(years) {
-    const container = document.getElementById("year-tabs");
-    container.innerHTML = "";
-
-    const allTimeBtn = document.createElement("button");
-    allTimeBtn.className = "tab-button";
-    allTimeBtn.textContent = "All Time";
-    allTimeBtn.dataset.year = ALL_TIME_KEY;
-    allTimeBtn.addEventListener("click", () => setActiveYear(ALL_TIME_KEY));
-    container.appendChild(allTimeBtn);
-
-    years.forEach((year) => {
-        const btn = document.createElement("button");
-        btn.className = "tab-button";
-        btn.textContent = year;
-        btn.dataset.year = year;
-        btn.addEventListener("click", () => setActiveYear(year));
-        container.appendChild(btn);
-    });
+function setUploadStatus(message) {
+    const el = document.getElementById("upload-status");
+    const errEl = document.getElementById("upload-error");
+    errEl.hidden = true;
+    if (!message) {
+        el.hidden = true;
+        return;
+    }
+    el.hidden = false;
+    el.textContent = message;
 }
 
-function setActiveYear(year) {
-    currentYear = year;
+function setUploadError(message) {
+    const el = document.getElementById("upload-error");
+    const statusEl = document.getElementById("upload-status");
+    statusEl.hidden = true;
+    el.hidden = false;
+    el.textContent = message;
+}
 
-    document.querySelectorAll("#year-tabs .tab-button").forEach((btn) => {
-        btn.classList.toggle("active", btn.dataset.year === String(year));
-    });
+function handleUploadedFile(file) {
+    if (!file) return;
 
-    const isAllTime = year === ALL_TIME_KEY;
-    const stats = isAllTime ? allTimeStats : statsByYear[year];
-    if (!stats) return;
-
-    const yearTag = document.getElementById("year-tag");
-    if (yearTag) {
-        yearTag.textContent = isAllTime ? "All Time" : year;
+    if (!/\.zip$/i.test(file.name)) {
+        setUploadError("That doesn't look like a .zip file. Upload the file Spotify emailed you, unmodified.");
+        return;
     }
 
-    showAllSongs = false;
-    showAllArtists = false;
+    setUploadStatus("Starting...");
+    document.getElementById("upload-dashboard").hidden = true;
+    document.getElementById("upload-placeholder").hidden = false;
 
-    renderSummary(isAllTime ? "All Time" : year, stats);
-    renderTopDays(stats);
-    renderTopSongs(stats);
-    renderTopArtists(stats);
-    renderLongestStreak(stats);
-    renderMostObsessedDay(stats);
-    renderDiscoveryRate(stats);
-    renderSkipRate(stats);
-    renderShuffleRatio(stats);
-    renderPlatformBreakdown(stats);
-    renderByCountry(stats);
-    renderHeatmap(stats);
+    const worker = new Worker("upload-worker.js");
+
+    worker.onmessage = (e) => {
+        const msg = e.data || {};
+
+        if (msg.type === "progress") {
+            setUploadStatus(msg.message);
+            return;
+        }
+
+        if (msg.type === "error") {
+            setUploadError(msg.message);
+            worker.terminate();
+            return;
+        }
+
+        if (msg.type === "done") {
+            const loaded = uploadDashboard.load(msg.stats);
+            if (!loaded) {
+                setUploadError("No valid listening data found in that file.");
+                worker.terminate();
+                return;
+            }
+
+            const { validRows, recordsParsed, filesMatched, failedFiles } = msg.meta;
+            let summary = `Loaded ${validRows.toLocaleString()} plays from ${filesMatched} file` +
+                `${filesMatched === 1 ? "" : "s"} (${recordsParsed.toLocaleString()} records parsed).`;
+            if (failedFiles.length) {
+                summary += ` ${failedFiles.length} file${failedFiles.length === 1 ? "" : "s"} could not be read and were skipped.`;
+            }
+            setUploadStatus(summary);
+
+            document.getElementById("upload-placeholder").hidden = true;
+            document.getElementById("upload-dashboard").hidden = false;
+            worker.terminate();
+        }
+    };
+
+    worker.onerror = (e) => {
+        setUploadError(`Something went wrong reading that file: ${e.message || "unknown error"}.`);
+        worker.terminate();
+    };
+
+    worker.postMessage({ file });
 }
+
+function setupUploadTab() {
+    const dropzone = document.getElementById("upload-dropzone");
+    const fileInput = document.getElementById("upload-file-input");
+
+    dropzone.addEventListener("click", () => fileInput.click());
+    dropzone.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            fileInput.click();
+        }
+    });
+
+    dropzone.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        dropzone.classList.add("dragover");
+    });
+    dropzone.addEventListener("dragleave", () => {
+        dropzone.classList.remove("dragover");
+    });
+    dropzone.addEventListener("drop", (e) => {
+        e.preventDefault();
+        dropzone.classList.remove("dragover");
+        const file = e.dataTransfer.files && e.dataTransfer.files[0];
+        handleUploadedFile(file);
+    });
+
+    fileInput.addEventListener("change", (e) => {
+        const file = e.target.files && e.target.files[0];
+        handleUploadedFile(file);
+        fileInput.value = ""; // allow re-selecting the same file next time
+    });
+}
+
+// ---------- tabs + main ----------
+
+// Every container id createDashboardController touches, for the built-in
+// Dashboard tab. The Upload tab's dashboard reuses the exact same factory
+// with every id prefixed "upload-" instead (see index.html, where that
+// second copy of the dashboard markup lives) -- see UPLOAD_IDS below.
+const DASHBOARD_IDS = {
+    yearTag: "year-tag",
+    yearTabs: "year-tabs",
+    summary: "summary-content",
+    topDays: "top-days-table",
+    topSongs: "top-songs-table",
+    topArtists: "top-artists-table",
+    byCountry: "by-country-table",
+    longestStreak: "longest-streak-content",
+    mostObsessedDay: "most-obsessed-day-content",
+    discoveryRate: "discovery-rate-table",
+    skipRate: "skip-rate-content",
+    shuffleRatio: "shuffle-ratio-content",
+    platformBreakdown: "platform-breakdown-table",
+    heatmap: "hour-heatmap-table",
+    firstListenedSearchInput: "first-listened-search",
+    firstListenedTable: "first-listened-table",
+    firstListenedPagination: "first-listened-pagination",
+};
+
+const UPLOAD_IDS = Object.fromEntries(
+    Object.entries(DASHBOARD_IDS).map(([key, id]) => [key, `upload-${id}`])
+);
+
+let builtInDashboard = null;
+let uploadDashboard = null;
 
 async function main() {
     showLoader();
@@ -984,28 +1166,23 @@ async function main() {
         }
         const data = await res.json();
 
-        statsByYear = data.byYear || {};
-        const years = data.years || [];
+        builtInDashboard = createDashboardController(DASHBOARD_IDS);
+        const loaded = builtInDashboard.load(data);
 
-        if (!years.length) {
+        if (!loaded) {
             hideLoader();
             alert("No years found in stats.json. Run `npm run build` and reload.");
             return;
         }
 
-        renderYearTabs(years);
-        dashboardYears = years;
-
-        allTimeStats = data.allTime;
-        setupFirstListenedSearch();
-        renderFirstListened();
-
-        setActiveYear(years[0]);
+        dashboardYears = builtInDashboard.years;
+        uploadDashboard = createDashboardController(UPLOAD_IDS);
 
         setupViewTabs();
         setupSearchTypeFilter();
         setupSearchInput();
         setupEntityModal();
+        setupUploadTab();
     } catch (err) {
         console.error(err);
         alert("Error loading stats.json. Check the console.");

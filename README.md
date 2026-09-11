@@ -8,10 +8,12 @@ This project generates a personal, interactive Spotify Wrapped website using the
 
 ## Architecture
 
-- `build-stats.js` — a Node script (no dependencies) that reads every `data*.json` file in the `data/` folder, normalizes and aggregates it, and writes two files: `stats.json` (per-year stats plus an all-time section, powering the Dashboard tab) and `search-index.json` (a full per-artist / per-song profile for every scope — All Time and each individual year — powering the Search tab).
+- `stats-lib.js` — the actual aggregation engine (normalizing rows, top songs/artists, streaks, platform categorization, the per-entity search index, etc.), with **no file I/O and no Node-specific APIs**, written once and used two ways: `require()`'d by `build-stats.js` at build time for the committed dataset, and `importScripts()`'d by `upload-worker.js` in the browser for a visitor's own uploaded export. Both paths are guaranteed to aggregate identically because they're the same code.
+- `build-stats.js` — a thin Node wrapper (no dependencies) that reads every `data*.json` file in the `data/` folder, hands the rows to `stats-lib.js`, and writes two files: `stats.json` (per-year stats plus an all-time section, powering the Dashboard tab) and `search-index.json` (a full per-artist / per-song profile for every scope — All Time and each individual year — powering the Search tab).
 - `stats.json` — fetched on every page load; small, so the dashboard stays fast.
 - `search-index.json` — much bigger (tens of thousands of per-entity/per-scope profiles), so it's fetched lazily, only the first time the Search tab is opened.
-- `index.html` / `styles.css` / `script.js` — pure static rendering layer. `script.js` does no parsing of raw export data; it only fetches the two precomputed JSON files and renders them.
+- `upload-worker.js` — a Web Worker that powers the Upload tab: unzips a visitor's own Spotify export (a hand-rolled ZIP central-directory reader plus the browser's native `DecompressionStream` for inflate — no unzip library needed), parses the JSON inside, and calls into `stats-lib.js` to produce a `stats.json`-shaped result. Runs off the main thread so a 50-70MB export doesn't freeze the page. The file never leaves the browser — no network request is ever made with it.
+- `index.html` / `styles.css` / `script.js` — pure static rendering layer. `script.js` does no parsing of raw export data itself; it fetches the two precomputed JSON files for the Dashboard/Search tabs, and hands an uploaded file to `upload-worker.js` for the Upload tab, then renders whatever comes back the same way either time (see `createDashboardController` below).
 
 ### Adding new data
 
@@ -30,11 +32,11 @@ The raw Spotify export contains `ip_addr` for every play event. `build-stats.js`
 - `.gitignore` excludes the entire `data/` folder, so none of the raw export files it contains ever get committed.
 - `.vercelignore` excludes the entire `data/` folder from anything uploaded to Vercel.
 
-The only data files that ship to the browser are `stats.json` and `search-index.json`, both derived exclusively from the same PII-free row shape — no IP addresses, no raw per-event data, for the dashboard or for any individual artist/song lookup.
+The only data files that ship to the browser are `stats.json` and `search-index.json`, both derived exclusively from the same PII-free row shape — no IP addresses, no raw per-event data, for the dashboard or for any individual artist/song lookup. The Upload tab holds to this too, just without a build step in between: `upload-worker.js` calls the exact same `recordToRow` (never reads `ip_addr`) before anything else touches an uploaded file, and the file itself is never sent anywhere — everything happens in that one browser tab.
 
 ## Layout
 
-A **Dashboard** / **Search** switcher sits under the header. Dashboard is the original single-page layout, year-scoped by the tabs below it; Search is a separate lookup tool for any one artist or song. The whole site is responsive down to phone widths — cards, tables (via their own horizontal-scroll wrapper), tabs, and the search inputs all adapt below ~700px and ~420px breakpoints.
+A **Dashboard** / **Search** / **Upload** switcher sits under the header. Dashboard is the original single-page layout, year-scoped by the tabs below it; Search is a lookup tool for any one artist or song in the built-in dataset; Upload is a second, fully independent copy of the Dashboard fed by a visitor's own uploaded export instead. The whole site is responsive down to phone widths — cards, tables (via their own horizontal-scroll wrapper), tabs, and the search inputs all adapt below ~700px and ~420px breakpoints.
 
 ### Dashboard tab
 
@@ -65,6 +67,14 @@ Clicking a result opens a modal (a centered dialog on desktop, a fullscreen shee
 - Top Listening Days, Listening by Country, Platform Breakdown — same shape as their Dashboard equivalents, just scoped to this one entity
 - Artists additionally get a sortable "Songs by This Artist" table; songs instead show their artist as a link that jumps straight to that artist's own profile
 
+### Upload tab
+
+Visualize your own Spotify data instead of (well, alongside — it's its own tab) the built-in dataset. Request your "Extended Streaming History" from Spotify's privacy page, drop the `.zip` it emails you into the drop-zone (or click it to pick a file), and `upload-worker.js` unzips, parses, and aggregates it entirely in your browser — no server round trip, ever. Once it's done, the Upload tab shows a **complete second copy of the Dashboard** (year tabs, Overview, Top Songs/Artists, streaks, Discovery Rate, Platform Breakdown, First Listened, all of it) rendered from your own data, side by side with — not replacing — the built-in one on the Dashboard tab.
+
+Scope, for this first version: music tracks only, same as the Dashboard/Search tabs — podcast episodes and audiobook chapters are recognized (so they don't corrupt aggregation) but excluded from the stats, identically to how the built-in dataset is filtered. The Search tab's artist/song lookup is not yet available for uploaded data.
+
+Needs a browser with `DecompressionStream` support (Chrome, Edge, Firefox, and Safari have all shipped it) since that's what inflates the zip's compressed entries; anything older gets a plain error message rather than a silent failure.
+
 ## Statistics
 
 ### Per year
@@ -75,7 +85,7 @@ Clicking a result opens a modal (a centered dialog on desktop, a fullscreen shee
 - Discovery rate (new artists heard for the first time, by month)
 - Skip rate (% of plays ended via next-track)
 - Shuffle vs. on-demand ratio
-- Platform breakdown (mobile / desktop / other)
+- Platform breakdown — bucketed from the raw, often messy `platform` string (e.g. `"Windows 10 (10.0.19044; x64; AppX)"`, `"Partner SCEI sony_tv;ps4;..."`) into iOS / Android / Windows / Mac / Linux / Web / TV / Game Console / Cast / Other, rather than rendered as a fixed three-way split
 - Listening activity by country
 
 ### All-time
@@ -90,18 +100,20 @@ Clicking a result opens a modal (a centered dialog on desktop, a fullscreen shee
 
 ```
 /
-├── build-stats.js       # build-time precompute script (npm run build)
+├── stats-lib.js           # shared aggregation engine (Node require() + browser importScripts())
+├── build-stats.js         # build-time wrapper around stats-lib.js (npm run build)
+├── upload-worker.js       # browser Worker: unzips + aggregates an uploaded export via stats-lib.js
 ├── package.json
-├── stats.json            # generated output, committed, fetched by the Dashboard tab
-├── search-index.json      # generated output, committed, lazily fetched by the Search tab
+├── stats.json              # generated output, committed, fetched by the Dashboard tab
+├── search-index.json        # generated output, committed, lazily fetched by the Search tab
 ├── index.html
 ├── styles.css
 ├── script.js
-├── data/                  # raw exports, gitignored entirely -- never committed
+├── data/                    # raw exports, gitignored entirely -- never committed
 │   ├── data1.json
 │   ├── data2.json
 │   └── ... data<N>.json
-├── spotify.jpg             # tab icon
+├── spotify.jpg               # tab icon
 ├── .gitignore
 ├── .vercelignore
 └── vercel.json
@@ -119,6 +131,7 @@ Clicking a result opens a modal (a centered dialog on desktop, a fullscreen shee
 
 - HTML, CSS, JavaScript for the site
 - Node.js (no external dependencies) for the build-time precompute step
-- Native browser `fetch` for loading `stats.json`
+- Native browser `fetch` for loading `stats.json` / `search-index.json`
+- A Web Worker, a hand-rolled ZIP central-directory reader, and the native `DecompressionStream` API for the Upload tab — no unzip or compression library, keeping the project fully dependency-free on both the build and the browser side
 
 I built this project as a personal way to explore my Spotify listening history and visualize it year by year.

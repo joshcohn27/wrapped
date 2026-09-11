@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-11T19:15:48.866Z",
+  "generatedAt": "2026-09-11T23:52:34.737Z",
   "years": [
     2026,
     2025,
@@ -682,9 +682,8 @@
         "onDemandPercent": 31.632653061224488
       },
       "platformBreakdown": {
-        "mobile": 0,
-        "desktop": 0,
-        "other": 100
+        "iOS": 68.36734693877551,
+        "Web": 31.63265306122449
       },
       "discoveryByMonth": [
         {
@@ -1739,9 +1738,9 @@
         "onDemandPercent": 29.75379779989524
       },
       "platformBreakdown": {
-        "mobile": 0,
-        "desktop": 0,
-        "other": 100
+        "iOS": 72.39392352016762,
+        "Web": 16.81508643268727,
+        "Cast / Smart Speaker": 10.790990047145103
       },
       "discoveryByMonth": [
         {
@@ -2796,9 +2795,9 @@
         "onDemandPercent": 33.170731707317074
       },
       "platformBreakdown": {
-        "mobile": 0,
-        "desktop": 0,
-        "other": 100
+        "iOS": 81.95121951219512,
+        "Cast / Smart Speaker": 15.230352303523034,
+        "Windows": 2.8184281842818426
       },
       "discoveryByMonth": [
         {
@@ -3857,9 +3856,9 @@
         "onDemandPercent": 12.396531336223887
       },
       "platformBreakdown": {
-        "mobile": 0,
-        "desktop": 0,
-        "other": 100
+        "iOS": 92.68821442648797,
+        "Windows": 6.858494284588096,
+        "Cast / Smart Speaker": 0.4532912889239259
       },
       "discoveryByMonth": [
         {
@@ -4914,9 +4913,9 @@
         "onDemandPercent": 6.9713870029098075
       },
       "platformBreakdown": {
-        "mobile": 0,
-        "desktop": 0,
-        "other": 100
+        "iOS": 92.87099903006789,
+        "Windows": 6.910766246362754,
+        "Game Console": 0.21823472356935014
       },
       "discoveryByMonth": [
         {
@@ -5967,9 +5966,9 @@
         "onDemandPercent": 8.775935003021544
       },
       "platformBreakdown": {
-        "mobile": 0,
-        "desktop": 0,
-        "other": 100
+        "iOS": 90.80776203585576,
+        "Windows": 4.941919022359498,
+        "Game Console": 4.250318941784731
       },
       "discoveryByMonth": [
         {
@@ -7020,9 +7019,9 @@
         "onDemandPercent": 12.863789800200706
       },
       "platformBreakdown": {
-        "mobile": 18.885138217315937,
-        "desktop": 0.0729860414195785,
-        "other": 81.04187574126448
+        "iOS": 97.76480248152541,
+        "Windows": 2.1987044977648025,
+        "Other": 0.03649302070978925
       },
       "discoveryByMonth": [
         {
@@ -8077,9 +8076,10 @@
         "onDemandPercent": 11.333896158716755
       },
       "platformBreakdown": {
-        "mobile": 98.4381595609962,
-        "desktop": 0.8758970029548332,
-        "other": 0.6859434360489658
+        "iOS": 98.4381595609962,
+        "Windows": 0.8758970029548332,
+        "Other": 0.6753904601097509,
+        "Game Console": 0.010552975939214858
       },
       "discoveryByMonth": [
         {
@@ -9130,9 +9130,10 @@
         "onDemandPercent": 21.289616078330326
       },
       "platformBreakdown": {
-        "mobile": 90.7884565833548,
-        "desktop": 9.192218500386499,
-        "other": 0.01932491625869621
+        "iOS": 90.7884565833548,
+        "Windows": 9.1857768616336,
+        "Game Console": 0.01932491625869621,
+        "Mac": 0.006441638752898738
       },
       "discoveryByMonth": [
         {
@@ -10187,9 +10188,9 @@
         "onDemandPercent": 17.816008164455454
       },
       "platformBreakdown": {
-        "mobile": 95.9177722700102,
-        "desktop": 4.082227729989794,
-        "other": 0
+        "iOS": 95.9177722700102,
+        "Windows": 4.031199883364922,
+        "Mac": 0.051027846624872426
       },
       "discoveryByMonth": [
         {
@@ -11240,9 +11241,8 @@
         "onDemandPercent": 18.543256997455472
       },
       "platformBreakdown": {
-        "mobile": 94.38613231552164,
-        "desktop": 5.613867684478372,
-        "other": 0
+        "iOS": 94.38613231552164,
+        "Windows": 5.613867684478372
       },
       "discoveryByMonth": [
         {
@@ -12309,9 +12309,13 @@
       "onDemandPercent": 14.904468727991457
     },
     "platformBreakdown": {
-      "mobile": 50.64520526160348,
-      "desktop": 2.7614330826726037,
-      "other": 46.593361655723925
+      "iOS": 93.23556807597065,
+      "Windows": 4.954903787173138,
+      "Game Console": 0.7440307154054115,
+      "Cast / Smart Speaker": 0.5793216257355113,
+      "Web": 0.3998455142331372,
+      "Other": 0.07724288343140151,
+      "Mac": 0.009087398050753119
     },
     "discoveryByMonth": [
       {

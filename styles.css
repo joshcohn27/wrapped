@@ -63,7 +63,9 @@ body {
    the browser's default `[hidden] { display: none }` and the view switcher
    in script.js (which just toggles the `hidden` attribute) stops working. */
 #dashboard-view:not([hidden]),
-#search-view:not([hidden]) {
+#search-view:not([hidden]),
+#upload-view:not([hidden]),
+#upload-dashboard:not([hidden]) {
     display: grid;
     gap: inherit;
     min-width: 0;
@@ -530,6 +532,58 @@ body.modal-open {
 
 .modal-close:hover {
     background: rgba(255, 255, 255, 0.18);
+}
+
+/* ---------- Upload tab ---------- */
+
+.dropzone {
+    margin-top: 1rem;
+    padding: 2rem 1rem;
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    border-radius: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.dropzone:hover,
+.dropzone:focus-visible {
+    border-color: #1ed760;
+    background: rgba(30, 215, 96, 0.06);
+    outline: none;
+}
+
+.dropzone.dragover {
+    border-color: #1ed760;
+    background: rgba(30, 215, 96, 0.12);
+}
+
+.dropzone p {
+    opacity: 0.85;
+    font-size: 0.95rem;
+}
+
+.upload-status {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    background: rgba(255, 255, 255, 0.06);
+    font-size: 0.85rem;
+}
+
+.upload-error {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    background: rgba(255, 79, 79, 0.15);
+    border: 1px solid rgba(255, 79, 79, 0.4);
+    color: #ffb3b3;
+    font-size: 0.85rem;
+}
+
+.upload-placeholder {
+    text-align: center;
+    padding: 1rem 0;
 }
 
 /* ---------- Responsive ---------- */

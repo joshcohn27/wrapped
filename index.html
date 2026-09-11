@@ -24,6 +24,7 @@
     <nav class="view-tabs" id="view-tabs">
         <button class="tab-button active" data-view="dashboard">Dashboard</button>
         <button class="tab-button" data-view="search">Search</button>
+        <button class="tab-button" data-view="upload">Upload</button>
     </nav>
 
     <main class="content">
@@ -163,6 +164,129 @@
         </section>
     </div>
     <!-- /#search-view -->
+
+    <!-- UPLOAD -->
+    <div id="upload-view" hidden>
+        <section class="card">
+            <h2>Upload Your Own Data</h2>
+            <p class="section-subtitle">
+                Visualize your own listening history. Request your "Extended Streaming History" from
+                <a href="https://www.spotify.com/account/privacy" target="_blank" rel="noopener">Spotify's privacy page</a>,
+                then drop the .zip it emails you (usually within a few days) below.
+            </p>
+            <p class="hint-text">
+                Everything happens on your device -- the file is parsed and visualized entirely in your
+                browser and is never uploaded anywhere.
+            </p>
+
+            <div id="upload-dropzone" class="dropzone" tabindex="0" role="button" aria-label="Upload a zip file">
+                <p id="upload-dropzone-text">Drag and drop your .zip here, or click to choose a file</p>
+                <input type="file" id="upload-file-input" accept=".zip,application/zip" hidden />
+            </div>
+
+            <div id="upload-status" class="upload-status" hidden></div>
+            <div id="upload-error" class="upload-error" hidden></div>
+        </section>
+
+        <p id="upload-placeholder" class="section-subtitle upload-placeholder">
+            Upload a file above to see your data here.
+        </p>
+
+        <div id="upload-dashboard" hidden>
+            <!-- Mechanical copy of #dashboard-view below, upload-*-prefixed ids,
+                 rendered by the same createDashboardController factory (script.js)
+                 fed from upload-worker.js's output instead of stats.json. -->
+
+            <section class="card">
+                <h2>Select a Year <span class="year-tag" id="upload-year-tag">Year</span></h2>
+                <div id="upload-year-tabs" class="tabs"></div>
+            </section>
+
+            <section class="card">
+                <h2>Overview</h2>
+                <div id="upload-summary-content" class="summary-grid"></div>
+            </section>
+
+            <section class="card">
+                <h2>Top Songs</h2>
+                <p class="section-subtitle">Your most listened tracks (versions merged per artist)</p>
+                <div id="upload-top-songs-table"></div>
+            </section>
+
+            <section class="card">
+                <h2>Top Artists</h2>
+                <div id="upload-top-artists-table"></div>
+            </section>
+
+            <section class="card">
+                <h2>Top Listening Days</h2>
+                <p class="section-subtitle">Your biggest days of this year (by minutes listened)</p>
+                <div id="upload-top-days-table"></div>
+            </section>
+
+            <section class="card">
+                <h2>Longest Listening Streak</h2>
+                <div id="upload-longest-streak-content" class="summary-grid"></div>
+            </section>
+
+            <section class="card">
+                <h2>Most Obsessed Day</h2>
+                <p class="section-subtitle">The single song you replayed the most in one day</p>
+                <div id="upload-most-obsessed-day-content" class="summary-grid"></div>
+            </section>
+
+            <section class="card">
+                <h2>Discovery Rate</h2>
+                <p class="section-subtitle">New artists heard for the first time, by month</p>
+                <div id="upload-discovery-rate-table"></div>
+            </section>
+
+            <section class="card">
+                <h2>Skip Rate</h2>
+                <p class="section-subtitle">Share of plays ended via the next-track button</p>
+                <div id="upload-skip-rate-content" class="summary-grid"></div>
+            </section>
+
+            <section class="card">
+                <h2>Shuffle vs On-Demand</h2>
+                <div id="upload-shuffle-ratio-content" class="summary-grid"></div>
+            </section>
+
+            <section class="card">
+                <h2>Platform Breakdown</h2>
+                <div id="upload-platform-breakdown-table"></div>
+            </section>
+
+            <section class="card">
+                <h2>Listening by Country</h2>
+                <div id="upload-by-country-table"></div>
+            </section>
+
+            <section class="card">
+                <h2>24-Hour Listening Heatmap</h2>
+                <p class="section-subtitle">Local time, minutes listened by hour of day</p>
+                <div id="upload-hour-heatmap-table"></div>
+            </section>
+
+            <section class="card">
+                <h2>First Listened</h2>
+                <p class="section-subtitle">
+                    Every artist in your upload, ordered by the day you first heard them. All-time, across every year.
+                </p>
+                <input
+                    type="text"
+                    id="upload-first-listened-search"
+                    class="search-input"
+                    placeholder="Search artists..."
+                    autocomplete="off"
+                />
+                <div id="upload-first-listened-table"></div>
+                <div id="upload-first-listened-pagination"></div>
+            </section>
+        </div>
+        <!-- /#upload-dashboard -->
+    </div>
+    <!-- /#upload-view -->
     </main>
 
     <footer class="footer">
