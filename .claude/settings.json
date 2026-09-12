@@ -34,7 +34,11 @@
       "Bash(node .verify-corrupt.js)",
       "Bash(taskkill //PID 26148 //F)",
       "Bash(node .verify-final.js)",
-      "Bash(taskkill //PID 8724 //F)"
+      "Bash(taskkill //PID 8724 //F)",
+      "Bash(node .verify-mini.js)",
+      "Bash(tasklist)",
+      "Bash(taskkill //IM chrome.exe //F)",
+      "Bash(taskkill //PID 6468 //F)"
     ]
   }
 }
