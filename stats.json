@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-12T00:20:05.466Z",
+  "generatedAt": "2026-09-12T00:47:11.081Z",
   "years": [
     2026,
     2025,
@@ -10246,10 +10246,14 @@
     },
     "2026": {
       "year": 2026,
-      "totalMinutes": 13350.05356666659,
-      "uniqueSongCount": 1018,
-      "uniqueArtistCount": 450,
+      "totalMinutes": 18361.697283333222,
+      "uniqueSongCount": 1167,
+      "uniqueArtistCount": 490,
       "topDates": [
+        {
+          "date": "2026-08-17",
+          "minutes": 345.39021666666673
+        },
         {
           "date": "2026-05-10",
           "minutes": 332.62
@@ -10265,10 +10269,6 @@
         {
           "date": "2026-01-16",
           "minutes": 218.73213333333334
-        },
-        {
-          "date": "2026-06-24",
-          "minutes": 211.9005666666667
         }
       ],
       "topSongs": [
@@ -10276,141 +10276,246 @@
           "key": "i will wait — mumford & sons",
           "normalizedTitle": "I Will Wait",
           "displayArtist": "Mumford & Sons",
-          "totalMinutes": 305.35038333333335,
-          "playEvents": 92
-        },
-        {
-          "key": "rubber band man — mumford & sons",
-          "normalizedTitle": "Rubber Band Man",
-          "displayArtist": "Mumford & Sons",
-          "totalMinutes": 249.4900166666667,
-          "playEvents": 95
-        },
-        {
-          "key": "lover of the light — mumford & sons",
-          "normalizedTitle": "Lover of the Light",
-          "displayArtist": "Mumford & Sons",
-          "totalMinutes": 204.51976666666678,
-          "playEvents": 53
-        },
-        {
-          "key": "the banjo song — mumford & sons",
-          "normalizedTitle": "The Banjo Song",
-          "displayArtist": "Mumford & Sons",
-          "totalMinutes": 204.36814999999987,
-          "playEvents": 77
-        },
-        {
-          "key": "the cave — mumford & sons",
-          "normalizedTitle": "The Cave",
-          "displayArtist": "Mumford & Sons",
-          "totalMinutes": 200.80043333333333,
-          "playEvents": 74
+          "totalMinutes": 418.97298333333356,
+          "playEvents": 130
         },
         {
           "key": "ghosts that we knew — mumford & sons",
           "normalizedTitle": "Ghosts That We Knew",
           "displayArtist": "Mumford & Sons",
-          "totalMinutes": 200.35013333333342,
-          "playEvents": 51
+          "totalMinutes": 304.2317333333334,
+          "playEvents": 75
+        },
+        {
+          "key": "the cave — mumford & sons",
+          "normalizedTitle": "The Cave",
+          "displayArtist": "Mumford & Sons",
+          "totalMinutes": 301.1979666666667,
+          "playEvents": 111
+        },
+        {
+          "key": "rubber band man — mumford & sons",
+          "normalizedTitle": "Rubber Band Man",
+          "displayArtist": "Mumford & Sons",
+          "totalMinutes": 293.21888333333317,
+          "playEvents": 108
+        },
+        {
+          "key": "lover of the light — mumford & sons",
+          "normalizedTitle": "Lover of the Light",
+          "displayArtist": "Mumford & Sons",
+          "totalMinutes": 269.6893166666669,
+          "playEvents": 70
+        },
+        {
+          "key": "the banjo song — mumford & sons",
+          "normalizedTitle": "The Banjo Song",
+          "displayArtist": "Mumford & Sons",
+          "totalMinutes": 254.46629999999976,
+          "playEvents": 101
         },
         {
           "key": "awake my soul — mumford & sons",
           "normalizedTitle": "Awake My Soul",
           "displayArtist": "Mumford & Sons",
-          "totalMinutes": 175.16178333333326,
-          "playEvents": 59
-        },
-        {
-          "key": "run together — mumford & sons",
-          "normalizedTitle": "Run Together",
-          "displayArtist": "Mumford & Sons",
-          "totalMinutes": 156.26986666666673,
-          "playEvents": 54
+          "totalMinutes": 249.3221833333331,
+          "playEvents": 82
         },
         {
           "key": "white blank page — mumford & sons",
           "normalizedTitle": "White Blank Page",
           "displayArtist": "Mumford & Sons",
-          "totalMinutes": 151.47374999999997,
-          "playEvents": 53
+          "totalMinutes": 212.92363333333319,
+          "playEvents": 75
+        },
+        {
+          "key": "run together — mumford & sons",
+          "normalizedTitle": "Run Together",
+          "displayArtist": "Mumford & Sons",
+          "totalMinutes": 211.53091666666666,
+          "playEvents": 75
         },
         {
           "key": "little lion man — mumford & sons",
           "normalizedTitle": "Little Lion Man",
           "displayArtist": "Mumford & Sons",
-          "totalMinutes": 142.77713333333332,
-          "playEvents": 45
+          "totalMinutes": 209.92890000000008,
+          "playEvents": 70
         },
         {
           "key": "iris — the goo goo dolls",
           "normalizedTitle": "Iris",
           "displayArtist": "The Goo Goo Dolls",
-          "totalMinutes": 138.9307833333333,
-          "playEvents": 33
-        },
-        {
-          "key": "hopeless wanderer — mumford & sons",
-          "normalizedTitle": "Hopeless Wanderer",
-          "displayArtist": "Mumford & Sons",
-          "totalMinutes": 132.61698333333328,
-          "playEvents": 42
-        },
-        {
-          "key": "babel — mumford & sons",
-          "normalizedTitle": "Babel",
-          "displayArtist": "Mumford & Sons",
-          "totalMinutes": 130.82243333333344,
-          "playEvents": 44
-        },
-        {
-          "key": "icarus — mumford & sons",
-          "normalizedTitle": "Icarus",
-          "displayArtist": "Mumford & Sons",
-          "totalMinutes": 125.79321666666668,
-          "playEvents": 45
-        },
-        {
-          "key": "here — mumford & sons",
-          "normalizedTitle": "Here",
-          "displayArtist": "Mumford & Sons",
-          "totalMinutes": 125.38659999999999,
-          "playEvents": 51
-        },
-        {
-          "key": "timshel — mumford & sons",
-          "normalizedTitle": "Timshel",
-          "displayArtist": "Mumford & Sons",
-          "totalMinutes": 123.8366,
-          "playEvents": 50
+          "totalMinutes": 201.63763333333333,
+          "playEvents": 53
         },
         {
           "key": "northern attitude — noah kahan",
           "normalizedTitle": "Northern Attitude",
           "displayArtist": "Noah Kahan",
-          "totalMinutes": 109.52105,
-          "playEvents": 30
+          "totalMinutes": 190.8187999999999,
+          "playEvents": 54
         },
         {
-          "key": "perfect — ed sheeran",
-          "normalizedTitle": "Perfect",
-          "displayArtist": "Ed Sheeran",
-          "totalMinutes": 100.39895000000001,
-          "playEvents": 28
+          "key": "hopeless wanderer — mumford & sons",
+          "normalizedTitle": "Hopeless Wanderer",
+          "displayArtist": "Mumford & Sons",
+          "totalMinutes": 179.80551666666668,
+          "playEvents": 53
+        },
+        {
+          "key": "here — mumford & sons",
+          "normalizedTitle": "Here",
+          "displayArtist": "Mumford & Sons",
+          "totalMinutes": 172.86571666666674,
+          "playEvents": 66
+        },
+        {
+          "key": "icarus — mumford & sons",
+          "normalizedTitle": "Icarus",
+          "displayArtist": "Mumford & Sons",
+          "totalMinutes": 170.59013333333326,
+          "playEvents": 60
+        },
+        {
+          "key": "babel — mumford & sons",
+          "normalizedTitle": "Babel",
+          "displayArtist": "Mumford & Sons",
+          "totalMinutes": 166.18051666666673,
+          "playEvents": 58
+        },
+        {
+          "key": "timshel — mumford & sons",
+          "normalizedTitle": "Timshel",
+          "displayArtist": "Mumford & Sons",
+          "totalMinutes": 156.99961666666664,
+          "playEvents": 70
         },
         {
           "key": "where are you now — mumford & sons",
           "normalizedTitle": "Where Are You Now",
           "displayArtist": "Mumford & Sons",
-          "totalMinutes": 98.67569999999995,
-          "playEvents": 38
+          "totalMinutes": 127.8051666666666,
+          "playEvents": 49
+        },
+        {
+          "key": "work song — hozier",
+          "normalizedTitle": "Work Song",
+          "displayArtist": "Hozier",
+          "totalMinutes": 127.18675,
+          "playEvents": 44
+        },
+        {
+          "key": "badlands — mumford & sons",
+          "normalizedTitle": "Badlands",
+          "displayArtist": "Mumford & Sons",
+          "totalMinutes": 126.87531666666662,
+          "playEvents": 59
         },
         {
           "key": "prizefighter — mumford & sons",
           "normalizedTitle": "Prizefighter",
           "displayArtist": "Mumford & Sons",
-          "totalMinutes": 95.11029999999997,
-          "playEvents": 43
+          "totalMinutes": 125.57043333333327,
+          "playEvents": 54
+        },
+        {
+          "key": "little things — one direction",
+          "normalizedTitle": "Little Things",
+          "displayArtist": "One Direction",
+          "totalMinutes": 120.87268333333334,
+          "playEvents": 40
+        },
+        {
+          "key": "the great divide — noah kahan",
+          "normalizedTitle": "The Great Divide",
+          "displayArtist": "Noah Kahan",
+          "totalMinutes": 118.35346666666666,
+          "playEvents": 35
+        },
+        {
+          "key": "perfect — ed sheeran",
+          "normalizedTitle": "Perfect",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 117.70370000000003,
+          "playEvents": 33
+        },
+        {
+          "key": "the boxer feat. mumford & sons and paul simon — jerry douglas",
+          "normalizedTitle": "The Boxer feat. Mumford & Sons and Paul Simon",
+          "displayArtist": "Jerry Douglas",
+          "totalMinutes": 112.5594833333333,
+          "playEvents": 50
+        },
+        {
+          "key": "rushmere — mumford & sons",
+          "normalizedTitle": "Rushmere",
+          "displayArtist": "Mumford & Sons",
+          "totalMinutes": 112.16658333333329,
+          "playEvents": 52
+        },
+        {
+          "key": "maine — noah kahan",
+          "normalizedTitle": "Maine",
+          "displayArtist": "Noah Kahan",
+          "totalMinutes": 111.81551666666662,
+          "playEvents": 37
+        },
+        {
+          "key": "where it belongs — mumford & sons",
+          "normalizedTitle": "Where It Belongs",
+          "displayArtist": "Mumford & Sons",
+          "totalMinutes": 108.05516666666668,
+          "playEvents": 55
+        },
+        {
+          "key": "photograph — ed sheeran",
+          "normalizedTitle": "Photograph",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 107.39795000000004,
+          "playEvents": 34
+        },
+        {
+          "key": "caroline — mumford & sons",
+          "normalizedTitle": "Caroline",
+          "displayArtist": "Mumford & Sons",
+          "totalMinutes": 103.37718333333338,
+          "playEvents": 44
+        },
+        {
+          "key": "all my love — noah kahan",
+          "normalizedTitle": "All My Love",
+          "displayArtist": "Noah Kahan",
+          "totalMinutes": 100.27593333333333,
+          "playEvents": 31
+        },
+        {
+          "key": "stick season — noah kahan",
+          "normalizedTitle": "Stick Season",
+          "displayArtist": "Noah Kahan",
+          "totalMinutes": 100.07876666666668,
+          "playEvents": 40
+        },
+        {
+          "key": "let her go — passenger",
+          "normalizedTitle": "Let Her Go",
+          "displayArtist": "Passenger",
+          "totalMinutes": 99.97908333333329,
+          "playEvents": 33
+        },
+        {
+          "key": "man i need — olivia dean",
+          "normalizedTitle": "Man I Need",
+          "displayArtist": "Olivia Dean",
+          "totalMinutes": 98.1126666666667,
+          "playEvents": 39
+        },
+        {
+          "key": "everything has changed — taylor swift",
+          "normalizedTitle": "Everything Has Changed",
+          "displayArtist": "Taylor Swift",
+          "totalMinutes": 92.86643333333335,
+          "playEvents": 25
         },
         {
           "key": "fall asleep in under 3 minutes — silent rhythm",
@@ -10420,74 +10525,116 @@
           "playEvents": 5
         },
         {
-          "key": "badlands — mumford & sons",
-          "normalizedTitle": "Badlands",
-          "displayArtist": "Mumford & Sons",
-          "totalMinutes": 88.3604833333333,
-          "playEvents": 43
+          "key": "someone new — hozier",
+          "normalizedTitle": "Someone New",
+          "displayArtist": "Hozier",
+          "totalMinutes": 85.37203333333332,
+          "playEvents": 25
         },
         {
-          "key": "rushmere — mumford & sons",
-          "normalizedTitle": "Rushmere",
-          "displayArtist": "Mumford & Sons",
-          "totalMinutes": 85.37306666666665,
-          "playEvents": 38
-        },
-        {
-          "key": "caroline — mumford & sons",
-          "normalizedTitle": "Caroline",
-          "displayArtist": "Mumford & Sons",
-          "totalMinutes": 85.09935000000003,
-          "playEvents": 35
-        },
-        {
-          "key": "photograph — ed sheeran",
-          "normalizedTitle": "Photograph",
+          "key": "the vow — ed sheeran",
+          "normalizedTitle": "The Vow",
           "displayArtist": "Ed Sheeran",
-          "totalMinutes": 77.69368333333335,
-          "playEvents": 27
-        },
-        {
-          "key": "let her go — passenger",
-          "normalizedTitle": "Let Her Go",
-          "displayArtist": "Passenger",
-          "totalMinutes": 74.1359833333333,
-          "playEvents": 27
-        },
-        {
-          "key": "where it belongs — mumford & sons",
-          "normalizedTitle": "Where It Belongs",
-          "displayArtist": "Mumford & Sons",
-          "totalMinutes": 73.51246666666667,
-          "playEvents": 42
-        },
-        {
-          "key": "vienna — billy joel",
-          "normalizedTitle": "Vienna",
-          "displayArtist": "Billy Joel",
-          "totalMinutes": 72.88025,
-          "playEvents": 26
-        },
-        {
-          "key": "everything has changed — taylor swift",
-          "normalizedTitle": "Everything Has Changed",
-          "displayArtist": "Taylor Swift",
-          "totalMinutes": 72.66765000000001,
-          "playEvents": 19
-        },
-        {
-          "key": "little things — one direction",
-          "normalizedTitle": "Little Things",
-          "displayArtist": "One Direction",
-          "totalMinutes": 68.8005,
-          "playEvents": 23
+          "totalMinutes": 84.84904999999998,
+          "playEvents": 30
         },
         {
           "key": "tenerife sea — ed sheeran",
           "normalizedTitle": "Tenerife Sea",
           "displayArtist": "Ed Sheeran",
-          "totalMinutes": 68.0899,
-          "playEvents": 31
+          "totalMinutes": 84.23641666666668,
+          "playEvents": 38
+        },
+        {
+          "key": "bennie and the jets — elton john",
+          "normalizedTitle": "Bennie And The Jets",
+          "displayArtist": "Elton John",
+          "totalMinutes": 83.79231666666665,
+          "playEvents": 22
+        },
+        {
+          "key": "conversation with my son — mumford & sons",
+          "normalizedTitle": "Conversation With My Son",
+          "displayArtist": "Mumford & Sons",
+          "totalMinutes": 82.2239,
+          "playEvents": 22
+        },
+        {
+          "key": "you are the reason — calum scott",
+          "normalizedTitle": "You Are The Reason",
+          "displayArtist": "Calum Scott",
+          "totalMinutes": 76.35838333333336,
+          "playEvents": 28
+        },
+        {
+          "key": "thinking out loud — ed sheeran",
+          "normalizedTitle": "Thinking out Loud",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 75.02321666666667,
+          "playEvents": 24
+        },
+        {
+          "key": "hearts don't break around here — ed sheeran",
+          "normalizedTitle": "Hearts Don't Break Around Here",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 73.82826666666665,
+          "playEvents": 28
+        },
+        {
+          "key": "the a team — ed sheeran",
+          "normalizedTitle": "The A Team",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 73.80111666666666,
+          "playEvents": 27
+        },
+        {
+          "key": "vienna — billy joel",
+          "normalizedTitle": "Vienna",
+          "displayArtist": "Billy Joel",
+          "totalMinutes": 73.02835,
+          "playEvents": 29
+        },
+        {
+          "key": "night changes — one direction",
+          "normalizedTitle": "Night Changes",
+          "displayArtist": "One Direction",
+          "totalMinutes": 72.51983333333335,
+          "playEvents": 28
+        },
+        {
+          "key": "light on — maggie rogers",
+          "normalizedTitle": "Light On",
+          "displayArtist": "Maggie Rogers",
+          "totalMinutes": 72.32435000000004,
+          "playEvents": 25
+        },
+        {
+          "key": "dial drunk — noah kahan",
+          "normalizedTitle": "Dial Drunk",
+          "displayArtist": "Noah Kahan",
+          "totalMinutes": 71.87656666666668,
+          "playEvents": 25
+        },
+        {
+          "key": "haircut — noah kahan",
+          "normalizedTitle": "Haircut",
+          "displayArtist": "Noah Kahan",
+          "totalMinutes": 70.85351666666666,
+          "playEvents": 23
+        },
+        {
+          "key": "your song — elton john",
+          "normalizedTitle": "Your Song",
+          "displayArtist": "Elton John",
+          "totalMinutes": 69.7849,
+          "playEvents": 22
+        },
+        {
+          "key": "fix you — coldplay",
+          "normalizedTitle": "Fix You",
+          "displayArtist": "Coldplay",
+          "totalMinutes": 68.85408333333334,
+          "playEvents": 20
         },
         {
           "key": "castle on the hill — ed sheeran",
@@ -10497,214 +10644,326 @@
           "playEvents": 27
         },
         {
-          "key": "the vow — ed sheeran",
-          "normalizedTitle": "The Vow",
-          "displayArtist": "Ed Sheeran",
-          "totalMinutes": 66.25313333333332,
-          "playEvents": 23
-        },
-        {
-          "key": "the a team — ed sheeran",
-          "normalizedTitle": "The A Team",
-          "displayArtist": "Ed Sheeran",
-          "totalMinutes": 65.91681666666665,
-          "playEvents": 24
-        },
-        {
-          "key": "thinking out loud — ed sheeran",
-          "normalizedTitle": "Thinking out Loud",
-          "displayArtist": "Ed Sheeran",
-          "totalMinutes": 65.63788333333333,
-          "playEvents": 22
-        },
-        {
-          "key": "man i need — olivia dean",
-          "normalizedTitle": "Man I Need",
-          "displayArtist": "Olivia Dean",
-          "totalMinutes": 64.94385000000003,
-          "playEvents": 27
-        },
-        {
-          "key": "the boxer feat. mumford & sons and paul simon — jerry douglas",
-          "normalizedTitle": "The Boxer feat. Mumford & Sons and Paul Simon",
-          "displayArtist": "Jerry Douglas",
-          "totalMinutes": 63.67098333333331,
-          "playEvents": 33
-        },
-        {
-          "key": "dog days are over — florence + the machine",
-          "normalizedTitle": "Dog Days Are Over",
-          "displayArtist": "Florence + The Machine",
-          "totalMinutes": 61.02218333333334,
-          "playEvents": 20
-        },
-        {
-          "key": "stick season — noah kahan",
-          "normalizedTitle": "Stick Season",
-          "displayArtist": "Noah Kahan",
-          "totalMinutes": 60.44379999999999,
-          "playEvents": 23
-        },
-        {
           "key": "fast car — tracy chapman",
           "normalizedTitle": "Fast Car",
           "displayArtist": "Tracy Chapman",
-          "totalMinutes": 58.790883333333326,
-          "playEvents": 15
-        },
-        {
-          "key": "someone new — hozier",
-          "normalizedTitle": "Someone New",
-          "displayArtist": "Hozier",
-          "totalMinutes": 57.82868333333332,
-          "playEvents": 16
-        },
-        {
-          "key": "light on — maggie rogers",
-          "normalizedTitle": "Light On",
-          "displayArtist": "Maggie Rogers",
-          "totalMinutes": 56.832216666666696,
-          "playEvents": 21
-        },
-        {
-          "key": "fix you — coldplay",
-          "normalizedTitle": "Fix You",
-          "displayArtist": "Coldplay",
-          "totalMinutes": 56.308483333333335,
-          "playEvents": 15
-        },
-        {
-          "key": "life goes on — ed sheeran",
-          "normalizedTitle": "Life Goes On",
-          "displayArtist": "Ed Sheeran",
-          "totalMinutes": 55.25013333333335,
-          "playEvents": 23
-        },
-        {
-          "key": "danny's song — loggins & messina",
-          "normalizedTitle": "Danny's Song",
-          "displayArtist": "Loggins & Messina",
-          "totalMinutes": 55.0545,
-          "playEvents": 16
-        },
-        {
-          "key": "work song — hozier",
-          "normalizedTitle": "Work Song",
-          "displayArtist": "Hozier",
-          "totalMinutes": 54.51961666666668,
-          "playEvents": 23
-        },
-        {
-          "key": "hold back the river — james bay",
-          "normalizedTitle": "Hold Back The River",
-          "displayArtist": "James Bay",
-          "totalMinutes": 53.17530000000001,
-          "playEvents": 20
-        },
-        {
-          "key": "a little more — ed sheeran",
-          "normalizedTitle": "A Little More",
-          "displayArtist": "Ed Sheeran",
-          "totalMinutes": 52.226399999999984,
-          "playEvents": 26
-        },
-        {
-          "key": "your song — elton john",
-          "normalizedTitle": "Your Song",
-          "displayArtist": "Elton John",
-          "totalMinutes": 51.97048333333334,
-          "playEvents": 16
-        },
-        {
-          "key": "my way — frank sinatra",
-          "normalizedTitle": "My Way",
-          "displayArtist": "Frank Sinatra",
-          "totalMinutes": 51.354083333333335,
-          "playEvents": 18
-        },
-        {
-          "key": "hammer to fall — queen",
-          "normalizedTitle": "Hammer To Fall",
-          "displayArtist": "Queen",
-          "totalMinutes": 50.58886666666666,
-          "playEvents": 20
-        },
-        {
-          "key": "night changes — one direction",
-          "normalizedTitle": "Night Changes",
-          "displayArtist": "One Direction",
-          "totalMinutes": 49.860033333333334,
-          "playEvents": 22
-        },
-        {
-          "key": "clocks — coldplay",
-          "normalizedTitle": "Clocks",
-          "displayArtist": "Coldplay",
-          "totalMinutes": 49.508516666666665,
+          "totalMinutes": 67.56321666666666,
           "playEvents": 19
         },
         {
           "key": "tiny dancer — elton john",
           "normalizedTitle": "Tiny Dancer",
           "displayArtist": "Elton John",
-          "totalMinutes": 47.43131666666667,
-          "playEvents": 13
+          "totalMinutes": 66.26778333333334,
+          "playEvents": 20
         },
         {
-          "key": "shape of you — ed sheeran",
-          "normalizedTitle": "Shape of You",
+          "key": "life goes on — ed sheeran",
+          "normalizedTitle": "Life Goes On",
           "displayArtist": "Ed Sheeran",
-          "totalMinutes": 47.2029,
-          "playEvents": 19
+          "totalMinutes": 65.34740000000002,
+          "playEvents": 26
         },
         {
-          "key": "bennie and the jets — elton john",
-          "normalizedTitle": "Bennie And The Jets",
-          "displayArtist": "Elton John",
-          "totalMinutes": 46.843399999999995,
-          "playEvents": 14
-        },
-        {
-          "key": "penguins — ed sheeran",
-          "normalizedTitle": "Penguins",
-          "displayArtist": "Ed Sheeran",
-          "totalMinutes": 45.95626666666667,
-          "playEvents": 16
+          "key": "hold back the river — james bay",
+          "normalizedTitle": "Hold Back The River",
+          "displayArtist": "James Bay",
+          "totalMinutes": 64.94505000000001,
+          "playEvents": 23
         },
         {
           "key": "shadow of a man — mumford & sons",
           "normalizedTitle": "Shadow Of A Man",
           "displayArtist": "Mumford & Sons",
-          "totalMinutes": 45.780483333333336,
-          "playEvents": 34
+          "totalMinutes": 63.94723333333335,
+          "playEvents": 43
         },
         {
-          "key": "hearts don't break around here — ed sheeran",
-          "normalizedTitle": "Hearts Don't Break Around Here",
+          "key": "danny's song — loggins & messina",
+          "normalizedTitle": "Danny's Song",
+          "displayArtist": "Loggins & Messina",
+          "totalMinutes": 63.56243333333333,
+          "playEvents": 19
+        },
+        {
+          "key": "my way — frank sinatra",
+          "normalizedTitle": "My Way",
+          "displayArtist": "Frank Sinatra",
+          "totalMinutes": 63.222766666666665,
+          "playEvents": 21
+        },
+        {
+          "key": "everywhere, everything — noah kahan",
+          "normalizedTitle": "Everywhere, Everything",
+          "displayArtist": "Noah Kahan",
+          "totalMinutes": 62.74289999999999,
+          "playEvents": 24
+        },
+        {
+          "key": "dog days are over — florence + the machine",
+          "normalizedTitle": "Dog Days Are Over",
+          "displayArtist": "Florence + The Machine",
+          "totalMinutes": 62.67293333333334,
+          "playEvents": 21
+        },
+        {
+          "key": "shape of you — ed sheeran",
+          "normalizedTitle": "Shape of You",
           "displayArtist": "Ed Sheeran",
-          "totalMinutes": 45.350116666666665,
-          "playEvents": 18
-        },
-        {
-          "key": "radio ga ga — queen",
-          "normalizedTitle": "Radio Ga Ga",
-          "displayArtist": "Queen",
-          "totalMinutes": 43.617000000000004,
-          "playEvents": 11
+          "totalMinutes": 61.95068333333334,
+          "playEvents": 25
         },
         {
           "key": "bohemian rhapsody — queen",
           "normalizedTitle": "Bohemian Rhapsody",
           "displayArtist": "Queen",
-          "totalMinutes": 43.581599999999995,
-          "playEvents": 8
+          "totalMinutes": 59.76651666666666,
+          "playEvents": 11
         },
         {
           "key": "philadelphia freedom — elton john",
           "normalizedTitle": "Philadelphia Freedom",
           "displayArtist": "Elton John",
-          "totalMinutes": 43.440200000000004,
+          "totalMinutes": 59.701850000000015,
+          "playEvents": 16
+        },
+        {
+          "key": "rocket man — elton john",
+          "normalizedTitle": "Rocket Man",
+          "displayArtist": "Elton John",
+          "totalMinutes": 58.57118333333333,
+          "playEvents": 15
+        },
+        {
+          "key": "penguins — ed sheeran",
+          "normalizedTitle": "Penguins",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 58.18661666666667,
+          "playEvents": 20
+        },
+        {
+          "key": "hammer to fall — queen",
+          "normalizedTitle": "Hammer To Fall",
+          "displayArtist": "Queen",
+          "totalMinutes": 57.86619999999999,
+          "playEvents": 22
+        },
+        {
+          "key": "a little more — ed sheeran",
+          "normalizedTitle": "A Little More",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 55.536233333333314,
+          "playEvents": 29
+        },
+        {
+          "key": "you're beautiful — james blunt",
+          "normalizedTitle": "You're Beautiful",
+          "displayArtist": "James Blunt",
+          "totalMinutes": 55.479533333333336,
+          "playEvents": 19
+        },
+        {
+          "key": "begin again — mumford & sons",
+          "normalizedTitle": "Begin Again",
+          "displayArtist": "Mumford & Sons",
+          "totalMinutes": 54.908666666666676,
+          "playEvents": 34
+        },
+        {
+          "key": "when we were young — adele",
+          "normalizedTitle": "When We Were Young",
+          "displayArtist": "Adele",
+          "totalMinutes": 52.72818333333334,
+          "playEvents": 16
+        },
+        {
+          "key": "chasing cars — snow patrol",
+          "normalizedTitle": "Chasing Cars",
+          "displayArtist": "Snow Patrol",
+          "totalMinutes": 52.56781666666667,
+          "playEvents": 23
+        },
+        {
+          "key": "can't help falling in love — elvis presley",
+          "normalizedTitle": "Can't Help Falling in Love",
+          "displayArtist": "Elvis Presley",
+          "totalMinutes": 51.62006666666666,
+          "playEvents": 29
+        },
+        {
+          "key": "mess is mine — vance joy",
+          "normalizedTitle": "Mess Is Mine",
+          "displayArtist": "Vance Joy",
+          "totalMinutes": 51.329100000000004,
+          "playEvents": 16
+        },
+        {
+          "key": "before you go — lewis capaldi",
+          "normalizedTitle": "Before You Go",
+          "displayArtist": "Lewis Capaldi",
+          "totalMinutes": 51.24743333333333,
+          "playEvents": 20
+        },
+        {
+          "key": "you've got a friend — james taylor",
+          "normalizedTitle": "You've Got a Friend",
+          "displayArtist": "James Taylor",
+          "totalMinutes": 51.188399999999994,
+          "playEvents": 19
+        },
+        {
+          "key": "somewhere only we know — keane",
+          "normalizedTitle": "Somewhere Only We Know",
+          "displayArtist": "Keane",
+          "totalMinutes": 50.03385,
+          "playEvents": 17
+        },
+        {
+          "key": "carry on — fun.",
+          "normalizedTitle": "Carry On",
+          "displayArtist": "fun.",
+          "totalMinutes": 49.672166666666655,
+          "playEvents": 19
+        },
+        {
+          "key": "sweet creature — harry styles",
+          "normalizedTitle": "Sweet Creature",
+          "displayArtist": "Harry Styles",
+          "totalMinutes": 49.63803333333333,
+          "playEvents": 16
+        },
+        {
+          "key": "clocks — coldplay",
+          "normalizedTitle": "Clocks",
+          "displayArtist": "Coldplay",
+          "totalMinutes": 49.544066666666666,
+          "playEvents": 20
+        },
+        {
+          "key": "take me to church — hozier",
+          "normalizedTitle": "Take Me to Church",
+          "displayArtist": "Hozier",
+          "totalMinutes": 49.312899999999985,
+          "playEvents": 16
+        },
+        {
+          "key": "porch light — noah kahan",
+          "normalizedTitle": "Porch Light",
+          "displayArtist": "Noah Kahan",
+          "totalMinutes": 48.9597,
+          "playEvents": 19
+        },
+        {
+          "key": "more than words — extreme",
+          "normalizedTitle": "More Than Words",
+          "displayArtist": "Extreme",
+          "totalMinutes": 48.23351666666667,
+          "playEvents": 19
+        },
+        {
+          "key": "dancing on my own — calum scott",
+          "normalizedTitle": "Dancing On My Own",
+          "displayArtist": "Calum Scott",
+          "totalMinutes": 48.09708333333333,
+          "playEvents": 21
+        },
+        {
+          "key": "theme from new york, new york — frank sinatra",
+          "normalizedTitle": "Theme From New York, New York",
+          "displayArtist": "Frank Sinatra",
+          "totalMinutes": 47.73091666666667,
+          "playEvents": 17
+        },
+        {
+          "key": "she's always a woman — billy joel",
+          "normalizedTitle": "She's Always a Woman",
+          "displayArtist": "Billy Joel",
+          "totalMinutes": 47.693133333333336,
+          "playEvents": 16
+        },
+        {
+          "key": "all the debts i owe — caamp",
+          "normalizedTitle": "All the Debts I Owe",
+          "displayArtist": "Caamp",
+          "totalMinutes": 47.111033333333346,
+          "playEvents": 20
+        },
+        {
+          "key": "turn the lights back on — billy joel",
+          "normalizedTitle": "Turn the Lights Back On",
+          "displayArtist": "Billy Joel",
+          "totalMinutes": 46.0619,
+          "playEvents": 15
+        },
+        {
+          "key": "old phone — ed sheeran",
+          "normalizedTitle": "Old Phone",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 45.68126666666668,
+          "playEvents": 25
+        },
+        {
+          "key": "worldwide — big time rush",
+          "normalizedTitle": "Worldwide",
+          "displayArtist": "Big Time Rush",
+          "totalMinutes": 45.631166666666665,
+          "playEvents": 18
+        },
+        {
+          "key": "budapest — george ezra",
+          "normalizedTitle": "Budapest",
+          "displayArtist": "George Ezra",
+          "totalMinutes": 45.60521666666667,
+          "playEvents": 20
+        },
+        {
+          "key": "dive — ed sheeran",
+          "normalizedTitle": "Dive",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 44.526466666666664,
+          "playEvents": 20
+        },
+        {
+          "key": "the scientist — coldplay",
+          "normalizedTitle": "The Scientist",
+          "displayArtist": "Coldplay",
+          "totalMinutes": 44.39471666666667,
+          "playEvents": 13
+        },
+        {
+          "key": "like real people do — hozier",
+          "normalizedTitle": "Like Real People Do",
+          "displayArtist": "Hozier",
+          "totalMinutes": 44.31768333333333,
+          "playEvents": 21
+        },
+        {
+          "key": "say my name — hozier",
+          "normalizedTitle": "Say My Name",
+          "displayArtist": "Hozier",
+          "totalMinutes": 44.127433333333336,
+          "playEvents": 21
+        },
+        {
+          "key": "landslide — fleetwood mac",
+          "normalizedTitle": "Landslide",
+          "displayArtist": "Fleetwood Mac",
+          "totalMinutes": 43.94103333333333,
+          "playEvents": 16
+        },
+        {
+          "key": "radio ga ga — queen",
+          "normalizedTitle": "Radio Ga Ga",
+          "displayArtist": "Queen",
+          "totalMinutes": 43.65995,
           "playEvents": 12
+        },
+        {
+          "key": "camera — ed sheeran",
+          "normalizedTitle": "Camera",
+          "displayArtist": "Ed Sheeran",
+          "totalMinutes": 43.363516666666676,
+          "playEvents": 19
         },
         {
           "key": "unwritten — natasha bedingfield",
@@ -10712,515 +10971,256 @@
           "displayArtist": "Natasha Bedingfield",
           "totalMinutes": 43.32938333333333,
           "playEvents": 16
-        },
-        {
-          "key": "theme from new york, new york — frank sinatra",
-          "normalizedTitle": "Theme From New York, New York",
-          "displayArtist": "Frank Sinatra",
-          "totalMinutes": 40.90068333333333,
-          "playEvents": 15
-        },
-        {
-          "key": "you've got a friend — james taylor",
-          "normalizedTitle": "You've Got a Friend",
-          "displayArtist": "James Taylor",
-          "totalMinutes": 40.611016666666664,
-          "playEvents": 14
-        },
-        {
-          "key": "mess is mine — vance joy",
-          "normalizedTitle": "Mess Is Mine",
-          "displayArtist": "Vance Joy",
-          "totalMinutes": 40.1471,
-          "playEvents": 13
-        },
-        {
-          "key": "leave the door open — bruno mars",
-          "normalizedTitle": "Leave The Door Open",
-          "displayArtist": "Bruno Mars",
-          "totalMinutes": 39.24061666666666,
-          "playEvents": 13
-        },
-        {
-          "key": "pink pony club — chappell roan",
-          "normalizedTitle": "Pink Pony Club",
-          "displayArtist": "Chappell Roan",
-          "totalMinutes": 38.63643333333333,
-          "playEvents": 11
-        },
-        {
-          "key": "camera — ed sheeran",
-          "normalizedTitle": "Camera",
-          "displayArtist": "Ed Sheeran",
-          "totalMinutes": 37.68480000000001,
-          "playEvents": 16
-        },
-        {
-          "key": "when we were young — adele",
-          "normalizedTitle": "When We Were Young",
-          "displayArtist": "Adele",
-          "totalMinutes": 37.53086666666667,
-          "playEvents": 11
-        },
-        {
-          "key": "dancing on my own — calum scott",
-          "normalizedTitle": "Dancing On My Own",
-          "displayArtist": "Calum Scott",
-          "totalMinutes": 37.1271,
-          "playEvents": 14
-        },
-        {
-          "key": "you are the reason — calum scott",
-          "normalizedTitle": "You Are The Reason",
-          "displayArtist": "Calum Scott",
-          "totalMinutes": 36.71903333333334,
-          "playEvents": 16
-        },
-        {
-          "key": "closer to fine — indigo girls",
-          "normalizedTitle": "Closer to Fine",
-          "displayArtist": "Indigo Girls",
-          "totalMinutes": 36.2495,
-          "playEvents": 12
-        },
-        {
-          "key": "what do i know? — ed sheeran",
-          "normalizedTitle": "What Do I Know?",
-          "displayArtist": "Ed Sheeran",
-          "totalMinutes": 36.24033333333333,
-          "playEvents": 14
-        },
-        {
-          "key": "carry on — fun.",
-          "normalizedTitle": "Carry On",
-          "displayArtist": "fun.",
-          "totalMinutes": 35.73261666666666,
-          "playEvents": 15
-        },
-        {
-          "key": "budapest — george ezra",
-          "normalizedTitle": "Budapest",
-          "displayArtist": "George Ezra",
-          "totalMinutes": 35.57651666666667,
-          "playEvents": 17
-        },
-        {
-          "key": "rocket man — elton john",
-          "normalizedTitle": "Rocket Man",
-          "displayArtist": "Elton John",
-          "totalMinutes": 34.900299999999994,
-          "playEvents": 11
-        },
-        {
-          "key": "sweet creature — harry styles",
-          "normalizedTitle": "Sweet Creature",
-          "displayArtist": "Harry Styles",
-          "totalMinutes": 34.60993333333334,
-          "playEvents": 11
-        },
-        {
-          "key": "save myself — ed sheeran",
-          "normalizedTitle": "Save Myself",
-          "displayArtist": "Ed Sheeran",
-          "totalMinutes": 34.42296666666666,
-          "playEvents": 15
-        },
-        {
-          "key": "i'm yours — jason mraz",
-          "normalizedTitle": "I'm Yours",
-          "displayArtist": "Jason Mraz",
-          "totalMinutes": 34.23336666666667,
-          "playEvents": 19
-        },
-        {
-          "key": "give me love — ed sheeran",
-          "normalizedTitle": "Give Me Love",
-          "displayArtist": "Ed Sheeran",
-          "totalMinutes": 34.09226666666667,
-          "playEvents": 16
-        },
-        {
-          "key": "landslide — fleetwood mac",
-          "normalizedTitle": "Landslide",
-          "displayArtist": "Fleetwood Mac",
-          "totalMinutes": 34.03126666666666,
-          "playEvents": 12
-        },
-        {
-          "key": "salt water — ed sheeran",
-          "normalizedTitle": "Salt Water",
-          "displayArtist": "Ed Sheeran",
-          "totalMinutes": 33.96801666666667,
-          "playEvents": 15
-        },
-        {
-          "key": "lego house — ed sheeran",
-          "normalizedTitle": "Lego House",
-          "displayArtist": "Ed Sheeran",
-          "totalMinutes": 33.62583333333333,
-          "playEvents": 15
-        },
-        {
-          "key": "say my name — destiny's child",
-          "normalizedTitle": "Say My Name",
-          "displayArtist": "Destiny's Child",
-          "totalMinutes": 33.52368333333333,
-          "playEvents": 9
-        },
-        {
-          "key": "don't stop believin' — journey",
-          "normalizedTitle": "Don't Stop Believin'",
-          "displayArtist": "Journey",
-          "totalMinutes": 33.35756666666666,
-          "playEvents": 12
-        },
-        {
-          "key": "old phone — ed sheeran",
-          "normalizedTitle": "Old Phone",
-          "displayArtist": "Ed Sheeran",
-          "totalMinutes": 33.170183333333334,
-          "playEvents": 17
-        },
-        {
-          "key": "better together — jack johnson",
-          "normalizedTitle": "Better Together",
-          "displayArtist": "Jack Johnson",
-          "totalMinutes": 33.02479999999999,
-          "playEvents": 12
-        },
-        {
-          "key": "can't help falling in love — elvis presley",
-          "normalizedTitle": "Can't Help Falling in Love",
-          "displayArtist": "Elvis Presley",
-          "totalMinutes": 32.88021666666667,
-          "playEvents": 20
-        },
-        {
-          "key": "dive — ed sheeran",
-          "normalizedTitle": "Dive",
-          "displayArtist": "Ed Sheeran",
-          "totalMinutes": 32.7241,
-          "playEvents": 17
-        },
-        {
-          "key": "all too well — taylor swift",
-          "normalizedTitle": "All Too Well",
-          "displayArtist": "Taylor Swift",
-          "totalMinutes": 32.63516666666667,
-          "playEvents": 5
-        },
-        {
-          "key": "say my name — hozier",
-          "normalizedTitle": "Say My Name",
-          "displayArtist": "Hozier",
-          "totalMinutes": 32.60680000000001,
-          "playEvents": 12
-        },
-        {
-          "key": "southern cross — crosby, stills & nash",
-          "normalizedTitle": "Southern Cross",
-          "displayArtist": "Crosby, Stills & Nash",
-          "totalMinutes": 32.49838333333334,
-          "playEvents": 8
-        },
-        {
-          "key": "you belong with me — taylor swift",
-          "normalizedTitle": "You Belong With Me",
-          "displayArtist": "Taylor Swift",
-          "totalMinutes": 32.36295,
-          "playEvents": 14
-        },
-        {
-          "key": "begin again — mumford & sons",
-          "normalizedTitle": "Begin Again",
-          "displayArtist": "Mumford & Sons",
-          "totalMinutes": 32.22066666666667,
-          "playEvents": 25
-        },
-        {
-          "key": "baby one more time — ed sheeran",
-          "normalizedTitle": "Baby One More Time",
-          "displayArtist": "Ed Sheeran",
-          "totalMinutes": 32.14826666666667,
-          "playEvents": 12
-        },
-        {
-          "key": "somebody to love — queen",
-          "normalizedTitle": "Somebody To Love",
-          "displayArtist": "Queen",
-          "totalMinutes": 31.961250000000003,
-          "playEvents": 12
-        },
-        {
-          "key": "valerie — amy winehouse",
-          "normalizedTitle": "Valerie",
-          "displayArtist": "Amy Winehouse",
-          "totalMinutes": 31.8919,
-          "playEvents": 12
-        },
-        {
-          "key": "afterglow — ed sheeran",
-          "normalizedTitle": "Afterglow",
-          "displayArtist": "Ed Sheeran",
-          "totalMinutes": 31.864466666666672,
-          "playEvents": 29
-        },
-        {
-          "key": "shivers — ed sheeran",
-          "normalizedTitle": "Shivers",
-          "displayArtist": "Ed Sheeran",
-          "totalMinutes": 31.355433333333327,
-          "playEvents": 13
         }
       ],
       "topArtists": [
         {
           "artist": "Mumford & Sons",
-          "totalMinutes": 3353.6478833333313,
-          "playEvents": 1385,
-          "uniqueSongs": 61
+          "totalMinutes": 4670.311099999999,
+          "playEvents": 1903,
+          "uniqueSongs": 64
         },
         {
           "artist": "Ed Sheeran",
-          "totalMinutes": 1657.6984000000018,
-          "playEvents": 781,
+          "totalMinutes": 1947.5764833333342,
+          "playEvents": 895,
           "uniqueSongs": 56
         },
         {
+          "artist": "Noah Kahan",
+          "totalMinutes": 1069.4044500000007,
+          "playEvents": 390,
+          "uniqueSongs": 42
+        },
+        {
           "artist": "Taylor Swift",
-          "totalMinutes": 485.50254999999987,
-          "playEvents": 259,
+          "totalMinutes": 592.7378333333334,
+          "playEvents": 311,
           "uniqueSongs": 39
         },
         {
-          "artist": "Billy Joel",
-          "totalMinutes": 410.3290666666668,
-          "playEvents": 163,
-          "uniqueSongs": 21
-        },
-        {
-          "artist": "Queen",
-          "totalMinutes": 400.78044999999986,
-          "playEvents": 176,
-          "uniqueSongs": 26
-        },
-        {
-          "artist": "Elton John",
-          "totalMinutes": 346.21338333333335,
-          "playEvents": 128,
+          "artist": "Hozier",
+          "totalMinutes": 554.5058166666665,
+          "playEvents": 247,
           "uniqueSongs": 18
         },
         {
-          "artist": "Hozier",
-          "totalMinutes": 300.6935499999999,
-          "playEvents": 130,
-          "uniqueSongs": 13
+          "artist": "Billy Joel",
+          "totalMinutes": 532.6543000000001,
+          "playEvents": 205,
+          "uniqueSongs": 22
         },
         {
-          "artist": "Noah Kahan",
-          "totalMinutes": 287.65379999999993,
-          "playEvents": 109,
+          "artist": "Elton John",
+          "totalMinutes": 503.3720999999998,
+          "playEvents": 177,
+          "uniqueSongs": 19
+        },
+        {
+          "artist": "Queen",
+          "totalMinutes": 492.9000166666666,
+          "playEvents": 215,
           "uniqueSongs": 26
         },
         {
           "artist": "The Beatles",
-          "totalMinutes": 244.01365,
-          "playEvents": 136,
-          "uniqueSongs": 20
+          "totalMinutes": 299.16589999999997,
+          "playEvents": 165,
+          "uniqueSongs": 21
         },
         {
           "artist": "One Direction",
-          "totalMinutes": 182.54345,
-          "playEvents": 75,
+          "totalMinutes": 280.58436666666665,
+          "playEvents": 107,
           "uniqueSongs": 10
         },
         {
           "artist": "Coldplay",
-          "totalMinutes": 169.96386666666666,
-          "playEvents": 61,
+          "totalMinutes": 207.0272166666666,
+          "playEvents": 76,
           "uniqueSongs": 11
         },
         {
           "artist": "The Goo Goo Dolls",
-          "totalMinutes": 142.96049999999997,
-          "playEvents": 37,
-          "uniqueSongs": 4
+          "totalMinutes": 205.77006666666665,
+          "playEvents": 60,
+          "uniqueSongs": 6
         },
         {
           "artist": "Maggie Rogers",
-          "totalMinutes": 127.76518333333335,
-          "playEvents": 53,
+          "totalMinutes": 154.34903333333335,
+          "playEvents": 63,
           "uniqueSongs": 5
         },
         {
           "artist": "Frank Sinatra",
-          "totalMinutes": 112.54021666666665,
-          "playEvents": 45,
-          "uniqueSongs": 6
-        },
-        {
-          "artist": "Bruno Mars",
-          "totalMinutes": 108.04843333333332,
+          "totalMinutes": 134.40473333333333,
           "playEvents": 52,
           "uniqueSongs": 7
         },
         {
-          "artist": "Shawn Mendes",
-          "totalMinutes": 91.52626666666666,
-          "playEvents": 41,
-          "uniqueSongs": 6
-        },
-        {
-          "artist": "Silent Rhythm",
-          "totalMinutes": 88.52158333333334,
-          "playEvents": 5,
-          "uniqueSongs": 1
-        },
-        {
-          "artist": "James Taylor",
-          "totalMinutes": 80.89391666666668,
-          "playEvents": 29,
-          "uniqueSongs": 5
-        },
-        {
-          "artist": "Loggins & Messina",
-          "totalMinutes": 79.82025,
-          "playEvents": 24,
+          "artist": "Calum Scott",
+          "totalMinutes": 124.45546666666668,
+          "playEvents": 49,
           "uniqueSongs": 2
         },
         {
+          "artist": "Bruno Mars",
+          "totalMinutes": 122.92980000000001,
+          "playEvents": 63,
+          "uniqueSongs": 7
+        },
+        {
           "artist": "Vance Joy",
-          "totalMinutes": 78.64611666666669,
-          "playEvents": 39,
-          "uniqueSongs": 5
+          "totalMinutes": 118.13771666666668,
+          "playEvents": 55,
+          "uniqueSongs": 8
+        },
+        {
+          "artist": "Rihanna",
+          "totalMinutes": 115.2519166666667,
+          "playEvents": 51,
+          "uniqueSongs": 6
+        },
+        {
+          "artist": "Olivia Dean",
+          "totalMinutes": 114.49988333333336,
+          "playEvents": 57,
+          "uniqueSongs": 7
+        },
+        {
+          "artist": "Jerry Douglas",
+          "totalMinutes": 112.5594833333333,
+          "playEvents": 50,
+          "uniqueSongs": 1
         }
       ],
       "byCountry": [
         {
           "country": "US",
-          "minutes": 13350.05356666659
+          "minutes": 18361.697283333222
         }
       ],
       "hourHeatmap": [
         {
           "hour": 0,
-          "minutes": 270.9880166666667,
-          "percent": 2.0298646392197877
+          "minutes": 284.1796333333333,
+          "percent": 1.5476762793125844
         },
         {
           "hour": 1,
-          "minutes": 64.24026666666667,
-          "percent": 0.48119856857403337
+          "minutes": 86.90093333333331,
+          "percent": 0.4732728788215679
         },
         {
           "hour": 2,
-          "minutes": 11.183166666666665,
-          "percent": 0.08376870258101113
+          "minutes": 13.322499999999998,
+          "percent": 0.07255592875987912
         },
         {
           "hour": 3,
           "minutes": 27.609499999999997,
-          "percent": 0.20681190425285864
+          "percent": 0.15036463990211166
         },
         {
           "hour": 4,
-          "minutes": 44.042383333333326,
-          "percent": 0.3299041693982516
+          "minutes": 44.61891666666666,
+          "percent": 0.2429999578915106
         },
         {
           "hour": 5,
-          "minutes": 66.459,
-          "percent": 0.4978182272312332
+          "minutes": 70.33545,
+          "percent": 0.38305527487288726
         },
         {
           "hour": 6,
-          "minutes": 9.170583333333333,
-          "percent": 0.0686932324843331
+          "minutes": 73.91011666666665,
+          "percent": 0.4025233371740305
         },
         {
           "hour": 7,
-          "minutes": 116.46561666666668,
-          "percent": 0.8723981224874339
+          "minutes": 164.21566666666664,
+          "percent": 0.8943381656537981
         },
         {
           "hour": 8,
-          "minutes": 82.77156666666667,
-          "percent": 0.6200092475534064
+          "minutes": 215.13083333333327,
+          "percent": 1.1716282542605938
         },
         {
           "hour": 9,
-          "minutes": 209.2253666666667,
-          "percent": 1.5672249225207233
+          "minutes": 520.8666500000005,
+          "percent": 2.836702086755259
         },
         {
           "hour": 10,
-          "minutes": 711.3530166666669,
-          "percent": 5.3284656358445055
+          "minutes": 1157.2849166666672,
+          "percent": 6.302712101223447
         },
         {
           "hour": 11,
-          "minutes": 1286.7491666666672,
-          "percent": 9.638531862370286
+          "minutes": 1685.6983833333334,
+          "percent": 9.18051505436493
         },
         {
           "hour": 12,
-          "minutes": 1204.5731833333318,
-          "percent": 9.022983895293075
+          "minutes": 1562.4925499999988,
+          "percent": 8.509521347017587
         },
         {
           "hour": 13,
-          "minutes": 1830.8488000000007,
-          "percent": 13.714168193087934
+          "minutes": 2303.110116666667,
+          "percent": 12.543013214563606
         },
         {
           "hour": 14,
-          "minutes": 1184.5199500000003,
-          "percent": 8.872773012368967
+          "minutes": 1572.4879999999996,
+          "percent": 8.563957763465176
         },
         {
           "hour": 15,
-          "minutes": 1407.2071666666661,
-          "percent": 10.540835357996452
+          "minutes": 1711.8351166666666,
+          "percent": 9.322858830814491
         },
         {
           "hour": 16,
-          "minutes": 1009.0596499999998,
-          "percent": 7.558468922697731
+          "minutes": 1364.7655333333341,
+          "percent": 7.432676360328156
         },
         {
           "hour": 17,
-          "minutes": 835.0475666666673,
-          "percent": 6.25501285441784
+          "minutes": 1055.6718166666678,
+          "percent": 5.749315002730639
         },
         {
           "hour": 18,
-          "minutes": 796.8864666666668,
-          "percent": 5.969163065056068
+          "minutes": 975.8596666666671,
+          "percent": 5.314648485967806
         },
         {
           "hour": 19,
-          "minutes": 503.59920000000005,
-          "percent": 3.772263515536906
+          "minutes": 895.4619666666666,
+          "percent": 4.876792993856103
         },
         {
           "hour": 20,
-          "minutes": 540.2957833333331,
-          "percent": 4.047143186618973
+          "minutes": 933.6739166666661,
+          "percent": 5.084899844820713
         },
         {
           "hour": 21,
-          "minutes": 455.63261666666665,
-          "percent": 3.412964707529876
+          "minutes": 675.1400666666672,
+          "percent": 3.6768935695257463
         },
         {
           "hour": 22,
-          "minutes": 379.27054999999996,
-          "percent": 2.840966503287963
+          "minutes": 538.6228833333333,
+          "percent": 2.9334046576523947
         },
         {
           "hour": 23,
-          "minutes": 302.8549833333333,
-          "percent": 2.2685675515903734
+          "minutes": 428.50215,
+          "percent": 2.3336739702649685
         }
       ],
       "peakHour": 13,
@@ -11235,14 +11235,15 @@
         "date": "2026-01-16",
         "playCount": 6
       },
-      "skipRatePercent": 31.122773536895675,
+      "skipRatePercent": 30.848542308603932,
       "shuffleRatio": {
-        "shufflePercent": 81.45674300254453,
-        "onDemandPercent": 18.543256997455472
+        "shufflePercent": 81.77293197440152,
+        "onDemandPercent": 18.227068025598484
       },
       "platformBreakdown": {
-        "iOS": 94.38613231552164,
-        "Windows": 5.613867684478372
+        "iOS": 94.00331832187723,
+        "Windows": 5.629296041716046,
+        "Other": 0.36738563640673144
       },
       "discoveryByMonth": [
         {
@@ -11271,15 +11272,15 @@
         },
         {
           "label": "July",
-          "count": 10
+          "count": 13
         },
         {
           "label": "August",
-          "count": 0
+          "count": 16
         },
         {
           "label": "September",
-          "count": 0
+          "count": 1
         },
         {
           "label": "October",
@@ -11294,13 +11295,13 @@
           "count": 0
         }
       ],
-      "newArtistCount": 75
+      "newArtistCount": 95
     }
   },
   "allTime": {
-    "totalMinutes": 166029.45913333533,
-    "uniqueSongCount": 5386,
-    "uniqueArtistCount": 2007,
+    "totalMinutes": 171041.10285000168,
+    "uniqueSongCount": 5475,
+    "uniqueArtistCount": 2027,
     "topDates": [
       {
         "date": "2021-04-19",
@@ -11328,8 +11329,8 @@
         "key": "perfect — ed sheeran",
         "normalizedTitle": "Perfect",
         "displayArtist": "Ed Sheeran",
-        "totalMinutes": 1549.4456166666723,
-        "playEvents": 526
+        "totalMinutes": 1566.7503666666723,
+        "playEvents": 531
       },
       {
         "key": "castle on the hill — ed sheeran",
@@ -11342,71 +11343,71 @@
         "key": "bohemian rhapsody — queen",
         "normalizedTitle": "Bohemian Rhapsody",
         "displayArtist": "Queen",
-        "totalMinutes": 1328.806700000003,
-        "playEvents": 315
-      },
-      {
-        "key": "thinking out loud — ed sheeran",
-        "normalizedTitle": "Thinking out Loud",
-        "displayArtist": "Ed Sheeran",
-        "totalMinutes": 1302.311266666665,
-        "playEvents": 414
+        "totalMinutes": 1344.9916166666696,
+        "playEvents": 318
       },
       {
         "key": "tiny dancer — elton john",
         "normalizedTitle": "Tiny Dancer",
         "displayArtist": "Elton John",
-        "totalMinutes": 1297.798616666666,
-        "playEvents": 311
+        "totalMinutes": 1316.6350833333324,
+        "playEvents": 318
+      },
+      {
+        "key": "thinking out loud — ed sheeran",
+        "normalizedTitle": "Thinking out Loud",
+        "displayArtist": "Ed Sheeran",
+        "totalMinutes": 1311.6965999999982,
+        "playEvents": 416
       },
       {
         "key": "you've got a friend — james taylor",
         "normalizedTitle": "You've Got a Friend",
         "displayArtist": "James Taylor",
-        "totalMinutes": 1198.1234666666626,
-        "playEvents": 389
+        "totalMinutes": 1208.7008499999959,
+        "playEvents": 394
       },
       {
         "key": "photograph — ed sheeran",
         "normalizedTitle": "Photograph",
         "displayArtist": "Ed Sheeran",
-        "totalMinutes": 1140.1221333333306,
-        "playEvents": 393
+        "totalMinutes": 1169.8263999999974,
+        "playEvents": 400
       },
       {
         "key": "danny's song — loggins & messina",
         "normalizedTitle": "Danny's Song",
         "displayArtist": "Loggins & Messina",
-        "totalMinutes": 1138.1431666666683,
-        "playEvents": 374
-      },
-      {
-        "key": "vienna — billy joel",
-        "normalizedTitle": "Vienna",
-        "displayArtist": "Billy Joel",
-        "totalMinutes": 996.9932833333298,
-        "playEvents": 385
+        "totalMinutes": 1146.6511000000019,
+        "playEvents": 377
       },
       {
         "key": "rocket man — elton john",
         "normalizedTitle": "Rocket Man",
         "displayArtist": "Elton John",
-        "totalMinutes": 993.560033333331,
-        "playEvents": 300
+        "totalMinutes": 1017.2309166666644,
+        "playEvents": 304
       },
       {
         "key": "tenerife sea — ed sheeran",
         "normalizedTitle": "Tenerife Sea",
         "displayArtist": "Ed Sheeran",
-        "totalMinutes": 992.7645833333315,
-        "playEvents": 384
+        "totalMinutes": 1008.9110999999983,
+        "playEvents": 391
+      },
+      {
+        "key": "vienna — billy joel",
+        "normalizedTitle": "Vienna",
+        "displayArtist": "Billy Joel",
+        "totalMinutes": 997.1413833333298,
+        "playEvents": 388
       },
       {
         "key": "she's always a woman — billy joel",
         "normalizedTitle": "She's Always A Woman",
         "displayArtist": "Billy Joel",
-        "totalMinutes": 970.677083333337,
-        "playEvents": 385
+        "totalMinutes": 990.5450166666704,
+        "playEvents": 391
       },
       {
         "key": "new york state of mind — billy joel",
@@ -11419,29 +11420,36 @@
         "key": "take me home, country roads — john denver",
         "normalizedTitle": "Take Me Home, Country Roads",
         "displayArtist": "John Denver",
-        "totalMinutes": 922.6025833333338,
-        "playEvents": 425
+        "totalMinutes": 932.4248333333339,
+        "playEvents": 429
       },
       {
         "key": "just the way you are — billy joel",
         "normalizedTitle": "Just the Way You Are",
         "displayArtist": "Billy Joel",
-        "totalMinutes": 912.6374666666682,
-        "playEvents": 291
+        "totalMinutes": 922.3230000000015,
+        "playEvents": 293
       },
       {
         "key": "somebody to love — queen",
         "normalizedTitle": "Somebody To Love",
         "displayArtist": "Queen",
-        "totalMinutes": 902.2648333333323,
-        "playEvents": 272
+        "totalMinutes": 912.1465999999989,
+        "playEvents": 274
+      },
+      {
+        "key": "say you won't let go — james arthur",
+        "normalizedTitle": "Say You Won't Let Go",
+        "displayArtist": "James Arthur",
+        "totalMinutes": 880.9296500000031,
+        "playEvents": 367
       },
       {
         "key": "closer to fine — indigo girls",
         "normalizedTitle": "Closer to Fine",
         "displayArtist": "Indigo Girls",
-        "totalMinutes": 874.4870833333302,
-        "playEvents": 299
+        "totalMinutes": 878.5137499999969,
+        "playEvents": 300
       },
       {
         "key": "i'm yours — jason mraz",
@@ -11458,18 +11466,18 @@
         "playEvents": 343
       },
       {
-        "key": "say you won't let go — james arthur",
-        "normalizedTitle": "Say You Won't Let Go",
-        "displayArtist": "James Arthur",
-        "totalMinutes": 859.517650000003,
-        "playEvents": 361
-      },
-      {
         "key": "american pie — don mclean",
         "normalizedTitle": "American Pie",
         "displayArtist": "Don McLean",
-        "totalMinutes": 845.986766666666,
-        "playEvents": 250
+        "totalMinutes": 863.2165333333326,
+        "playEvents": 252
+      },
+      {
+        "key": "i will wait — mumford & sons",
+        "normalizedTitle": "I Will Wait",
+        "displayArtist": "Mumford & Sons",
+        "totalMinutes": 835.4900333333336,
+        "playEvents": 278
       },
       {
         "key": "we didn't start the fire — billy joel",
@@ -11479,158 +11487,158 @@
         "playEvents": 254
       },
       {
+        "key": "let her go — passenger",
+        "normalizedTitle": "Let Her Go",
+        "displayArtist": "Passenger",
+        "totalMinutes": 818.6789333333335,
+        "playEvents": 353
+      },
+      {
         "key": "let it be — the beatles",
         "normalizedTitle": "Let It Be",
         "displayArtist": "The Beatles",
-        "totalMinutes": 794.6326666666663,
-        "playEvents": 288
+        "totalMinutes": 798.6831166666663,
+        "playEvents": 289
       },
       {
         "key": "fire and rain — james taylor",
         "normalizedTitle": "Fire and Rain",
         "displayArtist": "James Taylor",
-        "totalMinutes": 793.2966833333343,
-        "playEvents": 328
-      },
-      {
-        "key": "let her go — passenger",
-        "normalizedTitle": "Let Her Go",
-        "displayArtist": "Passenger",
-        "totalMinutes": 792.8358333333334,
-        "playEvents": 347
-      },
-      {
-        "key": "under the bridge — red hot chili peppers",
-        "normalizedTitle": "Under the Bridge",
-        "displayArtist": "Red Hot Chili Peppers",
-        "totalMinutes": 780.9165666666654,
-        "playEvents": 250
-      },
-      {
-        "key": "radio ga ga — queen",
-        "normalizedTitle": "Radio Ga Ga",
-        "displayArtist": "Queen",
-        "totalMinutes": 770.5245166666657,
-        "playEvents": 220
+        "totalMinutes": 793.3680166666676,
+        "playEvents": 329
       },
       {
         "key": "piano man — billy joel",
         "normalizedTitle": "Piano Man",
         "displayArtist": "Billy Joel",
-        "totalMinutes": 770.4025166666652,
-        "playEvents": 257
+        "totalMinutes": 790.9417833333318,
+        "playEvents": 261
+      },
+      {
+        "key": "under the bridge — red hot chili peppers",
+        "normalizedTitle": "Under the Bridge",
+        "displayArtist": "Red Hot Chili Peppers",
+        "totalMinutes": 785.3216833333321,
+        "playEvents": 251
       },
       {
         "key": "love story — taylor swift",
         "normalizedTitle": "Love Story",
         "displayArtist": "Taylor Swift",
-        "totalMinutes": 765.940733333334,
-        "playEvents": 298
+        "totalMinutes": 777.1443166666674,
+        "playEvents": 304
       },
       {
         "key": "landslide — fleetwood mac",
         "normalizedTitle": "Landslide",
         "displayArtist": "Fleetwood Mac",
-        "totalMinutes": 763.8006333333328,
-        "playEvents": 319
+        "totalMinutes": 773.7103999999995,
+        "playEvents": 323
       },
       {
-        "key": "better together — jack johnson",
-        "normalizedTitle": "Better Together",
-        "displayArtist": "Jack Johnson",
-        "totalMinutes": 758.6250499999994,
-        "playEvents": 311
-      },
-      {
-        "key": "you belong with me — taylor swift",
-        "normalizedTitle": "You Belong With Me",
-        "displayArtist": "Taylor Swift",
-        "totalMinutes": 739.2716000000013,
-        "playEvents": 285
+        "key": "radio ga ga — queen",
+        "normalizedTitle": "Radio Ga Ga",
+        "displayArtist": "Queen",
+        "totalMinutes": 770.5674666666657,
+        "playEvents": 221
       },
       {
         "key": "hearts don't break around here — ed sheeran",
         "normalizedTitle": "Hearts Don't Break Around Here",
         "displayArtist": "Ed Sheeran",
-        "totalMinutes": 737.6476333333336,
-        "playEvents": 270
+        "totalMinutes": 766.1257833333337,
+        "playEvents": 280
       },
       {
-        "key": "i will wait — mumford & sons",
-        "normalizedTitle": "I Will Wait",
-        "displayArtist": "Mumford & Sons",
-        "totalMinutes": 721.8674333333339,
-        "playEvents": 240
+        "key": "better together — jack johnson",
+        "normalizedTitle": "Better Together",
+        "displayArtist": "Jack Johnson",
+        "totalMinutes": 765.5875333333327,
+        "playEvents": 314
+      },
+      {
+        "key": "you belong with me — taylor swift",
+        "normalizedTitle": "You Belong With Me",
+        "displayArtist": "Taylor Swift",
+        "totalMinutes": 744.0818833333348,
+        "playEvents": 290
       },
       {
         "key": "love of my life — queen",
         "normalizedTitle": "Love Of My Life",
         "displayArtist": "Queen",
-        "totalMinutes": 714.0230666666673,
-        "playEvents": 316
-      },
-      {
-        "key": "mona lisas and mad hatters — elton john",
-        "normalizedTitle": "Mona Lisas And Mad Hatters",
-        "displayArtist": "Elton John",
-        "totalMinutes": 713.4265666666672,
-        "playEvents": 201
+        "totalMinutes": 728.0427833333339,
+        "playEvents": 327
       },
       {
         "key": "night changes — one direction",
         "normalizedTitle": "Night Changes",
         "displayArtist": "One Direction",
-        "totalMinutes": 698.8968499999978,
-        "playEvents": 258
+        "totalMinutes": 721.5566499999975,
+        "playEvents": 264
       },
       {
-        "key": "don't stop me now — queen",
-        "normalizedTitle": "Don't Stop Me Now",
-        "displayArtist": "Queen",
-        "totalMinutes": 695.394766666666,
-        "playEvents": 272
+        "key": "mona lisas and mad hatters — elton john",
+        "normalizedTitle": "Mona Lisas And Mad Hatters",
+        "displayArtist": "Elton John",
+        "totalMinutes": 720.409383333334,
+        "playEvents": 203
       },
       {
         "key": "worldwide — big time rush",
         "normalizedTitle": "Worldwide",
         "displayArtist": "Big Time Rush",
-        "totalMinutes": 690.3995666666652,
-        "playEvents": 256
+        "totalMinutes": 704.7895333333317,
+        "playEvents": 261
+      },
+      {
+        "key": "don't stop me now — queen",
+        "normalizedTitle": "Don't Stop Me Now",
+        "displayArtist": "Queen",
+        "totalMinutes": 702.240866666666,
+        "playEvents": 274
       },
       {
         "key": "fix you — coldplay",
         "normalizedTitle": "Fix You",
         "displayArtist": "Coldplay",
-        "totalMinutes": 683.3563333333328,
-        "playEvents": 242
-      },
-      {
-        "key": "house at pooh corner — loggins & messina",
-        "normalizedTitle": "House at Pooh Corner",
-        "displayArtist": "Loggins & Messina",
-        "totalMinutes": 682.5549833333338,
-        "playEvents": 252
-      },
-      {
-        "key": "don't stop believin' — journey",
-        "normalizedTitle": "Don't Stop Believin'",
-        "displayArtist": "Journey",
-        "totalMinutes": 677.7595666666668,
-        "playEvents": 267
+        "totalMinutes": 695.9019333333329,
+        "playEvents": 247
       },
       {
         "key": "dive — ed sheeran",
         "normalizedTitle": "Dive",
         "displayArtist": "Ed Sheeran",
-        "totalMinutes": 676.0292500000007,
-        "playEvents": 274
+        "totalMinutes": 687.8316166666675,
+        "playEvents": 277
+      },
+      {
+        "key": "house at pooh corner — loggins & messina",
+        "normalizedTitle": "House at Pooh Corner",
+        "displayArtist": "Loggins & Messina",
+        "totalMinutes": 686.9587666666671,
+        "playEvents": 253
+      },
+      {
+        "key": "don't stop believin' — journey",
+        "normalizedTitle": "Don't Stop Believin'",
+        "displayArtist": "Journey",
+        "totalMinutes": 685.4094000000001,
+        "playEvents": 269
       },
       {
         "key": "southern cross — crosby, stills & nash",
         "normalizedTitle": "Southern Cross",
         "displayArtist": "Crosby, Stills & Nash",
-        "totalMinutes": 671.1446666666656,
-        "playEvents": 206
+        "totalMinutes": 675.8279999999988,
+        "playEvents": 207
+      },
+      {
+        "key": "your song — elton john",
+        "normalizedTitle": "Your Song",
+        "displayArtist": "Elton John",
+        "totalMinutes": 665.4643833333326,
+        "playEvents": 257
       },
       {
         "key": "all too well — taylor swift",
@@ -11643,15 +11651,22 @@
         "key": "the a team — ed sheeran",
         "normalizedTitle": "The A Team",
         "displayArtist": "Ed Sheeran",
-        "totalMinutes": 656.2411333333328,
-        "playEvents": 243
+        "totalMinutes": 664.1254333333327,
+        "playEvents": 246
       },
       {
         "key": "from now on — hugh jackman",
         "normalizedTitle": "From Now On",
         "displayArtist": "Hugh Jackman",
-        "totalMinutes": 650.7678833333342,
-        "playEvents": 215
+        "totalMinutes": 662.4320500000009,
+        "playEvents": 218
+      },
+      {
+        "key": "hammer to fall — queen",
+        "normalizedTitle": "Hammer To Fall",
+        "displayArtist": "Queen",
+        "totalMinutes": 653.5488000000014,
+        "playEvents": 279
       },
       {
         "key": "best i ever had — vertical horizon",
@@ -11661,74 +11676,74 @@
         "playEvents": 249
       },
       {
-        "key": "your song — elton john",
-        "normalizedTitle": "Your Song",
-        "displayArtist": "Elton John",
-        "totalMinutes": 647.6499666666662,
-        "playEvents": 251
-      },
-      {
-        "key": "hammer to fall — queen",
-        "normalizedTitle": "Hammer To Fall",
-        "displayArtist": "Queen",
-        "totalMinutes": 646.271466666668,
-        "playEvents": 277
-      },
-      {
         "key": "galway girl — ed sheeran",
         "normalizedTitle": "Galway Girl",
         "displayArtist": "Ed Sheeran",
-        "totalMinutes": 643.8944500000007,
-        "playEvents": 310
+        "totalMinutes": 646.6530000000007,
+        "playEvents": 311
       },
       {
         "key": "story of my life — one direction",
         "normalizedTitle": "Story of My Life",
         "displayArtist": "One Direction",
-        "totalMinutes": 637.7552166666661,
-        "playEvents": 226
+        "totalMinutes": 641.8467166666661,
+        "playEvents": 227
       },
       {
         "key": "wagon wheel — darius rucker",
         "normalizedTitle": "Wagon Wheel",
         "displayArtist": "Darius Rucker",
-        "totalMinutes": 637.4114833333347,
-        "playEvents": 192
+        "totalMinutes": 637.464116666668,
+        "playEvents": 193
       },
       {
         "key": "the general — dispatch",
         "normalizedTitle": "The General",
         "displayArtist": "DISPATCH",
-        "totalMinutes": 624.2891833333332,
-        "playEvents": 210
+        "totalMinutes": 632.5198499999998,
+        "playEvents": 212
+      },
+      {
+        "key": "iris — the goo goo dolls",
+        "normalizedTitle": "Iris",
+        "displayArtist": "The Goo Goo Dolls",
+        "totalMinutes": 626.1296833333332,
+        "playEvents": 240
       },
       {
         "key": "under pressure — queen",
         "normalizedTitle": "Under Pressure",
         "displayArtist": "Queen",
-        "totalMinutes": 604.1745000000003,
-        "playEvents": 212
+        "totalMinutes": 608.315166666667,
+        "playEvents": 213
       },
       {
         "key": "brown eyed girl — van morrison",
         "normalizedTitle": "Brown Eyed Girl",
         "displayArtist": "Van Morrison",
-        "totalMinutes": 598.6706499999999,
-        "playEvents": 253
+        "totalMinutes": 605.0866166666665,
+        "playEvents": 258
       },
       {
         "key": "my life — billy joel",
         "normalizedTitle": "My Life",
         "displayArtist": "Billy Joel",
-        "totalMinutes": 595.5070166666669,
-        "playEvents": 184
+        "totalMinutes": 600.2571833333336,
+        "playEvents": 185
       },
       {
         "key": "cat's in the cradle — harry chapin",
         "normalizedTitle": "Cat's in the Cradle",
         "displayArtist": "Harry Chapin",
-        "totalMinutes": 591.9848666666661,
-        "playEvents": 278
+        "totalMinutes": 599.0878666666661,
+        "playEvents": 281
+      },
+      {
+        "key": "my way — frank sinatra",
+        "normalizedTitle": "My Way",
+        "displayArtist": "Frank Sinatra",
+        "totalMinutes": 590.9902666666668,
+        "playEvents": 202
       },
       {
         "key": "all of me — john legend",
@@ -11741,15 +11756,8 @@
         "key": "the long and winding road — the beatles",
         "normalizedTitle": "The Long And Winding Road",
         "displayArtist": "The Beatles",
-        "totalMinutes": 585.926033333333,
-        "playEvents": 221
-      },
-      {
-        "key": "my way — frank sinatra",
-        "normalizedTitle": "My Way",
-        "displayArtist": "Frank Sinatra",
-        "totalMinutes": 579.1215833333335,
-        "playEvents": 199
+        "totalMinutes": 589.5833666666663,
+        "playEvents": 222
       },
       {
         "key": "uptown girl — billy joel",
@@ -11762,29 +11770,22 @@
         "key": "lean on me — bill withers",
         "normalizedTitle": "Lean on Me",
         "displayArtist": "Bill Withers",
-        "totalMinutes": 571.0295166666664,
-        "playEvents": 214
-      },
-      {
-        "key": "iris — the goo goo dolls",
-        "normalizedTitle": "Iris",
-        "displayArtist": "The Goo Goo Dolls",
-        "totalMinutes": 563.4228333333334,
-        "playEvents": 220
-      },
-      {
-        "key": "what do i know? — ed sheeran",
-        "normalizedTitle": "What Do I Know?",
-        "displayArtist": "Ed Sheeran",
-        "totalMinutes": 561.6128000000007,
-        "playEvents": 212
+        "totalMinutes": 575.727483333333,
+        "playEvents": 216
       },
       {
         "key": "fast car — tracy chapman",
         "normalizedTitle": "Fast Car",
         "displayArtist": "Tracy Chapman",
-        "totalMinutes": 559.3408333333333,
-        "playEvents": 170
+        "totalMinutes": 568.1131666666666,
+        "playEvents": 174
+      },
+      {
+        "key": "what do i know? — ed sheeran",
+        "normalizedTitle": "What Do I Know?",
+        "displayArtist": "Ed Sheeran",
+        "totalMinutes": 561.6944500000006,
+        "playEvents": 213
       },
       {
         "key": "you may be right — billy joel",
@@ -11797,36 +11798,50 @@
         "key": "ariel — dean friedman",
         "normalizedTitle": "Ariel",
         "displayArtist": "Dean Friedman",
-        "totalMinutes": 545.4036666666663,
-        "playEvents": 177
+        "totalMinutes": 549.7976499999996,
+        "playEvents": 178
       },
       {
         "key": "beautiful people — ed sheeran",
         "normalizedTitle": "Beautiful People",
         "displayArtist": "Ed Sheeran",
-        "totalMinutes": 539.0071000000012,
-        "playEvents": 233
-      },
-      {
-        "key": "wonderwall — oasis",
-        "normalizedTitle": "Wonderwall",
-        "displayArtist": "Oasis",
-        "totalMinutes": 531.57535,
-        "playEvents": 216
+        "totalMinutes": 542.3068833333344,
+        "playEvents": 235
       },
       {
         "key": "scenes from an italian restaurant — billy joel",
         "normalizedTitle": "Scenes From An Italian Restaurant",
         "displayArtist": "Billy Joel",
-        "totalMinutes": 520.3188333333337,
-        "playEvents": 167
+        "totalMinutes": 538.4302000000004,
+        "playEvents": 172
       },
       {
         "key": "can't help falling in love — elvis presley",
         "normalizedTitle": "Can't Help Falling in Love",
         "displayArtist": "Elvis Presley",
-        "totalMinutes": 518.7096833333329,
-        "playEvents": 271
+        "totalMinutes": 537.4495333333332,
+        "playEvents": 280
+      },
+      {
+        "key": "wonderwall — oasis",
+        "normalizedTitle": "Wonderwall",
+        "displayArtist": "Oasis",
+        "totalMinutes": 531.6460999999999,
+        "playEvents": 217
+      },
+      {
+        "key": "chasing cars — snow patrol",
+        "normalizedTitle": "Chasing Cars",
+        "displayArtist": "Snow Patrol",
+        "totalMinutes": 530.8480666666673,
+        "playEvents": 212
+      },
+      {
+        "key": "in my life — the beatles",
+        "normalizedTitle": "In My Life",
+        "displayArtist": "The Beatles",
+        "totalMinutes": 514.6842499999985,
+        "playEvents": 276
       },
       {
         "key": "hey jude — the beatles",
@@ -11850,11 +11865,11 @@
         "playEvents": 205
       },
       {
-        "key": "in my life — the beatles",
-        "normalizedTitle": "In My Life",
-        "displayArtist": "The Beatles",
-        "totalMinutes": 508.13929999999857,
-        "playEvents": 273
+        "key": "imagine — john lennon",
+        "normalizedTitle": "Imagine",
+        "displayArtist": "John Lennon",
+        "totalMinutes": 507.56110000000035,
+        "playEvents": 255
       },
       {
         "key": "an innocent man — billy joel",
@@ -11864,60 +11879,60 @@
         "playEvents": 197
       },
       {
-        "key": "chasing cars — snow patrol",
-        "normalizedTitle": "Chasing Cars",
-        "displayArtist": "Snow Patrol",
-        "totalMinutes": 503.9873833333339,
-        "playEvents": 202
+        "key": "big yellow taxi — counting crows",
+        "normalizedTitle": "Big Yellow Taxi",
+        "displayArtist": "Counting Crows",
+        "totalMinutes": 504.7301333333325,
+        "playEvents": 204
       },
       {
         "key": "this town — niall horan",
         "normalizedTitle": "This Town",
         "displayArtist": "Niall Horan",
-        "totalMinutes": 503.93405000000115,
-        "playEvents": 221
-      },
-      {
-        "key": "imagine — john lennon",
-        "normalizedTitle": "Imagine",
-        "displayArtist": "John Lennon",
-        "totalMinutes": 502.130916666667,
-        "playEvents": 253
-      },
-      {
-        "key": "big yellow taxi — counting crows",
-        "normalizedTitle": "Big Yellow Taxi",
-        "displayArtist": "Counting Crows",
-        "totalMinutes": 500.8496333333325,
-        "playEvents": 202
-      },
-      {
-        "key": "she's got a way — billy joel",
-        "normalizedTitle": "She's Got a Way",
-        "displayArtist": "Billy Joel",
-        "totalMinutes": 482.86430000000087,
-        "playEvents": 222
-      },
-      {
-        "key": "hotel california — eagles",
-        "normalizedTitle": "Hotel California",
-        "displayArtist": "Eagles",
-        "totalMinutes": 481.03850000000034,
-        "playEvents": 184
+        "totalMinutes": 504.1832166666678,
+        "playEvents": 225
       },
       {
         "key": "everything has changed — taylor swift",
         "normalizedTitle": "Everything Has Changed",
         "displayArtist": "Taylor Swift",
-        "totalMinutes": 480.23779999999994,
-        "playEvents": 164
+        "totalMinutes": 500.4365833333332,
+        "playEvents": 170
+      },
+      {
+        "key": "she's got a way — billy joel",
+        "normalizedTitle": "She's Got a Way",
+        "displayArtist": "Billy Joel",
+        "totalMinutes": 494.30206666666754,
+        "playEvents": 226
+      },
+      {
+        "key": "hotel california — eagles",
+        "normalizedTitle": "Hotel California",
+        "displayArtist": "Eagles",
+        "totalMinutes": 494.08436666666705,
+        "playEvents": 186
+      },
+      {
+        "key": "little lion man — mumford & sons",
+        "normalizedTitle": "Little Lion Man",
+        "displayArtist": "Mumford & Sons",
+        "totalMinutes": 488.41800000000035,
+        "playEvents": 174
+      },
+      {
+        "key": "dancing on my own — calum scott",
+        "normalizedTitle": "Dancing On My Own",
+        "displayArtist": "Calum Scott",
+        "totalMinutes": 480.73853333333284,
+        "playEvents": 222
       },
       {
         "key": "in my blood — shawn mendes",
         "normalizedTitle": "In My Blood",
         "displayArtist": "Shawn Mendes",
-        "totalMinutes": 473.6923833333342,
-        "playEvents": 191
+        "totalMinutes": 477.2150500000009,
+        "playEvents": 192
       },
       {
         "key": "i don't care — ed sheeran",
@@ -11927,11 +11942,32 @@
         "playEvents": 216
       },
       {
-        "key": "dancing on my own — calum scott",
-        "normalizedTitle": "Dancing On My Own",
-        "displayArtist": "Calum Scott",
-        "totalMinutes": 469.7685499999995,
-        "playEvents": 215
+        "key": "the cave — mumford & sons",
+        "normalizedTitle": "The Cave",
+        "displayArtist": "Mumford & Sons",
+        "totalMinutes": 470.4631333333337,
+        "playEvents": 176
+      },
+      {
+        "key": "walking in memphis — marc cohn",
+        "normalizedTitle": "Walking in Memphis",
+        "displayArtist": "Marc Cohn",
+        "totalMinutes": 468.55328333333347,
+        "playEvents": 159
+      },
+      {
+        "key": "awake my soul — mumford & sons",
+        "normalizedTitle": "Awake My Soul",
+        "displayArtist": "Mumford & Sons",
+        "totalMinutes": 465.3568666666663,
+        "playEvents": 153
+      },
+      {
+        "key": "hey there delilah — plain white t's",
+        "normalizedTitle": "Hey There Delilah",
+        "displayArtist": "Plain White T's",
+        "totalMinutes": 464.77568333333255,
+        "playEvents": 206
       },
       {
         "key": "me and julio down by the schoolyard — paul simon",
@@ -11941,18 +11977,25 @@
         "playEvents": 233
       },
       {
-        "key": "hey there delilah — plain white t's",
-        "normalizedTitle": "Hey There Delilah",
-        "displayArtist": "Plain White T's",
-        "totalMinutes": 456.47641666666595,
-        "playEvents": 203
+        "key": "penguins — ed sheeran",
+        "normalizedTitle": "Penguins",
+        "displayArtist": "Ed Sheeran",
+        "totalMinutes": 456.755933333333,
+        "playEvents": 150
       },
       {
-        "key": "walking in memphis — marc cohn",
-        "normalizedTitle": "Walking in Memphis",
-        "displayArtist": "Marc Cohn",
-        "totalMinutes": 455.92263333333347,
-        "playEvents": 156
+        "key": "here comes the sun — the beatles",
+        "normalizedTitle": "Here Comes The Sun",
+        "displayArtist": "The Beatles",
+        "totalMinutes": 453.6438000000003,
+        "playEvents": 231
+      },
+      {
+        "key": "you're my best friend — queen",
+        "normalizedTitle": "You're My Best Friend",
+        "displayArtist": "Queen",
+        "totalMinutes": 453.4990166666661,
+        "playEvents": 213
       },
       {
         "key": "shallow — lady gaga",
@@ -11962,195 +12005,153 @@
         "playEvents": 198
       },
       {
-        "key": "you're my best friend — queen",
-        "normalizedTitle": "You're My Best Friend",
-        "displayArtist": "Queen",
-        "totalMinutes": 451.6506833333327,
-        "playEvents": 212
-      },
-      {
         "key": "i won't give up — jason mraz",
         "normalizedTitle": "I Won't Give Up",
         "displayArtist": "Jason Mraz",
-        "totalMinutes": 451.18254999999976,
-        "playEvents": 201
-      },
-      {
-        "key": "here comes the sun — the beatles",
-        "normalizedTitle": "Here Comes The Sun",
-        "displayArtist": "The Beatles",
-        "totalMinutes": 447.4527000000003,
-        "playEvents": 229
-      },
-      {
-        "key": "south of the border — ed sheeran",
-        "normalizedTitle": "South of the Border",
-        "displayArtist": "Ed Sheeran",
-        "totalMinutes": 445.0944166666662,
-        "playEvents": 210
-      },
-      {
-        "key": "penguins — ed sheeran",
-        "normalizedTitle": "Penguins",
-        "displayArtist": "Ed Sheeran",
-        "totalMinutes": 444.525583333333,
-        "playEvents": 146
+        "totalMinutes": 451.8631666666664,
+        "playEvents": 202
       },
       {
         "key": "fat bottomed girls — queen",
         "normalizedTitle": "Fat Bottomed Girls",
         "displayArtist": "Queen",
-        "totalMinutes": 444.14886666666706,
-        "playEvents": 214
+        "totalMinutes": 450.89686666666705,
+        "playEvents": 217
       },
       {
-        "key": "the boys are back in town — thin lizzy",
-        "normalizedTitle": "The Boys Are Back In Town",
-        "displayArtist": "Thin Lizzy",
-        "totalMinutes": 442.767366666667,
-        "playEvents": 160
-      },
-      {
-        "key": "eight days a week — the beatles",
-        "normalizedTitle": "Eight Days A Week",
-        "displayArtist": "The Beatles",
-        "totalMinutes": 442.6835666666665,
-        "playEvents": 247
-      },
-      {
-        "key": "i will follow you into the dark — death cab for cutie",
-        "normalizedTitle": "I Will Follow You into the Dark",
-        "displayArtist": "Death Cab for Cutie",
-        "totalMinutes": 441.9895333333327,
-        "playEvents": 225
+        "key": "south of the border — ed sheeran",
+        "normalizedTitle": "South of the Border",
+        "displayArtist": "Ed Sheeran",
+        "totalMinutes": 449.40498333333284,
+        "playEvents": 212
       }
     ],
     "topArtists": [
       {
         "artist": "Ed Sheeran",
-        "totalMinutes": 19473.230566666643,
-        "playEvents": 9227,
+        "totalMinutes": 19763.10864999997,
+        "playEvents": 9341,
         "uniqueSongs": 142
       },
       {
         "artist": "Billy Joel",
-        "totalMinutes": 12452.838683333377,
-        "playEvents": 5417,
+        "totalMinutes": 12575.163916666716,
+        "playEvents": 5459,
         "uniqueSongs": 65
       },
       {
         "artist": "Queen",
-        "totalMinutes": 10464.778116666563,
-        "playEvents": 4539,
+        "totalMinutes": 10556.897683333225,
+        "playEvents": 4578,
         "uniqueSongs": 44
       },
       {
         "artist": "Taylor Swift",
-        "totalMinutes": 8046.070150000037,
-        "playEvents": 5283,
+        "totalMinutes": 8153.30543333337,
+        "playEvents": 5335,
         "uniqueSongs": 203
       },
       {
         "artist": "The Beatles",
-        "totalMinutes": 6588.0853999999745,
-        "playEvents": 3714,
+        "totalMinutes": 6643.237649999972,
+        "playEvents": 3743,
         "uniqueSongs": 67
       },
       {
-        "artist": "Elton John",
-        "totalMinutes": 5387.685150000009,
-        "playEvents": 2031,
-        "uniqueSongs": 39
-      },
-      {
         "artist": "Mumford & Sons",
-        "totalMinutes": 5316.765483333345,
-        "playEvents": 2374,
+        "totalMinutes": 6633.4287000000195,
+        "playEvents": 2892,
         "uniqueSongs": 76
       },
       {
+        "artist": "Elton John",
+        "totalMinutes": 5544.84386666668,
+        "playEvents": 2080,
+        "uniqueSongs": 39
+      },
+      {
         "artist": "James Taylor",
-        "totalMinutes": 2371.436599999998,
-        "playEvents": 1005,
+        "totalMinutes": 2389.171899999999,
+        "playEvents": 1015,
         "uniqueSongs": 10
       },
       {
         "artist": "One Direction",
-        "totalMinutes": 1950.0080666666686,
-        "playEvents": 809,
+        "totalMinutes": 2048.0489833333363,
+        "playEvents": 841,
         "uniqueSongs": 23
       },
       {
         "artist": "Loggins & Messina",
-        "totalMinutes": 1820.8865833333323,
-        "playEvents": 628,
+        "totalMinutes": 1833.7982999999992,
+        "playEvents": 632,
         "uniqueSongs": 4
       },
       {
         "artist": "John Denver",
-        "totalMinutes": 1769.378683333332,
-        "playEvents": 870,
+        "totalMinutes": 1784.3491833333317,
+        "playEvents": 877,
         "uniqueSongs": 8
       },
       {
         "artist": "Coldplay",
-        "totalMinutes": 1680.4478499999987,
-        "playEvents": 703,
+        "totalMinutes": 1717.511199999999,
+        "playEvents": 718,
         "uniqueSongs": 29
       },
       {
         "artist": "Big Time Rush",
-        "totalMinutes": 1673.2844000000032,
-        "playEvents": 926,
+        "totalMinutes": 1688.0299166666698,
+        "playEvents": 932,
         "uniqueSongs": 53
       },
       {
+        "artist": "Hozier",
+        "totalMinutes": 1654.885199999997,
+        "playEvents": 814,
+        "uniqueSongs": 35
+      },
+      {
         "artist": "Shawn Mendes",
-        "totalMinutes": 1485.2665166666704,
-        "playEvents": 683,
+        "totalMinutes": 1497.9978833333373,
+        "playEvents": 692,
         "uniqueSongs": 16
       },
       {
         "artist": "Fleetwood Mac",
-        "totalMinutes": 1431.0959500000024,
-        "playEvents": 815,
+        "totalMinutes": 1448.6627666666693,
+        "playEvents": 824,
         "uniqueSongs": 26
       },
       {
         "artist": "Dean Friedman",
-        "totalMinutes": 1415.7340833333362,
-        "playEvents": 524,
+        "totalMinutes": 1420.1280666666696,
+        "playEvents": 525,
         "uniqueSongs": 4
       },
       {
-        "artist": "Hozier",
-        "totalMinutes": 1401.07293333333,
-        "playEvents": 697,
-        "uniqueSongs": 33
-      },
-      {
         "artist": "Hugh Jackman",
-        "totalMinutes": 1351.0170166666658,
-        "playEvents": 592,
+        "totalMinutes": 1364.0717666666658,
+        "playEvents": 597,
         "uniqueSongs": 4
       },
       {
         "artist": "Bruno Mars",
-        "totalMinutes": 1333.8111166666692,
-        "playEvents": 748,
+        "totalMinutes": 1348.6924833333358,
+        "playEvents": 759,
         "uniqueSongs": 21
       },
       {
-        "artist": "Jason Mraz",
-        "totalMinutes": 1321.9936833333288,
-        "playEvents": 529,
-        "uniqueSongs": 5
+        "artist": "Train",
+        "totalMinutes": 1334.3098833333336,
+        "playEvents": 597,
+        "uniqueSongs": 11
       }
     ],
     "byCountry": [
       {
         "country": "US",
-        "minutes": 163961.2506000023
+        "minutes": 168972.89431666865
       },
       {
         "country": "ZZ",
@@ -12172,123 +12173,123 @@
     "hourHeatmap": [
       {
         "hour": 0,
-        "minutes": 2018.3495833333347,
-        "percent": 1.2156575067274413
+        "minutes": 2031.5412000000017,
+        "percent": 1.1877502928530743
       },
       {
         "hour": 1,
-        "minutes": 753.0594500000003,
-        "percent": 0.4535697784784332
+        "minutes": 775.7201166666671,
+        "percent": 0.45352848159951376
       },
       {
         "hour": 2,
-        "minutes": 274.01281666666654,
-        "percent": 0.16503867331556812
+        "minutes": 276.1521499999999,
+        "percent": 0.16145367715629183
       },
       {
         "hour": 3,
         "minutes": 133.7905,
-        "percent": 0.08058238622132528
+        "percent": 0.07822125662819888
       },
       {
         "hour": 4,
-        "minutes": 63.07973333333332,
-        "percent": 0.03799309692545339
+        "minutes": 63.65626666666665,
+        "percent": 0.0372169411948262
       },
       {
         "hour": 5,
-        "minutes": 120.82325,
-        "percent": 0.07277217587209658
+        "minutes": 124.69969999999999,
+        "percent": 0.07290627686688825
       },
       {
         "hour": 6,
-        "minutes": 3095.808350000002,
-        "percent": 1.8646138860898487
+        "minutes": 3160.5478833333354,
+        "percent": 1.8478294577561758
       },
       {
         "hour": 7,
-        "minutes": 3555.6351166666673,
-        "percent": 2.141568812683564
+        "minutes": 3603.3851666666683,
+        "percent": 2.1067363964711894
       },
       {
         "hour": 8,
-        "minutes": 3089.123533333339,
-        "percent": 1.8605876026209043
+        "minutes": 3221.4828000000057,
+        "percent": 1.8834553486393215
       },
       {
         "hour": 9,
-        "minutes": 5501.7630833333415,
-        "percent": 3.3137270410036344
+        "minutes": 5813.404366666678,
+        "percent": 3.3988347068627904
       },
       {
         "hour": 10,
-        "minutes": 8104.172533333323,
-        "percent": 4.881165412232721
+        "minutes": 8550.104433333328,
+        "percent": 4.998859508542589
       },
       {
         "hour": 11,
-        "minutes": 11980.867399999965,
-        "percent": 7.216109395609421
+        "minutes": 12379.816616666627,
+        "percent": 7.2379190793241746
       },
       {
         "hour": 12,
-        "minutes": 14470.134783333386,
-        "percent": 8.715401988819863
+        "minutes": 14828.05415000005,
+        "percent": 8.669292879270078
       },
       {
         "hour": 13,
-        "minutes": 15526.227933333306,
-        "percent": 9.351489798484895
+        "minutes": 15998.489249999971,
+        "percent": 9.353593366402912
       },
       {
         "hour": 14,
-        "minutes": 17473.907866666676,
-        "percent": 10.524582780597935
+        "minutes": 17861.875916666704,
+        "percent": 10.44303130594946
       },
       {
         "hour": 15,
-        "minutes": 12956.573566666644,
-        "percent": 7.803779904060044
+        "minutes": 13261.201516666653,
+        "percent": 7.7532249825917585
       },
       {
         "hour": 16,
-        "minutes": 13012.32156666666,
-        "percent": 7.837357077828494
+        "minutes": 13368.027449999987,
+        "percent": 7.815681276168757
       },
       {
         "hour": 17,
-        "minutes": 11285.897066666656,
-        "percent": 6.797526851908427
+        "minutes": 11506.521316666658,
+        "percent": 6.727342799442589
       },
       {
         "hour": 18,
-        "minutes": 11594.06639999995,
-        "percent": 6.98313808918037
+        "minutes": 11773.039599999951,
+        "percent": 6.883163990309805
       },
       {
         "hour": 19,
-        "minutes": 8129.286716666647,
-        "percent": 4.896291753946065
+        "minutes": 8521.149483333307,
+        "percent": 4.9819308583424
       },
       {
         "hour": 20,
-        "minutes": 7965.152916666643,
-        "percent": 4.797433514657222
+        "minutes": 8358.53104999997,
+        "percent": 4.886855212416549
       },
       {
         "hour": 21,
-        "minutes": 6726.679683333348,
-        "percent": 4.0514976790542665
+        "minutes": 6946.187133333351,
+        "percent": 4.061121576972663
       },
       {
         "hour": 22,
-        "minutes": 4729.5677666666625,
-        "percent": 2.8486316773871376
+        "minutes": 4888.920099999997,
+        "percent": 2.8583305524447513
       },
       {
         "hour": 23,
-        "minutes": 3469.157516666659,
-        "percent": 2.089483116294852
+        "minutes": 3594.804683333327,
+        "percent": 2.1017197757932546
       }
     ],
     "peakHour": 14,
@@ -12303,19 +12304,19 @@
       "date": "2024-03-12",
       "playCount": 14
     },
-    "skipRatePercent": 37.79221664356953,
+    "skipRatePercent": 37.60755788166416,
     "shuffleRatio": {
-      "shufflePercent": 85.09553127200854,
-      "onDemandPercent": 14.904468727991457
+      "shufflePercent": 85.038366007274,
+      "onDemandPercent": 14.961633992725993
     },
     "platformBreakdown": {
-      "iOS": 93.23556807597065,
-      "Windows": 4.954903787173138,
-      "Game Console": 0.7440307154054115,
-      "Cast / Smart Speaker": 0.5793216257355113,
-      "Web": 0.3998455142331372,
-      "Other": 0.07724288343140151,
-      "Mac": 0.009087398050753119
+      "iOS": 93.22717998758094,
+      "Windows": 4.972057127650138,
+      "Game Console": 0.7262929122682515,
+      "Cast / Smart Speaker": 0.5655105118424555,
+      "Web": 0.390313137585381,
+      "Other": 0.1097755699458884,
+      "Mac": 0.008870753126940478
     },
     "discoveryByMonth": [
       {
@@ -12748,7 +12749,15 @@
       },
       {
         "label": "July 2026",
-        "count": 10
+        "count": 13
+      },
+      {
+        "label": "August 2026",
+        "count": 16
+      },
+      {
+        "label": "September 2026",
+        "count": 1
       }
     ],
     "firstListenedByArtist": [
@@ -22786,6 +22795,106 @@
         "artist": "Camp Tawonga",
         "firstTs": "2026-07-23T02:22:58.000Z",
         "firstDate": "2026-07-22"
+      },
+      {
+        "artist": "Sinéad O'Connor",
+        "firstTs": "2026-07-26T15:52:47.000Z",
+        "firstDate": "2026-07-26"
+      },
+      {
+        "artist": "Ander Michaels",
+        "firstTs": "2026-07-28T20:16:47.000Z",
+        "firstDate": "2026-07-28"
+      },
+      {
+        "artist": "The La's",
+        "firstTs": "2026-07-29T18:35:43.000Z",
+        "firstDate": "2026-07-29"
+      },
+      {
+        "artist": "Rupert Holmes",
+        "firstTs": "2026-08-03T16:59:07.000Z",
+        "firstDate": "2026-08-03"
+      },
+      {
+        "artist": "Temper City",
+        "firstTs": "2026-08-06T10:39:52.000Z",
+        "firstDate": "2026-08-06"
+      },
+      {
+        "artist": "Miguel",
+        "firstTs": "2026-08-06T10:57:12.000Z",
+        "firstDate": "2026-08-06"
+      },
+      {
+        "artist": "Peter Bjorn and John",
+        "firstTs": "2026-08-06T11:01:21.000Z",
+        "firstDate": "2026-08-06"
+      },
+      {
+        "artist": "The Backseat Lovers",
+        "firstTs": "2026-08-07T23:49:53.000Z",
+        "firstDate": "2026-08-07"
+      },
+      {
+        "artist": "Dominic Fike",
+        "firstTs": "2026-08-07T23:59:34.000Z",
+        "firstDate": "2026-08-07"
+      },
+      {
+        "artist": "Good Neighbours",
+        "firstTs": "2026-08-07T23:59:49.000Z",
+        "firstDate": "2026-08-07"
+      },
+      {
+        "artist": "Yael Naim",
+        "firstTs": "2026-08-07T23:59:51.000Z",
+        "firstDate": "2026-08-07"
+      },
+      {
+        "artist": "Nat King Cole",
+        "firstTs": "2026-08-12T15:43:41.000Z",
+        "firstDate": "2026-08-12"
+      },
+      {
+        "artist": "Buffalo Traffic Jam",
+        "firstTs": "2026-08-12T20:52:23.000Z",
+        "firstDate": "2026-08-12"
+      },
+      {
+        "artist": "STELLA LEFTY",
+        "firstTs": "2026-08-12T20:57:43.000Z",
+        "firstDate": "2026-08-12"
+      },
+      {
+        "artist": "The Frames",
+        "firstTs": "2026-08-13T03:49:31.000Z",
+        "firstDate": "2026-08-12"
+      },
+      {
+        "artist": "Lucy Dacus",
+        "firstTs": "2026-08-13T03:49:35.000Z",
+        "firstDate": "2026-08-12"
+      },
+      {
+        "artist": "Amistat",
+        "firstTs": "2026-08-14T01:17:48.000Z",
+        "firstDate": "2026-08-13"
+      },
+      {
+        "artist": "Noah Rinker",
+        "firstTs": "2026-08-14T01:17:55.000Z",
+        "firstDate": "2026-08-13"
+      },
+      {
+        "artist": "Drew Holcomb & The Neighbors",
+        "firstTs": "2026-08-19T22:21:49.000Z",
+        "firstDate": "2026-08-19"
+      },
+      {
+        "artist": "OGR-Scintilla",
+        "firstTs": "2026-09-03T17:00:59.000Z",
+        "firstDate": "2026-09-03"
       }
     ]
   }
