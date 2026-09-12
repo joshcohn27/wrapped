@@ -186,6 +186,11 @@
 
             <div id="upload-status" class="upload-status" hidden></div>
             <div id="upload-error" class="upload-error" hidden></div>
+
+            <div id="upload-saved-bar" class="upload-saved-bar" hidden>
+                <span id="upload-saved-text" class="hint-text"></span>
+                <button type="button" id="upload-reset-btn" class="show-more-btn">Forget My Data</button>
+            </div>
         </section>
 
         <p id="upload-placeholder" class="section-subtitle upload-placeholder">
@@ -282,6 +287,33 @@
                 />
                 <div id="upload-first-listened-table"></div>
                 <div id="upload-first-listened-pagination"></div>
+            </section>
+
+            <!-- Mini search: same createSearchController (script.js) as the
+                 main Search tab, scoped to this uploaded data. -->
+            <section class="card">
+                <h2>Search Your Data</h2>
+                <p class="section-subtitle">
+                    Look up everything logged for any artist or song in your upload.
+                </p>
+                <input
+                    type="text"
+                    id="upload-search-input"
+                    class="search-input"
+                    placeholder="Search artists or songs..."
+                    autocomplete="off"
+                />
+                <div class="search-filters">
+                    <span class="filter-label">Time period</span>
+                    <div id="upload-search-year-filter" class="tabs"></div>
+                    <span class="filter-label">Type</span>
+                    <div id="upload-search-type-filter" class="tabs">
+                        <button class="tab-button active" data-type="all">All</button>
+                        <button class="tab-button" data-type="artist">Artists</button>
+                        <button class="tab-button" data-type="song">Songs</button>
+                    </div>
+                </div>
+                <div id="upload-search-results"></div>
             </section>
         </div>
         <!-- /#upload-dashboard -->

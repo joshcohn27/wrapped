@@ -5,19 +5,13 @@
 
 const FIRST_LISTENED_PAGE_SIZE = 25;
 const ALL_TIME_KEY = "all";
-
-// Search tab state. search-index.json is fetched lazily (only once the
-// Search tab is actually opened) since it's much bigger than stats.json.
-let dashboardYears = [];
-let searchIndexData = null;
-let searchIndexPromise = null;
-let searchArtistMap = new Map();
-let searchSongMap = new Map();
-let searchQuery = "";
-let searchYearFilter = ALL_TIME_KEY;
-let searchTypeFilter = "all";
-let searchSelected = null; // { type: "artist" | "song", key }
 const SEARCH_RESULTS_LIMIT = 50;
+
+// Years available for the built-in Search tab's year filter (set once
+// stats.json loads); the Upload tab's mini search gets its own year list
+// straight from whatever was just uploaded, via createDashboardController's
+// `.years` getter -- see createSearchController below.
+let dashboardYears = [];
 
 // ---------- helpers ----------
 
@@ -595,6 +589,10 @@ function createDashboardController(ids) {
     // Loads a stats.json-shaped payload ({ years, byYear, allTime }) into
     // this instance and renders it. Returns false if there's no data to
     // show (e.g. an uploaded file with zero valid rows), true otherwise.
+    // Safe to call more than once on the same instance (the Upload tab's
+    // dashboard is re-loaded on every new upload) -- every render function
+    // fully rebuilds its container, and setupFirstListenedSearch runs once
+    // at construction below, not here, so re-loading never double-wires it.
     function load(data) {
         statsByYear = data.byYear || {};
         years = data.years || [];
@@ -603,11 +601,12 @@ function createDashboardController(ids) {
         if (!years.length || !allTimeStats) return false;
 
         renderYearTabs();
-        setupFirstListenedSearch();
         renderFirstListened();
         setActiveYear(years[0]);
         return true;
     }
+
+    setupFirstListenedSearch();
 
     return { load, setActiveYear, get years() { return years; } };
 }
@@ -629,205 +628,7 @@ function setActiveView(view) {
     document.getElementById("upload-view").hidden = view !== "upload";
 
     if (view === "search") {
-        ensureSearchIndexLoaded();
-    }
-}
-
-// Fetches search-index.json once, the first time the Search tab is opened
-// (it's a much bigger payload than stats.json, so the dashboard's initial
-// load never pays for it).
-function ensureSearchIndexLoaded() {
-    if (searchIndexData || searchIndexPromise) return searchIndexPromise;
-
-    const resultsContainer = document.getElementById("search-results");
-    resultsContainer.innerHTML = "";
-    const loading = document.createElement("p");
-    loading.className = "section-subtitle";
-    loading.textContent = "Loading search index...";
-    resultsContainer.appendChild(loading);
-
-    searchIndexPromise = fetch("search-index.json")
-        .then((res) => {
-            if (!res.ok) throw new Error(`Failed to load search-index.json: ${res.status}`);
-            return res.json();
-        })
-        .then((data) => {
-            searchIndexData = data;
-            searchArtistMap = new Map(data.artists.map((a) => [a.name, a]));
-            searchSongMap = new Map(data.songs.map((s) => [s.key, s]));
-            renderSearchYearFilter();
-            renderSearchResults();
-        })
-        .catch((err) => {
-            console.error(err);
-            resultsContainer.innerHTML = "";
-            const errEl = document.createElement("p");
-            errEl.className = "section-subtitle";
-            errEl.textContent = "Error loading search index. Check the console.";
-            resultsContainer.appendChild(errEl);
-        });
-
-    return searchIndexPromise;
-}
-
-function renderSearchYearFilter() {
-    const container = document.getElementById("search-year-filter");
-    container.innerHTML = "";
-
-    const allBtn = document.createElement("button");
-    allBtn.className = "tab-button" + (searchYearFilter === ALL_TIME_KEY ? " active" : "");
-    allBtn.textContent = "All Time";
-    allBtn.dataset.scope = ALL_TIME_KEY;
-    allBtn.addEventListener("click", () => setSearchYearFilter(ALL_TIME_KEY));
-    container.appendChild(allBtn);
-
-    dashboardYears.forEach((year) => {
-        const scope = String(year);
-        const btn = document.createElement("button");
-        btn.className = "tab-button" + (searchYearFilter === scope ? " active" : "");
-        btn.textContent = scope;
-        btn.dataset.scope = scope;
-        btn.addEventListener("click", () => setSearchYearFilter(scope));
-        container.appendChild(btn);
-    });
-}
-
-function setSearchYearFilter(scope) {
-    searchYearFilter = scope;
-    document.querySelectorAll("#search-year-filter .tab-button").forEach((btn) => {
-        btn.classList.toggle("active", btn.dataset.scope === scope);
-    });
-    renderSearchResults();
-    if (searchSelected) renderEntityDetail(searchSelected.type, searchSelected.key);
-}
-
-function setupSearchTypeFilter() {
-    document.querySelectorAll("#search-type-filter .tab-button").forEach((btn) => {
-        btn.addEventListener("click", () => {
-            searchTypeFilter = btn.dataset.type;
-            document.querySelectorAll("#search-type-filter .tab-button").forEach((b) => {
-                b.classList.toggle("active", b === btn);
-            });
-            renderSearchResults();
-        });
-    });
-}
-
-function setupSearchInput() {
-    const input = document.getElementById("search-input");
-    const onInput = debounce((value) => {
-        searchQuery = value.trim().toLowerCase();
-        renderSearchResults();
-    }, 150);
-    input.addEventListener("input", (e) => onInput(e.target.value));
-}
-
-// Matches artists/songs against the query + type filter, restricted to
-// entities that actually have data in the selected scope, ranked by total
-// listening time in that scope, capped so a huge/no-op query still renders
-// instantly.
-function renderSearchResults() {
-    const container = document.getElementById("search-results");
-    container.innerHTML = "";
-
-    if (!searchIndexData) return;
-
-    const scope = searchYearFilter;
-    const needle = searchQuery;
-    const results = [];
-
-    if (searchTypeFilter !== "song") {
-        for (const artist of searchIndexData.artists) {
-            const profile = artist.byScope[scope];
-            if (!profile) continue;
-            if (needle && !artist.name.toLowerCase().includes(needle)) continue;
-            results.push({
-                type: "artist",
-                key: artist.name,
-                name: artist.name,
-                sub: "Artist",
-                totalMinutes: profile.totalMinutes,
-            });
-        }
-    }
-
-    if (searchTypeFilter !== "artist") {
-        for (const song of searchIndexData.songs) {
-            const profile = song.byScope[scope];
-            if (!profile) continue;
-            if (
-                needle &&
-                !song.title.toLowerCase().includes(needle) &&
-                !song.artist.toLowerCase().includes(needle)
-            ) {
-                continue;
-            }
-            results.push({
-                type: "song",
-                key: song.key,
-                name: song.title,
-                sub: `Song · ${song.artist}`,
-                totalMinutes: profile.totalMinutes,
-            });
-        }
-    }
-
-    results.sort((a, b) => b.totalMinutes - a.totalMinutes);
-    const totalMatches = results.length;
-    const visible = results.slice(0, SEARCH_RESULTS_LIMIT);
-
-    if (!visible.length) {
-        const empty = document.createElement("p");
-        empty.className = "section-subtitle";
-        empty.textContent = needle
-            ? "No artists or songs match your search for this time period."
-            : "No listening data for this time period.";
-        container.appendChild(empty);
-        return;
-    }
-
-    const list = document.createElement("div");
-    list.className = "search-results-list";
-
-    visible.forEach((item) => {
-        const btn = document.createElement("button");
-        btn.className = "search-result-item";
-        if (searchSelected && searchSelected.type === item.type && searchSelected.key === item.key) {
-            btn.classList.add("active");
-        }
-
-        const main = document.createElement("div");
-        main.className = "search-result-main";
-
-        const nameEl = document.createElement("span");
-        nameEl.className = "search-result-name";
-        nameEl.textContent = item.name;
-
-        const subEl = document.createElement("span");
-        subEl.className = "search-result-sub";
-        subEl.textContent = item.sub;
-
-        main.appendChild(nameEl);
-        main.appendChild(subEl);
-
-        const statEl = document.createElement("span");
-        statEl.className = "search-result-stat";
-        statEl.textContent = `${formatMinutesToHoursMinutes(item.totalMinutes).hours.toFixed(1)} hrs`;
-
-        btn.appendChild(main);
-        btn.appendChild(statEl);
-        btn.addEventListener("click", () => selectSearchEntity(item.type, item.key));
-
-        list.appendChild(btn);
-    });
-
-    container.appendChild(list);
-
-    if (totalMatches > SEARCH_RESULTS_LIMIT) {
-        const hint = document.createElement("p");
-        hint.className = "hint-text";
-        hint.textContent = `Showing the top ${SEARCH_RESULTS_LIMIT} of ${totalMatches} matches by listening time. Refine your search to narrow it down.`;
-        container.appendChild(hint);
+        ensureBuiltInSearchLoaded();
     }
 }
 
@@ -843,7 +644,9 @@ function closeEntityModal() {
 
 // Wires the modal's close affordances once at startup: the X button,
 // clicking the dimmed backdrop, and Escape -- same behavior on desktop
-// (centered dialog) and mobile (fullscreen sheet).
+// (centered dialog) and mobile (fullscreen sheet). Shared by every search
+// instance below -- only one modal exists in the page, regardless of which
+// search box opened it.
 function setupEntityModal() {
     document.getElementById("entity-modal-close").addEventListener("click", closeEntityModal);
     document.getElementById("entity-modal-overlay").addEventListener("click", (e) => {
@@ -856,134 +659,369 @@ function setupEntityModal() {
     });
 }
 
-function selectSearchEntity(type, key) {
-    searchSelected = { type, key };
-    renderSearchResults(); // re-render so the clicked row picks up "active"
-    renderEntityDetail(type, key);
-    openEntityModal();
+// Wrapped in a factory (same reasoning as createDashboardController above)
+// so the built-in Search tab and the Upload tab's mini search can share
+// every bit of filtering/ranking/rendering logic while keeping fully
+// separate data and DOM. Both write into the one shared entity-detail
+// modal above -- only one can be open at a time regardless of which search
+// box triggered it, and a cross-link (song -> its artist) always calls back
+// into *this* instance's own selectEntity, so it never jumps to the other
+// dataset.
+function createSearchController(ids) {
+    let searchIndexData = null;
+    let searchArtistMap = new Map();
+    let searchSongMap = new Map();
+    let years = [];
+    let searchQuery = "";
+    let searchYearFilter = ALL_TIME_KEY;
+    let searchTypeFilter = "all";
+    let searchSelected = null; // { type: "artist" | "song", key }
+
+    function renderYearFilter() {
+        const container = document.getElementById(ids.yearFilter);
+        container.innerHTML = "";
+
+        const allBtn = document.createElement("button");
+        allBtn.className = "tab-button" + (searchYearFilter === ALL_TIME_KEY ? " active" : "");
+        allBtn.textContent = "All Time";
+        allBtn.dataset.scope = ALL_TIME_KEY;
+        allBtn.addEventListener("click", () => setYearFilter(ALL_TIME_KEY));
+        container.appendChild(allBtn);
+
+        years.forEach((year) => {
+            const scope = String(year);
+            const btn = document.createElement("button");
+            btn.className = "tab-button" + (searchYearFilter === scope ? " active" : "");
+            btn.textContent = scope;
+            btn.dataset.scope = scope;
+            btn.addEventListener("click", () => setYearFilter(scope));
+            container.appendChild(btn);
+        });
+    }
+
+    function setYearFilter(scope) {
+        searchYearFilter = scope;
+        document.querySelectorAll(`#${ids.yearFilter} .tab-button`).forEach((btn) => {
+            btn.classList.toggle("active", btn.dataset.scope === scope);
+        });
+        renderResults();
+        if (searchSelected) renderEntityDetail(searchSelected.type, searchSelected.key);
+    }
+
+    function setupTypeFilter() {
+        document.querySelectorAll(`#${ids.typeFilter} .tab-button`).forEach((btn) => {
+            btn.addEventListener("click", () => {
+                searchTypeFilter = btn.dataset.type;
+                document.querySelectorAll(`#${ids.typeFilter} .tab-button`).forEach((b) => {
+                    b.classList.toggle("active", b === btn);
+                });
+                renderResults();
+            });
+        });
+    }
+
+    function setupInput() {
+        const input = document.getElementById(ids.input);
+        const onInput = debounce((value) => {
+            searchQuery = value.trim().toLowerCase();
+            renderResults();
+        }, 150);
+        input.addEventListener("input", (e) => onInput(e.target.value));
+    }
+
+    // Matches artists/songs against the query + type filter, restricted to
+    // entities that actually have data in the selected scope, ranked by
+    // total listening time in that scope, capped so a huge/no-op query
+    // still renders instantly.
+    function renderResults() {
+        const container = document.getElementById(ids.results);
+        container.innerHTML = "";
+
+        if (!searchIndexData) return;
+
+        const scope = searchYearFilter;
+        const needle = searchQuery;
+        const results = [];
+
+        if (searchTypeFilter !== "song") {
+            for (const artist of searchIndexData.artists) {
+                const profile = artist.byScope[scope];
+                if (!profile) continue;
+                if (needle && !artist.name.toLowerCase().includes(needle)) continue;
+                results.push({
+                    type: "artist",
+                    key: artist.name,
+                    name: artist.name,
+                    sub: "Artist",
+                    totalMinutes: profile.totalMinutes,
+                });
+            }
+        }
+
+        if (searchTypeFilter !== "artist") {
+            for (const song of searchIndexData.songs) {
+                const profile = song.byScope[scope];
+                if (!profile) continue;
+                if (
+                    needle &&
+                    !song.title.toLowerCase().includes(needle) &&
+                    !song.artist.toLowerCase().includes(needle)
+                ) {
+                    continue;
+                }
+                results.push({
+                    type: "song",
+                    key: song.key,
+                    name: song.title,
+                    sub: `Song · ${song.artist}`,
+                    totalMinutes: profile.totalMinutes,
+                });
+            }
+        }
+
+        results.sort((a, b) => b.totalMinutes - a.totalMinutes);
+        const totalMatches = results.length;
+        const visible = results.slice(0, SEARCH_RESULTS_LIMIT);
+
+        if (!visible.length) {
+            const empty = document.createElement("p");
+            empty.className = "section-subtitle";
+            empty.textContent = needle
+                ? "No artists or songs match your search for this time period."
+                : "No listening data for this time period.";
+            container.appendChild(empty);
+            return;
+        }
+
+        const list = document.createElement("div");
+        list.className = "search-results-list";
+
+        visible.forEach((item) => {
+            const btn = document.createElement("button");
+            btn.className = "search-result-item";
+            if (searchSelected && searchSelected.type === item.type && searchSelected.key === item.key) {
+                btn.classList.add("active");
+            }
+
+            const main = document.createElement("div");
+            main.className = "search-result-main";
+
+            const nameEl = document.createElement("span");
+            nameEl.className = "search-result-name";
+            nameEl.textContent = item.name;
+
+            const subEl = document.createElement("span");
+            subEl.className = "search-result-sub";
+            subEl.textContent = item.sub;
+
+            main.appendChild(nameEl);
+            main.appendChild(subEl);
+
+            const statEl = document.createElement("span");
+            statEl.className = "search-result-stat";
+            statEl.textContent = `${formatMinutesToHoursMinutes(item.totalMinutes).hours.toFixed(1)} hrs`;
+
+            btn.appendChild(main);
+            btn.appendChild(statEl);
+            btn.addEventListener("click", () => selectEntity(item.type, item.key));
+
+            list.appendChild(btn);
+        });
+
+        container.appendChild(list);
+
+        if (totalMatches > SEARCH_RESULTS_LIMIT) {
+            const hint = document.createElement("p");
+            hint.className = "hint-text";
+            hint.textContent = `Showing the top ${SEARCH_RESULTS_LIMIT} of ${totalMatches} matches by listening time. Refine your search to narrow it down.`;
+            container.appendChild(hint);
+        }
+    }
+
+    function selectEntity(type, key) {
+        searchSelected = { type, key };
+        renderResults(); // re-render so the clicked row picks up "active"
+        renderEntityDetail(type, key);
+        openEntityModal();
+    }
+
+    // Renders the full profile for one artist or song into the (shared)
+    // entity modal: stat tiles, monthly trend, top days, country/platform
+    // breakdown, plus songs-by-artist (artist) or a link back to the
+    // artist (song). Reuses the same createTable / renderStatTiles helpers
+    // as the year dashboard above.
+    function renderEntityDetail(type, key) {
+        const entry = type === "artist" ? searchArtistMap.get(key) : searchSongMap.get(key);
+        if (!entry) return;
+
+        const container = document.getElementById("search-detail");
+        container.innerHTML = "";
+        container.scrollTop = 0;
+
+        const scope = searchYearFilter;
+        const scopeLabel = scope === ALL_TIME_KEY ? "All Time" : scope;
+        const profile = entry.byScope[scope];
+
+        const header = document.createElement("div");
+        header.className = "entity-detail-header";
+        const h2 = document.createElement("h2");
+        h2.textContent = type === "artist" ? entry.name : entry.title;
+        const pill = document.createElement("span");
+        pill.className = "tag-pill";
+        pill.textContent = type === "artist" ? "Artist" : "Song";
+        header.appendChild(h2);
+        header.appendChild(pill);
+        container.appendChild(header);
+
+        const subtitle = document.createElement("p");
+        subtitle.className = "section-subtitle";
+        if (type === "song") {
+            subtitle.appendChild(document.createTextNode("by "));
+            const artistLink = document.createElement("button");
+            artistLink.className = "entity-artist-link";
+            artistLink.textContent = entry.artist;
+            artistLink.addEventListener("click", () => selectEntity("artist", entry.artist));
+            subtitle.appendChild(artistLink);
+            subtitle.appendChild(document.createTextNode(` · Showing: ${scopeLabel}`));
+        } else {
+            subtitle.textContent = `Showing: ${scopeLabel}`;
+        }
+        container.appendChild(subtitle);
+
+        if (!profile) {
+            const empty = document.createElement("p");
+            empty.className = "section-subtitle";
+            empty.textContent = `No plays logged for ${scopeLabel}.`;
+            container.appendChild(empty);
+            return;
+        }
+
+        const fm = formatMinutesToHoursMinutes(profile.totalMinutes);
+        const tiles = [
+            { label: "Total Listening Time", value: fm.hoursText },
+            { label: "Total Minutes", value: fm.minutesText },
+            { label: "Play Events", value: profile.playEvents.toString() },
+            {
+                label: `Rank (${scopeLabel})`,
+                value: `#${profile.rank} of ${profile.totalInScope} ${type === "artist" ? "artists" : "songs"}`,
+            },
+        ];
+        if (type === "artist") {
+            tiles.push({ label: "Unique Songs", value: profile.uniqueSongs.toString() });
+        }
+        tiles.push(
+            { label: "First Listened", value: profile.firstDate },
+            { label: "Last Listened", value: profile.lastDate },
+            { label: "Skip Rate", value: `${profile.skipRatePercent.toFixed(1)}%` },
+            { label: "Shuffle %", value: `${profile.shuffleRatio.shufflePercent.toFixed(1)}%` }
+        );
+
+        const tilesDiv = document.createElement("div");
+        tilesDiv.id = "entity-tiles";
+        tilesDiv.className = "summary-grid";
+        container.appendChild(tilesDiv);
+        renderStatTiles("entity-tiles", tiles);
+
+        appendEntitySection(container, "Monthly Trend", "entity-monthly-trend");
+        const maxTrendMinutes = Math.max(...profile.monthlyTrend.map((m) => m.minutes), 0.0001);
+        const trendRows = profile.monthlyTrend.map((m) => [m.label, Math.round(m.minutes).toString()]);
+        createTable("entity-monthly-trend", ["Month", "Minutes"], trendRows, {
+            getRowStyle: (row) => {
+                const minutes = parseFloat(row[1]);
+                const intensity = 0.05 + (minutes / maxTrendMinutes) * 0.3;
+                return `background-color: rgba(30, 215, 96, ${intensity.toFixed(3)})`;
+            },
+        });
+
+        appendEntitySection(container, "Top Listening Days", "entity-top-days");
+        const dayRows = profile.topDays.map((d, idx) => {
+            const dfm = formatMinutesToHoursMinutes(d.minutes);
+            return [(idx + 1).toString(), d.date, dfm.hours.toFixed(2), Math.round(d.minutes).toString()];
+        });
+        createTable("entity-top-days", ["#", "Date", "Hours", "Minutes"], dayRows, { unsortableColumns: [0] });
+
+        appendEntitySection(container, "Listening by Country", "entity-country");
+        const countryTotal = profile.byCountry.reduce((sum, c) => sum + c.minutes, 0) || 1;
+        const countryRows = profile.byCountry.map((c, idx) => {
+            const cfm = formatMinutesToHoursMinutes(c.minutes);
+            const percent = ((c.minutes / countryTotal) * 100).toFixed(1) + "%";
+            return [(idx + 1).toString(), c.country, cfm.hours.toFixed(2), Math.round(c.minutes).toString(), percent];
+        });
+        createTable("entity-country", ["#", "Country", "Hours", "Minutes", "% of Total"], countryRows, {
+            unsortableColumns: [0],
+        });
+
+        appendEntitySection(container, "Platform Breakdown", "entity-platform");
+        createTable("entity-platform", ["Platform", "% of Plays"], platformBreakdownRows(profile.platformBreakdown));
+
+        if (type === "artist" && profile.songs.length) {
+            appendEntitySection(container, "Songs by This Artist", "entity-artist-songs");
+            const songRows = profile.songs.map((s, idx) => {
+                const sfm = formatMinutesToHoursMinutes(s.totalMinutes);
+                return [(idx + 1).toString(), s.title, sfm.hours.toFixed(2), Math.round(s.totalMinutes).toString(), s.playEvents.toString()];
+            });
+            createTable(
+                "entity-artist-songs",
+                ["#", "Song", "Hours", "Minutes", "Play Events"],
+                songRows,
+                { unsortableColumns: [0] }
+            );
+        }
+    }
+
+    // Loads a search-index.json-shaped payload ({ artists, songs }) into
+    // this instance, given the list of years its year-filter pills should
+    // offer, and renders the initial (unfiltered) results. Safe to call
+    // more than once on the same instance (a fresh upload replacing an
+    // earlier one) since every render function fully rebuilds its
+    // container from scratch.
+    function load(data, dataYears) {
+        searchIndexData = data;
+        searchArtistMap = new Map(data.artists.map((a) => [a.name, a]));
+        searchSongMap = new Map(data.songs.map((s) => [s.key, s]));
+        years = dataYears || [];
+        renderYearFilter();
+        renderResults();
+    }
+
+    setupTypeFilter();
+    setupInput();
+
+    return { load, isLoaded: () => searchIndexData !== null };
 }
 
-// Renders the full profile for one artist or song into the entity modal:
-// stat tiles, monthly trend, top days, country/platform breakdown, plus
-// songs-by-artist (artist) or a link back to the artist (song). Reuses the
-// same createTable / renderStatTiles helpers as the year dashboard above.
-function renderEntityDetail(type, key) {
-    const entry = type === "artist" ? searchArtistMap.get(key) : searchSongMap.get(key);
-    if (!entry) return;
+// Fetches search-index.json once, the first time the Search tab is opened
+// (it's a much bigger payload than stats.json, so the dashboard's initial
+// load never pays for it), and loads it into the built-in search instance.
+let builtInSearchPromise = null;
+function ensureBuiltInSearchLoaded() {
+    if (builtInSearch.isLoaded() || builtInSearchPromise) return builtInSearchPromise;
 
-    const container = document.getElementById("search-detail");
-    container.innerHTML = "";
-    container.scrollTop = 0;
+    const resultsContainer = document.getElementById(SEARCH_IDS.results);
+    resultsContainer.innerHTML = "";
+    const loading = document.createElement("p");
+    loading.className = "section-subtitle";
+    loading.textContent = "Loading search index...";
+    resultsContainer.appendChild(loading);
 
-    const scope = searchYearFilter;
-    const scopeLabel = scope === ALL_TIME_KEY ? "All Time" : scope;
-    const profile = entry.byScope[scope];
-
-    const header = document.createElement("div");
-    header.className = "entity-detail-header";
-    const h2 = document.createElement("h2");
-    h2.textContent = type === "artist" ? entry.name : entry.title;
-    const pill = document.createElement("span");
-    pill.className = "tag-pill";
-    pill.textContent = type === "artist" ? "Artist" : "Song";
-    header.appendChild(h2);
-    header.appendChild(pill);
-    container.appendChild(header);
-
-    const subtitle = document.createElement("p");
-    subtitle.className = "section-subtitle";
-    if (type === "song") {
-        subtitle.appendChild(document.createTextNode("by "));
-        const artistLink = document.createElement("button");
-        artistLink.className = "entity-artist-link";
-        artistLink.textContent = entry.artist;
-        artistLink.addEventListener("click", () => selectSearchEntity("artist", entry.artist));
-        subtitle.appendChild(artistLink);
-        subtitle.appendChild(document.createTextNode(` · Showing: ${scopeLabel}`));
-    } else {
-        subtitle.textContent = `Showing: ${scopeLabel}`;
-    }
-    container.appendChild(subtitle);
-
-    if (!profile) {
-        const empty = document.createElement("p");
-        empty.className = "section-subtitle";
-        empty.textContent = `No plays logged for ${scopeLabel}.`;
-        container.appendChild(empty);
-        return;
-    }
-
-    const fm = formatMinutesToHoursMinutes(profile.totalMinutes);
-    const tiles = [
-        { label: "Total Listening Time", value: fm.hoursText },
-        { label: "Total Minutes", value: fm.minutesText },
-        { label: "Play Events", value: profile.playEvents.toString() },
-        {
-            label: `Rank (${scopeLabel})`,
-            value: `#${profile.rank} of ${profile.totalInScope} ${type === "artist" ? "artists" : "songs"}`,
-        },
-    ];
-    if (type === "artist") {
-        tiles.push({ label: "Unique Songs", value: profile.uniqueSongs.toString() });
-    }
-    tiles.push(
-        { label: "First Listened", value: profile.firstDate },
-        { label: "Last Listened", value: profile.lastDate },
-        { label: "Skip Rate", value: `${profile.skipRatePercent.toFixed(1)}%` },
-        { label: "Shuffle %", value: `${profile.shuffleRatio.shufflePercent.toFixed(1)}%` }
-    );
-
-    const tilesDiv = document.createElement("div");
-    tilesDiv.id = "entity-tiles";
-    tilesDiv.className = "summary-grid";
-    container.appendChild(tilesDiv);
-    renderStatTiles("entity-tiles", tiles);
-
-    appendEntitySection(container, "Monthly Trend", "entity-monthly-trend");
-    const maxTrendMinutes = Math.max(...profile.monthlyTrend.map((m) => m.minutes), 0.0001);
-    const trendRows = profile.monthlyTrend.map((m) => [m.label, Math.round(m.minutes).toString()]);
-    createTable("entity-monthly-trend", ["Month", "Minutes"], trendRows, {
-        getRowStyle: (row) => {
-            const minutes = parseFloat(row[1]);
-            const intensity = 0.05 + (minutes / maxTrendMinutes) * 0.3;
-            return `background-color: rgba(30, 215, 96, ${intensity.toFixed(3)})`;
-        },
-    });
-
-    appendEntitySection(container, "Top Listening Days", "entity-top-days");
-    const dayRows = profile.topDays.map((d, idx) => {
-        const dfm = formatMinutesToHoursMinutes(d.minutes);
-        return [(idx + 1).toString(), d.date, dfm.hours.toFixed(2), Math.round(d.minutes).toString()];
-    });
-    createTable("entity-top-days", ["#", "Date", "Hours", "Minutes"], dayRows, { unsortableColumns: [0] });
-
-    appendEntitySection(container, "Listening by Country", "entity-country");
-    const countryTotal = profile.byCountry.reduce((sum, c) => sum + c.minutes, 0) || 1;
-    const countryRows = profile.byCountry.map((c, idx) => {
-        const cfm = formatMinutesToHoursMinutes(c.minutes);
-        const percent = ((c.minutes / countryTotal) * 100).toFixed(1) + "%";
-        return [(idx + 1).toString(), c.country, cfm.hours.toFixed(2), Math.round(c.minutes).toString(), percent];
-    });
-    createTable("entity-country", ["#", "Country", "Hours", "Minutes", "% of Total"], countryRows, {
-        unsortableColumns: [0],
-    });
-
-    appendEntitySection(container, "Platform Breakdown", "entity-platform");
-    createTable("entity-platform", ["Platform", "% of Plays"], platformBreakdownRows(profile.platformBreakdown));
-
-    if (type === "artist" && profile.songs.length) {
-        appendEntitySection(container, "Songs by This Artist", "entity-artist-songs");
-        const songRows = profile.songs.map((s, idx) => {
-            const sfm = formatMinutesToHoursMinutes(s.totalMinutes);
-            return [(idx + 1).toString(), s.title, sfm.hours.toFixed(2), Math.round(s.totalMinutes).toString(), s.playEvents.toString()];
+    builtInSearchPromise = fetch("search-index.json")
+        .then((res) => {
+            if (!res.ok) throw new Error(`Failed to load search-index.json: ${res.status}`);
+            return res.json();
+        })
+        .then((data) => {
+            builtInSearch.load(data, dashboardYears);
+        })
+        .catch((err) => {
+            console.error(err);
+            resultsContainer.innerHTML = "";
+            const errEl = document.createElement("p");
+            errEl.className = "section-subtitle";
+            errEl.textContent = "Error loading search index. Check the console.";
+            resultsContainer.appendChild(errEl);
         });
-        createTable(
-            "entity-artist-songs",
-            ["#", "Song", "Hours", "Minutes", "Play Events"],
-            songRows,
-            { unsortableColumns: [0] }
-        );
-    }
+
+    return builtInSearchPromise;
 }
 
 // Appends a "<h3>title</h3><div id=containerId>" block to an entity detail
@@ -1046,7 +1084,7 @@ function handleUploadedFile(file) {
 
     const worker = new Worker("upload-worker.js");
 
-    worker.onmessage = (e) => {
+    worker.onmessage = async (e) => {
         const msg = e.data || {};
 
         if (msg.type === "progress") {
@@ -1067,6 +1105,7 @@ function handleUploadedFile(file) {
                 worker.terminate();
                 return;
             }
+            uploadSearch.load(msg.searchIndex, uploadDashboard.years);
 
             const { validRows, recordsParsed, filesMatched, failedFiles } = msg.meta;
             let summary = `Loaded ${validRows.toLocaleString()} plays from ${filesMatched} file` +
@@ -1079,6 +1118,8 @@ function handleUploadedFile(file) {
             document.getElementById("upload-placeholder").hidden = true;
             document.getElementById("upload-dashboard").hidden = false;
             worker.terminate();
+
+            await persistUpload(file, msg.stats, msg.searchIndex);
         }
     };
 
@@ -1123,6 +1164,123 @@ function setupUploadTab() {
     });
 }
 
+// ---------- local persistence (IndexedDB) ----------
+// Auto-saves a successfully processed upload to this browser so it's still
+// there on the next visit, without re-uploading. Deliberately IndexedDB,
+// not localStorage: localStorage's per-origin quota (typically 5-10MB) is
+// too small for this -- this repo's own search-index.json, for one real
+// multi-year history, is already 15+ MB, and a visitor's own upload could
+// just as easily land in that range. IndexedDB has no such practical
+// ceiling for data this size and doesn't block the main thread.
+
+const UPLOAD_DB_NAME = "wrapped-upload";
+const UPLOAD_DB_STORE = "uploads";
+const UPLOAD_DB_KEY = "current";
+
+function openUploadDb() {
+    return new Promise((resolve, reject) => {
+        const req = indexedDB.open(UPLOAD_DB_NAME, 1);
+        req.onupgradeneeded = () => req.result.createObjectStore(UPLOAD_DB_STORE);
+        req.onsuccess = () => resolve(req.result);
+        req.onerror = () => reject(req.error);
+    });
+}
+
+async function saveUploadRecord(record) {
+    const db = await openUploadDb();
+    return new Promise((resolve, reject) => {
+        const tx = db.transaction(UPLOAD_DB_STORE, "readwrite");
+        tx.objectStore(UPLOAD_DB_STORE).put(record, UPLOAD_DB_KEY);
+        tx.oncomplete = () => resolve();
+        tx.onerror = () => reject(tx.error);
+    });
+}
+
+async function loadUploadRecord() {
+    const db = await openUploadDb();
+    return new Promise((resolve, reject) => {
+        const tx = db.transaction(UPLOAD_DB_STORE, "readonly");
+        const req = tx.objectStore(UPLOAD_DB_STORE).get(UPLOAD_DB_KEY);
+        req.onsuccess = () => resolve(req.result || null);
+        req.onerror = () => reject(req.error);
+    });
+}
+
+async function deleteUploadRecord() {
+    const db = await openUploadDb();
+    return new Promise((resolve, reject) => {
+        const tx = db.transaction(UPLOAD_DB_STORE, "readwrite");
+        tx.objectStore(UPLOAD_DB_STORE).delete(UPLOAD_DB_KEY);
+        tx.oncomplete = () => resolve();
+        tx.onerror = () => reject(tx.error);
+    });
+}
+
+function showUploadSavedBar(record) {
+    const bar = document.getElementById("upload-saved-bar");
+    const text = document.getElementById("upload-saved-text");
+    const when = new Date(record.savedAt).toLocaleString();
+    text.textContent = `Saved on this device from "${record.fileName}" (${when}).`;
+    bar.hidden = false;
+}
+
+function hideUploadSavedBar() {
+    document.getElementById("upload-saved-bar").hidden = true;
+}
+
+// Called right after a fresh upload finishes rendering. Persistence is
+// best-effort: if IndexedDB isn't available (very old browser, some
+// private-browsing modes) or the write fails for any reason, the upload
+// still works for this session -- it just won't survive a reload.
+async function persistUpload(file, stats, searchIndex) {
+    if (!("indexedDB" in window)) return;
+
+    const record = { fileName: file.name, savedAt: Date.now(), stats, searchIndex };
+    try {
+        await saveUploadRecord(record);
+        showUploadSavedBar(record);
+    } catch (err) {
+        console.error("Could not save upload locally:", err);
+    }
+}
+
+// Called once at startup. If a previous upload was saved, restores it into
+// the Upload tab's dashboard + mini search without the visitor lifting a
+// finger.
+async function restoreUploadIfSaved() {
+    if (!("indexedDB" in window)) return;
+
+    try {
+        const record = await loadUploadRecord();
+        if (!record) return;
+
+        const loaded = uploadDashboard.load(record.stats);
+        if (!loaded) return;
+        uploadSearch.load(record.searchIndex, uploadDashboard.years);
+
+        document.getElementById("upload-placeholder").hidden = true;
+        document.getElementById("upload-dashboard").hidden = false;
+        showUploadSavedBar(record);
+    } catch (err) {
+        console.error("Could not restore saved upload:", err);
+    }
+}
+
+function setupUploadReset() {
+    document.getElementById("upload-reset-btn").addEventListener("click", async () => {
+        try {
+            await deleteUploadRecord();
+        } catch (err) {
+            console.error("Could not clear saved upload:", err);
+        }
+
+        document.getElementById("upload-dashboard").hidden = true;
+        document.getElementById("upload-placeholder").hidden = false;
+        hideUploadSavedBar();
+        setUploadStatus(null);
+    });
+}
+
 // ---------- tabs + main ----------
 
 // Every container id createDashboardController touches, for the built-in
@@ -1153,8 +1311,22 @@ const UPLOAD_IDS = Object.fromEntries(
     Object.entries(DASHBOARD_IDS).map(([key, id]) => [key, `upload-${id}`])
 );
 
+// Same prefixing pattern for the two createSearchController instances: the
+// built-in Search tab and the Upload tab's mini search.
+const SEARCH_IDS = {
+    input: "search-input",
+    yearFilter: "search-year-filter",
+    typeFilter: "search-type-filter",
+    results: "search-results",
+};
+const UPLOAD_SEARCH_IDS = Object.fromEntries(
+    Object.entries(SEARCH_IDS).map(([key, id]) => [key, `upload-${id}`])
+);
+
 let builtInDashboard = null;
 let uploadDashboard = null;
+let builtInSearch = null;
+let uploadSearch = null;
 
 async function main() {
     showLoader();
@@ -1177,12 +1349,15 @@ async function main() {
 
         dashboardYears = builtInDashboard.years;
         uploadDashboard = createDashboardController(UPLOAD_IDS);
+        builtInSearch = createSearchController(SEARCH_IDS);
+        uploadSearch = createSearchController(UPLOAD_SEARCH_IDS);
 
         setupViewTabs();
-        setupSearchTypeFilter();
-        setupSearchInput();
         setupEntityModal();
         setupUploadTab();
+        setupUploadReset();
+
+        restoreUploadIfSaved(); // best-effort, doesn't block the initial paint
     } catch (err) {
         console.error(err);
         alert("Error loading stats.json. Check the console.");

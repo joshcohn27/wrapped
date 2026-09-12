@@ -32,7 +32,7 @@ The raw Spotify export contains `ip_addr` for every play event. `build-stats.js`
 - `.gitignore` excludes the entire `data/` folder, so none of the raw export files it contains ever get committed.
 - `.vercelignore` excludes the entire `data/` folder from anything uploaded to Vercel.
 
-The only data files that ship to the browser are `stats.json` and `search-index.json`, both derived exclusively from the same PII-free row shape — no IP addresses, no raw per-event data, for the dashboard or for any individual artist/song lookup. The Upload tab holds to this too, just without a build step in between: `upload-worker.js` calls the exact same `recordToRow` (never reads `ip_addr`) before anything else touches an uploaded file, and the file itself is never sent anywhere — everything happens in that one browser tab.
+The only data files that ship to the browser are `stats.json` and `search-index.json`, both derived exclusively from the same PII-free row shape — no IP addresses, no raw per-event data, for the dashboard or for any individual artist/song lookup. The Upload tab holds to this too, just without a build step in between: `upload-worker.js` calls the exact same `recordToRow` (never reads `ip_addr`) before anything else touches an uploaded file, and the file itself is never sent anywhere — everything happens in that one browser tab. The Upload tab's auto-save (see below) only ever writes that same PII-free aggregated shape to IndexedDB — still on-device, never networked.
 
 ## Layout
 
@@ -69,9 +69,13 @@ Clicking a result opens a modal (a centered dialog on desktop, a fullscreen shee
 
 ### Upload tab
 
-Visualize your own Spotify data instead of (well, alongside — it's its own tab) the built-in dataset. Request your "Extended Streaming History" from Spotify's privacy page, drop the `.zip` it emails you into the drop-zone (or click it to pick a file), and `upload-worker.js` unzips, parses, and aggregates it entirely in your browser — no server round trip, ever. Once it's done, the Upload tab shows a **complete second copy of the Dashboard** (year tabs, Overview, Top Songs/Artists, streaks, Discovery Rate, Platform Breakdown, First Listened, all of it) rendered from your own data, side by side with — not replacing — the built-in one on the Dashboard tab.
+Visualize your own Spotify data instead of (well, alongside — it's its own tab) the built-in dataset. Request your "Extended Streaming History" from Spotify's privacy page, drop the `.zip` it emails you into the drop-zone (or click it to pick a file), and `upload-worker.js` unzips, parses, and aggregates it entirely in your browser — no server round trip, ever. Once it's done, the Upload tab shows a **complete second copy of the Dashboard** (year tabs, Overview, Top Songs/Artists, streaks, Discovery Rate, Platform Breakdown, First Listened, all of it) rendered from your own data, side by side with — not replacing — the built-in one on the Dashboard tab, plus its own **mini search** at the bottom: the same year/type-filtered artist/song lookup as the main Search tab (same entity-detail modal, same "Songs by This Artist"/cross-link behavior), just scoped to your upload instead of the built-in dataset. Both the Dashboard-style rendering and the search are the exact same code as the built-in tabs — see `createDashboardController`/`createSearchController` in `script.js` — just fed from a different data source, so there's nothing uploaded data can see or do less of.
 
-Scope, for this first version: music tracks only, same as the Dashboard/Search tabs — podcast episodes and audiobook chapters are recognized (so they don't corrupt aggregation) but excluded from the stats, identically to how the built-in dataset is filtered. The Search tab's artist/song lookup is not yet available for uploaded data.
+Scope, for this first version: music tracks only, same as the Dashboard/Search tabs — podcast episodes and audiobook chapters are recognized (so they don't corrupt aggregation) but excluded from the stats, identically to how the built-in dataset is filtered.
+
+**Saved locally, automatically.** A successful upload is saved to your browser (via IndexedDB, not `localStorage` — see below) so it's still there the next time you open the site, without re-uploading. A "Forget My Data" button (shown once something's saved) deletes it immediately. If your browser doesn't support IndexedDB, the tab still works for the current visit; it just won't persist.
+
+*Why IndexedDB and not `localStorage`?* `localStorage`'s per-origin quota is typically 5-10MB and it's synchronous (blocks the page while reading/writing). This repo's own `search-index.json`, for one real 11-year history, is already 15+ MB — a visitor's own upload (which now also generates an equivalent search index, for the mini search) could just as easily land in that range. IndexedDB has no such practical ceiling for data this size, is asynchronous, and stores plain JS objects directly — no library needed, just a handful of Promise-wrapped calls against the browser's built-in `indexedDB` API.
 
 Needs a browser with `DecompressionStream` support (Chrome, Edge, Firefox, and Safari have all shipped it) since that's what inflates the zip's compressed entries; anything older gets a plain error message rather than a silent failure.
 
@@ -133,5 +137,6 @@ Needs a browser with `DecompressionStream` support (Chrome, Edge, Firefox, and S
 - Node.js (no external dependencies) for the build-time precompute step
 - Native browser `fetch` for loading `stats.json` / `search-index.json`
 - A Web Worker, a hand-rolled ZIP central-directory reader, and the native `DecompressionStream` API for the Upload tab — no unzip or compression library, keeping the project fully dependency-free on both the build and the browser side
+- IndexedDB (native browser API, no library) for auto-saving an uploaded dataset across visits
 
 I built this project as a personal way to explore my Spotify listening history and visualize it year by year.

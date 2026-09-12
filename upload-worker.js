@@ -170,11 +170,15 @@ self.onmessage = async (e) => {
       );
     }
 
+    postMessage({ type: "progress", message: "Building your search index..." });
+
     const stats = StatsLib.computeFullStats(validRows);
+    const searchIndex = StatsLib.buildSearchIndex(validRows);
 
     postMessage({
       type: "done",
       stats,
+      searchIndex,
       meta: {
         filesMatched: matching.length,
         recordsParsed: allRawRecords.length,
