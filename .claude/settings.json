@@ -38,7 +38,8 @@
       "Bash(node .verify-mini.js)",
       "Bash(tasklist)",
       "Bash(taskkill //IM chrome.exe //F)",
-      "Bash(taskkill //PID 6468 //F)"
+      "Bash(taskkill //PID 6468 //F)",
+      "Bash(git merge *)"
     ]
   }
 }
