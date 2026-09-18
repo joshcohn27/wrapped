@@ -16,6 +16,21 @@ const DATA_FILE_PATTERN = /^data\d+\.json$/i;
 const OUTPUT_FILE = path.join(ROOT, "stats.json");
 const SEARCH_INDEX_FILE = path.join(ROOT, "search-index.json");
 
+// Permanent protest redaction: every displayed name containing "Ed Sheeran"
+// (artist, collab credits like "Ed Sheeran & Justin Bieber", song keys) is
+// replaced with REDACTED. This only renames -- his plays still count toward
+// every total, ranking, and chart exactly as before. Done here, not in
+// stats-lib.js, so a visitor's own uploaded export is left untouched.
+const REDACTED_PATTERN = /ed sheeran/gi;
+const REDACTED_LABEL = "REDACTED";
+
+function redactRow(row) {
+  for (const field of ["trackName", "artistName", "trackTitleNorm", "trackArtistKey"]) {
+    row[field] = row[field].replace(REDACTED_PATTERN, REDACTED_LABEL);
+  }
+  return row;
+}
+
 function findDataFiles() {
   if (!fs.existsSync(DATA_DIR)) return [];
   return fs
@@ -48,7 +63,7 @@ function loadAllRows() {
       const records = Array.isArray(raw) ? raw : raw.data ?? [];
       console.log(`Loaded ${records.length} records from ${filename}`);
       for (const r of records) {
-        rows.push(StatsLib.recordToRow(r));
+        rows.push(redactRow(StatsLib.recordToRow(r)));
       }
     } catch (err) {
       console.error(`FAILED to parse ${filename}: ${err.message}`);
